@@ -3,5 +3,5 @@ assets/
 data/PYT_G01/_sources/
 data/MAT_AGW/_sources/
 data/DAT_ENG/_sources/
-buildinfo
+.buildinfo
 objects.inv
