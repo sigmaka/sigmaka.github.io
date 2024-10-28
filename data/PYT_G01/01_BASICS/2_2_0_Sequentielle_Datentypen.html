@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.2 Sequentielle Datentypen &#8212; ABBTS PYT_G01</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_BASICS/2_2_0_Sequentielle_Datentypen';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2.1 Listen &amp; Tupel" href="2_2_1_Listen_Tupel.html" />
+    <link rel="prev" title="2.1 Numerische Datentypen" href="2_1_Numerische_Datentypen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS PYT_G01 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS PYT_G01 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_Intro.html">
+                    Übersicht
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="2_0_Datentypen.html">2. Datentypen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2_1_Numerische_Datentypen.html">2.1 Numerische Datentypen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2 Sequentielle Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_1_Listen_Tupel.html">2.2.1 Listen &amp; Tupel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_2_Strings.html">2.2.2 Strings (Zeichenketten)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_3_Dictionaries.html">2.3 Mapping-Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_4_Mengen.html">2.4 Collection-Datentyp</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/0_ABLAUF.html">Übersicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/1_EINFUEHRUNG.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/2_ANSTEUERUNG.html">2. Ansteuerung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/3_MATRIX.html">3. RGB-Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/4_STATISCHE_MUSTER.html">4. Statische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/5_DYNAMISCHE_MUSTER.html">5. Dynamische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/6_PNG2RGB.html">6. Muster anhand von Bildinformationen (PNG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/7_TXT2RGB.html">7. Muster anhand von Textinformationen (TXT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/8_PYGAME2RGB.html">8. Muster mit GUI steuern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/9_ZUSATZAUFGABEN.html">9. Zusatzaufgaben</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01/issues/new?title=Issue%20on%20page%20%2F01_BASICS/2_2_0_Sequentielle_Datentypen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01_BASICS/2_2_0_Sequentielle_Datentypen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.2 Sequentielle Datentypen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-list-tupel-tuple">2.2.1 Liste (list) &amp; Tupel (tuple)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-list">Liste (list)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel-tuple">Tupel (tuple)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenketten-strings">2.2.2 Zeichenketten (Strings)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexierung">2.2.3 Indexierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anzahl-elemente-bestimmen">2.2.4 Anzahl Elemente bestimmen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderbarkeit-unveranderbarkeit">2.2.5 Veränderbarkeit / Unveränderbarkeit</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sequentielle-datentypen">
+<h1>2.2 Sequentielle Datentypen<a class="headerlink" href="#sequentielle-datentypen" title="Link to this heading">#</a></h1>
+<p><img src="IMG/logo.png" /><br>
+<span class="xref myst">← Übersicht</span></p>
+<p>Sämtliche Datentypen dieses Abschnitts haben die Eigenschaft, dass deren <strong>Elemente fortlaufend,</strong> also <strong>sequentiell</strong>, angeordnet sind. Der Datentyp besteht dabei aus mehreren Elementen, die gelesen und je nach Datentyp manipuliert werden können. Einzelne oder mehrere Elemente eines sequentiellen Datentyps werden mit den eckigen Klammern <code class="docutils literal notranslate"><span class="pre">[]</span></code> angesprochen.</p>
+<section id="liste-list-tupel-tuple">
+<h2>2.2.1 Liste (list) &amp; Tupel (tuple)<a class="headerlink" href="#liste-list-tupel-tuple" title="Link to this heading">#</a></h2>
+<p>→ mehr zu <a class="reference internal" href="2_2_1_Listen_Tupel.html"><span class="std std-doc">Listen &amp; Tupel</span></a></p>
+<section id="liste-list">
+<h3>Liste (list)<a class="headerlink" href="#liste-list" title="Link to this heading">#</a></h3>
+<p>Listen bestehen aus einer Sequenz von beliebigen und veränderbaren Objekten. Listen können andere Listen enthalten. Dann spricht man von verschachtelten Listen. Auf die einzelnen Objekte kann analog zu den Zeichenketten zugegriffen werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">[</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="s1">&#39;String&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-3, 4.56, [56, (4+6j), True], &#39;String&#39;]
+&lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tupel-tuple">
+<h3>Tupel (tuple)<a class="headerlink" href="#tupel-tuple" title="Link to this heading">#</a></h3>
+<p>Tupel unterscheiden sich äusserlich von Listen nur durch die <code class="docutils literal notranslate"><span class="pre">()</span></code> anstelle der <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Wie Listen können sie ebenfalls verschachtelt werden. Der grosse Unterschied liegt in der Unveränderbarkeit von Tupeln (siehe weiter unten).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">(</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;String&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tup</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">tup</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-3, 4.56, (56, (4+6j), True), &#39;String&#39;) &lt;class &#39;tuple&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zu beachten gilt, dass bei einem Tupel die runden Klammern auch weggelassen werden können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>  <span class="c1"># Tupel</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="zeichenketten-strings">
+<h2>2.2.2 Zeichenketten (Strings)<a class="headerlink" href="#zeichenketten-strings" title="Link to this heading">#</a></h2>
+<p>→ mehr zu <a class="reference internal" href="2_2_2_Strings.html"><span class="std std-doc">Strings</span></a></p>
+<p>Zeichenketten bestehen aus einer unveränderlichen Folge von beliebigen Zeichen. Die Bezeichnung des Datentyps lautet <em>str</em>. Speziell in Python ist, dass Strings sowohl mit einfachen <code class="docutils literal notranslate"><span class="pre">'..'</span></code>, doppelten <code class="docutils literal notranslate"><span class="pre">&quot;..&quot;</span></code>, als auch mit dreifachen <code class="docutils literal notranslate"><span class="pre">'''..'''</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> Anführungszeichen definiert werden können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ich bin ein String.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin ein String.
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Ich bin auch ein String.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin auch ein String.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Ich bin ein String,</span>
+<span class="s1">der über mehrere Zeilen</span>
+<span class="s1">geht.&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin ein String,
+der über mehrere Zeilen
+geht.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexierung">
+<h2>2.2.3 Indexierung<a class="headerlink" href="#indexierung" title="Link to this heading">#</a></h2>
+<p>Die Anordnung von Zeichen/Objekten innerhalb eines sequentiellen Datentypes, sind von links-nach-rechts, startend mit 0 nummeriert. Von rechts (hinten) beginnt die Aufzählung mit einer -1. Für das ansprechen dieser Objekte wird <code class="docutils literal notranslate"><span class="pre">[]</span></code> verwendet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ich bin ein String&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I g
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">[</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="s1">&#39;String&#39;</span><span class="p">]</span>
+<span class="c1"># Veränderbarkeit von Listen</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="c1"># Zugriff auf verschachtelte Listen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4.56, [56, (4+6j), True], &#39;String&#39;]
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">(</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;String&#39;</span><span class="p">)</span>
+<span class="c1"># Zugriff auf verschachtelte Tupel</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es ist auch möglich auf Teilbereiche (slicing) eines sequentiellen Datentyps zuzugreifen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ich bin ein String&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># Ohne Anfangswert wird bei 0 gestartet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:])</span>  <span class="c1"># Ohne Endwert wird bis zum Ende übernommen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[:])</span>  <span class="c1"># Ohne Anfangs- und Endwert werden sämtliche Zeichen/Objekte übernommen</span>
+
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">[</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="s1">&#39;Ich bin ein String&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">6</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich Ich
+String
+Ich bin ein String
+String
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Slicing-Operator funktioniert auch mit drei Argumenten. Das dritte Argument ist dann die Schrittweite oder auch das wievielte Element jeweils verwendet werden soll.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ich bin ein String&#39;</span>
+<span class="c1"># s[Anfang:Ende:Schrittweite] bei positiver Schrittweite</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># s[Ende:Anfang:Schrittweite] bei negativer Schrittweite</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IhbnenSrn
+git i i c
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="anzahl-elemente-bestimmen">
+<h2>2.2.4 Anzahl Elemente bestimmen<a class="headerlink" href="#anzahl-elemente-bestimmen" title="Link to this heading">#</a></h2>
+<p>Häufig muss die Anzahl Elemente eines sequentiellen Datentyps bestimmt werden. Man könnte auch sagen, es muss die Länge bestimmt werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ich bin ein String&#39;</span>
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">[</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="s1">&#39;Ich bin ein String&#39;</span><span class="p">]</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="p">(</span><span class="mi">56</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;String&#39;</span><span class="p">)</span>
+<span class="n">laenge_s</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">laenge_l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="n">laenge_t</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Länge des Strings beträgt: &#39;</span><span class="p">,</span> <span class="n">laenge_s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Länge der Liste beträgt: &#39;</span><span class="p">,</span> <span class="n">laenge_l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Länge des Tupels beträgt: &#39;</span><span class="p">,</span> <span class="n">laenge_t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Länge des Strings beträgt:  18
+Die Länge der Liste beträgt:  4
+Die Länge des Tupels beträgt:  4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="veranderbarkeit-unveranderbarkeit">
+<h2>2.2.5 Veränderbarkeit / Unveränderbarkeit<a class="headerlink" href="#veranderbarkeit-unveranderbarkeit" title="Link to this heading">#</a></h2>
+<p>Bei der obigen Einführung der Datentypen wurde teilweise von “veränderlich”/”unveränderlich” gesprochen, ohne dies im Detail zu erläutern. Die Veränderbarkeit / Unveränderbarkeit ist ein wichtiges Konzept in Python und soll hier besprochen werden. In der nachfolgenden Abbildung ist die Einteilung der Datentypen in Bezug auf die Veränderbarkeit (<em>Mutability</em>) bzw. Unveränderbarkeit (<em>Immutability</em>) illustriert.</p>
+<center><img src="IMG/PYT_G01_types.svg" width=80% /></center>
+<p>Eine Konsequenz dieser Einteilung besteht darin, dass die Elemente von unveränderlichen Datentypen (z. B. Strings, Tupel) nicht verändert/manipuliert werden können. Dies ist im Gegensatz bei veränderlichen Datentypen (z. B. Listen) problemlos möglich.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>  <span class="c1"># nicht zulässig, da String unveränderbar (immutable)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>  <span class="c1"># nicht zulässig, da String unveränderbar (immutable)</span>
+
+<span class="ne">TypeError</span>: &#39;str&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># zulässig, da Liste veränderbar (mutable)</span>
+<span class="n">liste</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine weitere Konsequenz kommt zum Tragen, wenn veränderliche Datentypen dupliziert werden bzw. mehrere Variablen auf dieselben Daten referenzieren. Dazu muss man sich nochmals vor Augen halten, wie Python die Variablen im Speicher organisiert.</p>
+<p>Im nachfolgenden Beispiel wird eine Liste <code class="docutils literal notranslate"><span class="pre">a</span></code> erzeugt und anschliessend eine Variable <code class="docutils literal notranslate"><span class="pre">b</span></code> definiert, welche dieselbe Liste referenziert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun wird ein Element von <code class="docutils literal notranslate"><span class="pre">b</span></code> verändert. Dies ist möglich, da Listen veränderbare Objekte sind. Das Ergebnis ist nicht weiter überraschend.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 99, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evtl. etwas weniger vorhersehbar ist, dass sich auch <code class="docutils literal notranslate"><span class="pre">a</span></code> verändert hat. Dies scheint auf den ersten Blick überraschend, doch wenn man die Speicherzuweisung von Python verstanden hat, wird klar, warum dies so ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 99, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die folgende Abbildung soll dies nochmals verdeutlichen. Da beide Variablen <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> auf denselben Speicherort zeigen, verändert die Zuweisung <code class="docutils literal notranslate"><span class="pre">b[1]</span> <span class="pre">=</span> <span class="pre">99</span></code> auch das Element <code class="docutils literal notranslate"><span class="pre">a[1]</span></code>, da beide identisch sind.</p>
+<p><img alt="Veränderbarkeit" src="../_images/PYT_G01_listen.svg" /></p>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Grundlagen Python | PYT_G01 | 2024</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01_BASICS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_1_Numerische_Datentypen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.1 Numerische Datentypen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_2_1_Listen_Tupel.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.2.1 Listen &amp; Tupel</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-list-tupel-tuple">2.2.1 Liste (list) &amp; Tupel (tuple)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-list">Liste (list)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel-tuple">Tupel (tuple)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenketten-strings">2.2.2 Zeichenketten (Strings)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexierung">2.2.3 Indexierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anzahl-elemente-bestimmen">2.2.4 Anzahl Elemente bestimmen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderbarkeit-unveranderbarkeit">2.2.5 Veränderbarkeit / Unveränderbarkeit</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

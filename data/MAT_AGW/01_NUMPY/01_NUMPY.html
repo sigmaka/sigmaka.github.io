@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Arrays &#8212; ABBTS MAT_AGW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_NUMPY/01_NUMPY';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unterrichtsbeispiel" href="02_NUMPY_Unterricht.html" />
+    <link rel="prev" title="Modulübersicht" href="../00_INTRO.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_INTRO.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS MAT_AGW - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS MAT_AGW - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_INTRO.html">
+                    Modulübersicht
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Arrays</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_NUMPY_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_NUMPY_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_MATPLOTLIB/01_MATPLOTLIB.html">Plotting/Visualisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_MATPLOTLIB/02_MATPLOTLIB_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_MATPLOTLIB/11_MATPLOTLIB_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/MAT_AGW" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/MAT_AGW/issues/new?title=Issue%20on%20page%20%2F01_NUMPY/01_NUMPY.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01_NUMPY/01_NUMPY.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arrays</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blockinhalt">Blockinhalt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voraussetzungen">Voraussetzungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">1.1 Import</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-ndarray">2. Array (ndarray)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erstellung">2.1 Erstellung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-export-von-textdateien">2.1.1 Import/Export von Textdateien</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elementdatentyp">2.2 Elementdatentyp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-eigenschaften">2.3 Attribute (Eigenschaften)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-methoden">2.4 Array-Methoden</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-gestalt-eines-numpy-arrays">3. Form/Gestalt eines NumPy-Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formanderung">3.1 Formänderung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indizierung-und-slicing">3.2 Indizierung und Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editieren-kopieren">3.3 Editieren/Kopieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-berechnungen">4. Numerische Berechnungen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konstanten">4.1 Konstanten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen">4.2 Funktionen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verstandnisfragen">5. Verständnisfragen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="arrays">
+<h1>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h1>
+<p><img src="img/logo.png" width="100%"/><br>
+<a class="reference internal" href="../00_INTRO.html"><span class="std std-doc">← Einführung/Inhalt</span></a></p>
+<center><img src="img/numpylogo.svg" width=50% /></center> 
+<p><a class="reference external" href="https://numpy.org"><strong>NumPy</strong></a> (<strong>Num</strong>erical <strong>Py</strong>thon) ist eine extrem mächtige Bibliothek für numerische Berechnungen mit Python im technisch-wissenschaftlichen Umfeld und bildet die Basis für viele weitere Pakete des Python-Ecosystems. Als wesentliche Erweiterungen von NumPy gegenüber Basis-Python können genannt werden:</p>
+<ul class="simple">
+<li><p>leistungsfähiger Datentyp für mehrdimensionale Datenobjekte (<strong>Arrays</strong>)</p></li>
+<li><p>leistungsfähige Algorithmen für mehrdimensionale Arrayobjekte</p></li>
+<li><p>umfangreiche Sammlung mathematischer Funktionen</p></li>
+</ul>
+<p>Wir werden NumPy schrittweise kennenlernen und über das gesamte Modul hinweg intensiv einsetzen, wobei nach und nach weitere Bibliotheken dazustossen.</p>
+<hr class="docutils" />
+<section id="blockinhalt">
+<h2>Blockinhalt<a class="headerlink" href="#blockinhalt" title="Link to this heading">#</a></h2>
+<p>Für die Einführung in NumPy bzw. die selbstständige Einarbeitung stehen die folgenden Notebooks bereit:</p>
+<ol class="arabic simple">
+<li><p>Einführung/Theorie/Cheat Sheet (vorliegendes Notebook)</p></li>
+<li><p>Beispielaufgabe im Unterricht <a class="reference internal" href="02_NUMPY_Unterricht.html"><span class="std std-doc">02_NUMPY_Unterricht.ipynb</span></a></p></li>
+<li><p>Übungsaufgaben <a class="reference internal" href="11_NUMPY_Uebungen.html"><span class="std std-doc">11_NUMPY_Uebungen.ipynb</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="voraussetzungen">
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">#</a></h2>
+<p>Die Python-Grundlagen sowie der Umgang mit Jupyterlab bzw. PyCharm werden vorausgesetzt und müssen gegebenenfalls selbstständig aufgefrischt werden. Speziell erwähnt seien:</p>
+<ul class="simple">
+<li><p><strong>Datentypen</strong>, v.a. numerische Datentypen und Listen (Erstellung, Indizierung etc.)</p></li>
+<li><p><strong>Kontrollstrukturen</strong> (Schleifen, Verzweigungen, Funktionen)</p></li>
+<li><p><strong>OOP</strong>: Zugriff auf Attribute &amp; Methoden</p></li>
+<li><p>Arbeiten mit <strong>Jupyterlab</strong> (Unterschiede zu einer Entwicklungsumgebung wie <strong>PyCharm</strong> etc.)</p></li>
+<li><p><strong>Debugging</strong> / Verwenden der Hilfe &amp; der Dokumentation</p></li>
+</ul>
+<p>Speziell die Indizierung soll hier kurz repetiert werden. Die Indizierung einer <strong>einfachen Liste</strong> erfolgt bekanntlich mit <code class="docutils literal notranslate"><span class="pre">[]</span></code>, wobei das erste Element mit dem Index 0 angesprochen wird.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># erstes Element</span>
+<span class="n">liste</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># letztes Element</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># Liste mit zweitem, drittem und viertem Element (Slicing)</span>
+</pre></div>
+</div>
+<p>Bei <strong>verschachtelten Listen</strong> kommt pro Verschachtelungsebene ein Index hinzu, wobei dann mit mehreren Klammernpaaren <code class="docutils literal notranslate"><span class="pre">[][]</span></code> etc. indiziert wird.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]]</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># erstes Element der obersten Verschachtelungsebene (= [1, 2])</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># zweites Element der obersten Verschachtelungsebene (= [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])</span>
+<span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># zweites Element der ersten Unterliste (= 2)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2>1. Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>Die grundlegenden Python-Datentypen (<em>list</em>, <em>tuple</em>, <em>dict</em>) eignen sich nicht für mathematische Berechnungen mit grossen Datenmengen. NumPy bringt mit dem <strong>NumPy-Array (ndarray)</strong> einen mächtigen Datentyp mit sich, der das optimierte Handling grosser Datenmengen sowie effiziente Berechnungen ermöglicht.</p>
+<p>Im vorliegenden Notebook werden wir die wichtigsten Elemente von NumPy durchgehen, doch es nicht möglich (und auch nicht sinnvoll) alles bis ins letzte Detail anzuschauen. An dieser Stelle soll daher auch auf das <a class="reference download internal" download="" href="../_downloads/e697a637102c6ef7dffab8c4061f1cea/Numpy_Python_Cheat_Sheet.pdf"><span class="xref download myst">Cheatsheet</span></a> hingewiesen werden, welches das Wichtigste kompakt zusammenfasst. Für weiterführende Informationen können folgende Ressourcen erwähnt werden:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/index.html">NumPy User Guide</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/index.html">NumPy Reference</a></p></li>
+</ul>
+<section id="import">
+<h3>1.1 Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h3>
+<p>NumPy (Paketname <code class="docutils literal notranslate"><span class="pre">numpy</span></code>) wird üblicherweise mit dem Alias <code class="docutils literal notranslate"><span class="pre">np</span></code> importiert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="array-ndarray">
+<h2>2. Array (ndarray)<a class="headerlink" href="#array-ndarray" title="Link to this heading">#</a></h2>
+<p>Der <strong>ndarray</strong> (nachfolgend einfach <strong>Array</strong> genannt) ist die zentrale Datenstruktur der NumPy-Bibliothek und kann ein-, zwei- oder auch mehrdimensional sein. Da der Array viele Ähnlichkeiten mit der Liste aufweist, können wir bzgl. Erstellung und Indizierung auf das vorhandene Wissen aufbauen.</p>
+<center><img src="img/np_array.png" width=100% /></center>
+<blockquote>
+<div><p>Einen eindimensionalen Array (1D-Array) sollte man sich ohne Orientierung (also nicht als Zeilen- oder Spaltenarray) vorstellen, sondern einfach als Anordnung von Elementen (wie eine Liste).</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.23</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>  <span class="c1"># manuelle Erstellung eines Arrays</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.23  0.    2.5 ]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<section id="erstellung">
+<h3>2.1 Erstellung<a class="headerlink" href="#erstellung" title="Link to this heading">#</a></h3>
+<p>Für die Erstellung von Arrays wird meistens eine der folgenden Möglichkeiten angewendet:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.array()</span></code> (für die manuelle Erzeugung)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> (analog zur Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code>, aber nicht auf Ganzzahlen beschränkt)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> (wie <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>, aber mit Sampleanzahl anstelle der Schrittweite)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code> (wie <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code>, aber mit logarithmischer Teilung)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># ähnlich zur Erstellung einer Liste</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span> <span class="c1"># (Startwert, Endwert (nicht inkl.), Schrittweite)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>  <span class="c1"># (Startwert, Endwert (inkl.), Sampleanzahl)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># wie oben, aber diesmal Endwert nicht inkl.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>  <span class="c1"># logarithmische Teilung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1  0  1  2]
+[0.  0.2 0.4 0.6 0.8]
+[0.    0.625 1.25  1.875 2.5   3.125 3.75  4.375 5.   ]
+[0.         0.55555556 1.11111111 1.66666667 2.22222222 2.77777778
+ 3.33333333 3.88888889 4.44444444]
+[1.e-02 1.e-01 1.e+00 1.e+01 1.e+02 1.e+03]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Höherdimensionale Arrays können ebenfalls ähnlich wie Listen mit <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> erstellt werden.</p>
+<center><img src="img/np_create_matrix.png" width=100% /></center>
+<blockquote>
+<div><p>Bei mehrdimensionalen Arrays ist die Orientierung (Zeilen/Spalten) relevant.</p>
+</div></blockquote>
+<p>Für das Erstellen von Arrays mit Nullen bzw. Einsen gibt es ebenfalls nützliche Funktionen. Daneben gibt es eine Reihe von Funktionen, welche man im Zusammenhang mit der lin. Algebra (Vektor- bzw. Matrizenrechnung) häufig benötigt.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">np.ones()</span></code> (für die Erstellung eines Arrays mit 0’en bzw. 1’en)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.eye()</span></code> (Einheitsmatrix)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.diag()</span></code> (Diagonalmatrix)</p></li>
+</ul>
+<center><img src="img/np_ones_zeros_matrix.png" /></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># 1D-Array mit 10 Elementen (alle Elemente = 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 2D-Array mit 3 Zeilen und 5 Spalten (alle Elemente = 1)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[[1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="import-export-von-textdateien">
+<h4>2.1.1 Import/Export von Textdateien<a class="headerlink" href="#import-export-von-textdateien" title="Link to this heading">#</a></h4>
+<p>Zwei- und höherdimensionale Arrays werden häufig im Zusammenhang mit eingelesenen Daten (Textfiles, Bilder, etc.) verwendet und daher selten mit <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> manuell erstellt. Für das Arbeiten mit Textdateien sind die folgenden beiden Funktionen zu erwähnen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> (Einlesen eines Textfiles)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code> (Abspeichern in Textfile)</p></li>
+</ul>
+<p>Wie immer beim Einlesen von Textfiles ist darauf zu achten, ob Headerzeilen vorhanden sind, die ignoriert werden müssen und welches Zeichen als Trennzeichen verwendet wird. Die obigen Funktionen enthalten dafür entsprechende Parameter (<em>skiprows</em> bzw. <em>delimiter</em>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># zweidimensionaler Array (manuell erstellt)</span>
+              <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/test.txt&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4.62650899 4.74427106 4.10718883 5.74741935]
+ [3.93716262 4.44784082 3.99927829 7.58004246]
+ [5.44879718 7.63339694 5.40630074 3.79795342]
+ [4.73982477 4.94725306 5.26614751 5.82502817]
+ [4.05503805 6.60537579 4.61824488 4.41528259]
+ [4.81223345 5.50310081 3.34210142 5.68354476]
+ [6.214162   4.61120806 5.23661798 4.98292635]
+ [5.961609   4.12163329 4.64128046 4.17107427]
+ [5.91600386 4.94482552 4.91290316 3.37916316]
+ [5.38327685 5.54139824 5.38787453 4.85609505]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="elementdatentyp">
+<h3>2.2 Elementdatentyp<a class="headerlink" href="#elementdatentyp" title="Link to this heading">#</a></h3>
+<p>Da NumPy für maximale Performance entwickelt wurde, unterscheidet sich der Array dahingehend von der Liste, dass sämtliche Elemente im Array denselben Datentyp aufweisen. Dieser Elementdatentyp kann bei der Erstellung gezielt zugewiesen werden und es steht eine Reihe von spezifischen Datentypen zur Verfügung, wobei die Zahl jeweils für die entsprechende Bitgrösse steht:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.uint8/16/32/64</span></code> für vorzeichenlose Ganzzahlen (<em>unsigned integer</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.int8/16/32/64</span></code> für vorzeichenbehaftete Ganzzahlen (<em>signed integer</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.float16/32/64/96/128</span></code> für Gleitkommazahlen (<em>floating point</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.complex64/128/192/256</span></code> für komplexe Zahlen (<em>complex</em>)</p></li>
+</ul>
+<p>Wird der Datentyp nicht explizit angegeben, wählt NumPy automatisch einen (möglichst) passenden Datentyp.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># automatische Datentyp-Zuweisung (Ganzzahl)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>  <span class="c1"># automatische Datentyp-Zuweisung (Gleitkommazahl)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># explizite Datentyp-Zuweisung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1  0  1  2] int32
+[ 0.1  1.  10. ] float64
+[[-1.  0.  1.  2.]
+ [ 0.  1.  3.  1.]] float32
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Datentyp kann mit der Methode <code class="docutils literal notranslate"><span class="pre">.astype()</span></code> geändert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1,  0,  1,  2],
+       [ 0,  1,  3,  1]], dtype=int8)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="attribute-eigenschaften">
+<h3>2.3 Attribute (Eigenschaften)<a class="headerlink" href="#attribute-eigenschaften" title="Link to this heading">#</a></h3>
+<p>Der NumPy-Array kommt mit vielen Attributen, welche nützlich sind, um z. B. Dimension, Grösse, Datentyp etc. abfragen zu können.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.ndim</span></code> (Dimension des Arrays)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.shape</span></code> (Form, d.h. Anzahl Zeilen &amp; Spalten etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.size</span></code> (Gesamtanzahl Elemente)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dtype</span></code> (Element-Datentyp)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.real</span></code> (Realanteil bei kompl. Zahl)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.imag</span></code> (Imaginäranteil bei kompl. Zahl)</p></li>
+</ul>
+<blockquote>
+<div><p>Die Python-Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> gibt bei Arrays jeweils die Länge der ersten Dimension (“Anzahl Zeilen”) zurück. Besonders bei höherdimensionalen Arrays bzw. wenn sich die Arraydimensionen verändern, wird deshalb besser mit <code class="docutils literal notranslate"><span class="pre">.shape</span></code> gearbeitet.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+(2, 4)
+8
+float32
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="array-methoden">
+<h3>2.4 Array-Methoden<a class="headerlink" href="#array-methoden" title="Link to this heading">#</a></h3>
+<p>Neben den oben erwähnten Attributen bietet der NumPy-Array viele nützliche Operationen direkt als Methoden an, was eine elegante/übersichtliche Programmierung ermöglicht.</p>
+<center><img src="img/np_matrix_aggregation.png" /></center> 
+<p>Nützliche Methoden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.max()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">.min()</span></code> (Maximum bzw. Minimum des Arrays)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.argmax()</span></code> bzw.<code class="docutils literal notranslate"><span class="pre">.argmin()</span></code> (Index des Maximums bzw. Minimums)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">.std()</span></code>, <code class="docutils literal notranslate"><span class="pre">.var()</span></code> (Mittelwert, Standardabweichung, Varianz)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.sum()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">.cumsum()</span></code> (Summe bzw. kumulierte Summe)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.prod()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">.cumprod()</span></code> (Produkt bzw. kumuliertes Produkt)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.round()</span></code> (Runden)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.sort()</span></code> (Sortierung)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.transpose()</span></code> (Transponierung)</p></li>
+</ul>
+<p>Viele der obigen Methoden existieren auch als allg. Funktionen in NumPy. Das Maximum eines Arrays kann z. B. entweder via Methode <code class="docutils literal notranslate"><span class="pre">a.max()</span></code> oder via Funktion <code class="docutils literal notranslate"><span class="pre">np.max(a)</span></code> bestimmt werden.</p>
+<blockquote>
+<div><p>Bei Funktionen wie z. B. <code class="docutils literal notranslate"><span class="pre">.sum()</span></code> oder <code class="docutils literal notranslate"><span class="pre">.max()</span></code>, bei denen die Anwendung auf einen höherdim. Array nicht eindeutig ist, kann mit dem Parameter <code class="docutils literal notranslate"><span class="pre">axis</span></code> angegeben werden, ob die Operation zeilen- bzw. spaltenweise durchgeführt werden soll.
+<code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">0</span></code> (Summe für jede Spalte)
+<code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">1</span></code> (Summe für jede Zeile)
+<code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">None</span></code> (Default: Summe über alles)</p>
+</div></blockquote>
+<center><img src="img/np_matrix_aggregation_row.png" /></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.875
+7.0
+[-1.  1.  4.  3.]
+[2. 5.]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="form-gestalt-eines-numpy-arrays">
+<h2>3. Form/Gestalt eines NumPy-Arrays<a class="headerlink" href="#form-gestalt-eines-numpy-arrays" title="Link to this heading">#</a></h2>
+<p>Sehr wichtig im Zusammenhang mit Arrays (besonders mit höherdimensionalen) ist, dass man sich immer im Klaren über die Dimension und die Form/Gestalt (shape) des Arrays ist, da das Debugging sonst mühsam ausfallen kann. Dies ist v. a. in Bezug auf die Indizierung sehr wichtig. Wir werden primär mit 1D- und 2D-Arrays zu tun haben, es sind aber auch 3- und höherdimensionale Arrays möglich.</p>
+<center><img src="img/np_array_shape.jpg"/></center> 
+<section id="formanderung">
+<h3>3.1 Formänderung<a class="headerlink" href="#formanderung" title="Link to this heading">#</a></h3>
+<p>Die Array-Methode <code class="docutils literal notranslate"><span class="pre">.reshape()</span></code> ermöglicht es, die Dimension eines Arrays zu ändern, d.h. z. B. einen 1D-Array mit 6 Elementen in einen 2D-Array mit z. B. 2 Zeilen &amp; 3 Spalten zu verwandeln.</p>
+<center><img src="img/np_reshape.png"/></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">)</span>  <span class="c1"># 1D-Array mit 12 Elementen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># 2D-Array mit 3 Zeilen und 4 Spalten (= 12 Elemente)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.   2.75 2.5  2.25 2.   1.75 1.5  1.25 1.   0.75 0.5  0.25]
+[[3.   2.75 2.5  2.25]
+ [2.   1.75 1.5  1.25]
+ [1.   0.75 0.5  0.25]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indizierung-und-slicing">
+<h3>3.2 Indizierung und Slicing<a class="headerlink" href="#indizierung-und-slicing" title="Link to this heading">#</a></h3>
+<p>Wie bei Listen erfolgt das Indizieren/Slicing mit <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<center><img src="img/np_indexing.png" /></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1D-Array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># erstes Element (Index 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># letztes Element</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">9</span><span class="p">])</span>  <span class="c1"># Slicing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+0.25
+[2.   1.75 1.5  1.25 1.  ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für höherdimensionale Arrays ist die Indizierung bedeutend intuitiver als bei Listen, da nicht mehrere Klammernpaare verwendet werden müssen, sondern die Indizes mit <code class="docutils literal notranslate"><span class="pre">,</span></code> getrennt werden können.</p>
+<center><img src="img/np_matrix_indexing.png" /></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D-Array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Element in erster Zeile / erster Spalte</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>  <span class="c1"># alle Elemente der zweiten Zeile (alternativ b[1])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># alle Elemente der dritten Spalte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+[2.   1.75 1.5  1.25]
+[2.5 1.5 0.5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Besonders erwähnenswert im Zusammenhang mit der Indizierung ist die <strong>boolsche Indizierung</strong> (<em>boolean indexing</em>), die sehr praktisch ist, um einen Array anhand seiner Elemente (Werte) zu filtern, d.h. nur bestimmte Elemente zu identifizieren bzw. zu überschreiben etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># alle Elemente aus a, die grösser als 2 sind</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[(</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)])</span>  <span class="c1"># alle Elemente aus a, die grösser als 1 und kleiner als 2 sind</span>
+<span class="n">a</span><span class="p">[(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mf">2.5</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;=</span><span class="mf">0.5</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># alle Elmente aus a, die grösser/gleich 2.5 oder kleiner/gleich 0.5 sind auf 0 setzen</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.   2.75 2.5  2.25]
+[1.75 1.5  1.25]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.  , 0.  , 0.  , 2.25, 2.  , 1.75, 1.5 , 1.25, 1.  , 0.75, 0.  ,
+       0.  ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="editieren-kopieren">
+<h3>3.3 Editieren/Kopieren<a class="headerlink" href="#editieren-kopieren" title="Link to this heading">#</a></h3>
+<p>Elemente in Arrays können verändert werden, wie wir dies von Listen kennen. Wie bei Listen muss beachtet werden, dass eine Variablenzuweisung eines Arrays a zur Variable b, also <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span></code>, keine Kopie aller Arrayelemente vornimmt, sondern lediglich die Referenz auf die Arrayelemente kopiert. <code class="docutils literal notranslate"><span class="pre">b</span></code> “enthält” dann dieselben Elemente wie <code class="docutils literal notranslate"><span class="pre">a</span></code> und wenn ein Element in <code class="docutils literal notranslate"><span class="pre">a</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">b</span></code> verändert wird, so zeigt sich diese Änderung auch in <code class="docutils literal notranslate"><span class="pre">b</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>  <span class="c1"># keine Kopie, nur Zuweisung (Referenz)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">99</span>  <span class="c1"># auch a wird verändert</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Kopie</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">99</span>  <span class="c1"># a ist nicht betroffen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  1 -99   3] [  1 -99   3]
+[1 2 3] [  1 -99   3]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="numerische-berechnungen">
+<h2>4. Numerische Berechnungen<a class="headerlink" href="#numerische-berechnungen" title="Link to this heading">#</a></h2>
+<p>NumPy bringt ebenfalls alle relevanten Konstanten und mathematischen Funktionen mit sich, die man für technisch-wissenschaftliche Berechnungen benötigt. Der Import des <code class="docutils literal notranslate"><span class="pre">math</span></code>-Moduls erübrigt sich, wenn mit NumPy gearbeitet wird.</p>
+<section id="konstanten">
+<h3>4.1 Konstanten<a class="headerlink" href="#konstanten" title="Link to this heading">#</a></h3>
+<p>Nützliche Konstanten:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.pi</span></code> (Kreiszahl <span class="math notranslate nohighlight">\(\pi\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.e</span></code> (Eulersche Zahl <span class="math notranslate nohighlight">\(e\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.inf</span></code> (unendlich, z. B. bei Division durch 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (undefiniert, <em><strong>n</strong>ot <strong>a</strong> <strong>n</strong>umber</em>)</p></li>
+</ul>
+</section>
+<section id="funktionen">
+<h3>4.2 Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">#</a></h3>
+<p>Eine Auswahl von mathematischen Funktionen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.square()</span></code>, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.cos()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.tan()</span></code>, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.arcsin()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.arccos()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code>, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.exp()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log10()</span></code>, etc.</p></li>
+</ul>
+<p>Nützliche Umrechnungsfunktionen bzw. Hilfsfunktionen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.absolute()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sign()</span></code>, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.degrees()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">np.rad2deg()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.radians()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">np.deg2rad()</span></code>, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.angle()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.real()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.imag()</span></code>, etc.</p></li>
+</ul>
+<p>Funktionen zum Runden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.round()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.floor()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ceil()</span></code> etc.</p></li>
+</ul>
+<p>Ein grosser Vorteil von NumPy liegt in der Einfachheit, mit der mathematische Berechnungen mit Arrays durchgeführt werden können. Am Beispiel der folgenden Formel zur Berechnung der Standardabweichung wollen wir dies illustrieren. (Würde man mit einer Liste arbeiten, könnte die Berechnung nicht so direkt umgesetzt werden und es wäre eine Schleife oder z. B. die <code class="docutils literal notranslate"><span class="pre">map</span></code>-Funktion nötig.)</p>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{ \frac{1}{n-1} \sum_{i=0}^{n} (x_i-\bar x)^2 }\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Die obige Formel mit NumPy</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())))</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29.01149197588202
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="verstandnisfragen">
+<h2>5. Verständnisfragen<a class="headerlink" href="#verstandnisfragen" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Welche Unterschiede zwischen Arrays und Listen gibt es?</p></li>
+<li><p>Was ist der Unterschied zwischen einem 1D- und einem 2D-Array?</p></li>
+<li><p>Wie ermitteln Sie die Anzahl Zeilen (oder Spalten) eines 2D-Arrays?</p></li>
+<li><p>Welche Möglichkeiten gibt es, um den Mittelwert über alle Elemente eines Arrays zu berechnen?</p></li>
+<li><p>Wie erzeugen Sie einen 1D-Array, der äquidistante Werte zwischen 10 und 20 enhält, mit einem Abstand von jeweils 0.75?</p></li>
+<li><p>Wie erzeugen Sie einen mit 0’en gefüllten 2D-Array mit 4 Zeilen und 6 Spalten?</p></li>
+<li><p>Wie würden Sie mit NumPy die Beziehung <span class="math notranslate nohighlight">\(y = 1.4 \cdot \sin(2 \cdot \pi \cdot t)\)</span> schreiben, wenn <span class="math notranslate nohighlight">\(t\)</span> ein Array mit 1000 Elementen darstellt?</p></li>
+</ul>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Angewandte Mathematik | MAT_AGW | 2024</p></section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01_NUMPY"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../00_INTRO.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modulübersicht</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_NUMPY_Unterricht.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unterrichtsbeispiel</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blockinhalt">Blockinhalt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voraussetzungen">Voraussetzungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">1.1 Import</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-ndarray">2. Array (ndarray)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erstellung">2.1 Erstellung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-export-von-textdateien">2.1.1 Import/Export von Textdateien</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elementdatentyp">2.2 Elementdatentyp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-eigenschaften">2.3 Attribute (Eigenschaften)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-methoden">2.4 Array-Methoden</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-gestalt-eines-numpy-arrays">3. Form/Gestalt eines NumPy-Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formanderung">3.1 Formänderung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indizierung-und-slicing">3.2 Indizierung und Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editieren-kopieren">3.3 Editieren/Kopieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-berechnungen">4. Numerische Berechnungen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konstanten">4.1 Konstanten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen">4.2 Funktionen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verstandnisfragen">5. Verständnisfragen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
