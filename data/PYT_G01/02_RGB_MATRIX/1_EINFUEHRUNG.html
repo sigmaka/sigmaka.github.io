@@ -181,6 +181,8 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/0_0_Einfuehrung_Inhalt.html">Übersicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/1_0_Variablen.html">1. Variablen</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../01_BASICS/2_0_Datentypen.html">2. Datentypen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_1_Numerische_Datentypen.html">2.1 Numerische Datentypen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_2_0_Sequentielle_Datentypen.html">2.2 Sequentielle Datentypen</a></li>
@@ -190,6 +192,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_4_Mengen.html">2.4 Collection-Datentyp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_BASICS/3_0_Eingaben.html">3. Benutzerinteraktion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/3_1_GUI.html">3.1 GUI-Programmierung</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/4_0_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/5_0_Dateien_lesen_schreiben.html">5. File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/6_0_Funktionen.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/7_0_Exceptions.html">7. Error Handling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_BASICS/8_0_Objektorientierte_Programmierung.html">8. Objektorientierte Programmierung (OOP)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/8_1_Methoden_Attribute.html">8.1 Methoden und Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/8_2_Datenkapselung.html">8.2 Datenkapselung, Datenabstraktion und Geheimnisprinzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/8_3_Vererbung.html">8.3 Vererbung (Inheritance)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/9_0_Threads.html">9. Threading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendung</span></p>
 <ul class="current nav bd-sidenav">
@@ -449,7 +466,7 @@ document.write(`
 <section id="einfuhrungsbeispiel-rgb-matrix">
 <h2>1.2 Einführungsbeispiel RGB-Matrix<a class="headerlink" href="#einfuhrungsbeispiel-rgb-matrix" title="Link to this heading">#</a></h2>
 <p>Dieses Einführungsbeispiel zeigt den korrekten Umgang mit dem RGB-Modul der ABBTS. Damit die RGB-Matrix korrekt funkioniert muss der entsprechende COM-Port korrekt eingestellt werden. Hierfür muss die RGB-Matrix an einem USB-Port eingesteckt werden und im Geräte-Manager kann danach der entsprechende COM-Port abgelesen werden.</p>
-<center><img src="IMG/GeraeteManager_COM-Port.png" width="50%"/></center>
+<center><img src="IMG/GeraeteManager_COM-Port.png"/></center>
 <p>In diesem Fall ist dies COM7. Der COM-Port muss bei der Initialisierung des RGB-Objektes in Python angegeben werden, wie wir weiter unten sehen werden. Für ein bestimmtes Gerät wird vom Betriebssystem in der Regel immer derselbe COM-Port verwendet, d. h. Sie müssen diesen nicht bei jedem Einstecken nachschauen.</p>
 <section id="imports">
 <h3>1.2.1 Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h3>
@@ -491,20 +508,6 @@ document.write(`
 <span class="n">rgb</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>  <span class="c1"># Schnittstelle öffnen</span>
 <span class="n">rgb</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>  <span class="c1"># Schnittstelle schreiben</span>
 <span class="n">rgb</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Schnittstelle schliessen</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uart_open could not open port &#39;COM5&#39;: FileNotFoundError(2, &#39;Das System kann die angegebene Datei nicht finden.&#39;, None, 2)
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">An</span> <span class="n">exception</span> <span class="n">has</span> <span class="n">occurred</span><span class="p">,</span> <span class="n">use</span> <span class="o">%</span><span class="k">tb</span> to see the full traceback.
-
-<span class="ne">SystemExit</span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\User\Documents\ABBTS\venv\Lib\site-packages\IPython\core\interactiveshell.py:3585: UserWarning: To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.
-  warn(&quot;To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.&quot;, stacklevel=1)
 </pre></div>
 </div>
 </div>

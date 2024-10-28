@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.4 Collection-Datentyp &#8212; ABBTS PYT_G01</title>
+    <title>8.2 Datenkapselung, Datenabstraktion und Geheimnisprinzip &#8212; ABBTS PYT_G01</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '01_BASICS/2_4_Mengen';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_BASICS/8_2_Datenkapselung';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Benutzerinteraktion" href="3_0_Eingaben.html" />
-    <link rel="prev" title="2.3 Mapping-Datentyp" href="2_3_Dictionaries.html" />
+    <link rel="next" title="8.3 Vererbung (Inheritance)" href="8_3_Vererbung.html" />
+    <link rel="prev" title="8.1 Methoden und Attribute" href="8_1_Methoden_Attribute.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,13 +183,13 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_0_Einfuehrung_Inhalt.html">Übersicht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_0_Variablen.html">1. Variablen</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="2_0_Datentypen.html">2. Datentypen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="2_0_Datentypen.html">2. Datentypen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="2_1_Numerische_Datentypen.html">2.1 Numerische Datentypen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_2_0_Sequentielle_Datentypen.html">2.2 Sequentielle Datentypen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_2_1_Listen_Tupel.html">2.2.1 Listen &amp; Tupel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_2_2_Strings.html">2.2.2 Strings (Zeichenketten)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_3_Dictionaries.html">2.3 Mapping-Datentyp</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4 Collection-Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_4_Mengen.html">2.4 Collection-Datentyp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="3_0_Eingaben.html">3. Benutzerinteraktion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -200,9 +200,9 @@
 <li class="toctree-l1"><a class="reference internal" href="5_0_Dateien_lesen_schreiben.html">5. File I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_0_Funktionen.html">6. Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="7_0_Exceptions.html">7. Error Handling</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="8_0_Objektorientierte_Programmierung.html">8. Objektorientierte Programmierung (OOP)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="8_0_Objektorientierte_Programmierung.html">8. Objektorientierte Programmierung (OOP)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="8_1_Methoden_Attribute.html">8.1 Methoden und Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="8_2_Datenkapselung.html">8.2 Datenkapselung, Datenabstraktion und Geheimnisprinzip</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2 Datenkapselung, Datenabstraktion und Geheimnisprinzip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="8_3_Vererbung.html">8.3 Vererbung (Inheritance)</a></li>
 </ul>
 </details></li>
@@ -291,7 +291,7 @@
       
       
       
-      <li><a href="https://github.com/sigmaka/PYT_G01/issues/new?title=Issue%20on%20page%20%2F01_BASICS/2_4_Mengen.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/sigmaka/PYT_G01/issues/new?title=Issue%20on%20page%20%2F01_BASICS/8_2_Datenkapselung.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +321,7 @@
       
       
       
-      <li><a href="../_sources/01_BASICS/2_4_Mengen.ipynb" target="_blank"
+      <li><a href="../_sources/01_BASICS/8_2_Datenkapselung.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -405,7 +405,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>2.4 Collection-Datentyp</h1>
+    <h1>8.2 Datenkapselung, Datenabstraktion und Geheimnisprinzip</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -415,9 +415,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menge-set">2.4.1 Menge (set)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-auf-mengen">2.4.2 Operationen auf Mengen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frozen-set">2.4.3 Frozen Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#offentliche-geschutzte-und-private-attribute-methoden">8.2.1 Öffentliche, geschützte und private Attribute/Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property">8.2.2 Property</a></li>
 </ul>
             </nav>
         </div>
@@ -429,193 +428,216 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="collection-datentyp">
-<h1>2.4 Collection-Datentyp<a class="headerlink" href="#collection-datentyp" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="datenkapselung-datenabstraktion-und-geheimnisprinzip">
+<h1>8.2 Datenkapselung, Datenabstraktion und Geheimnisprinzip<a class="headerlink" href="#datenkapselung-datenabstraktion-und-geheimnisprinzip" title="Link to this heading">#</a></h1>
 <p><img src="IMG/logo.png" /><br>
 <a class="reference internal" href="0_0_Einfuehrung_Inhalt.html"><span class="std std-doc">← Übersicht</span></a></p>
-<section id="menge-set">
-<h2>2.4.1 Menge (set)<a class="headerlink" href="#menge-set" title="Link to this heading">#</a></h2>
-<p>Eine Menge (wie aus der Mathematik bekannt) ist eine <em>ungeordnete</em> Sammlung von <em>einzigartigen</em> und <em>unveränderlichen</em> Elementen.</p>
-<ul class="simple">
-<li><p><em>ungeordnet</em>: Die Reihenfolge der Elemente ist nicht festgelegt/relevant.</p></li>
-<li><p><em>einzigartig</em>: Ein Element kann nicht mehrmals enthalten sein.</p></li>
-<li><p><em>unveränderlich</em>: Ein bestimmtes Element kann nicht verändert/überschrieben werden (es kann aber aus der Menge entfernt bzw. zur Menge hinzugefügt werden)</p></li>
-</ul>
-<p>Anfänglich scheint dieser Datentyp etwas überflüssig zu sein, doch mit der Zeit erkennt man die Vorteile und Anwendungsfälle. Wir werden diesen Datentyp aber im Unterricht selten verwenden.</p>
+<p>Unter dem Begriff Datenkapselung versteht man den Schutz von Daten bzw. Attributen vor dem unmittelbaren Zugriff. Dies wird anhand von sogenannten Zugriffsmethoden bewerkstelligt. Anhand dieser Zugriffsmethoden wird definiert, wie auf die Daten eines Objekt zugegriffen werden kann. <strong>Ein direkter Zugriff auf die Attribute sollte vermieden werden!</strong> Die Zugriffsmethoden erlauben dem Entwickler einer Klasse den Zugriff auf die Attribute zu steuern und ggf. weitere Restriktionen innerhalb einer Änderungsmethode zu implementieren (z.B. Wertebereiche auszugrenzen). Solle Zugriffsmethoden werden mit <em>getter</em> (Abfragemethode) und <em>setter</em> (Änderungsmethode) bezeichnet.</p>
+<p>Durch die oben erwähnten Zugriffsmethoden wird gleichzeitig ein invariantes Interface geschaffen (Abstraktion), d.h. dem Benutzer wird nur die Schnittstelle für die Interaktion “angeboten” und die Implementierungsdetails bleiben verborgen. Somit können jederzeit Änderungen an der Implementierung vorgenommen werden, ohne dass sich die Benutzersicht (Interface) ändert.</p>
+<p>Damit das Beispiel nicht unübersichtlich wird, wird das oben Erwähnte nur für das Attribut <em>port</em> gezeigt (dasselbe könnte für weitere Attribute analog gemacht werden).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">studenten</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Student A&#39;</span><span class="p">,</span> <span class="s1">&#39;Student B&#39;</span><span class="p">,</span> <span class="s1">&#39;Student C&#39;</span><span class="p">,</span> <span class="s1">&#39;Student D&#39;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">studenten</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">studenten</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Student C&#39;, &#39;Student D&#39;, &#39;Student B&#39;, &#39;Student A&#39;}
-&lt;class &#39;set&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Student X&#39;</span> <span class="ow">in</span> <span class="n">studenten</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="operationen-auf-mengen">
-<h2>2.4.2 Operationen auf Mengen<a class="headerlink" href="#operationen-auf-mengen" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">add()</span></code> Element zu Menge hinzufügen (falls noch nicht enthalten)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">copy()</span></code> Kopie einer Menge erzeugen</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clear()</span></code> Löscht die Elemente einer Menge</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">difference()</span></code> zwei Mengen vergleichen und Differenz zurückgeben</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">difference_update()</span></code> wie oben, aber übrige Elemente löschen</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">discard()</span></code> Element aus Menge löschen (falls enthalten)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">remove()</span></code> wie oben, aber erzeugt Fehler, falls nicht enthalten</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">intersection()</span></code> Schnittmenge (Elemente, die in beiden Mengen enthalten sind)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">union()</span></code> Vereinigungsmenge (Elemente, die entweder in der einen oder andern Menge enthalten sind)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isdisjoint()</span></code> Prüfung, ob Mengen ungleich sind (alle Elemente verschieden)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">issubset()</span></code> Prüfung, ob Menge eine Teilmenge einer anderen Menge ist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">issuperset()</span></code> Prüfung, ob Menge eine Obermenge einer anderen Menge ist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pop()</span></code> Entnimmt ein zufälliges Element und entfernt es aus der Menge</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .add()</span>
-<span class="n">studenten</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Student E&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">studenten</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Student A&#39;, &#39;Student C&#39;, &#39;Student E&#39;, &#39;Student D&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .difference()</span>
-<span class="n">diplomanden</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Student B&#39;</span><span class="p">,</span> <span class="s1">&#39;Student C&#39;</span><span class="p">,</span> <span class="s1">&#39;Student D&#39;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">studenten</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">diplomanden</span><span class="p">))</span>
-<span class="c1"># alternativ: studenten - diplomanden</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Student E&#39;, &#39;Student A&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .discard()</span>
-<span class="n">studenten</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;Student E&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">studenten</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Student A&#39;, &#39;Student C&#39;, &#39;Student D&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .intersection()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diplomanden</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">studenten</span><span class="p">))</span>
-<span class="c1"># alternativ: studenten &amp; diplomanden</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Student C&#39;, &#39;Student D&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .union()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diplomanden</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">studenten</span><span class="p">))</span>
-<span class="c1"># alternativ: studenten | diplomanden</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Student C&#39;, &#39;Student D&#39;, &#39;Student B&#39;, &#39;Student A&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .issubset()</span>
-<span class="n">diplomanden</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">studenten</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pop()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">studenten</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">studenten</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Student A
-{&#39;Student C&#39;, &#39;Student D&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="frozen-set">
-<h2>2.4.3 Frozen Set<a class="headerlink" href="#frozen-set" title="Link to this heading">#</a></h2>
-<p>Falls keine Veränderungen an einer Menge erlaubt sind, können sogenannte <em>frozensets</em> verwendet werden. Diese sind unveränderbar (also ähnlich wie Tupel).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">augen</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># unveränderliche Menge</span>
-<span class="n">augen</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frozenset({1, 2, 3, 4, 5, 6})
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">augen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># nicht zulässig, da frozensets unveränderbar (immutable)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">augen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># nicht zulässig, da frozensets unveränderbar (immutable)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RGB</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM5&#39;</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_color</span> <span class="o">=</span> <span class="n">default_color</span>
 
-<span class="ne">AttributeError</span>: &#39;frozenset&#39; object has no attribute &#39;add&#39;
+    <span class="k">def</span> <span class="nf">get_port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># Abfragemethode (getter)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span>
+
+    <span class="k">def</span> <span class="nf">set_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>  <span class="c1"># Änderungsmethode (setter)</span>
+        <span class="c1"># Hier können weitere Restriktionen, wie z.B. Ausgrenzung Wertebereich durchgeführt werden.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">get_port</span><span class="p">()</span>  <span class="c1"># Abfragen des aktuellen Ports</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="o">.</span><span class="n">set_port</span><span class="p">(</span><span class="s1">&#39;COM6&#39;</span><span class="p">)</span>  <span class="c1"># Ändern des Ports</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">get_port</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM6&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das obige Beispiel mit Abfragen und Anpassung der Port-Bezeichnung zeigt die Idee, wie nun mit diesen Zugriffsmethoden gearbeitet werden soll. Unschön ist in der aktuellen Umsetzung der Klasse, der Umstand, dass weiterhin ein direkter Zugriff auf das Attribut selbst möglich ist. Dies sollte gemäss obiger Prämisse programmatisch unterbunden werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;COM7&#39;</span>  <span class="c1"># unschöner, direkter Zugriff auf das Attribut port!</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">get_port</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM7&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="offentliche-geschutzte-und-private-attribute-methoden">
+<h2>8.2.1 Öffentliche, geschützte und private Attribute/Methoden<a class="headerlink" href="#offentliche-geschutzte-und-private-attribute-methoden" title="Link to this heading">#</a></h2>
+<p>Obiges Beispiel (direkter Zugriff auf das Attribut <em>port</em>) zeigt, dass die, für die Port-Änderung zuständige <em>set_port</em>-Methode, umgangen werden kann. Damit dies verhindert wird, existieren Möglichkeiten, um die Zugriffsmöglichkeiten (lesen und/oder schreiben) von Attributen/Methoden zu definieren. Python kennt die folgenden drei Definitionen:</p>
+<ul class="simple">
+<li><p><strong>Public</strong>, z. B. <code class="docutils literal notranslate"><span class="pre">port</span></code> (lesen und schreiben möglich und auch gewollt)</p></li>
+<li><p><strong>Protected</strong>: z. B. <code class="docutils literal notranslate"><span class="pre">_port</span></code> (lesen und schreiben möglich, sollte aber nicht gemacht werden, siehe Vererbung)</p></li>
+<li><p><strong>Private</strong>: z. B. <code class="docutils literal notranslate"><span class="pre">__port</span></code> (von aussen nicht sichtbar und nicht benutzbar)</p></li>
+</ul>
+<p>Wie diese Zugriffsmöglichkeiten verwendet werden, zeigt das nächste Beispiel, die überarbeitete RGB-Klasse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RGB</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM5&#39;</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_port</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">get_port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># Abfragemethode (getter)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__port</span>
+
+    <span class="k">def</span> <span class="nf">set_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>  <span class="c1"># Änderungsmethode (setter)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__port</span> <span class="o">=</span> <span class="n">port</span>  <span class="c1"># Attribut port ist private definiert</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">get_port</span><span class="p">()</span>  <span class="c1"># nur noch Zugriff via getter-Methode möglich (rgb.__port nicht möglich)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Analog zur Datenkapselung auf Ebene Attributen, wird diese auch auf der Ebene Methoden angewendet. D.h. Methoden können auch <em>public</em>, <em>protected</em> und <em>private</em> deklariert werden. Im aktuellen Beispiel sind sämtliche Zugriffsmethoden frei (public) zugänglich. <br>
+Für eine vollständige Umsetzung des invarianten Interfaces müssen die Methoden zwingend, analog der Attribute, gekapselt werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RGB</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM5&#39;</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__set_port</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">__get_port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># Abfragemethode (getter)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__port</span>
+
+    <span class="k">def</span> <span class="nf">__set_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>  <span class="c1"># Änderungsmethode (setter)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__port</span> <span class="o">=</span> <span class="n">port</span>  <span class="c1"># Attribut port ist private definiert</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In dieser neuen Klasse RGB sind nun sämtliche Zugriffsmethoden <em>private</em> deklariert, d.h. der Benutzer hat somit keine Möglichkeit mehr auf die beiden Attribute <em>port</em> und <em>default_color</em> zuzugreifen. Dieser Zustand macht aber sicherlich keinen Sinn. <br></p>
+</section>
+<section id="property">
+<h2>8.2.2 Property<a class="headerlink" href="#property" title="Link to this heading">#</a></h2>
+<p>Mittels den sogenannten <em>Properties</em> kann der Zugriff für den Benutzer auf eine sehr komfortable Art und Weise gesteuert werden. Die Schnittstelle ist somit komplett entkoppelt und somit braucht der Benutzer auch keinerlei Kenntnisse über die Namen der Zugriffsmethoden. Es genügt den entsprechenden Attribut-Namen zu kennen. Für den Benutzer sieht es denn so aus, als ob er direkt auf das entsprechende Attribut zugreifen würde.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RGB</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM5&#39;</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__set_port</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">__get_port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># Abfragemethode (getter)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__port</span>
+
+    <span class="k">def</span> <span class="nf">__set_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>  <span class="c1"># Änderungsmethode (setter)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__port</span> <span class="o">=</span> <span class="n">port</span>  <span class="c1"># Attribut port ist private definiert</span>
+
+    <span class="n">port</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">__get_port</span><span class="p">,</span> <span class="n">__set_port</span><span class="p">)</span>  <span class="c1"># Übergabe der Funktion und kein Funktionsaufruf!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">port</span>  <span class="c1"># Attriburt kann nun wieder &quot;scheinbar&quot; direkt abgerufen werden, im Hintergrund wird aber getter-Methode verwendet</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;COM6&#39;</span>  <span class="c1"># Attribut zuweisen (&quot;scheinbar&quot; direkt, aber im Hintergrund wird setter-Methode verwendet)</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">port</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM6&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit <em>decorators</em> kann das obige noch kompakter/eleganter geschrieben werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RGB</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM5&#39;</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="o">...</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__port</span>
+
+    <span class="nd">@port</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__port</span> <span class="o">=</span> <span class="n">port</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">port</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;COM6&#39;</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">port</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;COM6&#39;
 </pre></div>
 </div>
 </div>
@@ -655,20 +677,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2_3_Dictionaries.html"
+       href="8_1_Methoden_Attribute.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2.3 Mapping-Datentyp</p>
+        <p class="prev-next-title">8.1 Methoden und Attribute</p>
       </div>
     </a>
     <a class="right-next"
-       href="3_0_Eingaben.html"
+       href="8_3_Vererbung.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3. Benutzerinteraktion</p>
+        <p class="prev-next-title">8.3 Vererbung (Inheritance)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -688,9 +710,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menge-set">2.4.1 Menge (set)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-auf-mengen">2.4.2 Operationen auf Mengen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frozen-set">2.4.3 Frozen Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#offentliche-geschutzte-und-private-attribute-methoden">8.2.1 Öffentliche, geschützte und private Attribute/Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property">8.2.2 Property</a></li>
 </ul>
   </nav></div>
 

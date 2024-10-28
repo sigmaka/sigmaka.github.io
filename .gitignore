@@ -5,3 +5,7 @@ data/MAT_AGW/_sources/
 data/DAT_ENG/_sources/
 .buildinfo
 objects.inv
+.ipynb_checkpoints/
+.ipynb_checkpoints
+ipynb_checkpoints/
+ipynb_checkpoints
