@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Signalverarbeitung &#8212; ABBTS MAT_AGW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05_SCIPY/01_SCIPY';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unterrichtsbeispiel" href="02_SCIPY_Unterricht.html" />
+    <link rel="prev" title="Übungen" href="../04_DATENAUSWERTUNG/11_DATENAUSWERTUNG_Uebungen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_INTRO.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS MAT_AGW - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS MAT_AGW - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_INTRO.html">
+                    Modulübersicht
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_NUMPY/01_NUMPY.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_NUMPY/02_NUMPY_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_NUMPY/11_NUMPY_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_MATPLOTLIB/01_MATPLOTLIB.html">Plotting/Visualisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_MATPLOTLIB/02_MATPLOTLIB_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_MATPLOTLIB/11_MATPLOTLIB_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_VEKTORRECHNUNG/01_VEKTORRECHNUNG.html">Vektorrechnung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_VEKTORRECHNUNG/02_VEKTORRECHNUNG_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_VEKTORRECHNUNG/11_VEKTORRECHNUNG_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_DATENAUSWERTUNG/01_DATENAUSWERTUNG.html">Datenauswertung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_DATENAUSWERTUNG/02_DATENAUSWERTUNG_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_DATENAUSWERTUNG/11_DATENAUSWERTUNG_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Signalverarbeitung</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_SCIPY_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_SCIPY_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06_FFT/01_FFT.html">Frequenzanalyse</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_FFT/02_FFT_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_FFT/03_FFT_Workflow.html">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_FFT/11_FFT_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/MAT_AGW" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/MAT_AGW/issues/new?title=Issue%20on%20page%20%2F05_SCIPY/01_SCIPY.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/05_SCIPY/01_SCIPY.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Signalverarbeitung</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blockinhalt">Blockinhalt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">1.1 Import</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nutzliche-funktionen-auswahl">2. Nützliche Funktionen (Auswahl)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konstanten-scipy-constants">2.1 Konstanten (<code class="docutils literal notranslate"><span class="pre">scipy.constants</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signalverarbeitung-scipy-signal">2.2 Signalverarbeitung (<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-scipy-integrate">2.3 Integration (<code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ableitung">Ableitung</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimierung-bzw-gleichungsloser-scipy-optimize">2.4 Optimierung bzw. Gleichungslöser (<code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-scipy-interpolate">2.5 Interpolation (<code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-scipy-stats">2.6 Statistik (<code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequenzanalyse-fouriertransformation-scipy-fft">2.6 Frequenzanalyse/Fouriertransformation (<code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="signalverarbeitung">
+<h1>Signalverarbeitung<a class="headerlink" href="#signalverarbeitung" title="Link to this heading">#</a></h1>
+<p><img src="../01_NUMPY/img/logo.png" width="100%"/><br>
+<a class="reference internal" href="../00_INTRO.html"><span class="std std-doc">← Modulübersicht</span></a></p>
+<center><img src="img/scipy_logo.png" width=50% /></center> 
+<p><a class="reference external" href="https://scipy.org/"><strong>SciPy</strong></a> (<strong>Sci</strong>entific <strong>Py</strong>thon) erweitert den Umfang von NumPy um viele fundamentale Algorithmen für die Singalverarbeitung, die Optimierung, das Lösen von Gleichungen, etc. Die wichtigsten Module von SciPy sind:</p>
+<ul class="simple">
+<li><p>Signalverarbeitung (<em>Signal Processing</em>) - <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></p></li>
+<li><p>Integration - <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></p></li>
+<li><p>Optimierung (<em>Optimization</em>) - <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></p></li>
+<li><p>Interpolation - <code class="docutils literal notranslate"><span class="pre">scipy.interpolation</span></code></p></li>
+<li><p>Statistik (<em>Statistics</em>) - <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></p></li>
+<li><p>Frequenzanalyse (<em>Fourier Transforms</em>) - <code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>Das Paket werden wir hier nur grob überfliegen, da wir davon dann vor allem das Modul <code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code> verwenden im Rahmen der <strong>Frequenzanalyse</strong> (vgl. <a class="reference internal" href="../06_FFT/01_FFT.html"><span class="std std-doc">FFT</span></a>). Da SciPy viele andere, nützliche Funktionen enthält, lohnt sich eine kurze Übersicht aber auf jeden Fall. Mittlerweile sollte es Ihnen nicht mehr schwer fallen, eine bestimmte Funktion aus einem bestimmten Paket/Unterpaket anhand der Dokumentation/Hilfe selbstständig einsetzen zu können.</p>
+<hr class="docutils" />
+<section id="blockinhalt">
+<h2>Blockinhalt<a class="headerlink" href="#blockinhalt" title="Link to this heading">#</a></h2>
+<p>Für die Einführung in SciPy bzw. die selbstständige Einarbeitung stehen die folgenden Notebooks bereit:</p>
+<ol class="arabic simple">
+<li><p>Einführung (vorliegendes Notebook)</p></li>
+<li><p>Beispielaufgabe im Unterricht <a class="reference internal" href="02_SCIPY_Unterricht.html"><span class="std std-doc">02_SCIPY_Unterricht.ipynb</span></a></p></li>
+<li><p>Übungsaufgaben <a class="reference internal" href="11_SCIPY_Uebungen.html"><span class="std std-doc">11_SCIPY_Uebungen.ipynb</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2>1. Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>SciPy ist eine Sammlung von mathematischen Algorithmen und Funktionen (basierend auf NumPy) für verschiedene Spezialgebiete. Es erweitert damit unsere “Toolbox” um wichtige Werkzeuge.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/index.html#user-guide">SciPy User Guide</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">SciPy Reference</a></p></li>
+</ul>
+<section id="import">
+<h3>1.1 Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h3>
+<p>Von SciPy werden üblicherweise jeweils die entsprechenden Module importiert. Mit <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span></code> kann selbstverständlich auch das gesamte Paket importiert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">optimize</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">stats</span><span class="p">,</span> <span class="n">fft</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nutzliche-funktionen-auswahl">
+<h2>2. Nützliche Funktionen (Auswahl)<a class="headerlink" href="#nutzliche-funktionen-auswahl" title="Link to this heading">#</a></h2>
+<p>Nachfolgend sind nützliche Funktionen aufgelistet, die in vielen praktischen Problemstellungen sehr hilfreich sein können.</p>
+<section id="konstanten-scipy-constants">
+<h3>2.1 Konstanten (<code class="docutils literal notranslate"><span class="pre">scipy.constants</span></code>)<a class="headerlink" href="#konstanten-scipy-constants" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Diverse math./phys. Konstanten</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># Lichtgeschwindigkeit (alternativ: .speed_of_light) [m/s]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">mach</span><span class="p">)</span>  <span class="c1"># Schallgeschwindigkeit (alternativ: .speed_of_sound) [m/s]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># Erdbeschleunigung [m/s^2]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>299792458.0
+340.5
+9.80665
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="signalverarbeitung-scipy-signal">
+<h3>2.2 Signalverarbeitung (<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>)<a class="headerlink" href="#signalverarbeitung-scipy-signal" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">medfilt()</span></code> - Median Filter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">savgol_filter()</span></code> - Polynomfilter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">butter()</span></code> - Butterworth-Filter (Tief-/Hoch-/Bandpass)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filtfilt()</span></code> - Filter anwenden (vgl. auch <code class="docutils literal notranslate"><span class="pre">.lfilter()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detrend()</span></code> - Trend entfernen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decimate()</span></code> - Downsampling mit Anti-Aliasing-Filter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resample()</span></code> - Resampling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chirp()</span></code> - Chirp-Signal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sawtooth()</span></code> - Sägezahnsignal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">square()</span></code> - Rechtecksignal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_window()</span></code> - Fensterfunktion für Frequenzanalyse, vgl. <a class="reference internal" href="../06_FFT/01_FFT.html"><span class="std std-doc">FFT</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> - Peaks in einem Signal detektieren</p></li>
+<li><p>…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># Messdaten simulieren</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">57</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Ausreisser</span>
+<span class="n">y_medfilt</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">medfilt</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>  <span class="c1"># Medianfilter mit Fensterlänge 9</span>
+<span class="n">y_polfilt</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Polynomfilter (kubisch)</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">Wn</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">)</span>  <span class="c1"># Butterworth-Tiefpassfilter</span>
+<span class="n">y_filtfilt</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># Butterworth-Filter anwenden</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_medfilt</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;filtered (median)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_polfilt</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;filtered (polynomial)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_filtfilt</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;filtered (butterworth)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/eda728a61df77530f697ed54c065349d7f4f4e255c910b445b50210327805a23.png" src="../_images/eda728a61df77530f697ed54c065349d7f4f4e255c910b445b50210327805a23.png" />
+</div>
+</div>
+</section>
+<section id="integration-scipy-integrate">
+<h3>2.3 Integration (<code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>)<a class="headerlink" href="#integration-scipy-integrate" title="Link to this heading">#</a></h3>
+<p>Das Integrieren (und das Ableiten als Gegenstück) spielt in vielen Bereichen eine wichtige Rolle. Im Gegensatz zum analytischen Integrieren/Ableiten, das z. T. mit grossem Aufwand verbunden ist, ist das numerische Integrieren/Ableiten äusserst unkompliziert. Das Integral kann intuitiv als Fläche unter einer Kurve verstanden werden, was die folgende Abbildung illustriert.</p>
+<center>
+    <img src="img/Integration.svg" width=70% />
+</center>
+<p>Betrachtet man die obige Abbildung und überlegt sich, wie man die Fläche unter der Kurve anhand der “Messpunkte” (schwarze Punkte) annähern könnte, so landet man rasch bei der sogenannten <em>Trapezregel</em>, d. h. die Fläche kann in vertikale Streifen unterteilt werden und diese aufsummiert werden. Das Integral wird damit zu einer Summe und kann ohne viel Aufwand berechnet werden.</p>
+<div class="math notranslate nohighlight">
+\[\int y(x) \,dx \approx \sum_{i} \frac{y_i + y_{i-1}}{2} \cdot \Delta x\]</div>
+<p>In SciPy stehen dafür die folgenden Funktionen bereit:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> - num. Integration mit Trapezregel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cumulative_trapezoid()</span></code> - num. Integration mit Trapezregel (kumulativ)</p></li>
+<li><p>…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">integrate</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># numerisches Integral gemäss Trapezregel</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="o">.</span><span class="n">cumulative_trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># numerisches Integral gemäss Trapezregel (kumuliert)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.  ,  2.5 ,  3.75,  5.5 ,  7.25,  9.25, 11.25, 12.  , 13.5 ,
+       15.  ])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ableitung">
+<h4>Ableitung<a class="headerlink" href="#ableitung" title="Link to this heading">#</a></h4>
+<p>Das Gegenstück zur Integration ist die Ableitung. Die Ableitung kann intuitiv als Steigung der Kurve verstanden werden.</p>
+<center>
+    <img src="img/Ableitung.svg" width=70% />
+</center>
+<p>Auch die Ableitung kann numerisch sehr einfach berechnet werden, nämlich mit dem altbekannten “Steigungsdreieck”. Die Ableitung (Differenzialquotient) wird damit zu einem einfachen Differenzenquotienten.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy(x)}{dx} \approx \frac{y_{i+1} - y_{i-1}}{2 \cdot \Delta x} \]</div>
+<p>Zur Berechnung der Ableitung wird am besten die Funktion <code class="docutils literal notranslate"><span class="pre">gradient()</span></code> von NumPy verwendet. (Der Begriff <em>Gradient</em> ist ein anderes (allgemeineres) Wort für <em>Steigung</em>.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># Ableitung (mit NumPy)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4.,  2., -1.,  2.,  0.,  1.,  0., -5.,  3.,  0., -8.])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="optimierung-bzw-gleichungsloser-scipy-optimize">
+<h3>2.4 Optimierung bzw. Gleichungslöser (<code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>)<a class="headerlink" href="#optimierung-bzw-gleichungsloser-scipy-optimize" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> - Minimisierung einer Funktion mit einer Variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimize()</span></code> - Minimisierung einer Funktion mit mehreren Variablen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> - Lösen einer skalaren Funktion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">root()</span></code> - Lösen einer Vektorfunktion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> - Nichtlineare Optimierung mit Randbedingungen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> - Ausgleichsrechnung, beliebige nichtlineare Funktion</p></li>
+</ul>
+<p>Damit können u. a. Gleichungen bzw. Gleichungssysteme gelöst oder minimiert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Gleichung (Funktion), die gelöst werden soll</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># eine der Lösungen der quadratischen Gleichung  f(x)</span>
+<span class="n">sol</span><span class="o">.</span><span class="n">root</span>  <span class="c1"># Nullstelle (x-Wert)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9901951359278482
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Minimum (Scheitelpunkt) der obigen Funktion f(x)</span>
+<span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">fun</span>  <span class="c1"># x- bzw. Funktionswert des Minimums</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-50.000000000000355, -26.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> kann ein beliebiges Modell (Funktion) in Daten “gefittet”, d. h. an Daten angepasst werden. Dies könnte z. B. verwendet werden, um eine gemessene Sprungantwort eines P-T1-Gliedes zu identifizieren (siehe nachfolgendes Beispiel).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Zeitarray</span>
+<span class="n">x_a</span> <span class="o">=</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="mf">0.15</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># simulierte Daten (wären in Realität Messdaten)</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">K_P</span><span class="p">,</span> <span class="n">T_1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">K_P</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="n">T_1</span><span class="p">))</span>  <span class="c1"># Modell (Funktion) eines P-T1-Gliedes</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x_a</span><span class="p">)</span>  <span class="c1"># Modell wird &quot;gefittet&quot;</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_a</span><span class="p">,</span> <span class="s1">&#39;.b:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Messdaten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modell (P-T1)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">&quot;$K_P$ = </span><span class="si">{:.2f}</span><span class="s2">, $T_1$ = </span><span class="si">{:.2f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">popt</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/548c878cc72b9212c53e1d5c69847f434fbac362635565ffcfbfaec8de35bf59.png" src="../_images/548c878cc72b9212c53e1d5c69847f434fbac362635565ffcfbfaec8de35bf59.png" />
+</div>
+</div>
+</section>
+<section id="interpolation-scipy-interpolate">
+<h3>2.5 Interpolation (<code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code>)<a class="headerlink" href="#interpolation-scipy-interpolate" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CubicSpline()</span></code> - Kubische Interpolation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BSpline()</span></code> - B-Spline-Interpolation</p></li>
+<li><p>…</p></li>
+</ul>
+<blockquote>
+<div><p>→ Lineare Interpolation: <code class="docutils literal notranslate"><span class="pre">interp()</span></code> von NumPy</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spline</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">CubicSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x_interp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y_interp</span> <span class="o">=</span> <span class="n">spline</span><span class="p">(</span><span class="n">x_interp</span><span class="p">)</span>  <span class="c1"># Spline-Interpolation</span>
+
+<span class="n">y_lin_interp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_interp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># lin. Interpolation</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ob&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Messdaten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_interp</span><span class="p">,</span> <span class="n">y_interp</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spline-Interpolation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_interp</span><span class="p">,</span> <span class="n">y_lin_interp</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Lineare Interpolation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d7174ddb93eb8006d870ef0cbbc1912189e56c4c51d3670bc8726ed36de4e796.png" src="../_images/d7174ddb93eb8006d870ef0cbbc1912189e56c4c51d3670bc8726ed36de4e796.png" />
+</div>
+</div>
+</section>
+<section id="statistik-scipy-stats">
+<h3>2.6 Statistik (<code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>)<a class="headerlink" href="#statistik-scipy-stats" title="Link to this heading">#</a></h3>
+<p>In diesem Modul sind nützliche Funktionen für statistische Analysen (statistische Grössen, Verteilungen, Hypothesentests etc.). Wir werden dieses Modul nicht weiter einsetzen.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linregress()</span></code> - lineare Regression (Gerade in Daten “fitten”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pearsonr()</span></code> - Korrelationskoeffizient</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> wird häufig verwendet, um ein lineares Modell (Gerade) in Messdaten zu fitten. Im folgenden Beispiel wird dies illustriert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Messdaten simulieren (Gerade + Rauschen)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># lineare Regression</span>
+<span class="n">y_fit</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">intercept</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">slope</span> <span class="o">*</span> <span class="n">x</span>  <span class="c1"># Modell</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ob--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Messdaten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="s2">&quot;Steigung = </span><span class="si">{:.2f}</span><span class="s2">, Offset = </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">slope</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">intercept</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c6c3d811653ff8b228d6d6b76bf95eaf5b182b2310b30fc19078088118e08b78.png" src="../_images/c6c3d811653ff8b228d6d6b76bf95eaf5b182b2310b30fc19078088118e08b78.png" />
+</div>
+</div>
+</section>
+<section id="frequenzanalyse-fouriertransformation-scipy-fft">
+<h3>2.6 Frequenzanalyse/Fouriertransformation (<code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code>)<a class="headerlink" href="#frequenzanalyse-fouriertransformation-scipy-fft" title="Link to this heading">#</a></h3>
+<p>Damit werden wir intensiv arbeiten im Block Frequenzanalyse (vgl. <a class="reference internal" href="../06_FFT/01_FFT.html"><span class="std std-doc">FFT</span></a>) und daher an dieser Stelle nicht darauf eingehen.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fft()</span></code> - allg. FFT-Funktion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfft()</span></code> - FFT für reelle Signale</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfftfreq()</span></code> - Frequenzachse berechnen für FFT (reelle Signale)</p></li>
+<li><p>…</p></li>
+</ul>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Angewandte Mathematik | MAT_AGW | 2024</p></section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./05_SCIPY"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../04_DATENAUSWERTUNG/11_DATENAUSWERTUNG_Uebungen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Übungen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_SCIPY_Unterricht.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unterrichtsbeispiel</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blockinhalt">Blockinhalt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">1.1 Import</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nutzliche-funktionen-auswahl">2. Nützliche Funktionen (Auswahl)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konstanten-scipy-constants">2.1 Konstanten (<code class="docutils literal notranslate"><span class="pre">scipy.constants</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signalverarbeitung-scipy-signal">2.2 Signalverarbeitung (<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-scipy-integrate">2.3 Integration (<code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ableitung">Ableitung</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimierung-bzw-gleichungsloser-scipy-optimize">2.4 Optimierung bzw. Gleichungslöser (<code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-scipy-interpolate">2.5 Interpolation (<code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-scipy-stats">2.6 Statistik (<code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequenzanalyse-fouriertransformation-scipy-fft">2.6 Frequenzanalyse/Fouriertransformation (<code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

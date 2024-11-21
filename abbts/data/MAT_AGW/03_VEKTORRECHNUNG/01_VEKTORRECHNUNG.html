@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Vektorrechnung &#8212; ABBTS MAT_AGW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_VEKTORRECHNUNG/01_VEKTORRECHNUNG';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unterrichtsbeispiel" href="02_VEKTORRECHNUNG_Unterricht.html" />
+    <link rel="prev" title="Übungen" href="../02_MATPLOTLIB/11_MATPLOTLIB_Uebungen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_INTRO.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS MAT_AGW - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS MAT_AGW - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_INTRO.html">
+                    Modulübersicht
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_NUMPY/01_NUMPY.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_NUMPY/02_NUMPY_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_NUMPY/11_NUMPY_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_MATPLOTLIB/01_MATPLOTLIB.html">Plotting/Visualisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_MATPLOTLIB/02_MATPLOTLIB_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_MATPLOTLIB/11_MATPLOTLIB_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Vektorrechnung</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_VEKTORRECHNUNG_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_VEKTORRECHNUNG_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_DATENAUSWERTUNG/01_DATENAUSWERTUNG.html">Datenauswertung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_DATENAUSWERTUNG/02_DATENAUSWERTUNG_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_DATENAUSWERTUNG/11_DATENAUSWERTUNG_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05_SCIPY/01_SCIPY.html">Signalverarbeitung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05_SCIPY/02_SCIPY_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_SCIPY/11_SCIPY_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06_FFT/01_FFT.html">Frequenzanalyse</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_FFT/02_FFT_Unterricht.html">Unterrichtsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_FFT/03_FFT_Workflow.html">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_FFT/11_FFT_Uebungen.html">Übungen</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/MAT_AGW" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/MAT_AGW/issues/new?title=Issue%20on%20page%20%2F03_VEKTORRECHNUNG/01_VEKTORRECHNUNG.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/03_VEKTORRECHNUNG/01_VEKTORRECHNUNG.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Vektorrechnung</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blockinhalt">Blockinhalt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voraussetzungen">Voraussetzungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-in-numpy">2. Vektor in NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektoraddition-subtraktion">2.1 Vektoraddition &amp; -subtraktion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplikation">2.2 Multiplikation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#komponentenweise-multiplikation">2.2.1 Komponentenweise Multiplikation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalarprodukt">2.2.2 Skalarprodukt</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vektorprodukt">2.2.3 Vektorprodukt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-in-numpy">3. Matrix in NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotationsmatrizen-drehmatrizen">3.1 Rotationsmatrizen (Drehmatrizen)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-in-2d">3.1.1 Drehung in 2D</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-in-3d">3.1.2 Drehung in 3D</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-eines-vektors">3.2 Drehung eines Vektors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koordinatentransformation">3.3 Koordinatentransformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translation-verschiebung">3.4 Translation (Verschiebung)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verschiebung-eines-vektors">3.4.1 Verschiebung eines Vektors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.4.2 Koordinatentransformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anhang">4. Anhang</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herleitung-der-2d-drehmatrix">4.1 Herleitung der 2D-Drehmatrix <a name="anhang"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-des-basisvektors-1-0">Drehung des Basisvektors [1, 0]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-des-basisvektors-0-1">Drehung des Basisvektors [0, 1]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="vektorrechnung">
+<h1>Vektorrechnung<a class="headerlink" href="#vektorrechnung" title="Link to this heading">#</a></h1>
+<p><img src="../01_NUMPY/img/logo.png" width="100%"/><br>
+<a class="reference internal" href="../00_INTRO.html"><span class="std std-doc">← Modulübersicht</span></a></p>
+<center><img src="img/Vector_CS.svg" width=50% /></center> 
+<p>Vektoren &amp; Matrizen spielen in der Mathematik/Physik eine zentrale Rolle. NumPy bietet mit dem NumPy-Array den idealen Datentyp und entsprechende Operatoren/Methoden. Sie kennen Vektoren/Matrizen bereits aus früheren Semestern, wir werden die wichtigsten Grundlagen in diesem Notebook kurz repetieren.</p>
+<ul class="simple">
+<li><p>Vektoraddition bzw. -subraktion</p></li>
+<li><p>Skalarprodukt</p></li>
+<li><p>Vektorprodukt</p></li>
+<li><p>Rotationsmatrix</p></li>
+</ul>
+<hr class="docutils" />
+<section id="blockinhalt">
+<h2>Blockinhalt<a class="headerlink" href="#blockinhalt" title="Link to this heading">#</a></h2>
+<p>Die folgenden Jupyter-Notebook führen uns durch die Thematik:</p>
+<ol class="arabic simple">
+<li><p>Einführung/Theorie/Cheat Sheet (vorliegendes Notebook)</p></li>
+<li><p>Beispielaufgabe im Unterricht <a class="reference internal" href="02_VEKTORRECHNUNG_Unterricht.html"><span class="std std-doc">02_VEKTORRECHNUNG_Unterricht.ipynb</span></a></p></li>
+<li><p>Übungsaufgaben <a class="reference internal" href="11_VEKTORRECHNUNG_Uebungen.html"><span class="std std-doc">11_VEKTORRECHNUNG_Uebungen.ipynb</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="voraussetzungen">
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">#</a></h2>
+<p>Sie sollten wissen, was ein Vektor ist und dass ein Vektor grundsätzlich auf zwei verschiedene Arten repräsentiert werden kann:</p>
+<ul class="simple">
+<li><p>Betrag <span class="math notranslate nohighlight">\(\vert\vec{a}\vert\)</span> und Richtung (Winkel) <span class="math notranslate nohighlight">\(\varphi\)</span></p></li>
+<li><p>Komponenten in einem beliebig gewählten Koordinatensystem (als Zeilenvektor oder Spaltenvektor)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{a}=\left[\begin{array}{c}a_x \quad a_y \quad a_z \end{array}\right] \hspace{5cm} \vec{a}=\left[\begin{array}{c}a_x \\ a_y \\ a_z \end{array}\right]\end{split}\]</div>
+<p>In der Physik sind Vektoren mit zwei (2D) oder drei Komponenten (3D) weit verbreitet, doch auch höherdimensionale Vektoren sind grundsätzlich möglich.</p>
+<blockquote>
+<div><p>Anmerkung: Der Begriff “Dimension” verwendet man bei Vektoren (Mathematik/Physik) anders als bei den Arrays (Programmiersprache)!</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2>1. Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>Viele Grössen in der Physik/Technik können nicht durch eine einzige Zahl eindeutig/vollständig beschrieben werden, z. B.:</p>
+<ul class="simple">
+<li><p>Position im Raum</p></li>
+<li><p>Kraft</p></li>
+<li><p>Geschwindigkeit, Beschleunigung</p></li>
+<li><p>Drehmoment</p></li>
+<li><p>Spannung</p></li>
+<li><p>Wärmestrom</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Diese Grössen werden durch Betrag &amp; Richtung bzw. in Koordinatendarstellung (relativ zu einem Koordinatensystem) definiert und als <strong>Vektoren</strong> bezeichnet.</p>
+<p>Das Gegenstück, also eine physikalische Grösse, die mit einer einzigen Zahl eindeutig beschrieben wird, wird als <strong>Skalar</strong> bezeichnet. Skalare Grössen sind z. B.:</p>
+<ul class="simple">
+<li><p>Temperatur</p></li>
+<li><p>Energie</p></li>
+<li><p>Leistung</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+<section id="vektor-in-numpy">
+<h2>2. Vektor in NumPy<a class="headerlink" href="#vektor-in-numpy" title="Link to this heading">#</a></h2>
+<p>Wir definieren einen Vektor (= 1D-Array) in NumPy, indem wir dessen Komponenten definieren (analog zu einer Liste). Anders als in der Mathematik gibt es für einen 1D-Array in NumPy keine Orientierung (d. h. ein 1D-Array kann als Zeilen- oder Spaltenarray aufgefasst werden). Wir arbeiten üblicherweise im bekannten XY-Koordinatensystem (für 2D-Vektoren) oder im XYZ-Koordinatensystem (für 3D-Vektoren).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{a}=\left[\begin{array}{c}a_x \\ a_y \end{array}\right]\end{split}\]</div>
+<center><img src="img/vector.svg" width=50% /></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># Vektor mit X- und Y-Komponente</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="vektoraddition-subtraktion">
+<h3>2.1 Vektoraddition &amp; -subtraktion<a class="headerlink" href="#vektoraddition-subtraktion" title="Link to this heading">#</a></h3>
+<p>Vektoren werden komponentenweise addiert bzw subtrahiert. Grafisch entspricht dies der Aneinanderhängung der einzelnen Vektoren.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{c}=\vec{a}+\vec{b}=\left[\begin{array}{c}a_x + b_x \\ a_y + b_y\end{array}\right] \hspace{5cm}
+\vec{d}=\vec{a}-\vec{b}=\left[\begin{array}{c}a_x - b_x \\ a_y - b_y\end{array}\right]\end{split}\]</div>
+<center><img src="img/vector_add.svg" width=40% />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/vector_subtract.svg" width=40% /></center> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># Vektoraddition</span>
+<span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>  <span class="c1"># Vektorsubtraktion</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3, -1])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiplikation">
+<h3>2.2 Multiplikation<a class="headerlink" href="#multiplikation" title="Link to this heading">#</a></h3>
+<p>Bei der Multiplikation von Vektoren muss unterschieden werden zwischen:</p>
+<ul class="simple">
+<li><p>der komponentenweisen Multiplikation</p></li>
+<li><p>dem <strong>Skalarprodukt</strong> von zwei Vektoren</p></li>
+<li><p>dem <strong>Vektorprodukt</strong> von zwei Vektoren</p></li>
+</ul>
+<section id="komponentenweise-multiplikation">
+<h4>2.2.1 Komponentenweise Multiplikation<a class="headerlink" href="#komponentenweise-multiplikation" title="Link to this heading">#</a></h4>
+<p>Die komponentenweise Multiplikation kommt bei der Multiplikation eines Vektors mit einem Skalar zum Einsatz und entspricht einer Streckung/Stauchung des Vektors</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}t \cdot \vec{a} = \left[\begin{array}{c}t \cdot a_x \\ t \cdot a_y\end{array}\right]\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">t</span> <span class="o">*</span> <span class="n">a</span>  <span class="c1"># Streckung (Verlängerung) des Vektor durch Multiplikation mit Skalar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Auch zwei Vektoren können komponentenweise miteinander multipliziert werden. Dies hat in der Mathematik/Physik keine wesentliche Bedeutung, doch in der Signalverarbeitung kann es sehr nützlich sein. Die komponentenweise Multiplikation wird mit dem normalen <code class="docutils literal notranslate"><span class="pre">*</span></code>-Zeichen realisiert. Besondere Vorsicht ist geboten, wenn die beiden Arrays unterschiedliche Dimensionen haben (siehe <em>Broadcasting</em> in der NumPy-Hilfe für weitere Informationen).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{a} * \vec{b} = \left[\begin{array}{c}a_x \cdot b_x \\ a_y \cdot b_y\end{array}\right]\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span>  <span class="c1"># komponentenweise Multiplikation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 6])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="skalarprodukt">
+<h4>2.2.2 Skalarprodukt<a class="headerlink" href="#skalarprodukt" title="Link to this heading">#</a></h4>
+<p>Von grosser Bedeutung in der Mathematik/Physik ist das Skalarprodukt, welches auch als Punktprodukt (<em>dot product</em>) oder inneres Produkt bezeichnet wird. Das Skalarprodukt liefert (wie der Name sagt) eine skalare Grösse zurück. Das Skalarprodukt “misst” sozusagen, wie parallel zwei Vektoren sind und ist gross, wenn die beiden Vektoren parallel sind bzw. 0, wenn sie senkrecht aufeinander stehen.</p>
+<div class="math notranslate nohighlight">
+\[\vec{a} \cdot \vec{b} = \vert \vec{a} \vert \cdot \vert \vec{b} \vert \cdot \cos(\varphi) = a_x b_x + a_y b_y\]</div>
+<center><img src="img/vector_dot.svg" width=50% /></center>
+<p>Das Skalarprodukt ist sehr nützlich, um Winkel zwischen Vektoren zu ermitteln und hat ausserdem viele Anwendungen in der Physik/Technik:</p>
+<ul class="simple">
+<li><p><em>Leistung = Kraft mal Geschwindigkeit</em> <span class="math notranslate nohighlight">\(P=\vec{F}\cdot\vec{v}\)</span></p></li>
+<li><p><em>Leistung = Drehmoment mal Winkelgeschwindigkeit</em> <span class="math notranslate nohighlight">\(P=\vec{M}\cdot\vec{\omega}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Skalarprodukt, alternativ auch als Methode: a.dot(b)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vektorprodukt">
+<h4>2.2.3 Vektorprodukt<a class="headerlink" href="#vektorprodukt" title="Link to this heading">#</a></h4>
+<p>Ebenfalls bedeutend ist das Vektorprodukt, welches auch als Kreuzprodukt (<em>cross product</em>) oder äusseres Produkt bezeichnet wird. Im Gegensatz zum Skalarprodukt wird beim Vektorprodukt ein Vektor zurückgegeben.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{a}\times\vec{b}=\left[\begin{array}{c}a_y b_z - a_z b_y \\ a_z b_x - a_x b_z \\ a_x b_y - a_y b_x \end{array}\right]\end{split}\]</div>
+<center><img src="img/vector_cross.svg" width=65% /></center>
+<p>Das Vektorprodukt ist u. a. nützlich, um Flächen zu berechnen, die von Vektoren aufgespannt werden. Das Kreuzprodukt <span class="math notranslate nohighlight">\(\vec{a}\times\vec{b}\)</span> liefert einen Vektor zurück, der senkrecht auf <span class="math notranslate nohighlight">\(\vec{a}\)</span> und <span class="math notranslate nohighlight">\(\vec{b}\)</span> steht und dessen Betrag der aufgespannten Fläche von <span class="math notranslate nohighlight">\(\vec{a}\)</span> und <span class="math notranslate nohighlight">\(\vec{b}\)</span> entspricht. Die Richtung des Vektors kann mit der Rechten-Hand-Regel (RHR) bestimmt werden.</p>
+<center><img src="img/RHR.png" /></center>
+<p>Das Kreuzprodukt hat ebenfalls viele Anwendungen in der Physik/Technik:</p>
+<ul class="simple">
+<li><p><em>Drehmoment = Hebelarm mal Kraft</em> <span class="math notranslate nohighlight">\(\vec{M}=\vec{r}\times\vec{F}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Kreuzprodukt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  0, 10])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="matrix-in-numpy">
+<h2>3. Matrix in NumPy<a class="headerlink" href="#matrix-in-numpy" title="Link to this heading">#</a></h2>
+<p>Eine Matrix (= 2D-Array) wird analog zu einem Vektor erzeugt in NumPy.</p>
+<blockquote>
+<div><p>In der Mathematik/Physik werden Matrizen häufig mit Grossbuchstaben bezeichnet, wir machen dies hier ausnahmsweise auch so. Ansonsten werden wir wie üblich Kleinschreibung für Variablennamen verwenden.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Gegensatz zum Vektor hat eine Matrix nun eine Orientierung, d. h. eine gewisse Anzahl Zeilen &amp; Spalten. Wir kennen die Methode <code class="docutils literal notranslate"><span class="pre">.shape</span></code> bereits zur Bestimmung der Form/Gestalt eines Arrays (Anzahl Zeilen &amp; Spalten).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tauscht man die Elemente einer Matrix über die Hauptdiagonale (Diagonale von oben links nach unten rechts), so kommt man zur <strong>Transponierten</strong> <span class="math notranslate nohighlight">\(A^\top\)</span> der Matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="c1"># alternativ: A.transpose() oder np.transpose(A)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 4],
+       [2, 5],
+       [3, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="rotationsmatrizen-drehmatrizen">
+<h3>3.1 Rotationsmatrizen (Drehmatrizen)<a class="headerlink" href="#rotationsmatrizen-drehmatrizen" title="Link to this heading">#</a></h3>
+<p>Eine sehr verbreitete Anwendung von Matrizen sind Transformationen, insbesondere Rotationen, die sehr elegant mit Rotationsmatrizen realisiert werden können:</p>
+<ul class="simple">
+<li><p>ein Vektor soll um einen bestimmten Winkel um eine bestimmte Achse gedreht werden oder</p></li>
+<li><p>eine Koordinatentransformation von einem Koordinatensystem in ein anderes soll durchgeführt werden</p></li>
+</ul>
+<section id="drehung-in-2d">
+<h4>3.1.1 Drehung in 2D<a class="headerlink" href="#drehung-in-2d" title="Link to this heading">#</a></h4>
+<p>In 2D gibt es nur eine Achse, um die gedreht werden kann, d. h. es gibt nur eine Rotationsmatrix. Die Rotationsmatrix kann ganz einfach hergeleitet werden, indem die Drehung der Basisvektoren betrachtet wird (siehe <a href=#anhang>Anhang</a>).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}R(\varphi)=\left[\begin{array}{cc}\cos(\varphi) &amp; -\sin(\varphi) \\ \sin(\varphi) &amp; \cos(\varphi)\end{array}\right]\end{split}\]</div>
+<blockquote>
+<div><p>Nebenbei: Ein zweidimensionaler Vektor weist eine grosse Ähnlichkeit zu einer komplexen Zahl <span class="math notranslate nohighlight">\(a + jb\)</span> auf. Stellt man eine komplexe Zahl in der komplexen Ebene dar, so erkennt man dies sofort. (Das Analoge zur Drehung eines Vektor ist bei den komplexen Zahlen die Multipliation mit <span class="math notranslate nohighlight">\(e^{j\varphi}\)</span>).</p>
+</div></blockquote>
+</section>
+<section id="drehung-in-3d">
+<h4>3.1.2 Drehung in 3D<a class="headerlink" href="#drehung-in-3d" title="Link to this heading">#</a></h4>
+<p>In 3D gibt es nun mehrere Rotationsmatrizen, da nun um beliebig viele Achsen gedreht werden kann. Üblicherweise ist das Koordinatensystem so ausgerichtet, dass die Drehung um eine der drei Achsen (x,y,z) erfolgt.</p>
+<p>Drehung um z-Achse:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}R_Z(\varphi)=\left[\begin{array}{ccc}\cos(\varphi) &amp; -\sin(\varphi) &amp; 0 \\ \sin(\varphi) &amp; \cos(\varphi) &amp; 0 \\ 0 &amp; 0 &amp; 1\end{array}\right]\end{split}\]</div>
+<p>Drehung um y-Achse:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}R_Y(\varphi)=\left[\begin{array}{ccc}\cos(\varphi) &amp; 0 &amp; \sin(\varphi) \\ 0 &amp; 1 &amp; 0 \\ -\sin(\varphi) &amp; 0 &amp; \cos(\varphi) \end{array}\right]\end{split}\]</div>
+<p>Drehung um x-Achse:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}R_X(\varphi)=\left[\begin{array}{ccc}1 &amp; 0 &amp; 0 \\ 0 &amp; \cos(\varphi) &amp; -\sin(\varphi) \\ 0 &amp; \sin(\varphi) &amp; \cos(\varphi)\end{array}\right]\end{split}\]</div>
+</section>
+</section>
+<section id="drehung-eines-vektors">
+<h3>3.2 Drehung eines Vektors<a class="headerlink" href="#drehung-eines-vektors" title="Link to this heading">#</a></h3>
+<p>Ein Vektor kann nun um die entsprechende Achse gedreht werden, indem die entsprechende Rotationsmatrix mit dem Vektor multipliziert wird (Matrixmultiplikation).</p>
+<div class="math notranslate nohighlight">
+\[\vec{p'}=R(\varphi)\cdot\vec{p}\]</div>
+<center><img src="img/vector_Rot_active.svg" width=40% /></center>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># 20° in Bogenmass umrechnen</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)],</span>  <span class="c1"># Drehmatrix</span>
+              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)]])</span>
+
+<span class="n">p_strich</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">p</span>  <span class="c1"># Matrixmultiplikation, alternativ: np.matmul(R, p)</span>
+<span class="n">p_strich</span>  <span class="c1"># gedrehter Vektor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.19534495, 2.56342553])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="koordinatentransformation">
+<h3>3.3 Koordinatentransformation<a class="headerlink" href="#koordinatentransformation" title="Link to this heading">#</a></h3>
+<p>Möchte man den Vektor <span class="math notranslate nohighlight">\(\vec{p}\)</span>, der im Koordinatensystem {xy} definiert ist, in einem gedrehten Koordinatensystem {x’y’} ausdrücken, so lässt sich dies ebenfalls mit der Drehmatrix erreichen. Dabei wird der Vektor allerdings nun mit der transponierten Drehmatrix multipliziert, was gleichbedeutend ist mit einer Drehung um den negativen Winkel.</p>
+<div class="math notranslate nohighlight">
+\[\vec{p'}=R(\varphi)^\top\cdot\vec{p}\]</div>
+<blockquote>
+<div><p>Anmerkung: Aufgrund der speziellen Form der Rotationsmatrizen entspricht die Transponierte der Rotationsmatrix gerade der Rotationsmatrix des negativen Drehwinkels (was ebenfalls der Inversen der Rotationsmatrix entspricht).</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[R(\varphi)^\top=R(-\varphi)=R(\varphi)^{-1}\]</div>
+<center><img src="img/vector_Rot_passive.svg" width=50% /></center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># Vektor im ursprünglichen Koordinatensystem</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># 20° in Bogenmass umrechnen</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)],</span>  <span class="c1"># Drehmatrix</span>
+              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)]])</span>
+
+<span class="n">p_strich</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">p</span>  <span class="c1"># alternativ: np.matmul(R.T, p)</span>
+<span class="n">p_strich</span>  <span class="c1"># Vektor in gedrehtem Koordinatensystem</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.56342553, 1.19534495])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="translation-verschiebung">
+<h3>3.4 Translation (Verschiebung)<a class="headerlink" href="#translation-verschiebung" title="Link to this heading">#</a></h3>
+<section id="verschiebung-eines-vektors">
+<h4>3.4.1 Verschiebung eines Vektors<a class="headerlink" href="#verschiebung-eines-vektors" title="Link to this heading">#</a></h4>
+<p>Bisher haben wir reine Drehungen angeschaut. Eine Verschiebung ist nichts anderes als eine Addition eines Translationsvektors <span class="math notranslate nohighlight">\(\vec{t}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\vec{p'}=\vec{p} + \vec{t}\]</div>
+<center><img src="img/vector_Trans_active.svg" width=50% /></center>
+<p>Zu beachten ist, dass wenn eine Verschiebung und eine Drehung nacheinander durchgeführt werden, die Reihenfolge entscheidend ist:</p>
+<ul class="simple">
+<li><p><strong>Verschiebung und dann Drehung</strong> $<span class="math notranslate nohighlight">\(\vec{p'}=R(\varphi)\cdot(\vec{p} + \vec{t})\)</span>$</p></li>
+<li><p><strong>Drehung und dann Verschiebung</strong> $<span class="math notranslate nohighlight">\(\vec{p'}=R(\varphi)\cdot\vec{p} + \vec{t}\)</span>$</p></li>
+</ul>
+</section>
+<section id="id1">
+<h4>3.4.2 Koordinatentransformation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Soll der Vektor <span class="math notranslate nohighlight">\(\vec{p}\)</span> in einem verschobenen Koordinatensystem {x’y’} ausgedrückt werden, so ist der Translationsvektor <span class="math notranslate nohighlight">\(\vec{t}\)</span> zu subtrahieren.</p>
+<div class="math notranslate nohighlight">
+\[\vec{p'}=\vec{p}-\vec{t}\]</div>
+<center><img src="img/vector_Trans_passive.svg" width=50% /></center>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># Vektor im ursprünglichen Koordinatensystem</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+<span class="n">p_strich</span> <span class="o">=</span> <span class="n">p</span> <span class="o">-</span> <span class="n">t</span>
+<span class="n">p_strich</span>  <span class="c1"># Vektor im verschobenen Koordinatensystem</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1. , 1.5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ist das neue Koordinatensystem {x’y’} gegenüber dem ursprünglichen sowohl verdreht als auch verschoben, so ist wiederum auf die korrekte Reihenfolge zu achten.</p>
+<center><img src="img/vector_RotTrans_passive.svg" width=50% /></center>
+<div class="math notranslate nohighlight">
+\[\vec{p'}=R(\varphi)^\top\cdot(\vec{p}-\vec{t})\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># Vektor im ursprunglichen Koordinatensystem</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)],</span>  <span class="c1"># Drehmatrix</span>
+              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)]])</span>
+
+<span class="n">p_strich</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>  <span class="c1"># alternativ: np.matmul(R.T, p-t)</span>
+<span class="n">p_strich</span>  <span class="c1"># Vektor im neuen Koordinatensystem</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.45272284, 1.06751879])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="anhang">
+<h2>4. Anhang<a class="headerlink" href="#anhang" title="Link to this heading">#</a></h2>
+<section id="herleitung-der-2d-drehmatrix">
+<h3>4.1 Herleitung der 2D-Drehmatrix <a name='anhang' /><a class="headerlink" href="#herleitung-der-2d-drehmatrix" title="Link to this heading">#</a></h3>
+<p>Für die Herleitung der 2D-Drehmatrix <span class="math notranslate nohighlight">\(R(\varphi)\)</span> betrachten wir die Drehung der Basisvektoren [1, 0] und [0, 1], d. h. der Einheitsvektoren in X-Richtung und Y-Richtung. Wie Sie wissen, kann jeder beliebige Vektor als Kombination dieser beiden Basisvektoren ausgedrückt werden, d. h. mit der Drehung der Basisvektoren kann auch jeder andere Vektor gedreht werden.</p>
+<section id="drehung-des-basisvektors-1-0">
+<h4>Drehung des Basisvektors [1, 0]<a class="headerlink" href="#drehung-des-basisvektors-1-0" title="Link to this heading">#</a></h4>
+<p>Die folgende Abbildung zeigt die Drehung des Basisvektors [1, 0] um den Winkel <span class="math notranslate nohighlight">\(\varphi\)</span>. Man erkennt, dass die Koordinaten des gedrehten Vektors <span class="math notranslate nohighlight">\(\cos(\varphi)\)</span> bzw. <span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> betragen.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[\begin{array}{c}\cos(\varphi) \\ \sin(\varphi)\end{array}\right]=R(\varphi) \cdot \left[\begin{array}{c}1 \\ 0\end{array}\right]\end{split}\]</div>
+<center><img src="img/vector_Rot_matrix10.svg" width=50% /></center>
+<p><span class="math notranslate nohighlight">\(R(\varphi)\)</span> kann kein Skalar oder Vektor sein, da damit bei der Multiplikation nicht der korrekte Ergebnisvektor resultieren würde. Dies ist nur möglich, wenn <span class="math notranslate nohighlight">\(R(\varphi)\)</span> eine Matrix ist. Von dieser kennen wir nun die erste Spalte:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}R(\varphi)=\left[\begin{array}{cc}\cos(\varphi) &amp; .. \\ \sin(\varphi) &amp; ..\end{array}\right]\end{split}\]</div>
+</section>
+<section id="drehung-des-basisvektors-0-1">
+<h4>Drehung des Basisvektors [0, 1]<a class="headerlink" href="#drehung-des-basisvektors-0-1" title="Link to this heading">#</a></h4>
+<p>Die folgende Abbildung zeigt die Drehung des Basisvektors [0, 1] um den Winkel <span class="math notranslate nohighlight">\(\varphi\)</span>. Man erkennt, dass die Koordinaten des gedrehten Vektors <span class="math notranslate nohighlight">\(-\sin(\varphi)\)</span> bzw. <span class="math notranslate nohighlight">\(\cos(\varphi)\)</span> betragen.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[\begin{array}{c}-\sin(\varphi) \\ \cos(\varphi)\end{array}\right]=R(\varphi) \cdot \left[\begin{array}{c}0 \\ 1\end{array}\right]\end{split}\]</div>
+<center><img src="img/vector_Rot_matrix01.svg" width=50% /></center>
+<p>Damit kennen wir auch die zweite Spalte der Rotationsmatrix. Man kann sich nun davon überzeugen, dass die Multiplikation mit dieser Matrix nichts anderes ist als eine Überlagerung (Summe) der beiden obigen Resultate von der Drehung der Basisvektoren.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}R(\varphi)=\left[\begin{array}{cc}\cos(\varphi) &amp; -\sin(\varphi) \\ \sin(\varphi) &amp; \cos(\varphi)\end{array}\right]\end{split}\]</div>
+<p>Damit wird klar, wie die Elemente der Rotationsmatrix bestimmt werden können und warum die Struktur resultiert, die wir in Abschnitt 3.1 kennengelernt haben. Für einen beliebigen Vektor <span class="math notranslate nohighlight">\(\vec{p}\)</span> mit den Komponenten <span class="math notranslate nohighlight">\(\left[\begin{array}{cc}p_x\\p_y\end{array}\right]\)</span> resultiert die folgende Matrixmultiplikation und der gedrehte Vektor <span class="math notranslate nohighlight">\(\vec{p'}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[\begin{array}{cc}\cos(\varphi) &amp; -\sin(\varphi) \\ \sin(\varphi) &amp; \cos(\varphi)\end{array}\right] \cdot \left[\begin{array}{cc} p_x \\ p_y\end{array}\right] = \left[\begin{array}{cc} p_x \cdot \cos(\varphi) - p_y \cdot \sin(\varphi)  \\ p_x \cdot \sin(\varphi) + p_y \cdot \cos(\varphi)\end{array}\right] = \vec{p'} = \left[\begin{array}{cc} p'_x \\ p'_y\end{array}\right]\end{split}\]</div>
+<p>Bei der Matrixmultiplikation wird für jede Zeile das Skalarprodukt der Zeile in <span class="math notranslate nohighlight">\(R\)</span> und dem Vektor <span class="math notranslate nohighlight">\(\vec{p}\)</span> gebildet, was die folgende Skizze illustriert.</p>
+<center><img src="img/matrix_Multiplication.svg" width=60% /></center>
+<center><img src="img/vector_Rot_matrixGeneral.svg" width=50% /></center>
+<p>Die Rotationsmatrix hat zwei spezielle Eigenschaften:</p>
+<ul class="simple">
+<li><p>Wenn wir in die negative Winkelrichtung drehen, also ein negativs <span class="math notranslate nohighlight">\(\varphi\)</span> einsetzen, ist dies gleichbedeutend mit der transponierten Drehmatrix des positiven Winkels.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[R(-\varphi)=R(\varphi)^\top\]</div>
+<ul class="simple">
+<li><p>Die Länge (Betrag) der Vektoren ändert sich bei der Drehung nicht, d. h. die Determinante der Drehmatrix ist immer 1. Damit ist die Inverse der Drehmatrix identisch mit der Transponierten.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[R(\varphi)^{-1}=R(\varphi)^\top\]</div>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Angewandte Mathematik | MAT_AGW | 2024</p></section>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./03_VEKTORRECHNUNG"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../02_MATPLOTLIB/11_MATPLOTLIB_Uebungen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Übungen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_VEKTORRECHNUNG_Unterricht.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unterrichtsbeispiel</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blockinhalt">Blockinhalt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voraussetzungen">Voraussetzungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-in-numpy">2. Vektor in NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vektoraddition-subtraktion">2.1 Vektoraddition &amp; -subtraktion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplikation">2.2 Multiplikation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#komponentenweise-multiplikation">2.2.1 Komponentenweise Multiplikation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalarprodukt">2.2.2 Skalarprodukt</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vektorprodukt">2.2.3 Vektorprodukt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-in-numpy">3. Matrix in NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotationsmatrizen-drehmatrizen">3.1 Rotationsmatrizen (Drehmatrizen)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-in-2d">3.1.1 Drehung in 2D</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-in-3d">3.1.2 Drehung in 3D</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-eines-vektors">3.2 Drehung eines Vektors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koordinatentransformation">3.3 Koordinatentransformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translation-verschiebung">3.4 Translation (Verschiebung)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verschiebung-eines-vektors">3.4.1 Verschiebung eines Vektors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.4.2 Koordinatentransformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anhang">4. Anhang</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herleitung-der-2d-drehmatrix">4.1 Herleitung der 2D-Drehmatrix <a name="anhang"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-des-basisvektors-1-0">Drehung des Basisvektors [1, 0]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#drehung-des-basisvektors-0-1">Drehung des Basisvektors [0, 1]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Threading &#8212; ABBTS PYT_G01</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_BASICS/9_0_Threads';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Anwendungen" href="../02_RGB_MATRIX/0_ABLAUF.html" />
+    <link rel="prev" title="8.3 Vererbung (Inheritance)" href="8_3_Vererbung.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_INTRO.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS PYT_G01 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS PYT_G01 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_INTRO.html">
+                    Modulübersicht
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_0_Einfuehrung_Inhalt.html">Grundlagen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_0_Variablen.html">1. Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="2_0_Datentypen.html">2. Datentypen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_1_Numerische_Datentypen.html">2.1 Numerische Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_0_Sequentielle_Datentypen.html">2.2 Sequentielle Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_1_Listen_Tupel.html">2.2.1 Listen &amp; Tupel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_2_Strings.html">2.2.2 Strings (Zeichenketten)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_3_Dictionaries.html">2.3 Mapping-Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_4_Mengen.html">2.4 Collection-Datentyp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3_0_Eingaben.html">3. Benutzerinteraktion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_1_GUI.html">3.1 GUI-Programmierung</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="4_0_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_0_Dateien_lesen_schreiben.html">5. File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_0_Funktionen.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_0_Exceptions.html">7. Error Handling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="8_0_Objektorientierte_Programmierung.html">8. Objektorientierte Programmierung (OOP)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_1_Methoden_Attribute.html">8.1 Methoden und Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_2_Datenkapselung.html">8.2 Datenkapselung &amp; Datenabstraktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_3_Vererbung.html">8.3 Vererbung (Inheritance)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Threading</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/0_ABLAUF.html">Anwendungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/1_EINFUEHRUNG.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/2_ANSTEUERUNG.html">2. Ansteuerung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/3_MATRIX.html">3. RGB-Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/4_STATISCHE_MUSTER.html">4. Statische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/5_DYNAMISCHE_MUSTER.html">5. Dynamische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/6_PNG2RGB.html">6. Muster anhand von Bildinformationen (PNG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/7_TXT2RGB.html">7. Muster anhand von Textinformationen (TXT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/8_PYGAME2RGB.html">8. Muster mit GUI steuern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/9_ZUSATZAUFGABEN.html">9. Zusatzaufgaben</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01/issues/new?title=Issue%20on%20page%20%2F01_BASICS/9_0_Threads.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01_BASICS/9_0_Threads.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9. Threading</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel">9.1 Beispiel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umsetzung-ohne-threads-seriell">9.1.1 Umsetzung ohne Threads (“seriell”)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umsetzung-mit-threads-parallel">9.1.2 Umsetzung mit Threads (“parallel”)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rgb-beispiel">9.2 RGB-Beispiel</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="threading">
+<h1>9. Threading<a class="headerlink" href="#threading" title="Link to this heading">#</a></h1>
+<p><img src="IMG/logo.png" /><br>
+<a class="reference internal" href="0_0_Einfuehrung_Inhalt.html"><span class="std std-doc">← Übersicht</span></a></p>
+<p>Unsere bisherigen Programme liefen immer in einem einzigen Thread (Ausführungsstrang), d.h. alles passierte nacheinander (“seriell”). Dies ist in vielen Fällen der Normalfall und absolut unproblematisch, doch es gibt Fälle, in denen man durch “Parallelisierung” (z.B. gleichzeitige Funktionsaufrufe, Berechnungen im Hintergrund etc.) das Programm massiv optimieren kann in Bezug auf die Laufzeit bzw. Effizienz. Für die “Parallelisierung” stehen in Python verschiedene Packages zur Verfügung:</p>
+<ul class="simple">
+<li><p><strong>asyncio</strong>: asynchrone Ausführung von I/O-Operationen in einem Thread (API-Requests, Datenbank-Zugriff, …)</p></li>
+<li><p><strong>threading</strong>: parallele Ausführung von Programmteilen in separaten <em>Threads</em></p></li>
+<li><p><strong>multiprocessing</strong>: parallel Ausführung von Programmteilen in separaten <em>Prozessen</em></p></li>
+</ul>
+<p>Wir werden von den oben erwähnten Möglichkeiten ausschliesslich das <strong>Threading</strong> anschauen. Allgemein wird durch einen Thread in der Informatik ein Ausführungsstrang oder eine Ausführungsreihenfolge in der Abarbeitung eines Programmes bezeichnet. In gewissem Sinne kann man Threads auch als eine Erweiterung des Funktions-Konzeptes einer Programmiersprache auffassen. Man kann einen Thread somit wie einen Funktionsaufruf oder Prozeduraufruf sehen, der sozusagen “parallel” zum Hauptstrang ausgeführt wird.</p>
+<p>Standardmässig besitzt jeder <strong>Prozess</strong> mindestens einen <strong>Thread</strong>. Ein Prozess kann mehrere Threads starten. Der Vorteil von Threads gegenüber Prozessen besteht darin, dass sich die Threads denselben Speicherbereich für globale Variablen teilen. Verändert ein Thread eine globale Variable, ist der neue Wert auch in dieser Variablen sofort für alle anderen Threads des Prozesses sichtbar. Ein Thread hat aber auch eigene lokale Variablen. Die Verwaltung von Threads ist für das Betriebssystem einfacher, weshalb Threads auch als Leichtgewichtprozesse bezeichnet werden. Der oben beschriebene Vorteil von Threads bringt aber gewisse Risiken mit sich. Vor allem wenn mehrere Threads gleichzeitig auf eine gemeinsame Ressource zugreifen, können schnell mühsam zu debuggende Probleme auftreten. Der Zugriff auf eine solche “gemeinsame” Ressource ist entsprechend zu kontrollieren.</p>
+<p>Mehr zum Thema <em>Threading</em> finden Sie hier:</p>
+<ul class="simple">
+<li><p><a href="https://www.python-kurs.eu/threads.php" target="_blank">Threads in Python</a></p></li>
+<li><p><a href="https://superfastpython.com/threading-in-python/" target="_blank">Python Threading: The Complete Guide</a></p></li>
+</ul>
+<p>Damit die Thematik fassbarer wird, folgt hier ein Einführungsbeispiel. Hierbei wird ebenfalls aufgezeigt, was passiert, wenn keine Threads eingesetzt werden. Studieren Sie das nachfolgende Beispiel mit den beiden Umsetzungen ohne und mit der Verwendung von Threads sehr genau. Danach sollte die Funktionalität der Threads und deren Implementation und Verwendung klar sein.</p>
+<section id="beispiel">
+<h2>9.1 Beispiel<a class="headerlink" href="#beispiel" title="Link to this heading">#</a></h2>
+<p>Nachfolgend definieren wir eine Funktion <code class="docutils literal notranslate"><span class="pre">do_work()</span></code>, welche nichts anderes tut als eine bestimmte Zeit zu warten. Diese soll eine aufwändige Tätigkeit (z.B. aufwändige Berechnung oder Herunterladen/Analysieren von Daten etc.) repräsentieren, die relativ viel Zeit benötigt und damit das Programm “ausbremsen” kann.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">do_work</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Aufruf </span><span class="si">{}</span><span class="s1"> gestartet&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># hier würde die ressourcenintensive Berechnung erfolgen</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Aufruf </span><span class="si">{}</span><span class="s1"> beendet&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="umsetzung-ohne-threads-seriell">
+<h3>9.1.1 Umsetzung ohne Threads (“seriell”)<a class="headerlink" href="#umsetzung-ohne-threads-seriell" title="Link to this heading">#</a></h3>
+<p>Stellen Sie sich eine Anwendung vor, in der die obige Funktion nun mehrmals ausgeführt werden muss. Dies erfolgt im nachfolgenden Beispiel, in dem die Funktion dreimal aufgerufen wird. In diesem Beispiel wird ohne Parallelisierung (ohne Threads) gearbeitet, d.h. die Aufrufe erfolgen nacheinander (seriell) und damit beträgt die gesamte Laufdauer ca. 3 x 3 s = 9 s. Folgend Abbildung zeigt die Ausführung schematisch.</p>
+<center>
+<img src="IMG/thread_single.jpg" width=75%/><br>
+<small>Quelle: https://docs.ultralytics.com/de/guides/yolo-thread-safe-inference/</small>
+</center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">do_work</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aufruf 1 gestartet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aufruf 1 beendet
+Aufruf 2 gestartet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aufruf 2 beendet
+Aufruf 3 gestartet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aufruf 3 beendet
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="umsetzung-mit-threads-parallel">
+<h3>9.1.2 Umsetzung mit Threads (“parallel”)<a class="headerlink" href="#umsetzung-mit-threads-parallel" title="Link to this heading">#</a></h3>
+<p>Eine massive Zeitersparnis kann erreicht werden, wenn die drei Aufrufe der Funktion nicht nacheinander, sondern parallel erfolgen. Dies können wir mit den bisher gelernten Kontrollstrukturen nicht umsetzen, da die bisherigen Programme immer in nur einem Thread (“seriell”) abliefen. Mit <strong>Threads</strong> können wir die Funktionalität in mehrere Threads “aufteilen”, welche “parallel” ablaufen. Die folgende Abbildung zeigt die Ausführung schematisch, wobei zu sehen ist, wie die Aufrufe nun “parallel” ablaufen.</p>
+<center>
+<img src="IMG/thread_multiple.jpg" width=50%/><br>
+<small>Quelle: https://docs.ultralytics.com/de/guides/yolo-thread-safe-inference/</small>
+</center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">do_work</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,))</span>  <span class="c1"># Übergabe der Funktion und der Argumente an Thread t</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># Starten des Threads</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aufruf 1 gestartet
+Aufruf 2 gestartet
+Aufruf 3 gestartet
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie man erkennt, werden die drei Aufrufe nun parallel gestartet und die Gesamtlaufzeit beträgt damit nur noch ca. 3 s.</p>
+</section>
+</section>
+<section id="rgb-beispiel">
+<h2>9.2 RGB-Beispiel<a class="headerlink" href="#rgb-beispiel" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Dieses Beispiel schauen Sie im Idealfall erst an, wenn Sie die Aufgaben im Teil II (RGB-Matrix) gemacht haben. Sonst ist es vermutlich nicht ohne Weiteres nachvollziehbar.</p>
+</div></blockquote>
+<p>Das obige Beispiel zeigt die Funktionsweise des Threadings anschaulich, doch nun wollen wir uns noch ein Beispiel anschauen, welches den praktischen Nutzen des Threadings besser illustriert. Dabei geht es darum, einzelne LEDs der RGB-Matrix mit unterschiedlichen Frequenzen blinken zu lassen.</p>
+<ul class="simple">
+<li><p>LED mit Zeilenindex 1 und Spaltenindex 2 soll mit 1 Hz rot blinken</p></li>
+<li><p>LED mit Zeilenindex 3 und Spaltenindex 4 soll mit 0.7 Hz grün blinken</p></li>
+<li><p>LED mit Zeilenindex 5 und Spaltenindex 6 soll mit 1.3 Hz blau blinken</p></li>
+</ul>
+<p>Überlegen Sie sich kurz, wie Sie diese Aufgabe ohne Threading lösen würden. Es ist durchaus möglich, diese Aufgabe ohne Threading zu lösen, doch Sie werden feststellen, dass Sie nicht einfach mit <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> die Blinkfrequenzen der drei LEDs unabhängig voneinander steuern können, da Sie sich gegenseitig blockieren. Speziell mühsam wird das Ganze, wenn die Frequenzen nicht Vielfache voneinander sind. Mithilfe des Threadings ist die Aufgabe deutlich einfacher umzusetzen.</p>
+<p>Als erstes erstellen wir eine Funktion <code class="docutils literal notranslate"><span class="pre">blinken()</span></code> mit den Argumenten <em>position</em>, <em>farbe</em>, <em>frequenz</em>, welche die LED in der gewünschten Frequenz und Farbe ein- und ausschaltet. Um Daten zwischen den parallel laufenden Threads austauschen zu können, verwenden wir hier der Einfachheit halber zwei globale Variablen <em>running</em> und <em>matrix</em>, um das Blinken zu stoppen bzw. die Daten für die RGB-Matrix zu übergeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">blinken</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">farbe</span><span class="p">,</span> <span class="n">frequenz</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">running</span><span class="p">,</span> <span class="n">matrix</span>
+    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+        <span class="n">matrix</span><span class="p">[</span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">farbe</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">((</span><span class="mi">1</span> <span class="o">/</span> <span class="n">frequenz</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">matrix</span><span class="p">[</span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">((</span><span class="mi">1</span> <span class="o">/</span> <span class="n">frequenz</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Möchte man die Aufgabe ohne Threading umsetzen, kann die obige Funktion nicht einfach gleichzeitig für die drei LEDs aufgerufen werden, da die Aufrufe sich gegenseitig blockieren würden. Mittels Threading können die Aufrufe dagegen in drei separaten Threads ausgeführt werden und somit parallel ablaufen. Mit den nachfolgenden Zeilen werden nun drei Aufrufe der Funktion <code class="docutils literal notranslate"><span class="pre">blinken()</span></code> in separaten Threads gestartet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">positionen</span><span class="p">,</span> <span class="n">farben</span><span class="p">,</span> <span class="n">frequenzen</span><span class="p">):</span>
+    <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">blinken</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">freq</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Diese Threads laufen nun parallel zum Hauptstrang und blockieren diesen bzw. einander nicht. Mit der globalen Variable <em>running</em> werden nach ca. 10 s die Threads gestoppt und das Programm endet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>(Nebenbei: Die Aufgabe könnte eleganter mittels OOP realisiert werden, wobei jede blinkende LED ein Objekt einer Blinker-Klasse wäre. Überlegen Sie sich, wie Sie die Aufgabe mittels OOP realisieren würden.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<span class="kn">from</span> <span class="nn">abbts_blp.rgb</span> <span class="kn">import</span> <span class="n">RgbFpga</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">positionen</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+    <span class="n">farben</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+    <span class="n">frequenzen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">]</span>
+
+    <span class="n">rgb</span> <span class="o">=</span> <span class="n">RgbFpga</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM5&#39;</span><span class="p">)</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">rgb</span><span class="o">.</span><span class="n">rgb_matrix</span>
+    <span class="n">rgb</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">positionen</span><span class="p">,</span> <span class="n">farben</span><span class="p">,</span> <span class="n">frequenzen</span><span class="p">):</span>
+        <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">blinken</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">freq</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">t_end</span><span class="p">:</span>
+        <span class="n">rgb</span><span class="o">.</span><span class="n">rgb_matrix</span> <span class="o">=</span> <span class="n">matrix</span>
+        <span class="n">rgb</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">rgb</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uart_open could not open port &#39;COM5&#39;: FileNotFoundError(2, &#39;Das System kann die angegebene Datei nicht finden.&#39;, None, 2)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">An</span> <span class="n">exception</span> <span class="n">has</span> <span class="n">occurred</span><span class="p">,</span> <span class="n">use</span> <span class="o">%</span><span class="k">tb</span> to see the full traceback.
+
+<span class="ne">SystemExit</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\User\Documents\ABBTS\venv\Lib\site-packages\IPython\core\interactiveshell.py:3585: UserWarning: To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.
+  warn(&quot;To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.&quot;, stacklevel=1)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Grundlagen Python | PYT_G01 | 2024</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01_BASICS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="8_3_Vererbung.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">8.3 Vererbung (Inheritance)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../02_RGB_MATRIX/0_ABLAUF.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Anwendungen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel">9.1 Beispiel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umsetzung-ohne-threads-seriell">9.1.1 Umsetzung ohne Threads (“seriell”)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umsetzung-mit-threads-parallel">9.1.2 Umsetzung mit Threads (“parallel”)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rgb-beispiel">9.2 RGB-Beispiel</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Anwendungen &#8212; ABBTS PYT_G01</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_RGB_MATRIX/0_ABLAUF';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Einführung" href="1_EINFUEHRUNG.html" />
+    <link rel="prev" title="9. Threading" href="../01_BASICS/9_0_Threads.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_INTRO.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS PYT_G01 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS PYT_G01 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_INTRO.html">
+                    Modulübersicht
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/0_0_Einfuehrung_Inhalt.html">Grundlagen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/1_0_Variablen.html">1. Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_BASICS/2_0_Datentypen.html">2. Datentypen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_1_Numerische_Datentypen.html">2.1 Numerische Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_2_0_Sequentielle_Datentypen.html">2.2 Sequentielle Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_2_1_Listen_Tupel.html">2.2.1 Listen &amp; Tupel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_2_2_Strings.html">2.2.2 Strings (Zeichenketten)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_3_Dictionaries.html">2.3 Mapping-Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/2_4_Mengen.html">2.4 Collection-Datentyp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_BASICS/3_0_Eingaben.html">3. Benutzerinteraktion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/3_1_GUI.html">3.1 GUI-Programmierung</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/4_0_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/5_0_Dateien_lesen_schreiben.html">5. File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/6_0_Funktionen.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/7_0_Exceptions.html">7. Error Handling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_BASICS/8_0_Objektorientierte_Programmierung.html">8. Objektorientierte Programmierung (OOP)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/8_1_Methoden_Attribute.html">8.1 Methoden und Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/8_2_Datenkapselung.html">8.2 Datenkapselung &amp; Datenabstraktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_BASICS/8_3_Vererbung.html">8.3 Vererbung (Inheritance)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_BASICS/9_0_Threads.html">9. Threading</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendung</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Anwendungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_EINFUEHRUNG.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_ANSTEUERUNG.html">2. Ansteuerung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_MATRIX.html">3. RGB-Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_STATISCHE_MUSTER.html">4. Statische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_DYNAMISCHE_MUSTER.html">5. Dynamische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_PNG2RGB.html">6. Muster anhand von Bildinformationen (PNG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_TXT2RGB.html">7. Muster anhand von Textinformationen (TXT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_PYGAME2RGB.html">8. Muster mit GUI steuern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_ZUSATZAUFGABEN.html">9. Zusatzaufgaben</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01/issues/new?title=Issue%20on%20page%20%2F02_RGB_MATRIX/0_ABLAUF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/02_RGB_MATRIX/0_ABLAUF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Anwendungen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">PyCharm</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#programmstruktur">Programmstruktur</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe">Aufgabe</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="anwendungen">
+<h1>Anwendungen<a class="headerlink" href="#anwendungen" title="Link to this heading">#</a></h1>
+<p><img src="IMG/logo.png" /><br>
+<a class="reference internal" href="../00_INTRO.html"><span class="std std-doc">← Modulübersicht</span></a></p>
+<p>Nachdem wir die relevanten Grundlagen erarbeitet haben, wollen wir Python nun an praxisorientierten Beispielen einsetzen, um die RGB-Matrix der BLP anzusteuern. Zuerst werden wir uns ein wenig mit der Schnittstelle (Interface) beschäftigen und dann den Fokus relativ rasch auf statische/dynamische LED-Muster legen.</p>
+<p><img alt="" src="../_images/RGB_Matrix_BLP.jpg" /></p>
+<blockquote>
+<div><p>Zwischen den Aufgaben werden wir immer wieder kleine Theorie-Inputs haben, wo wir das vorhandene Grundlagenwissen stetig erweitern. Individuelle Lücken sind individuell zu schliessen.</p>
+</div></blockquote>
+<p>Dieser Teil des Kurses ist wiederum in verschiedene Teile gegliedert, zu welchen jeweils ein Jupyter-Notebook existiert.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="1_EINFUEHRUNG.html"><span class="std std-doc">Einführung RGB-Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="2_ANSTEUERUNG.html"><span class="std std-doc">Ansteuerung</span></a></p></li>
+<li><p><a class="reference internal" href="3_MATRIX.html"><span class="std std-doc">Matrix als verschachtelte Liste</span></a></p></li>
+<li><p><a class="reference internal" href="4_STATISCHE_MUSTER.html"><span class="std std-doc">Statische Muster</span></a></p></li>
+<li><p><a class="reference internal" href="5_DYNAMISCHE_MUSTER.html"><span class="std std-doc">Dynamische Muster</span></a></p></li>
+<li><p><a class="reference internal" href="6_PNG2RGB.html"><span class="std std-doc">Muster anhand von Bildinformationen (PNG)</span></a></p></li>
+<li><p><a class="reference internal" href="7_TXT2RGB.html"><span class="std std-doc">Muster anhand von Textinformationen (TXT)</span></a></p></li>
+<li><p><a class="reference internal" href="8_PYGAME2RGB.html"><span class="std std-doc">Muster anhand GUI (<em>PyGame</em>)</span></a></p></li>
+<li><p><a class="reference internal" href="9_ZUSATZAUFGABEN.html"><span class="std std-doc">Zusatzaufgaben</span></a></p></li>
+</ol>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h2>
+<p>Wiederum liegen <strong>JupyterLab</strong>-Notebooks vor mit Theorieinputs und den Aufgabenstellungen. Die Umsetzung der Aufgaben sollten in <strong>PyCharm</strong> erfolgen, da wir dort mit sämtlichen Features einer modernen Entwicklungsumgebung (IDE) arbeiten können. Falls Sie bereits eine andere IDE (z. B. <strong>VS Code</strong>) verwenden, können Sie auch damit arbeiten.</p>
+<section id="pycharm">
+<h3>PyCharm<a class="headerlink" href="#pycharm" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.jetbrains.com/de-de/pycharm/">PyCharm</a> stellt alle nützlichen Features bereit, welche für die professionelle Softwareentwicklung (<em>Software Engineering</em>) benötigt werden. Wir werden lediglich einen Bruchteil davon kennenlernen, d. h. auch hier können Sie sich bei Interesse selbstständig weiter einarbeiten. Anfänglich erscheint PyCharm relativ komplex, doch wenn Sie zukünftig einmal ein grösseres Softwareprojekt realisieren, werden Sie die Möglichkeiten, die eine solche Entwicklungsumgebung (IDE) bietet, sehr schnell zu schätzen wissen.</p>
+<p><img alt="" src="../_images/pycharm_gui.png" /></p>
+<p>Wir werden die für uns relevanten Features von PyCharm im Unterricht schrittweise kennenlernen, doch an dieser Stelle soll das Wichtigste kurz angesprochen werden. Im Gegensatz zu JupyterLab haben wir es in Jupyterlab mit “reinen” Python-Files bzw. kompletten Python-Programmen zu tun, die nicht aus verschiedenen Teilen (Zellen) bestehen, die wahlweise ausgeführt werden können. Das komplette Python-Programm wird (von oben nach unten) ausgeführt.</p>
+<section id="debugging">
+<h4>Debugging<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h4>
+<p>PyCharm ist sehr hilfreich in Bezug auf das Finden/Beheben von Problemen beim Programmieren. Beim Programmieren prüft PyCharm das Programm ständig auf Fehler und zeigt dies oben rechts mit entsprechenden Icons an. Schwerwiegende Fehler (<em>errors</em>), z. B. Syntaxfehler, werden mit einem roten Ausrufezeichen angezeigt, Warnungen (<em>warnings</em> bzw. <em>weak warnings</em>) mit einem gelben Icon (Warnungen führen in der Regel nicht zu einem Programmabbruch, doch zeigen mögliche Probleme bzw. Verbesserungsmöglichkeiten auf). Klickt man auf eines dieser Icons, so erscheinen im unteren Fensterbereich detailiertere Informationen. Ein grünes Häkchen zeigt, dass keine Fehler/Warnungen vorliegen.</p>
+<p>Ein Programm wir in PyCharm mit dem <strong>Run-Icon</strong> (grüner Pfeil) bzw. Rechtsklick → Run ‘…’ oder [Shift] + [F10] ausgeführt und läuft dann (falls keine Fehler auftreten) komplett durch. Im Falle von Laufzeitfehlern erscheint in der Konsole die Fehlermeldung und in der Regel kann dieser entnommen werden, wo der Fehler aufgetreten ist (z. B. in welcher Codezeile bzw. in welcher Funktion etc.).</p>
+<p>Möchte man den Programmablauf an einer bestimmten Stelle anhalten/pausieren, um z. B. den Wert von gewissen Variablen zu prüfen, so ist der Debug-Modus extrem hilfreich. Dieser wird mit dem <strong>Debug-Icon</strong> (Käfer-Symbol) gestartet, wobei vorgängig durch Klick auf eine Zeilennummer ein <strong>Breakpoint</strong> (roter Punkt) gesetzt werden kann. Das Programm pausiert dann bei diesem Breakpoint und im unteren Fensterbereich erscheinen Debug-Werkzeuge.</p>
+<p><img alt="" src="../_images/pycharm_debug.png" /></p>
+<p>Einerseits werden sämtliche Variablen mit den aktuellen Werten aufgelistet und andererseits kann man mit den entsprechenden Steuerelementen schrittweise das Programm durchgehen, um z. B. Variablenveränderungen in einer Schleife etc. ganz konkret zu kontrollieren. Bei komplexeren Programmen ist dies sehr wertvoll, da man ansonsten sehr viele <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Anweisungen etc. bräuchte, um sämtliche Werte von Variablen in der Konsole auszugeben.</p>
+</section>
+<section id="programmstruktur">
+<h4>Programmstruktur<a class="headerlink" href="#programmstruktur" title="Link to this heading">#</a></h4>
+<p>Ein typisches Python-File ist so aufgebaut wie das folgende Code-Snippet. Halten Sie sich nach Möglichkeit an diese Struktur.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">...</span>
+
+<span class="c1"># Konstanten etc.</span>
+<span class="o">...</span>
+
+
+<span class="c1"># Funktionsdefinitionen</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>  
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="o">...</span>
+
+
+<span class="c1"># Hauptteil</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="o">...</span>
+    
+</pre></div>
+</div>
+<p>Im Folgenden wollen wir uns kurz mit dem obigen <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement befassen, da dieses evtl. etwas merkwürdig erscheint. Wie oben ersichtlich ist, beinhaltet dieses im Allgemeinen den Hauptteil unseres Programms. Was ist der Grund für dieses Konstrukt? Um diese Frage beantworten zu können, überlegen wir uns kurz, wie unser Python-Programm verwendet bzw. ausgeführt wird.</p>
+<ul class="simple">
+<li><p><strong>Ausführung als Hauptprogramm (Applikation)</strong><br>
+Wenn das Programm direkt ausgeführt wird (z. B. in PyCharm wie oben beschrieben), so läuft es als Hauptprogramm ab. Bei der Ausführung als Hauptprogramm wird im Hintergrund automatisch eine Variable <code class="docutils literal notranslate"><span class="pre">__main__</span></code> erstellt (eine sogenannte <em>special variable</em> oder <em>dunder variable</em>, wobei <em>dunder</em> für <em>double underscore</em> steht), welche den Wert <code class="docutils literal notranslate"><span class="pre">'__main__'</span></code> erhält. Das <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement ist also <em>wahr</em>, d. h. hat keine Wirkung.  Wir hätten das Programm also auch ohne das <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code>-Statement schreiben können und es hätte genau gleich funktioniert (wie Sie es vermutlich gemacht hätten bis jetzt).</p></li>
+<li><p><strong>Ausführung als Modul</strong><br>
+Unser Python-File kann aber nicht nur als Hauptprogramm ausgeführt bzw. verwendet werden, sondern auch als Modul in einem anderen Python-Programm. Nehmen Sie z. B. einmal an, Sie möchten die oben definierte Funktion <code class="docutils literal notranslate"><span class="pre">my_function()</span></code> in einem anderen Python-File verwenden und importieren dazu das obige File. Ohne das <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code>-Statement würde beim Import nun das gesamte Programm ausgeführt werden, doch Sie möchten eigentlich nur die Funktion daraus verwenden. Dies lässt sich mittels des <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code>-Statements nun elegant lösen, denn beim Import erhält die <code class="docutils literal notranslate"><span class="pre">__main__</span></code>-Variable (im importierten File) nun nicht den Wert <code class="docutils literal notranslate"><span class="pre">'__main__'</span></code>, sondern den Modulnamen (Filenamen). Damit ist das <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement <em>falsch</em> und der Code darin wird nicht ausgeführt (die Funktion <code class="docutils literal notranslate"><span class="pre">my_function()</span></code> kann aber problemlos verwendet werden, da diese nicht innerhalb des <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statements definiert wurde).</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="aufgabe">
+<h2>Aufgabe<a class="headerlink" href="#aufgabe" title="Link to this heading">#</a></h2>
+<p>Um PyCharm und die oben besprochene Programmstruktur etwas einzuüben, ist folgende Aufgabe nützlich.</p>
+<ol class="arabic simple">
+<li><p>Erstellen Sie ein Python-File <code class="docutils literal notranslate"><span class="pre">helper.py</span></code>, in welchem eine Funktion <code class="docutils literal notranslate"><span class="pre">roll_dice()</span></code> definiert wird, welche den Wurf eines fairen Würfels simuliert, d. h. zufällig eine Zahl zwischen 1 und 6 zurückgibt. (Tipp: Für Zufallszahlen ist das Paket <code class="docutils literal notranslate"><span class="pre">random</span></code> nützlich.). Zum Testen der Funktion rufen Sie diese im Hauptteil (innerhalb des <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">...</span></code>-Statements) auf und geben die Zahl in der Konsole aus.</p></li>
+<li><p>Erstellen Sie nun ein Python-File mit einem Namen Ihrer Wahl und importieren Sie das obige File via <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">helper</span></code>. Auf die Funktion können wir nun zugreifen mit <code class="docutils literal notranslate"><span class="pre">helper.roll_dice()</span></code>. (Alternativ hätten wir die Funktion auch direkt importieren können via <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">helper</span> <span class="pre">import</span> <span class="pre">roll_dice</span></code>.) Rufen Sie die Funktion in einer Schleife 100 mal auf und zählen Sie in geeigneter Weise, wie oft jede Zahl gewürfelt wurde. Geben Sie das Ergebnis in tabellarischer Form aus, z. B. folgendermassen:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">:</span> <span class="mi">17</span><span class="n">x</span>
+<span class="mi">2</span><span class="p">:</span> <span class="mi">15</span><span class="n">x</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Gehen Sie im Debug-Modus durch einige Iterationen der Schleife und betrachten Sie im Debug-Fenster, wie sich die entsprechenden Variablen laufend verändern.</p></li>
+<li><p>Erklären Sie, was passieren würde, wenn das <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">...</span></code>-Statement im <code class="docutils literal notranslate"><span class="pre">helper.py</span></code>-File nicht verwendet worden wäre.</p></li>
+</ol>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Grundlagen Python | PYT_G01 | 2024</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./02_RGB_MATRIX"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../01_BASICS/9_0_Threads.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">9. Threading</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_EINFUEHRUNG.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1. Einführung</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">PyCharm</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#programmstruktur">Programmstruktur</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe">Aufgabe</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,3 +1,0 @@
-Hallo
-Ich bin ein mehrzeiliger String und
-werde in eine Textdatei geschrieben.

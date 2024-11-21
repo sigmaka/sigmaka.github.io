@@ -1,0 +1,757 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Datentypen &#8212; ABBTS PYT_G01</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_BASICS/2_0_Datentypen';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.1 Numerische Datentypen" href="2_1_Numerische_Datentypen.html" />
+    <link rel="prev" title="1. Variablen" href="1_0_Variablen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_INTRO.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ABBTS PYT_G01 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ABBTS PYT_G01 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_INTRO.html">
+                    Modulübersicht
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grundlagen</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_0_Einfuehrung_Inhalt.html">Grundlagen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_0_Variablen.html">1. Variablen</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Datentypen</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_1_Numerische_Datentypen.html">2.1 Numerische Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_0_Sequentielle_Datentypen.html">2.2 Sequentielle Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_1_Listen_Tupel.html">2.2.1 Listen &amp; Tupel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_2_Strings.html">2.2.2 Strings (Zeichenketten)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_3_Dictionaries.html">2.3 Mapping-Datentyp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_4_Mengen.html">2.4 Collection-Datentyp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3_0_Eingaben.html">3. Benutzerinteraktion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_1_GUI.html">3.1 GUI-Programmierung</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="4_0_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_0_Dateien_lesen_schreiben.html">5. File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_0_Funktionen.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_0_Exceptions.html">7. Error Handling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="8_0_Objektorientierte_Programmierung.html">8. Objektorientierte Programmierung (OOP)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_1_Methoden_Attribute.html">8.1 Methoden und Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_2_Datenkapselung.html">8.2 Datenkapselung &amp; Datenabstraktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_3_Vererbung.html">8.3 Vererbung (Inheritance)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="9_0_Threads.html">9. Threading</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/0_ABLAUF.html">Anwendungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/1_EINFUEHRUNG.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/2_ANSTEUERUNG.html">2. Ansteuerung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/3_MATRIX.html">3. RGB-Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/4_STATISCHE_MUSTER.html">4. Statische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/5_DYNAMISCHE_MUSTER.html">5. Dynamische Muster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/6_PNG2RGB.html">6. Muster anhand von Bildinformationen (PNG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/7_TXT2RGB.html">7. Muster anhand von Textinformationen (TXT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/8_PYGAME2RGB.html">8. Muster mit GUI steuern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_RGB_MATRIX/9_ZUSATZAUFGABEN.html">9. Zusatzaufgaben</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sigmaka/PYT_G01/issues/new?title=Issue%20on%20page%20%2F01_BASICS/2_0_Datentypen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01_BASICS/2_0_Datentypen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2. Datentypen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-datentypen"><span class="xref myst">Numerische Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentielle-datentypen"><span class="xref myst">Sequentielle Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-datentypen"><span class="xref myst">Mapping-Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-datentypen"><span class="xref myst">Collection-Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-ermitteln-und-umwandeln">Datentyp ermitteln und umwandeln</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="datentypen">
+<h1>2. Datentypen<a class="headerlink" href="#datentypen" title="Link to this heading">#</a></h1>
+<p><img src="IMG/logo.png" /><br>
+<a class="reference internal" href="0_0_Einfuehrung_Inhalt.html"><span class="std std-doc">← Übersicht</span></a></p>
+<p>Wie in anderen Programmiersprachen stehen in Python verschiedene Datentypen zur Verfügung. Nachfolgend ist eine Übersicht über die unterschiedlichen Datentypen gegeben. In den einzelnen Kapiteln wird im Detail auf diese eingegangen.</p>
+<section id="numerische-datentypen">
+<h2><a class="reference internal" href="2_1_Numerische_Datentypen.html"><span class="std std-doc">Numerische Datentypen</span></a><a class="headerlink" href="#numerische-datentypen" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Datentyp</p></th>
+<th class="head text-left"><p>(Englisch)</p></th>
+<th class="head text-left"><p>Typ-Kennzeichnung</p></th>
+<th class="head text-left"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Ganzzahl</p></td>
+<td class="text-left"><p>(integer)</p></td>
+<td class="text-left"><p><strong>int</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Fliesskommazahl</p></td>
+<td class="text-left"><p>(floating point)</p></td>
+<td class="text-left"><p><strong>float</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1.23</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Komplexe Zahl</p></td>
+<td class="text-left"><p>(complex number)</p></td>
+<td class="text-left"><p><strong>complex</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">+</span> <span class="pre">4.5j</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Boolesche Variable</p></td>
+<td class="text-left"><p>(boolean)</p></td>
+<td class="text-left"><p><strong>bool</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sequentielle-datentypen">
+<h2><a class="reference internal" href="2_2_0_Sequentielle_Datentypen.html"><span class="std std-doc">Sequentielle Datentypen</span></a><a class="headerlink" href="#sequentielle-datentypen" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Datentyp</p></th>
+<th class="head text-left"><p>(Englisch)</p></th>
+<th class="head text-left"><p>Typ-Kennzeichnung</p></th>
+<th class="head text-left"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Zeichenkette</p></td>
+<td class="text-left"><p>(string)</p></td>
+<td class="text-left"><p><strong>str</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">'Hello</span> <span class="pre">World'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Liste</p></td>
+<td class="text-left"><p>(list)</p></td>
+<td class="text-left"><p><strong>list</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3.5,</span> <span class="pre">'Name']</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Tupel</p></td>
+<td class="text-left"><p>(tuple)</p></td>
+<td class="text-left"><p><strong>tuple</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">True,</span> <span class="pre">'Python')</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mapping-datentypen">
+<h2><a class="reference internal" href="2_3_Dictionaries.html"><span class="std std-doc">Mapping-Datentypen</span></a><a class="headerlink" href="#mapping-datentypen" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Datentyp</p></th>
+<th class="head text-left"><p>(Englisch)</p></th>
+<th class="head text-left"><p>Typ-Kennzeichnung</p></th>
+<th class="head text-left"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Dictionary</p></td>
+<td class="text-left"><p>(dictionary)</p></td>
+<td class="text-left"><p><strong>dict</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">{'Name':</span> <span class="pre">John,</span> <span class="pre">'Age':</span> <span class="pre">43}</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="collection-datentypen">
+<h2><a class="reference internal" href="2_4_Mengen.html"><span class="std std-doc">Collection-Datentypen</span></a><a class="headerlink" href="#collection-datentypen" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Datentyp</p></th>
+<th class="head text-left"><p>(Englisch)</p></th>
+<th class="head text-left"><p>Typ-Kennzeichnung</p></th>
+<th class="head text-left"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Menge</p></td>
+<td class="text-left"><p>(set)</p></td>
+<td class="text-left"><p><strong>set</strong></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">'Hello',</span> <span class="pre">'World'}</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Ganzzahl (Integer)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">3.75</span>  <span class="c1"># Fliesskommazahl (Floating-Point)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="n">j</span>  <span class="c1"># Komplexe Zahl</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Boolesche Variable</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ich bin ein String&#39;</span>  <span class="c1"># Zeichenkette String</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.67</span><span class="p">,</span> <span class="s1">&#39;Liste&#39;</span><span class="p">]</span>  <span class="c1"># Liste</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.67</span><span class="p">,</span> <span class="s1">&#39;Tupel&#39;</span><span class="p">)</span>  <span class="c1"># Tupel</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Kp&#39;</span><span class="p">:</span> <span class="mf">2.45</span><span class="p">,</span> <span class="s1">&#39;Ti&#39;</span><span class="p">:</span> <span class="mf">0.34</span><span class="p">,</span> <span class="s1">&#39;Td&#39;</span><span class="p">:</span> <span class="mf">0.21</span><span class="p">}</span>  <span class="c1"># Dictionary</span>
+<span class="n">m</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="s1">&#39;1.25&#39;</span><span class="p">}</span>  <span class="c1"># Menge</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y: &#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;z: &#39;</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b: &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s: &#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;l: &#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t: &#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;d: &#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;m: &#39;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i:  3 &lt;class &#39;int&#39;&gt;
+y:  3.75 &lt;class &#39;float&#39;&gt;
+z:  (3+5j) &lt;class &#39;complex&#39;&gt;
+b:  True &lt;class &#39;bool&#39;&gt;
+s:  Ich bin ein String &lt;class &#39;str&#39;&gt;
+l:  [3, 4.67, &#39;Liste&#39;] &lt;class &#39;list&#39;&gt;
+t:  (3, 4.67, &#39;Tupel&#39;) &lt;class &#39;tuple&#39;&gt;
+d:  {&#39;Kp&#39;: 2.45, &#39;Ti&#39;: 0.34, &#39;Td&#39;: 0.21} &lt;class &#39;dict&#39;&gt;
+m:  {1, 2, 3.5, &#39;1.25&#39;} &lt;class &#39;set&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datentyp-ermitteln-und-umwandeln">
+<h2>Datentyp ermitteln und umwandeln<a class="headerlink" href="#datentyp-ermitteln-und-umwandeln" title="Link to this heading">#</a></h2>
+<p>Wie bereits in den früheren Beispielen ersichtlich war, kann der Datentyp über die Funktion <code class="docutils literal notranslate"><span class="pre">type()</span></code> ermittelt werden. Eine weitere Möglichkeit dies zu tun, erlaubt die Funktion <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>, welche einen Wahrheitswert <em>True</em> oder <em>False</em> zurückgibt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>  <span class="c1"># Ist y eine Fliesskommazahl?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Datentyp einer Variable kann in einen andern Datentyp umgewandelt werden. Nützliche Funktionen dafür sind <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">float()</span></code>, <code class="docutils literal notranslate"><span class="pre">bool()</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code>, <code class="docutils literal notranslate"><span class="pre">list()</span></code>, <code class="docutils literal notranslate"><span class="pre">dict()</span></code>, etc. Natürlich sind nur “sinnvolle” Umwandlungen möglich (z. B. kann der String <em>“Hallo”</em> nicht in eine Zahl umgewandelt werden, der String <em>“1234”</em> jedoch problemlos).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wert &amp; Datentyp von y:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># Umwandeln in Ganzzahl (Integer)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wert &amp; Datentyp von y:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wert &amp; Datentyp von y: 3.75 &lt;class &#39;float&#39;&gt;
+Wert &amp; Datentyp von y: 3 &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># Umwandeln in String</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wert &amp; Datentyp von y:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wert &amp; Datentyp von y: 3 &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p style='text-align: right; font-size: 70%;'>Grundlagen Python | PYT_G01 | 2024</p></section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01_BASICS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_0_Variablen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1. Variablen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_1_Numerische_Datentypen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.1 Numerische Datentypen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-datentypen"><span class="xref myst">Numerische Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentielle-datentypen"><span class="xref myst">Sequentielle Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-datentypen"><span class="xref myst">Mapping-Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection-datentypen"><span class="xref myst">Collection-Datentypen</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-ermitteln-und-umwandeln">Datentyp ermitteln und umwandeln</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Krauss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
