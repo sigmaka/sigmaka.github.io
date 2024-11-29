@@ -429,7 +429,7 @@ document.write(`
 <h1>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h1>
 <p><img src="../01_NUMPY/img/logo.png" width="100%"/><br>
 <a class="reference internal" href="01_FFT.html"><span class="std std-doc">← Einführung</span></a></p>
-<p>Der Ablauf der Berechnung des Frequenzspektrums ist immer gleich, d. h. er kann gemäss den folgenden Schritten durchgeführt werden:</p>
+<p>Der Ablauf der Berechnung des Frequenzspektrums ist immer gleich, d. h. die folgenden Schritte werden jeweils durchgeführt:</p>
 <ol class="arabic simple">
 <li><p>Zeitsignal <code class="docutils literal notranslate"><span class="pre">y</span></code> bereitstellen und Abtastfrequenz <code class="docutils literal notranslate"><span class="pre">fs</span></code> bzw. Sampleanzahl <code class="docutils literal notranslate"><span class="pre">N</span></code> bestimmen</p></li>
 <li><p>Fensterfunktion anwenden:</p>
@@ -447,6 +447,9 @@ document.write(`
 <li><p>Frequenzachse erzeugen mittels <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">fft.rfftfreq(N,</span> <span class="pre">1/fs)</span></code></p></li>
 <li><p>Amplitudenspektrum grafisch darstellen</p></li>
 </ol>
+<blockquote>
+<div><p>Möchte man keine Fensterfunktion verwenden, den obigen Workflow aber gleich lassen, so kann das Fenster <code class="docutils literal notranslate"><span class="pre">boxcar</span></code> verwendet werden (gleichbedeutend mit keiner Fensterung).</p>
+</div></blockquote>
 <hr class="docutils" />
 <section id="beispiel">
 <h2>Beispiel<a class="headerlink" href="#beispiel" title="Link to this heading">#</a></h2>
@@ -468,7 +471,7 @@ document.write(`
 <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Zeitschritte</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Messignal</span>
 <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>  <span class="c1"># Sampleanzahl</span>
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Abtastfrequenz</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Abtastfrequenz (alternativ: fs = 1 / np.diff(t)[0])</span>
 </pre></div>
 </div>
 </div>
@@ -512,22 +515,23 @@ document.write(`
 <h3>5. Spektrum darstellen<a class="headerlink" href="#spektrum-darstellen" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_w</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fensterung&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit $t$ [s]&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$ [V]&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Signal $y$ [V]&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;r.-&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;r.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spektrum&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz $f$ [Hz]&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitudenspektrum $\mid Y \mid$ [V]&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude $A$ [V]&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/209ab1c661e5844b0f4026f79251a674821fb188e1be52de1370c379561919a1.png" src="../_images/209ab1c661e5844b0f4026f79251a674821fb188e1be52de1370c379561919a1.png" />
+<img alt="../_images/20cf7363d3945965c619402aafc0ec1932f27ffe3b13cc34a3c0efaf17779940.png" src="../_images/20cf7363d3945965c619402aafc0ec1932f27ffe3b13cc34a3c0efaf17779940.png" />
 </div>
 </div>
 <hr class="docutils" />

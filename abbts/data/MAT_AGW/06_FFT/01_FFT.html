@@ -413,9 +413,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlagen">2. Grundlagen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourierreihe">2.1 Fourierreihe</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-sinus-kosinus-form">Fouriereihe (Sinus-Kosinus-Form)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-amplituden-phasen-form">Fouriereihe (Amplituden-Phasen-Form)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-exponentialform">Fouriereihe (Exponentialform)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-in-sinus-kosinus-form">Fouriereihe in Sinus-Kosinus-Form</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-in-amplituden-phasen-form">Fouriereihe in Amplituden-Phasen-Form</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-in-exponentialform">Fouriereihe in Exponentialform</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskrete-fouriertransformation-dft">2.2 Diskrete Fouriertransformation (DFT)</a></li>
@@ -426,10 +426,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-umsetzung">3. Praktische Umsetzung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequenzauflosung-und-max-frequenz">3.1 Frequenzauflösung und max. Frequenz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequenzauflosung-und-maximale-frequenz">3.1 Frequenzauflösung und maximale Frequenz</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodizitat-bzw-fensterfunktionen">3.2 Periodizität bzw. Fensterfunktionen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampleanzahl-anzahl-stutzstellen">3.3 Sampleanzahl (Anzahl Stützstellen)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-shannon-abtasttheorem">3.4 Nyquist-Shannon-Abtasttheorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampleanzahl">3.3 Sampleanzahl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abtasttheorem">3.4 Abtasttheorem</a></li>
 </ul>
 </li>
 </ul>
@@ -450,7 +450,7 @@ document.write(`
 <center>
     <img src="img/fft.svg" width=100%/>
 </center>
-<p>Die Frequenzanalyse ist ein sehr wichtiges Werkzeug in der Signalverarbeitung/Messtechnik, mit dem untersucht werden kann, welche <strong>Frequenzanteile</strong> wie stark in einem Signal vertreten sind. Die Fouriertransformation bildet dabei das Kernstück. Diese werden wir im Folgenden schrittweise kennenlernen, wobei zum einen das theoretische Hintergrundwissen und zum andern die praktische Anwendung relevant sein werden. Für die Umsetzung in Python werden wir das Paket <a class="reference internal" href="../05_SCIPY/01_SCIPY.html"><span class="std std-doc">SciPy</span></a> verwenden, welches bereits bekannt ist.</p>
+<p>Die Frequenzanalyse ist ein sehr wichtiges Werkzeug in der Signalverarbeitung/Messtechnik, mit dem untersucht werden kann, welche <strong>Frequenzanteile</strong> wie stark in einem Signal vertreten sind. Die <strong>Fouriertransformation</strong> bildet dabei das Kernstück. Diese werden wir im Folgenden schrittweise kennenlernen, wobei zum einen das theoretische Hintergrundwissen und zum andern die praktische Anwendung relevant sein werden. Für die Umsetzung in Python werden wir das Paket <a class="reference internal" href="../05_SCIPY/01_SCIPY.html"><span class="std std-doc">SciPy</span></a> verwenden, welches bereits bekannt ist.</p>
 <hr class="docutils" />
 <section id="blockinhalt">
 <h2>Blockinhalt<a class="headerlink" href="#blockinhalt" title="Link to this heading">#</a></h2>
@@ -465,12 +465,18 @@ document.write(`
 <hr class="docutils" />
 <section id="voraussetzungen">
 <h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">#</a></h2>
-<p>Wir werden die theoretischen Grundlagen der Fourierreihe bzw. -tranformation relativ zügig durchgehen, da die praktische Umsetzung im Vordergrund steht. Da Kosinus- bzw. Sinusschwingungen die Grundlage der Fouriertransformation darstellen, wird die Darstellung einer Kosinus- bzw. Sinusschwingung im Zeitbereich, z. B. in der Form <span class="math notranslate nohighlight">\(\hat y\cdot\sin(\omega t)\)</span> bzw. in der komplexen Ebene, z. B. in der Form <span class="math notranslate nohighlight">\(\hat y\cdot e^{i\omega t}\)</span> als bekannt vorausgesetzt. Die zweite Form (komplexer Zeiger) werden wir nicht aktiv verwenden, doch es hilft für das Verständnis enorm, wenn man sich im Klaren ist, dass eine Schwingung auf verschiedene Arten dargestellt werden kann und beide Darstellungsarten gewisse Vor- und Nachteile haben. Im Weiteren sollte klar sein, dass im Zusammenhang mit Schwingungen die Kreisfrequenz <span class="math notranslate nohighlight">\(\omega\)</span> [rad/s] alternativ zur “normalen” Frequenz <span class="math notranslate nohighlight">\(f\)</span> [Hz] verwendet werden kann und die beiden folgendermassen zusammenhängen <span class="math notranslate nohighlight">\(\omega = 2 \pi f\)</span>.</p>
+<p>Wir werden die theoretischen Grundlagen der Fourierreihe bzw. -tranformation relativ zügig durchgehen, da die praktische Umsetzung im Vordergrund steht. Da Kosinus- bzw. Sinusschwingungen die Grundlage der Fouriertransformation darstellen, wird die Darstellung einer Kosinus- bzw. Sinusschwingung im Zeitbereich, z. B. in der Form <span class="math notranslate nohighlight">\(y(t) = \hat y\cdot\cos(\omega t + \varphi)\)</span> bzw. <span class="math notranslate nohighlight">\(y(t) = \hat y\cdot\sin(\omega t + \varphi)\)</span> als bekannt vorausgesetzt. Die Begriffe <em>Amplitude</em>, <em>Frequenz</em> bzw. <em>Kreisfrequenz</em> sowie <em>Phasenverschiebung</em> sollten klar sein.</p>
+<center>
+    <img src="img/Sine.svg" />
+</center>
+<p>Sie sollten sich im Klaren sein, dass sich die Sinus- und die Kosinusfunktion nur durch eine Phasenverschiebung unterscheiden. Im Weiteren sollte bekannt sein, dass im Zusammenhang mit Schwingungen die Kreisfrequenz <span class="math notranslate nohighlight">\(\omega\)</span> [rad/s] alternativ zur “normalen” Frequenz <span class="math notranslate nohighlight">\(f\)</span> [Hz] verwendet werden kann und die beiden folgendermassen zusammenhängen:</p>
+<div class="math notranslate nohighlight">
+\[\omega = 2 \pi f\]</div>
 </section>
 <hr class="docutils" />
 <section id="motivation">
 <h2>1. Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
-<p>In vielen technischen Problemstellungen treten Signale auf, welche unterschiedliche Frequenzanteile enthalten und bei der Analyse geht es u.a. um die Frage, aus welchen Frequenzanteilen das Signal aufgebaut ist und welche Frequenzanteile wie stark ausgeprägt sind (Frequenzanalyse, auch Fourieranalyse oder harmonische Analyse genannt). In der Technik ist die Frequenzanalyse überall anzutreffen, wobei für uns die <em>Messtechnik</em> im Vordergrund steht.</p>
+<p>In vielen technischen Problemstellungen treten Signale auf, welche unterschiedliche Frequenzanteile enthalten und bei der Analyse geht es u. a. um die Frage, welche Frequenzanteile wie stark ausgeprägt sind (Frequenzanalyse, auch Fourieranalyse oder harmonische Analyse genannt). In der Technik ist die Frequenzanalyse in unzähligen Gebieten anzutreffen, wobei für uns die <em>Messtechnik</em> im Vordergrund steht.</p>
 <ul class="simple">
 <li><p>Messtechnik (Schwingungen, akustische bzw. optische/bildgebende Verfahren)</p></li>
 <li><p>Datenkompression (Ton, Bild, Video etc.)</p></li>
@@ -483,66 +489,73 @@ document.write(`
 <h2>2. Grundlagen<a class="headerlink" href="#grundlagen" title="Link to this heading">#</a></h2>
 <section id="fourierreihe">
 <h3>2.1 Fourierreihe<a class="headerlink" href="#fourierreihe" title="Link to this heading">#</a></h3>
-<p>Gemäss <em>Fourier</em> kann jedes beliebige periodische Zeitsignal <span class="math notranslate nohighlight">\(f(t)\)</span> als Summe von unendlich vielen Sinus- und Kosinusschwingungen repräsentiert werden (Fourierreihe). Wie wir später sehen werden, besteht das Ziel der Fouriertransformation im Wesentlichen darin, die Koeffizienten (Amplituden und Phasen) der einzelnen Schwingungen zu bestimmen, d. h. zu ermitteln wie ausgeprägt bestimmte Frequenzen im Signal auftreten.</p>
-<section id="fouriereihe-sinus-kosinus-form">
-<h4>Fouriereihe (Sinus-Kosinus-Form)<a class="headerlink" href="#fouriereihe-sinus-kosinus-form" title="Link to this heading">#</a></h4>
+<p>Gemäss <em>Fourier</em> kann jede beliebige periodische Funktion <span class="math notranslate nohighlight">\(y(t)\)</span>, im Folgenden Signal oder Zeitsignal genannt, als Summe von unendlich vielen Sinus- und Kosinusschwingungen repräsentiert werden (Fourierreihe). Wie wir später sehen werden, besteht das Ziel der Fouriertransformation im Wesentlichen darin, die Koeffizienten (Amplituden und Phasen) der einzelnen Schwingungen zu bestimmen, d. h. zu ermitteln wie ausgeprägt bestimmte Frequenzanteile auftreten.</p>
+<section id="fouriereihe-in-sinus-kosinus-form">
+<h4>Fouriereihe in Sinus-Kosinus-Form<a class="headerlink" href="#fouriereihe-in-sinus-kosinus-form" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
-\[ f(t) = \frac{a_{0}}{2}+\sum_{k=1}^{\infty}\left(a_{k}\cos\left(\frac{2\pi k}{T}t\right)+b_{k}\sin\left(\frac{2\pi k}{T}t\right)\right) \]</div>
+\[ y(t) = a_{DC} +\sum_{k=1}^{\infty}\left[a_{k}\cos\left(\frac{2\pi k}{T}t\right)+b_{k}\sin\left(\frac{2\pi k}{T}t\right)\right] \]</div>
 </section>
-<section id="fouriereihe-amplituden-phasen-form">
-<h4>Fouriereihe (Amplituden-Phasen-Form)<a class="headerlink" href="#fouriereihe-amplituden-phasen-form" title="Link to this heading">#</a></h4>
+<section id="fouriereihe-in-amplituden-phasen-form">
+<h4>Fouriereihe in Amplituden-Phasen-Form<a class="headerlink" href="#fouriereihe-in-amplituden-phasen-form" title="Link to this heading">#</a></h4>
 <p>Da die Sinusfunktion lediglich eine verschobene Kosinusfunktion ist, kann die obige Beziehung auch kompakter mit Amplitude <span class="math notranslate nohighlight">\(A\)</span> und Phasenverschiebung <span class="math notranslate nohighlight">\(\varphi\)</span> geschrieben werden.</p>
 <div class="math notranslate nohighlight">
-\[ f(t) = \frac{a_{0}}{2}+\sum_{k=1}^{\infty}A_{k}\cos\left(\frac{2\pi k}{T}t-\varphi_{k}\right) \]</div>
+\[ y(t) = a_{DC} +\sum_{k=1}^{\infty}A_{k}\cos\left(\frac{2\pi k}{T}t-\varphi_{k}\right) \]</div>
 <p>Dabei zeigt sich schön, worin letzlich das Ziel der Fouriertransformation besteht.</p>
 <ul class="simple">
 <li><p>Bestimmen der Amplituden <span class="math notranslate nohighlight">\(A\)</span> für die versch. Frequenzen im Signal <span class="math notranslate nohighlight">\(\,\to\,\)</span> <strong>Amplitudenspektrum</strong></p></li>
 <li><p>Bestimmen der Phasenverschiebungen <span class="math notranslate nohighlight">\(\varphi\)</span> für die versch. Frequenzen im Signal <span class="math notranslate nohighlight">\(\,\to\,\)</span> <strong>Phasenspektrum</strong></p></li>
 </ul>
-<p>Amplituden- und Phasenspektrum werden zusammengenommen auch einfach <strong>Frequenzspektrum</strong> genannt, wobei für uns i. Allg. nur das Amplitudenspektrum relevant ist. Die folgende Animation zeigt das Prinzip der Fourierreihe und des Frequenzspektrums sehr anschaulich.</p>
-<center><img src="img/FFT.gif" width=40% /></center>
-<p style="text-align: center;"><small><em>Abb.: Fouriertransformation und Frequenzbereich<a href="https://en.wikipedia.org/wiki/File:Fourier_transform_time_and_frequency_domains.gif"> [Quelle]</a></em></small></p>
+<p>Amplituden- und Phasenspektrum werden zusammengenommen <strong>Frequenzspektrum</strong> genannt, wobei für uns i. Allg. nur das Amplitudenspektrum relevant ist. Die folgende Animation zeigt das Prinzip der Fourierreihe und des Frequenzspektrums sehr anschaulich.</p>
+<center><img src="img/FFT.gif" width=60% /></center>
+<p style="text-align: center;"><small><em>Abb.: Fouriertransformation und Frequenzbereich <a href="https://en.wikipedia.org/wiki/File:Fourier_transform_time_and_frequency_domains.gif">[Quelle]</a></em></small></p>
 </section>
-<section id="fouriereihe-exponentialform">
-<h4>Fouriereihe (Exponentialform)<a class="headerlink" href="#fouriereihe-exponentialform" title="Link to this heading">#</a></h4>
-<p>Die obigen Darstellungen zeigen die Grundidee der Frequenzanalyse sehr gut, doch die kompakteste Form hat die Exponentialform. Mithilfe der <em>Eulerschen Formel</em> <span class="math notranslate nohighlight">\(e^{i \omega t} = cos(\omega t) + i sin(\omega t)\)</span> kann die Fourier-Reihe kompakt mit der komplexen Exponentialfunktion geschrieben werden.</p>
+<section id="fouriereihe-in-exponentialform">
+<h4>Fouriereihe in Exponentialform<a class="headerlink" href="#fouriereihe-in-exponentialform" title="Link to this heading">#</a></h4>
+<p>Die kompakteste Form hat die Exponentialform. Mithilfe der <em>Eulerschen Formel</em> <span class="math notranslate nohighlight">\(e^{j \omega t} = \cos(\omega t) + j \cdot \sin(\omega t)\)</span> kann die Fourier-Reihe kompakt mit der komplexen Exponentialfunktion geschrieben werden. Die Koeffizienten <span class="math notranslate nohighlight">\(Y_k\)</span> stellen dabei die <em>komplexen Amplituden</em> dar und sind die gesuchten Fourierkoeffizienten.</p>
 <div class="math notranslate nohighlight">
-\[ f(t)=\sum_{k\in\mathbb{Z}}c_{k} e^{i \cdot \frac{2\pi k}{T}t} \]</div>
+\[ y(t)=\sum_{k\in\mathbb{Z}}Y_{k} \cdot e^{j \frac{2\pi k}{T}t} \]</div>
+<blockquote>
+<div><p>Es ist üblich, die Fouriertransformierte eines Signals mit dem entsprechenden Grossbuchstaben des Zeitsignals zu bezeichnen. Wir bezeichnen das Zeitsignal in der Regel mit <code class="docutils literal notranslate"><span class="pre">y</span></code> und dementsprechend die Transformierte mit <code class="docutils literal notranslate"><span class="pre">Y</span></code>. Der Betrag (Amplitude) der komplexen Grösse <code class="docutils literal notranslate"><span class="pre">Y</span></code> wird mathematisch mit <span class="math notranslate nohighlight">\(|Y|\)</span> geschrieben, in Python verwenden wir als Variablenname dafür <code class="docutils literal notranslate"><span class="pre">A</span></code> (für Amplitude).</p>
+</div></blockquote>
 </section>
 </section>
 <section id="diskrete-fouriertransformation-dft">
 <h3>2.2 Diskrete Fouriertransformation (DFT)<a class="headerlink" href="#diskrete-fouriertransformation-dft" title="Link to this heading">#</a></h3>
-<p>Wie oben angedeutet wird ein Signal aus dem Zeitbereich mithilfe der Fouriertransformation in den Frequenzbereich (auch Bildbereich genannt) transformiert. Konkret bedeutet dies, die entsprechenden Fourierkoeffizienten zu berechnen. Wenn dies numerisch für ein zeitdiskretes (abgetastetes) Signal gemacht wird, spricht man von der <strong>diskreten Fouriertransformation</strong> (DFT). Die Fourierkoeffizienten <span class="math notranslate nohighlight">\(c_k\)</span> sind dabei komplex und beinhalten die Amplitudeninformationen (Betrag) und Phaseninformationen (Winkel).</p>
+<p>Wie oben angedeutet wird ein Signal aus dem Zeitbereich mithilfe der Fouriertransformation in den Frequenzbereich (auch Bildbereich genannt) transformiert. Konkret bedeutet dies, die entsprechenden Fourierkoeffizienten zu berechnen. Wenn dies numerisch für ein zeitdiskretes (abgetastetes) Signal gemacht wird, spricht man von der <strong>diskreten Fouriertransformation</strong> (DFT). Die Fourierkoeffizienten <span class="math notranslate nohighlight">\(Y_k\)</span> sind komplex und beinhalten die Amplitudeninformationen (Betrag) und Phaseninformationen (Winkel).</p>
 <div class="math notranslate nohighlight">
-\[ c_k = \sum_{n=0}^{N-1} e^{-i \cdot \frac{2\pi n}{N}k}\cdot f_n \]</div>
+\[ Y_k = \sum_{n=0}^{N-1} e^{-j \frac{2\pi n}{N}k}\cdot y_n \]</div>
 </section>
 <section id="fft-algorithmus">
 <h3>2.3 FFT-Algorithmus<a class="headerlink" href="#fft-algorithmus" title="Link to this heading">#</a></h3>
-<p>Obwohl die Berechnung der Koeffizienten gemäss obiger Beziehung nicht sonderlich kompliziert ist, erfordert sie für lange und hochaufgelöste Zeitsignale einen erheblichen Rechenaufwand. Erst die Entwicklung des <strong>FFT-Algorithmus</strong> ermöglichte die effiziente Berechnung der diskreten Fourier-Transformation (DFT) und somit den breiten Einsatz in technischen Anwendungen.</p>
+<p>Die Berechnung gemäss obiger Beziehung erfordert für lange und hochaufgelöste Zeitsignale einen erheblichen Rechenaufwand. Erst die Entwicklung des <strong>FFT-Algorithmus</strong> ermöglichte die effiziente Berechnung der diskreten Fourier-Transformation (DFT) und somit den breiten Einsatz in technischen Anwendungen.</p>
 <section id="scipy-implementierung-scipy-fft">
 <h4>2.3.1 SciPy-Implementierung (<code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code>)<a class="headerlink" href="#scipy-implementierung-scipy-fft" title="Link to this heading">#</a></h4>
-<p>SciPy stellt ein Modul <strong>fft</strong> zur Verfügung, welches die entsprechenden Funktionen enthält. Im Wesentlichen ist das die Funktion <code class="docutils literal notranslate"><span class="pre">fft()</span></code>, doch es gibt eine Reihe verwandter Funktionen, von denen wir einige verwenden werden. Die Funktion <code class="docutils literal notranslate"><span class="pre">fft()</span></code> ist für beliebige (auch komplexe) Signale definiert und liefert auch Frequenzanteile für negative Frequenzen zurück. Für reelle Zeitsignale (mit denen wir es zu tun haben), ist das Frequenzspektrum immer symmetrisch, d.h. die Frequenzanteile der negativen Frequenzen sind immer identisch mit denjenigen der positiven Frequenzen und beinhalten daher keine zusätzlichen Informationen. Wir können diese negative Frequenzachse also problemlos ignorieren (hat physikalisch keine Bedeutung). Deshalb werden wir anstelle der allgemeinen Funktion <code class="docutils literal notranslate"><span class="pre">fft()</span></code> stets die speziell für reelle Signale geeignete Funktion <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> verwenden (und für die Erzeugung der Frequenzachse die Funktion <code class="docutils literal notranslate"><span class="pre">rfftfreq()</span></code>).</p>
+<p>SciPy stellt das Modul <strong>fft</strong> zur Verfügung, welches Funktionen zur Berechnung der Fouriertransformation enthält. Im Wesentlichen ist das die Funktion <code class="docutils literal notranslate"><span class="pre">fft()</span></code>, doch es gibt eine Reihe verwandter Funktionen, von denen wir einige verwenden werden. Die Funktion <code class="docutils literal notranslate"><span class="pre">fft()</span></code> ist für beliebige (auch komplexe) Signale definiert und liefert auch Frequenzanteile für negative Frequenzen zurück. Für reelle Zeitsignale (mit denen wir es zu tun haben), ist das Frequenzspektrum immer symmetrisch, d.h. die Frequenzanteile der negativen Frequenzen sind immer identisch mit denjenigen der positiven Frequenzen und beinhalten daher keine zusätzlichen Informationen. Wir können diese negative Frequenzachse also problemlos ignorieren (hat physikalisch keine Bedeutung). Deshalb werden wir anstelle der allgemeinen Funktion <code class="docutils literal notranslate"><span class="pre">fft()</span></code> stets die speziell für reelle Signale geeignete Funktion <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> verwenden (und für die Erzeugung der Frequenzachse die Funktion <code class="docutils literal notranslate"><span class="pre">rfftfreq()</span></code>).</p>
 </section>
 </section>
 </section>
 <section id="praktische-umsetzung">
 <h2>3. Praktische Umsetzung<a class="headerlink" href="#praktische-umsetzung" title="Link to this heading">#</a></h2>
 <p>Die Berechnung des Frequenzspektrums (= Amplituden- und Phasenspektrums) mithilfe des FFT-Algorithmus ist dank der oben erwähnten SciPy-Implementierung sehr einfach, doch es gibt einige wichtige Aspekte, die beachtet werden müssen:</p>
-<p>→ 3.1 Frequenzauflösung und max. Frequenz<br>
-→ 3.2 Periodizität bzw. Fensterfunktionen<br>
-→ 3.3 Sampleanzahl (Anzahl Stützstellen)<br>
-→ 3.4 Aliasing bzw. Abtasttheorem (Nyquist-Shannon-Abtasttheorem)</p>
-<section id="frequenzauflosung-und-max-frequenz">
-<h3>3.1 Frequenzauflösung und max. Frequenz<a class="headerlink" href="#frequenzauflosung-und-max-frequenz" title="Link to this heading">#</a></h3>
-<p>Die nachfolgende Abbildung zeigt oben das abgetastete Zeitsignal (zwei Perioden einer 50 Hz-Sinusschwingung) und unten das entsprechende Amplitudenspektrum. Auf der horizontalen Achse des Amplitudenspektrums ist die Frequenz <span class="math notranslate nohighlight">\(f\)</span> [Hz] aufgetragen (alternativ könnte auch die Winkelgeschwindigkeit <span class="math notranslate nohighlight">\(\omega\)</span> [rad/s] verwendet werden, wobei bekanntlich <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> gilt). Wie erwartet ergibt sich ein Peak im Amplitudenspektrum bei 50 Hz, da es sich um eine reine 50 Hz-Sinusschwingung handelt und alle anderen Frequenzen haben keinen Anteil. Die Höhe des Peaks bei 50 Hz entspricht der Schwingungsamplitude im Zeitsignal (=1).</p>
+<p>→ <a href=#frequency>3.1 Frequenzauflösung und max. Frequenz</a><br>
+→ <a href=#windowing>3.2 Periodizität bzw. Fensterfunktionen</a><br>
+→ <a href=#samples>3.3 Sampleanzahl</a><br>
+→ <a href=#aliasing>3.4 Aliasing bzw. Abtasttheorem</a><br></p>
+<section id="frequenzauflosung-und-maximale-frequenz">
+<h3>3.1 Frequenzauflösung und maximale Frequenz<a class="headerlink" href="#frequenzauflosung-und-maximale-frequenz" title="Link to this heading">#</a></h3>
+<p><a name=frequency />Die nachfolgende Abbildung zeigt ein mit 1600 Hz abgetastetes Signal, wobei es sich um eine 50 Hz-Schwingung handelt. Darunter ist das entsprechende Amplitudenspektrum dargestellt, welches erwartungsgemäss einen Peak bei 50 Hz aufweist (alle anderen Frequenzen haben keinen Anteil, da es sich beim Signal um eine reine 50 Hz-Schwingung handelt). Die Höhe des Peaks (Amplitude) entspricht der Schwingungsamplitude im Zeitsignal (<span class="math notranslate nohighlight">\(= 1\)</span>).</p>
 <p><img alt="Image" src="../_images/FA_1.svg" /></p>
 <p style="text-align: center;"><small><em>Abb.: Zeitsignal (oben) und Amplitudenspektrum (unten) einer 50 Hz-Schwingung</em></small></p>
-<p>Anhand der Abbildung können an dieser Stelle folgende wichtige Zusammenhänge erkannt werden:</p>
-<ul class="simple">
-<li><p>Die Frequenzauflösung <span class="math notranslate nohighlight">\(\Delta f\)</span> im Spektrum entspricht 25 Hz, was gerade dem Kehrwert der Zeitdauer <span class="math notranslate nohighlight">\(t_{meas} =\)</span> 0.04 s des erfassten Signals entspricht. Dies ist intuitiv verständlich, denn die “langsamste” Schwingung, die in einem Zeitfenster von 0.04 s detektiert werden kann, entspricht einer 25 Hz-Schwingung. Für eine hohe Auflösung im Frequenzbereich ist also eine lange Messdauer nötig. (Die Frequenzauflösung ist gleichbedeutend mit der kleinsten Frequenz <span class="math notranslate nohighlight">\(f_{min}\)</span>, welche im Spektrum angezeigt wird (abgesehen vom Gleichanteil bei 0 Hz). Da sich die Messdauer mit <span class="math notranslate nohighlight">\(t_{meas} = N \cdot 1/f_S\)</span> ausdrücken lässt, kann die Frequenzauflösung mit <span class="math notranslate nohighlight">\(f_S / N\)</span> berechnet werden.
-$<span class="math notranslate nohighlight">\( \Delta f = f_{min} = \frac{1}{t_{meas}} = \frac{f_S}{N}\)</span>$</p></li>
-<li><p>Die maximale Frequenz im Spektrum entspricht <span class="math notranslate nohighlight">\(f_{max} =\)</span> 800 Hz, was gerade der Hälfte der Abtastfrequenz <span class="math notranslate nohighlight">\(f_S =\)</span> 1600 Hz entspricht. Dies ist ebenfalls recht anschaulich erklärbar. Um eine Sinusschwingung überhaupt noch als Schwingung detektieren zu können, braucht es mind. 2 Abtastpunkte pro Periode, d. h. im vorliegenden Fall kann mit einer Abtastrate von 1600 Hz höchstens eine 800 Hz-Schwingung erkannt werden. Die maximale Frequenz im Spektrum <span class="math notranslate nohighlight">\(f_{max}\)</span> wird auch <em>Nyquist</em>-Frequenz genannt (vgl. Abtasttheorem weiter unten).
-$<span class="math notranslate nohighlight">\( f_{max} = \frac{f_S}{2} \)</span>$</p></li>
+<p>Anhand der obigen Abbildung können an dieser Stelle folgende Zusammenhänge erkannt werden:</p>
+<ul>
+<li><p>Die Frequenzauflösung <span class="math notranslate nohighlight">\(\Delta f\)</span> im Spektrum entspricht 25 Hz, was gerade dem Kehrwert der Dauer der Messung <span class="math notranslate nohighlight">\(t_{meas} =\)</span> 0.04 s entspricht. Dies ist intuitiv verständlich, denn die “langsamste” Schwingung, die in einem Zeitfenster von 0.04 s detektiert werden kann, entspricht einer 25 Hz-Schwingung. Für eine hohe Auflösung im Frequenzbereich ist also eine lange Messdauer nötig. Die Frequenzauflösung ist gleichbedeutend mit der kleinsten Frequenz <span class="math notranslate nohighlight">\(f_{min}\)</span>, welche im Spektrum angezeigt wird (abgesehen vom Gleichanteil bei 0 Hz). Da sich die Messdauer mit <span class="math notranslate nohighlight">\(t_{meas} = N \cdot 1/f_S\)</span> ausdrücken lässt, kann die Frequenzauflösung auch mit <span class="math notranslate nohighlight">\(f_S / N\)</span> berechnet werden.</p>
+<div class="math notranslate nohighlight">
+\[ \Delta f = f_{min} = \frac{1}{t_{meas}} = \frac{f_S}{N}\]</div>
+</li>
+<li><p>Die maximale Frequenz im Spektrum entspricht <span class="math notranslate nohighlight">\(f_{max} =\)</span> 800 Hz, was gerade der Hälfte der Abtastfrequenz <span class="math notranslate nohighlight">\(f_S =\)</span> 1600 Hz entspricht. Dies ist ebenfalls recht anschaulich erklärbar. Um eine Sinusschwingung überhaupt noch als Schwingung detektieren zu können, braucht es mind. 2 Abtastpunkte pro Periode, d. h. im vorliegenden Fall kann mit einer Abtastrate von 1600 Hz höchstens eine 800 Hz-Schwingung erkannt werden. Die maximale Frequenz im Spektrum <span class="math notranslate nohighlight">\(f_{max}\)</span> wird auch <em>Nyquist</em>-Frequenz genannt (vgl. <a href=#aliasing>Abtasttheorem</a>).</p>
+<div class="math notranslate nohighlight">
+\[ f_{max} = \frac{f_S}{2} \]</div>
+</li>
 </ul>
 <p>Die relevanten Grössen im Frequenzbereich (<span class="math notranslate nohighlight">\(f_S\)</span>, <span class="math notranslate nohighlight">\(\Delta f\)</span>, <span class="math notranslate nohighlight">\(f_{max}\)</span>) hängen direkt mit den Grössen im Zeitbereich (<span class="math notranslate nohighlight">\(\Delta t\)</span>, <span class="math notranslate nohighlight">\(t_{meas}\)</span>) zusammen.</p>
 <center>
@@ -550,30 +563,36 @@ $<span class="math notranslate nohighlight">\( f_{max} = \frac{f_S}{2} \)</span>
 </center></section>
 <section id="periodizitat-bzw-fensterfunktionen">
 <h3>3.2 Periodizität bzw. Fensterfunktionen<a class="headerlink" href="#periodizitat-bzw-fensterfunktionen" title="Link to this heading">#</a></h3>
-<p>Im obigen Beispiel entspricht die Zeitdauer der “Messung” genau einem Vielfachen der Periodendauer der Schwingung, d. h. das Signal ist exakt periodisch (gedanklich kann der Anfang des Signals wieder ans Ende “angeschlossen” werden, ohne dass ein Sprung bzw. eine Unstetigkeit entsteht). Nachfolgend ist das gleiche Signal wie oben dargestellt, dabei wurde nun aber etwas länger gemessen (<span class="math notranslate nohighlight">\(t_{meas} =\)</span> 0.05 s), d. h. die Messzeit entspricht nicht mehr genau einem Vielfachen der Periodendauer der Schwingung.</p>
+<p><a name=windowing />Im obigen Beispiel entspricht die Dauer der “Messung” genau einem Vielfachen der Periodendauer der Schwingung, d. h. das Signal ist exakt periodisch im betrachteten “Fenster” (gedanklich kann der Anfang des Signals wieder ans Ende “angeschlossen” werden, ohne dass ein Sprung bzw. eine Unstetigkeit entsteht). Nachfolgend ist das gleiche Signal wie oben dargestellt, dabei wurde nun aber etwas länger gemessen (<span class="math notranslate nohighlight">\(t_{meas} =\)</span> 0.05 s), d. h. die Messzeit entspricht nicht mehr genau einem Vielfachen der Periodendauer der Schwingung.</p>
 <p><img alt="Image" src="../_images/FA_2.svg" /></p>
 <p style="text-align: center;"><small><em>Abb.: Messzeit entspricht nicht genau einem Vielfachen der Schwingungsperiode</em></small></p>
 <p>Auffällig ist dabei folgendes:</p>
 <ul class="simple">
 <li><p>Obwohl es sich um die genau gleiche, reine 50 Hz-Schwingung wie in der ersten Abbildung handelt, treten nun im Spektrum auch Anteile anderer Frequenzen auf.</p></li>
 </ul>
-<p>Die Erklärung dafür liegt darin begründet, dass die Fouriertransformation von <strong>periodischen Signalen</strong> ausgeht und diese Voraussetzung hier offensichtlich verletzt wurde. Denkt man sich das obige Signal periodisch weiter, so resultiert folgendes Zeitsignal und es ist ersichtlich, dass nun “Sprünge” auftreten, welche das Amplitudenspektrum “verfälschen”. Die Sprünge führen zu zusätzlichen (unphysikalischen) Frequenzanteilen und “verschmieren” das Spektrum. Dieser Effekt wird auch Leck-Effekt bzw. <em>Spectral Leakage</em> genannt.</p>
+<p>Die Erklärung dafür liegt darin begründet, dass die Fouriertransformation von <strong>periodischen Signalen</strong> ausgeht und diese Voraussetzung hier offensichtlich verletzt wurde. Denkt man sich das obige Signal periodisch weiter, so resultiert das nachfolgend abgebildete Zeitsignal und es ist ersichtlich, dass nun “Sprünge” auftreten, welche das Amplitudenspektrum “verfälschen”. Die Sprünge führen zu zusätzlichen (unphysikalischen) Frequenzanteilen und “verschmieren” das Spektrum. Dieser Effekt wird auch Leck-Effekt bzw. <em>Spectral Leakage</em> genannt.</p>
 <p><img alt="Image" src="../_images/FA_3.svg" /></p>
-<p style="text-align: center;"><small><em>Abb.: Periodische Verlängerung des Zeitsignals führt zu Sprüngen an den Übergangsstellen</em></small></p>
+<p style="text-align: center;"><small><em>Abb.: "Gedankliche" periodische Verlängerung des Zeitsignals führt zu Sprüngen an den Übergangsstellen</em></small></p>
 <p>Wie könnte dieses Problem nun behoben werden? Eine Möglichkeit, die sich in der Praxis etabliert hat, besteht darin, sogenannte <a class="reference external" href="https://de.wikipedia.org/wiki/Fensterfunktion">Fensterfunktionen</a> zu verwenden, mit denen das Zeitsignal vor der Fouriertransformation dahingehend verändert wird, dass solche Sprünge nicht oder nicht mehr so ausgeprägt auftreten. Man kann sich das so vorstellen, dass das Signal am Anfang und am Ende “langsam auf 0 runtergezogen wird”, sodass ein glatter Übergang zwischen Ende und Anfang erreicht wird bei der periodischen Wiederholung.</p>
-<p>In nachfolgender Abbildung sind bekannte Fensterfunktionen dargestellt, wobei alle gemeinsam haben, dass sie am Anfang und am Ende gegen 0 oder einen kleinen Wert streben, womit das oben beschriebene Problem entschärft wird. Diese Fensterfunktion sind unter <code class="docutils literal notranslate"><span class="pre">signal.windows</span></code> in SciPy oder einige bekannte auch in NumPy verfügbar.</p>
+<p>In nachfolgender Abbildung sind typische Fensterfunktionen dargestellt, wobei alle gemeinsam haben, dass sie am Anfang und am Ende gegen 0 oder einen kleinen Wert streben, womit das oben beschriebene Problem entschärft wird. Diese Fensterfunktion sind unter <code class="docutils literal notranslate"><span class="pre">signal.windows</span></code> in SciPy oder einige bekannte auch in NumPy verfügbar.</p>
 <p><img alt="Image" src="../_images/FA_4.svg" /></p>
 <p style="text-align: center;"><small><em>Abb.: Typische Fensterfunktionen</em></small></p>
-<p>Die Anwendung der Fensterfunktion ist denkbar einfach. Das Messignal wird nun einfach elementweise mit der (gleichlangen) Fensterfunktion multipliziert und geht so am Anfang und am Ende gegen 0. (Anmerkung: Hat das Signal einen Gleichanteil (Offset), so ist dieser für die Multiplikation mit der Fensterfunktion zu entfernen, kann danach aber wieder hinzugefügt werden.)</p>
-<p>In nachfolgender Abbildung ist nochmals das “gedanklich” periodisch wiederholte Signal dargestellt, nun wurde es aber mit der <em>Tukey</em>-Fensterfunktion konditioniert. Man erkennt, dass nun keine Sprünge zwischen den periodischen Wiederholungen auftreten, da das Signal an dieser Stelle jeweils 0 ist. (Anmerkung: Da wir in diesem Beispiel lediglich ca. 2 Perioden der Schwingung erfassen, wird das Signal durch die Fensterfunktion stark verändert. In der Praxis würde man viel länger messen im Vergleich zur Periodendauer der Schwingung und dann wäre dieser Effekt klein.)</p>
+<p>Die Anwendung der Fensterfunktion ist denkbar einfach. Das Messignal wird elementweise mit der (gleichlangen) Fensterfunktion multipliziert und geht so am Anfang und am Ende gegen 0.</p>
+<blockquote>
+<div><p>Der Gleichanteil (Offset) des Signals muss für die Multiplikation mit der Fensterfunktion entfernt und danach wieder hinzugefügt werden.</p>
+</div></blockquote>
+<p>In nachfolgender Abbildung ist nochmals das “gedanklich” periodisch wiederholte Signal dargestellt, nun wurde es aber mit der <em>Tukey</em>-Fensterfunktion konditioniert. Man erkennt, dass nun keine Sprünge zwischen den periodischen Wiederholungen auftreten, da das Signal an diesen Stellen jeweils 0 ist.</p>
+<blockquote>
+<div><p>Da wir in diesem Beispiel lediglich ca. 2 Perioden der Schwingung erfassen, wird das Signal durch die Fensterfunktion stark verändert. In der Praxis bzw. einem “realen” Signal ist die Messzeit im Vergleich zur Periodendauer der Schwingung(en) in der Regel sehr gross und dieser Effekt daher vernachlässigbar.</p>
+</div></blockquote>
 <p><img alt="Image" src="../_images/FA_5.svg" /></p>
 <p style="text-align: center;"><small><em>Abb.: Periodische Verlängerung des Zeitsignals mit Fensterung, d.h. es treten keine Sprünge mehr auf</em></small></p>
-<p>Betrachten wir nun das Amplitudenspektrum des mit der Fensterfunktion vorkonditionierten Signals verschwinden die unphysikalischen hohen Frequenzen weitgehend aus dem Spektrum.</p>
+<p>Betrachten wir nun das Amplitudenspektrum des mit der Fensterfunktion vorkonditionierten Signals verschwinden die unphysikalischen hohen Frequenzen weitgehend aus dem Spektrum (vgl. Anmerkung oben).</p>
 <p><img alt="Image" src="../_images/FA_6.svg" /></p>
 <p style="text-align: center;"><small><em>Abb.: Amplitudenspektrum mit/ohne Fensterfunktion</em></small></p></section>
-<section id="sampleanzahl-anzahl-stutzstellen">
-<h3>3.3 Sampleanzahl (Anzahl Stützstellen)<a class="headerlink" href="#sampleanzahl-anzahl-stutzstellen" title="Link to this heading">#</a></h3>
-<p>Die Berechnung des Frequenzspektrums ist für lange Messungen, welche mit einer hohen Abtastfrequenz abgetastet wurden (also aus sehr vielen Samples bestehen), sehr aufwändig und der FFT-Algorithmus nutzt spezielle Eigenschaften (Symmetrien etc.) des Frequenzsprektrums aus um die Berechnung möglichst effizient zu machen. Am effizientesten ist der Algorithmus, wenn die Sampleanzahl <span class="math notranslate nohighlight">\(N\)</span> einer 2er-Potenz entspricht (also z. B. <span class="math notranslate nohighlight">\(2^{10}\)</span> usw.). Da Messungen in der Praxis in der Regel nicht genau eine solche Anzahl Samples aufweisen, gibt es versch. Möglichkeiten:</p>
+<section id="sampleanzahl">
+<h3>3.3 Sampleanzahl<a class="headerlink" href="#sampleanzahl" title="Link to this heading">#</a></h3>
+<p><a name=samples />Die Berechnung des Frequenzspektrums ist für lange Messungen, welche mit einer hohen Abtastfrequenz abgetastet wurden (also aus sehr vielen Samples bestehen), sehr aufwändig und der FFT-Algorithmus nutzt spezielle Eigenschaften (Symmetrien etc.) des Frequenzsprektrums aus um die Berechnung möglichst effizient zu machen. Am effizientesten ist der Algorithmus, wenn die Sampleanzahl <span class="math notranslate nohighlight">\(N\)</span> einer 2er-Potenz entspricht (also z. B. <span class="math notranslate nohighlight">\(2^{16}\)</span> usw.). Da Messungen in der Praxis in der Regel nicht genau eine solche Anzahl Samples aufweisen, gibt es versch. Möglichkeiten:</p>
 <ul class="simple">
 <li><p>Die meisten mordernen FFT-Implementierungen (z. B. SciPy, NumPy, etc.) können relativ problemlos mit einer “unpassenden” Sampleanzahl umgehen. Allenfalls dauert die Berechnung etwas länger, doch das ist bei Berechnungen auf einem modernen Computer etc. meistens nicht problematisch. Bei Realtime-Berechnungen auf leistungsschwachen Geräten (Microcontrollern etc.) wird die Sampleanzahl allerdings idealerweise günstig gewählt.</p></li>
 <li><p>Die FFT-Funktion in SciPy hat einen zweiten Parameter (<code class="docutils literal notranslate"><span class="pre">n</span></code>), mit dem man steuern kann, wieviele Samples für die FFT-Berechnung verwendet werden. Ist <code class="docutils literal notranslate"><span class="pre">n</span></code> kleiner als die Samplanzahl des Signals, so werden nur <code class="docutils literal notranslate"><span class="pre">n</span></code> Samples verwendet und die übrigen ignoriert (<em>Cropping</em>). Ist <code class="docutils literal notranslate"><span class="pre">n</span></code> grösser als die Sampleanzahl des Signals, so wird das Signal mit 0 aufgefüllt (<em>Zero Padding</em>). Dies hat einen geringfügigen Einfluss auf das Spektrum, doch dieser ist in vielen praktischen Anwendungen unerheblich. Nachfolgend ist das Spektrum einer verrauschten Sinusschwingung dargestellt, wobei einmal die ursprüngliche (ungünstige) Sampleanzahl <span class="math notranslate nohighlight">\(N\)</span> und dann die nächstkleinere bzw. nächstgrössere 2er-Potenz als Sampleanzahl verwendet wurde. Darunter sind die Rechenzeiten der FFT angegeben und man erkennt, dass die ungünstige Sampleanzahl eine 5..10 x längere Rechenzeit aufweist. (Für uns ist dies jedoch im Allgemeinen unerheblich, d. h. wir werden üblicherweise die effektive Sampleanzahl der Messung verwenden.)</p></li>
@@ -603,20 +622,24 @@ $<span class="math notranslate nohighlight">\( f_{max} = \frac{f_S}{2} \)</span>
 <li><p>Eine weitere Möglichkeit besteht darin, dass Signal zu “resamplen”, d. h. das Signal an andern Stützstellen abzutasten, um so eine günstige Sampleanzahl zu erreichen. Dies kann sehr einfach z. B. mittels Interpolation (vgl. <code class="docutils literal notranslate"><span class="pre">interp()</span></code> aus NumPy) erfolgen.</p></li>
 </ul>
 <p><img alt="Image" src="../_images/FA_8.svg" /></p>
-<p style="text-align: center;"><small><em>Abb.: Interpoliertes Zeitsignal, um eine günstige Sampleanzahl ($N = 2^\square$) zu erreichen</em></small></p>
+<p style="text-align: center;"><small><em>Abb.: Interpoliertes Zeitsignal, um eine günstige Sampleanzahl zu erreichen</em></small></p>
 </section>
-<section id="nyquist-shannon-abtasttheorem">
-<h3>3.4 Nyquist-Shannon-Abtasttheorem<a class="headerlink" href="#nyquist-shannon-abtasttheorem" title="Link to this heading">#</a></h3>
-<p>Wir haben oben gesehen, dass die maximale Frequenz <span class="math notranslate nohighlight">\(f_{max}\)</span> im Spektrum der halben Abtastfrequenz <span class="math notranslate nohighlight">\(f_S\)</span> entspricht. Dies bedeutet, dass Schwingungen bis zu dieser Frequenz vollständig aus dem abgetasteten Signal rekonstruiert werden können. Dies ist ein grundlegendes Theorem der Informationstheorie und wird <em>Nyquist-Shannon-Abtasttheorem</em> (oder kurz einfach <strong>Abtasttheorem</strong>) genannt. <em>Es besagt, dass ein Signal mit einer Abtastfrequenz abgetastet werden muss, die mindestens doppelt so gross ist wie die höchste im Signal auftretende Frequenz</em>.</p>
+<section id="abtasttheorem">
+<h3>3.4 Abtasttheorem<a class="headerlink" href="#abtasttheorem" title="Link to this heading">#</a></h3>
+<p><a name=aliasing />Wir haben oben gesehen, dass die maximale Frequenz <span class="math notranslate nohighlight">\(f_{max}\)</span> im Spektrum der halben Abtastfrequenz <span class="math notranslate nohighlight">\(f_S\)</span> entspricht. Dies bedeutet, dass Schwingungen bis zu dieser Frequenz vollständig aus dem abgetasteten Signal rekonstruiert werden können. Dies ist ein grundlegendes Theorem der Informationstheorie und wird <em>Nyquist-Shannon-Abtasttheorem</em> (oder kurz einfach <strong>Abtasttheorem</strong>) genannt. <em>Es besagt, dass ein Signal mit einer Abtastfrequenz abgetastet werden muss, die mindestens doppelt so gross ist wie die höchste im Signal auftretende Frequenz</em>.</p>
 <div class="math notranslate nohighlight">
 \[ f_S &gt; 2 \cdot f_{Signal_{max}} \]</div>
-<p>Die Verletzung des Abtasttheorems kann zu einer kompletten Verfälschung des Spektrums führen, da “scheinbare” Frequenzanteile erzeugt werden, die aber nicht im Signal enthalten sind. An einem Beispiel soll gezeigt werden, was passiert, wenn ein Signal mit einer zu geringen Abtastfrequenz abgetastet wird. In nachfolgender Abbildung wird eine 25 Hz-Schwingung (blau) mit einer zu kleinen Abtastfrequenz von <span class="math notranslate nohighlight">\(f_S =\)</span> 30 Hz erfasst, womit das Abtasttheorem verletzt wird (30 Hz <span class="math notranslate nohighlight">\(\ngtr\)</span> 2 <span class="math notranslate nohighlight">\(\cdot\)</span> 25 Hz). Wird vom erfassten Signal nun das Frequenzspektrum erstellt, erscheint dort ein Peak bei 5 Hz, obwohl im Signal weit und breit keine 5 Hz-Schwingung vorhanden ist. Zum Vergleich ist zusätzlich der korrekte Peak bei 25 Hz eingetragen (blau), der mit korrekter Abtastung erkannt worden wäre. Dieses Phänomen wird als <em>Aliasing</em> bezeichnet und betrifft sämtliche (diskreten) Abtastvorgänge.</p>
+<p>Die Verletzung des Abtasttheorems kann zu einer kompletten Verfälschung des Spektrums führen, da “scheinbare” Frequenzanteile erzeugt werden, die aber nicht im Signal enthalten sind. An einem Beispiel soll gezeigt werden, was passiert, wenn ein Signal mit einer zu geringen Abtastfrequenz abgetastet wird. In nachfolgender Abbildung wird eine 25 Hz-Schwingung (blau) mit einer zu kleinen Abtastfrequenz von <span class="math notranslate nohighlight">\(f_S =\)</span> 30 Hz erfasst, womit das Abtasttheorem verletzt wird (30 Hz <span class="math notranslate nohighlight">\(\ngtr\)</span> 2 <span class="math notranslate nohighlight">\(\cdot\)</span> 25 Hz). Wird vom erfassten Signal nun das Frequenzspektrum erstellt, erscheint dort ein Peak bei 5 Hz, obwohl im Signal weit und breit keine 5 Hz-Schwingung vorhanden ist. Zum Vergleich ist zusätzlich der korrekte Peak bei 25 Hz eingetragen (blau), der mit korrekter Abtastung erkannt worden wäre. Dieses Phänomen wird als <em>Aliasing</em> bezeichnet und betrifft sämtliche Abtastvorgänge.</p>
 <p><img alt="Image" src="../_images/FA_9.svg" /></p>
 <p style="text-align: center;"><small><em>Abb.: Abtastung mit zu kleiner Abtastfrequenz (rote Kurve) führt zu unphysikalischen Frequenzanteilen (Aliasing)</em></small></p>
-<p>Anmerkung zu obigem Diagramm: Man muss sich im Klaren sein, dass in diesem Diagramm zum Vergleich das “korrekte” Signal in blau aufgetragen ist. Dieses würde man bei einer realen Messung mit der zu tiefen Abtastfrequenz aber ja genau nicht erkennen, sondern eben nur das rote (“falsche”) Signal und es gäbe im Nachhinein i. Allg. keine Möglichkeit, dieses Problem zu erkennen bzw. zu korrigieren. Die Einhaltung des Abtasttheorems ist daher extrem wichtig!</p>
+<blockquote>
+<div><p>Man muss sich im Klaren sein, dass im obigen Diagramm für Vergleichszwecke das “korrekte” Signal in blau eingetragen ist. Dieses würde man bei einer realen Messung mit der zu tiefen Abtastfrequenz aber eben genau nicht erkennen, sondern nur das rote (“falsche”) Signal und es gäbe im Nachhinein keine Möglichkeit, dieses Problem zu erkennen bzw. zu korrigieren. Die Einhaltung des Abtasttheorems ist daher extrem wichtig!</p>
+</div></blockquote>
 <p>Zum Beispiel tritt dieses Phänomen häufig in Videos auf, wenn eine Bewegung gefilmt wird, die “schneller” ist, als es die Abtastung (zeitliche Auflösung) erfassen kann. Die Bewegung scheint dann z. T. viel zu langsam oder sogar in die “verkehrte” Richtung abzulaufen (“Rad dreht rückwärts” etc.). Es scheint dann eine “Frequenz” zu geben, die in Wirklichkeit natürlich nicht vorkommt.</p>
-<video controls src="img/Aliasing.mp4" width='100%'/>
-<p style="text-align: center;"><small><em>Abb.: Aliasing-Effekt in Video<a href="https://www.youtube.com/watch?v=ByTsISFXUoY&ab_channel=FABIOGERMANGUERREROMORENO"> [Quelle]</a></em></small></p>
+<center>
+    <video controls src="img/Aliasing.mp4" width='100%' />
+</center>
+<p style="text-align: center;"><small><em>Abb.: Aliasing-Effekt in Video <a href="https://www.youtube.com/watch?v=ByTsISFXUoY&ab_channel=FABIOGERMANGUERREROMORENO">[Quelle]</a></em></small></p>
 <hr class="docutils" />
 <p style='text-align: right; font-size: 70%;'>Angewandte Mathematik | MAT_AGW | 2024</p></section>
 </section>
@@ -693,9 +716,9 @@ $<span class="math notranslate nohighlight">\( f_{max} = \frac{f_S}{2} \)</span>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1. Motivation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlagen">2. Grundlagen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourierreihe">2.1 Fourierreihe</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-sinus-kosinus-form">Fouriereihe (Sinus-Kosinus-Form)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-amplituden-phasen-form">Fouriereihe (Amplituden-Phasen-Form)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-exponentialform">Fouriereihe (Exponentialform)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-in-sinus-kosinus-form">Fouriereihe in Sinus-Kosinus-Form</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-in-amplituden-phasen-form">Fouriereihe in Amplituden-Phasen-Form</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fouriereihe-in-exponentialform">Fouriereihe in Exponentialform</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskrete-fouriertransformation-dft">2.2 Diskrete Fouriertransformation (DFT)</a></li>
@@ -706,10 +729,10 @@ $<span class="math notranslate nohighlight">\( f_{max} = \frac{f_S}{2} \)</span>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-umsetzung">3. Praktische Umsetzung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequenzauflosung-und-max-frequenz">3.1 Frequenzauflösung und max. Frequenz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequenzauflosung-und-maximale-frequenz">3.1 Frequenzauflösung und maximale Frequenz</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodizitat-bzw-fensterfunktionen">3.2 Periodizität bzw. Fensterfunktionen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampleanzahl-anzahl-stutzstellen">3.3 Sampleanzahl (Anzahl Stützstellen)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-shannon-abtasttheorem">3.4 Nyquist-Shannon-Abtasttheorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampleanzahl">3.3 Sampleanzahl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abtasttheorem">3.4 Abtasttheorem</a></li>
 </ul>
 </li>
 </ul>

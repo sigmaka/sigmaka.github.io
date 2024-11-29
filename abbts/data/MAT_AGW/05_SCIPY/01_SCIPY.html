@@ -473,7 +473,7 @@ document.write(`
 </ul>
 <section id="import">
 <h3>1.1 Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h3>
-<p>Von SciPy werden üblicherweise jeweils die entsprechenden Module importiert. Mit <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span></code> kann selbstverständlich auch das gesamte Paket importiert werden.</p>
+<p>Von SciPy werden üblicherweise jeweils die entsprechenden Module importiert. Mit z. B. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span> <span class="pre">as</span> <span class="pre">sp</span></code> kann selbstverständlich auch das gesamte Paket importiert werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -547,7 +547,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eda728a61df77530f697ed54c065349d7f4f4e255c910b445b50210327805a23.png" src="../_images/eda728a61df77530f697ed54c065349d7f4f4e255c910b445b50210327805a23.png" />
+<img alt="../_images/22995c921765a08cbfdb73d7bb31d5b7992fbd1756afbf371d29369e05542fb6.png" src="../_images/22995c921765a08cbfdb73d7bb31d5b7992fbd1756afbf371d29369e05542fb6.png" />
 </div>
 </div>
 </section>
@@ -633,13 +633,13 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Gleichung (Funktion), die gelöst werden soll</span>
 
-<span class="n">sol</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># eine der Lösungen der quadratischen Gleichung  f(x)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># eine der Lösungen der quadratischen Gleichung  f(x)</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">root</span>  <span class="c1"># Nullstelle (x-Wert)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9901951359278482
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9901951359278484
 </pre></div>
 </div>
 </div>
@@ -657,7 +657,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> kann ein beliebiges Modell (Funktion) in Daten “gefittet”, d. h. an Daten angepasst werden. Dies könnte z. B. verwendet werden, um eine gemessene Sprungantwort eines P-T1-Gliedes zu identifizieren (siehe nachfolgendes Beispiel).</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> kann ein beliebiges Modell (Funktion) an Daten “gefittet”, d. h. an Daten angepasst werden. Dies könnte z. B. verwendet werden, um eine gemessene Sprungantwort eines P-T1-Gliedes zu identifizieren (siehe nachfolgendes Beispiel).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Zeitarray</span>
@@ -678,7 +678,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/548c878cc72b9212c53e1d5c69847f434fbac362635565ffcfbfaec8de35bf59.png" src="../_images/548c878cc72b9212c53e1d5c69847f434fbac362635565ffcfbfaec8de35bf59.png" />
+<img alt="../_images/0606921b800d2af94696a8a4d8d84b1e9a491f7add06eec7a5d1f7d66aa2bb5e.png" src="../_images/0606921b800d2af94696a8a4d8d84b1e9a491f7add06eec7a5d1f7d66aa2bb5e.png" />
 </div>
 </div>
 </section>
@@ -689,9 +689,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">BSpline()</span></code> - B-Spline-Interpolation</p></li>
 <li><p>…</p></li>
 </ul>
-<blockquote>
-<div><p>→ Lineare Interpolation: <code class="docutils literal notranslate"><span class="pre">interp()</span></code> von NumPy</p>
-</div></blockquote>
+<p>Für die lineare Interpolation wird am besten die Funktion <code class="docutils literal notranslate"><span class="pre">interp()</span></code> von NumPy verwendet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spline</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">CubicSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -722,7 +720,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">pearsonr()</span></code> - Korrelationskoeffizient</p></li>
 <li><p>…</p></li>
 </ul>
-<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> wird häufig verwendet, um ein lineares Modell (Gerade) in Messdaten zu fitten. Im folgenden Beispiel wird dies illustriert.</p>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> wird häufig verwendet, um ein lineares Modell (Gerade) an Messdaten zu fitten. Im folgenden Beispiel wird dies illustriert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -741,7 +739,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c6c3d811653ff8b228d6d6b76bf95eaf5b182b2310b30fc19078088118e08b78.png" src="../_images/c6c3d811653ff8b228d6d6b76bf95eaf5b182b2310b30fc19078088118e08b78.png" />
+<img alt="../_images/bdfe70026d82e0d05477b2ccc7e9e18d4feaec15c1ebd43bac9693c0ad67daa5.png" src="../_images/bdfe70026d82e0d05477b2ccc7e9e18d4feaec15c1ebd43bac9693c0ad67daa5.png" />
 </div>
 </div>
 </section>

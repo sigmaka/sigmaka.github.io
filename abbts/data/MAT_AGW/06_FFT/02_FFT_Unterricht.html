@@ -411,8 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe">Aufgabe</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-frequenzspektrum-der-rechteckfunktion">a) Frequenzspektrum der Rechteckfunktion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-berechnung-des-frequenzspektrums">b) Berechnung des Frequenzspektrums</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-frequenzspektrum-einer-zusammengesetzten-schwingung">c) Frequenzspektrum einer zusammengesetzten Schwingung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-frequenzspektrum-einer-zusammengesetzten-schwingung">b) Frequenzspektrum einer zusammengesetzten Schwingung</a></li>
 </ul>
 </li>
 </ul>
@@ -433,15 +432,16 @@ document.write(`
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Sie können das Konzept der Fourierreihe erklären.</p></li>
+<li><p>Sie beherrschen die Sinus- bzw. Kosinusfunktion vollständig und können die Begriffe <em>Amplitude</em>, <em>Frequenz</em> (<em>Kreisfrequenz</em>) und <em>Phasenverschiebung</em> erklären.</p></li>
+<li><p>Sie können den Grundgedanken hinter der Fourierreihe in eigenen Worten erklären.</p></li>
 <li><p>Sie können die diskrete Fouriertransformation (DFT) für ein gegebenes Zeitsignal mithilfe des FFT-Algorithmus berechnen.</p></li>
-<li><p>Sie können das Frequenzspektrum (Amplitudenspektrum) darstellen und korrekt interpretieren.</p></li>
+<li><p>Sie können das Frequenzspektrum (Amplitudenspektrum) grafisch darstellen und korrekt interpretieren.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="aufgabe">
 <h2>Aufgabe<a class="headerlink" href="#aufgabe" title="Link to this heading">#</a></h2>
-<p>Um die Grundidee hinter der Fourieranalyse zu veranschaulichen, schauen wir uns zuerst die Fourierreihe eines Rechtecksignals an. In einem zweiten Schritt berechnen wir das Frequenzspektrum des Rechtecksignals mittels des FFT-Algorithmus. Das Rechtecksignal ist gut geeignet, um das Verständnis zu fördern, doch in Realität hat man es mit beliebigen Signalen zu tun. In diesem Teil erzeugen wir ein künstliches Signal aus verschiedenen Schwingungen und Rauschen und berechnen davon anschliessend das Frequenzspektrum</p>
+<p>Um die Grundidee hinter der Fourieranalyse zu veranschaulichen, schauen wir uns zuerst die Fourierreihe eines Rechtecksignals an. In einem zweiten Schritt berechnen wir das Frequenzspektrum des Rechtecksignals mittels des FFT-Algorithmus. Das Rechtecksignal ist gut geeignet, um das Verständnis zu fördern, doch in Realität hat man es mit beliebigen Signalen zu tun. Aus diesem Grund werden wir ein künstliches Signal aus verschiedenen Schwingungen und Rauschen erzeugen und berechnen davon anschliessend das Frequenzspektrum.</p>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -454,38 +454,34 @@ document.write(`
 </div>
 <section id="a-frequenzspektrum-der-rechteckfunktion">
 <h3>a) Frequenzspektrum der Rechteckfunktion<a class="headerlink" href="#a-frequenzspektrum-der-rechteckfunktion" title="Link to this heading">#</a></h3>
+<p>Zum Einstieg in die Frequenzanalyse wollen wir die <em>Fourier-Reihe</em> eines Rechtecksignals anschauen, da dies für das Verständnis der <em>Fouriertransformation</em> enorm hilfreich ist. Gemäss <em>Fourier</em> kann eine periodische Funktion <span class="math notranslate nohighlight">\(y(t)\)</span> als Summe von unendlich vielen Sinus- und Kosinusschwingungen repräsentiert werden.</p>
+<div class="math notranslate nohighlight">
+\[ y(t) = a_{DC} +\sum_{k=1}^{\infty}\left[a_{k}\cos\left(\omega_k t\right)+b_{k}\sin\left(\omega_k t\right)\right] = a_{DC} +\sum_{k=1}^{\infty}A_{k}\cos\left(\omega_k t-\varphi_{k}\right) \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># Frequenz Rechtecksignal (=Grundfrequenz) [rad/s]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># Frequenz Rechtecksignal (= Grundfrequenz) [rad/s]</span>
 <span class="n">t_meas</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Zeitdauer (Messdauer) [s]</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">256</span>  <span class="c1"># Anzahl Samples</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">64</span>  <span class="c1"># Zeitschrittweite [s]</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_meas</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Zeitvektor [s]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>  <span class="c1"># Rechtecksignal (aus scipy.signal)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_meas</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Zeitvektor [s]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">omega_1</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>  <span class="c1"># Rechtecksignal (aus scipy.signal)</span>
 
-<span class="c1"># Fourierreihe</span>
-<span class="n">y_Fourier</span> <span class="o">=</span> <span class="o">...</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rechecktsignal&#39;</span><span class="p">)</span>
-<span class="c1"># plt.plot(t, y_Fourier, &#39;r&#39;, label=&#39;Fourierreihe&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zeitsignal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit $t$ [s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Signal $y$ [..]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rechecktsignal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zeitsignal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Signal $y$ [..]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0832b2ba0a1f8704ce9bcb5c52886c018c6092a9b6d78e458ef6df23140488d5.png" src="../_images/0832b2ba0a1f8704ce9bcb5c52886c018c6092a9b6d78e458ef6df23140488d5.png" />
+<img alt="../_images/b37ca35396764b44a8c627ed0fc8fff3383752d6295e32b1e302d967cccc3eb5.png" src="../_images/b37ca35396764b44a8c627ed0fc8fff3383752d6295e32b1e302d967cccc3eb5.png" />
 </div>
 </div>
-</section>
-<section id="b-berechnung-des-frequenzspektrums">
-<h3>b) Berechnung des Frequenzspektrums<a class="headerlink" href="#b-berechnung-des-frequenzspektrums" title="Link to this heading">#</a></h3>
-<p>SciPy stellt im Modul <em>fft</em> entsprechende Funktionen bereit, um das diskrete Frequenzspektrum (=Frequenzanteile im Signal) berechnen zu können. Basis dafür ist der FFT-Algorithmus, der eine sehr effiziente Berechnung ermöglicht. Wir verwenden die Funktion <code class="docutils literal notranslate"><span class="pre">rfft()</span></code>, die für reelle Signale geeignet ist.</p>
+<p>SciPy stellt im Modul <strong>fft</strong> entsprechende Funktionen bereit, um das diskrete Frequenzspektrum (=Frequenzanteile im Signal) berechnen zu können. Basis dafür ist der FFT-Algorithmus, der eine sehr effiziente Berechnung ermöglicht. Wir verwenden für die Berechnung des Spektrums die Funktion <code class="docutils literal notranslate"><span class="pre">rfft()</span></code>, die für reelle Signale geeignet ist sowie die Funktion <code class="docutils literal notranslate"><span class="pre">rfftfreq()</span></code> für die Generierung der Frequenzachse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
@@ -494,19 +490,22 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="c-frequenzspektrum-einer-zusammengesetzten-schwingung">
-<h3>c) Frequenzspektrum einer zusammengesetzten Schwingung<a class="headerlink" href="#c-frequenzspektrum-einer-zusammengesetzten-schwingung" title="Link to this heading">#</a></h3>
-<p>Für eine Zeitdauer <span class="math notranslate nohighlight">\(t =\)</span> 0…10 s mit einer zeitlichen Auflösung von <span class="math notranslate nohighlight">\(\Delta t=\)</span> 0.01 s soll ein Signal erzeugt werden, das aus folgenden Anteilen besteht:</p>
+<section id="b-frequenzspektrum-einer-zusammengesetzten-schwingung">
+<h3>b) Frequenzspektrum einer zusammengesetzten Schwingung<a class="headerlink" href="#b-frequenzspektrum-einer-zusammengesetzten-schwingung" title="Link to this heading">#</a></h3>
+<p>Nun wollen wir das Spektrum eines realistischeren Signals berechnen (aber wiederum ein synthetisches Signal, d. h. ein Signal, wo wir selber erstellen und damit genau wissen, was er für Anteile enthält.) Für eine Zeitdauer <span class="math notranslate nohighlight">\(t =\)</span> 0…10 s mit einer zeitlichen Auflösung von <span class="math notranslate nohighlight">\(\Delta t=\)</span> 0.01 s soll ein Signal erzeugt werden, das aus folgenden Anteilen besteht:</p>
 <ul class="simple">
 <li><p><strong>Gleichanteil</strong> (Offset) = 3.5</p></li>
-<li><p><strong>Sinusschwingung</strong> mit Amplitude 2.5 und Frequenz 25 Hz</p></li>
-<li><p><strong>Sinusschwingung</strong> mit Amplitude 1.0 und Frequenz 37 Hz</p></li>
-<li><p>normalverteiltes <strong>Rauschen</strong> mit Mittelwert = 0.0 und Standardabweichung = 1.0 (vgl. <code class="docutils literal notranslate"><span class="pre">random.randn()</span></code> von NumPy)</p></li>
+<li><p><strong>Schwingung</strong> mit Amplitude 2.5 und Frequenz 25 Hz</p></li>
+<li><p><strong>Schwingung</strong> mit Amplitude 1.5 und Frequenz 37 Hz</p></li>
+<li><p>normalverteiltes <strong>Rauschen</strong> mit Mittelwert = 0 und Standardabweichung = 1.25 (vgl. <code class="docutils literal notranslate"><span class="pre">random.randn()</span></code> von NumPy)</p></li>
 </ul>
 <p>Davon soll anschliessend das Frequenzspektrum berechnet und sinnvoll dargestellt werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_meas</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Messdauer [s]</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Abtastintervall (Auflösung) [s]</span>
+
+<span class="c1"># Code</span>
 </pre></div>
 </div>
 </div>
@@ -583,8 +582,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe">Aufgabe</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-frequenzspektrum-der-rechteckfunktion">a) Frequenzspektrum der Rechteckfunktion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-berechnung-des-frequenzspektrums">b) Berechnung des Frequenzspektrums</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-frequenzspektrum-einer-zusammengesetzten-schwingung">c) Frequenzspektrum einer zusammengesetzten Schwingung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-frequenzspektrum-einer-zusammengesetzten-schwingung">b) Frequenzspektrum einer zusammengesetzten Schwingung</a></li>
 </ul>
 </li>
 </ul>

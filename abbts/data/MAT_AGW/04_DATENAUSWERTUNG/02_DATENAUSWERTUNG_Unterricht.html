@@ -474,7 +474,19 @@ document.write(`
 <p>Bestimmen Sie den Typ und die Parameter der Regelstrecke anhand der obigen Informationen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Motor (P-T_1)</span>
+<span class="n">K_P_Motor</span> <span class="o">=</span> <span class="mi">173</span> <span class="o">/</span> <span class="mi">60</span>  <span class="c1"># [1/(V*s)]</span>
+<span class="n">T_1_Motor</span> <span class="o">=</span> <span class="mf">0.0317</span>  <span class="c1"># [s]</span>
+
+<span class="c1"># Übersetzung (P)</span>
+<span class="n">K_P_Uebersetzung</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">/</span> <span class="mi">50</span>  <span class="c1"># [-]</span>
+
+<span class="c1"># Riemen &amp; Schlitten (I)</span>
+<span class="n">K_I_Riemen</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># [mm]</span>
+
+<span class="c1"># Gesamte Regelstrecke (I-T_1)</span>
+<span class="n">K_I</span> <span class="o">=</span> <span class="n">K_P_Motor</span> <span class="o">*</span> <span class="n">K_P_Uebersetzung</span> <span class="o">*</span> <span class="n">K_I_Riemen</span>  <span class="c1"># [mm/(V*s)]</span>
+<span class="n">T_1</span> <span class="o">=</span> <span class="n">T_1_Motor</span>
 </pre></div>
 </div>
 </div>
@@ -488,14 +500,58 @@ document.write(`
 </center><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CHR</span><span class="p">(</span><span class="n">K_IS</span><span class="p">,</span> <span class="n">T_e</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;PID&#39;</span><span class="p">,</span> <span class="n">overshoot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="n">K_PR</span><span class="p">,</span> <span class="n">T_i</span><span class="p">,</span> <span class="n">T_d</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">overshoot</span><span class="p">:</span>  <span class="c1"># mit Überschwingen</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;S&#39;</span><span class="p">:</span>  <span class="c1"># Störverhalten</span>
+            <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.71</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PI&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.71</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+                <span class="n">T_i</span> <span class="o">=</span> <span class="mf">2.3</span> <span class="o">*</span> <span class="n">T_e</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PID&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+                <span class="n">T_i</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">T_e</span>
+                <span class="n">T_d</span> <span class="o">=</span> <span class="mf">0.42</span> <span class="o">*</span> <span class="n">T_e</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>  <span class="c1"># Führungsverhalten</span>
+            <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.71</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PI&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.59</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PID&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.95</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+                <span class="n">T_d</span> <span class="o">=</span> <span class="mf">0.47</span> <span class="o">*</span> <span class="n">T_e</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># ohne Überschwingen</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;S&#39;</span><span class="p">:</span>  <span class="c1"># Störverhalten</span>
+            <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PI&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.59</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+                <span class="n">T_i</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">T_e</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PID&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.95</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+                <span class="n">T_i</span> <span class="o">=</span> <span class="mf">2.4</span> <span class="o">*</span> <span class="n">T_e</span>
+                <span class="n">T_d</span> <span class="o">=</span> <span class="mf">0.42</span> <span class="o">*</span> <span class="n">T_e</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>  <span class="c1"># Führungsverhalten</span>
+            <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PI&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.34</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;PID&#39;</span><span class="p">:</span>
+                <span class="n">K_PR</span> <span class="o">=</span> <span class="mf">0.59</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">K_IS</span> <span class="o">*</span> <span class="n">T_e</span><span class="p">)</span>
+                <span class="n">T_d</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">T_e</span> 
+    <span class="k">return</span> <span class="n">K_PR</span><span class="p">,</span> <span class="n">T_i</span><span class="p">,</span> <span class="n">T_d</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CHR(K_I, T_1)  # Reglerparameter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CHR</span><span class="p">(</span><span class="n">K_I</span><span class="p">,</span> <span class="n">T_1</span><span class="p">)</span>  <span class="c1"># Reglerparameter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.2757010191960405, None, 0.014898999999999999)
 </pre></div>
 </div>
 </div>
@@ -509,9 +565,24 @@ document.write(`
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/BORIS.TXT&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1"># hier mit Axes-Interface (alternativ mit Pyplot-Interface)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Führungssprungantwort&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Führungsgrösse $w$ bzw. Regelgrösse $x$ [-]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/21977037cf66ff8c790a7044acf3ea7f87d4ac967facbca46045d4c14d4c5548.png" src="../_images/21977037cf66ff8c790a7044acf3ea7f87d4ac967facbca46045d4c14d4c5548.png" />
 </div>
 </div>
 <hr class="docutils" />

@@ -468,7 +468,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>b) Erstellen Sie den Zeit-Array <span class="math notranslate nohighlight">\(t\)</span> für das Audio-Signal und stellen das Signal über der Zeit grafisch dar. Zeigen Sie im Diagramm nur den Zeitbereich von 0.1 s bis 0.15 s.</p>
+<p>b) Erstellen Sie den Zeit-Array <code class="docutils literal notranslate"><span class="pre">t</span></code> für das Audio-Signal und stellen das Signal über der Zeit grafisch dar. Zeigen Sie im Diagramm nur den Zeitbereich von 0.1 s bis 0.15 s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
@@ -496,7 +496,7 @@ document.write(`
 <section id="ubung-2">
 <h2>Übung 2<a class="headerlink" href="#ubung-2" title="Link to this heading">#</a></h2>
 <p>Bei dieser Aufgabe soll eine Frequenzanalyse eines aufgezeichneten Messignals erfolgen.</p>
-<p>a) Lesen Sie das TXT-File <code class="docutils literal notranslate"><span class="pre">UEBUNG2.TXT</span></code> aus dem Ordner /data ein. Darin befindet sich eine Aufzeichnung einer Schwingungsmessung (Beschleunigung [m/s<span class="math notranslate nohighlight">\(^2\)</span>]), welche mit einer Abtastfrequenz von 2.56 kHz erfasst wurde. Definieren Sie die Variablen <code class="docutils literal notranslate"><span class="pre">fs</span></code> (Abtastfrequenz) und <code class="docutils literal notranslate"><span class="pre">N</span></code> (Sampleanzahl).</p>
+<p>a) Lesen Sie das TXT-File <code class="docutils literal notranslate"><span class="pre">UEBUNG2.TXT</span></code> ein. Darin befindet sich eine Aufzeichnung einer Schwingungsmessung (Beschleunigung [m/s<span class="math notranslate nohighlight">\(^2\)</span>]), welche mit einer Abtastfrequenz von 2.56 kHz erfasst wurde. Definieren Sie die Variablen <code class="docutils literal notranslate"><span class="pre">fs</span></code> (Abtastfrequenz) und <code class="docutils literal notranslate"><span class="pre">N</span></code> (Sampleanzahl).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
@@ -504,7 +504,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>b) Berechnen Sie das Frequenzspektrum (Amplitudenspektrum). Verwenden Sie die “Tukey”-Fensterfunktion, wobei Sie diese mit <code class="docutils literal notranslate"><span class="pre">signal.windows.get_window('tukey',</span> <span class="pre">N)</span></code> erzeugen können. (Beachten Sie, dass Sie einen allfälligen Offset (DC-Anteil) im Signal vor der Multiplikation mit der Fensterfunktion entfernen und danach wieder hinzufügen.)</p>
+<p>b) Berechnen Sie das Frequenzspektrum (Amplitudenspektrum). Verwenden Sie die <em>Tukey</em>-Fensterfunktion, wobei Sie diese mit <code class="docutils literal notranslate"><span class="pre">signal.windows.get_window('tukey',</span> <span class="pre">N)</span></code> erzeugen können. Beachten Sie, dass Sie einen allfälligen Offset (DC-Anteil) im Signal vor der Multiplikation mit der Fensterfunktion entfernen und danach wieder hinzufügen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
@@ -512,7 +512,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>c) Stellen Sie das Signal im Zeitbereich und im Frequenzbereich dar. Im Diagramm sollten zwei Subplots übereinander liegen, wobei im oberen das Zeitsignal und im unteren das Amplitudenspektrum dargestellt sind. Beschriften Sie die Achsen jeweils sinnvoll.</p>
+<p>c) Stellen Sie das Signal im Zeitbereich und im Frequenzbereich dar. Im Diagramm sollten zwei Subplots übereinander liegen, wobei im oberen das Zeitsignal und im unteren das Amplitudenspektrum dargestellt sind. Beschriften Sie die Achsen jeweils vollständig/sinnvoll.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
@@ -526,11 +526,11 @@ document.write(`
 <p>Für eine Zeitdauer <span class="math notranslate nohighlight">\(t =\)</span> 0…5 s soll ein Signal erzeugt werden, das aus folgenden Anteilen besteht:</p>
 <ul class="simple">
 <li><p>Gleichanteil (Offset) = 7.25</p></li>
-<li><p>Sinusschwingung mit Amplitude 1.25 und Frequenz 87 Hz</p></li>
+<li><p>Kosinusschwingung mit Amplitude 1.25 und Frequenz 87 Hz</p></li>
 <li><p>Sinusschwingung mit Amplitude 0.75 und Frequenz 167 Hz</p></li>
 <li><p>weisses Rauschen (normalverteilt) mit Mittelwert = 0 und Standardabweichung 0.5 (vgl. <code class="docutils literal notranslate"><span class="pre">random.randn()</span></code> von NumPy)</p></li>
 </ul>
-<p>a) Erzeugung der zusammengesetzten Schwingung. Verwenden Sie eine Abtastfrequenz <code class="docutils literal notranslate"><span class="pre">fs</span></code>, die 10 x grösser ist als die max. Frequenz im Zeitsignal.</p>
+<p>a) Erzeugung der zusammengesetzten Schwingung. Verwenden Sie eine Abtastfrequenz <code class="docutils literal notranslate"><span class="pre">fs</span></code>, die 10 x grösser ist als die Frequenz der oben aufgeführten Sinusschwingung.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code</span>
