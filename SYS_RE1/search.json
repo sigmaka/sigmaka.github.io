@@ -1,0 +1,76 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regelungstechnik I",
+    "section": "",
+    "text": "Modulorganisation\nIn diesem Kurs werden wir die Grundlagen der Regelungstechnik behandeln, einschließlich der wichtigsten Begriffe, Konzepte und Werkzeuge, die für die Analyse und den Entwurf von Regelkreisen erforderlich sind.\nDie Regelungstechnik ist ein interdisziplinäres Feld, das Mathematik, Physik, Informatik und Ingenieurwissenschaften vereint. Sie bietet die Werkzeuge, um komplexe Systeme zu verstehen und zu steuern, was in unserer zunehmend technologisierten Welt von großer Bedeutung ist. Im Idealfall resultiert für dich ein solides Verständnis der Regelungstechnik, aber auch sehr nützliches Wissen, das du in anderen Bereichen anwenden kannst.",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "index.html#themenblöcke",
+    "href": "index.html#themenblöcke",
+    "title": "Regelungstechnik I",
+    "section": "Themenblöcke",
+    "text": "Themenblöcke\nDie Inhalte richten sich nach dem Buch “Crashkurs Regelungstechnik” von Dr.-Ing. Jörg Kahlert. Im Modul Regelungstechnik I werden wir die Kap. 1-4 behandeln.\n\n\n\n\n\n\n\n\nThema\nStichworte\nKap. (Buch)\n\n\n\n\nEinführung\nSteuern vs. Regeln, Blockschaltbild, Elemente des Regelkreises\n1\n\n\nRegelstrecke\nÜbertragungsverhalten, Kennlinie, Sprungantwort\n2\n\n\nÜbertragungsglieder\nGliederung (mit/ohne Ausgleich, Verzögerungen), Streckenidentifikation\n2\n\n\nNichtlineare Systeme\nLinearität, Linearisierungsverfahren\n2\n\n\nStetige Regler\nP-, PI-, PD-, PID-Regler\n3\n\n\nStellgrössenbeschränkung\nAnti-Windup\n3\n\n\nReglerentwurf I\nAnforderungen, Gütekriterien, Entwurfsverfahren\n4\n\n\nReglerentwurf II\nEntwurfsverfahren\n4\n\n\nRepetition\n\n1-4\n\n\nMAP\n\n1-4\n\n\nAbschluss\nBesprechung MAP, Evaluation, Ausblick",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "index.html#unterrichtsunterlagen",
+    "href": "index.html#unterrichtsunterlagen",
+    "title": "Regelungstechnik I",
+    "section": "Unterrichtsunterlagen",
+    "text": "Unterrichtsunterlagen\nNeben dem Buch steht die vorliegende Webseite zur Verfügung, welche die Inhalte in kondensierter Form bereitstellt (zusammen mit weiterführenden Materialien und Übungen dient diese uns als Nachschlagewerk). Es ist äusserst wichtig, die Unterlagen regelmäßig durchzugehen, die Übungen zu bearbeiten sowie individuelle Wissenslücken selbstständig zu schliessen. Die Folien im Unterricht dienen lediglich als Leitfaden und ersetzen nicht die Erklärungen und Beispiele in den Unterlagen.",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "chapters/L01.html",
+    "href": "chapters/L01.html",
+    "title": "1  Einführung",
+    "section": "",
+    "text": "1.1 Warum brauchen wir Regelungstechnik?\nDieses Kapitel fasst die wichtigsten Begriffe und Ziele der Regelungstechnik zusammen. Die Darstellung ist bewusst kompakt und fokussiert auf das, was für das weitere Verständnis der Vorlesung nötig ist.\nIn vielen technischen Systemen (z. B. Heizung, Motorsteuerung, Flugzeugstabilisierung) müssen physikalische Grössen (Temperatur, Geschwindigkeit, Position) auf einem gewünschten Wert gehalten oder einem vorgegeben Verlauf folgenn. Regelungstechnik bietet die theoretischen und praktischen Werkzeuge, um solche Systeme zu analysieren und zu steuern/regeln.\nDurch die Steuerungs- und Regelungstechnik können wir: - Systeme stabilisieren, die von Natur aus instabil sind. - Störungen kompensieren, die das System beeinflussen. - Die Leistung von Systemen verbessern, indem wir sie schneller und genauer machen. - Energie sparen, indem wir nur so viel Energie einsetzen, wie nötig ist, um die gewünschte Leistung zu erreichen. - Automatisierung ermöglichen, um menschliche Arbeit zu reduzieren und die Effizienz zu steigern.\nIhr kennt unzählige Beispiele für regelungstechnische Anwendungen aus dem Alltag oder dem Arbeitsleben. Wir schauen uns nachfolgend exemplarisch einige an.\nWir werden uns vorwiegend mit technischen Systemen befassen, doch die Regelungstechnik findet auch in anderen Bereichen Anwendung, z. B. in der Biologie (Regulation von Körpertemperatur), Wirtschaft (Geldpolitik) und Soziologie (soziale Dynamiken).",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L01.html#steuern-vs.-regeln",
+    "href": "chapters/L01.html#steuern-vs.-regeln",
+    "title": "1  Einführung",
+    "section": "1.2 Steuern vs. Regeln",
+    "text": "1.2 Steuern vs. Regeln\nAus dem Alltag kennen wir die Begriffe Steuerung und Regelung, doch verwenden diese teilweise gleichbedeutend und/oder inkorrekt. Als erstes müssen wir uns daher den Unterschied zwischen Steuern und Regeln klarmachen. Dazu betrachten wir das Beispiel einer Raumheizung.\nBekannterweise besteht das Ziel einer Raumheizung darin, eine für den Menschen angenehme Temperatur zu erreichen (die durchaus je nach Raumnutzung/Tageszeit usw. variieren kann).\n\n1.2.1 Steuerung\nJe nach Aussentemperatur wird die Heizung mehr oder weniger aufgedreht und damit mehr oder weniger Wärme an den Raum abgegeben. Im Steuergerät ist hinterlegt (z. B. via Kennlinie/Kennfeld), wie stark das Ventil bei welcher Aussentemperatur geöffnet/geschlossen werden soll.\n\n\n\n\n\n\nAbb. 1.1: Raumtemperatur-Steuerung\n\n\n\nWenn wir die obige Situation auf die aus steuerungs- bzw. regelungstechnischer relevanten Komponenten reduzieren, landen wir bei der nachfolgenden Darstellung.\n\n\n\n\n\n\nAbb. 1.2: Raumtemperatur-Steuerung als Blockschaltbild\n\n\n\nWir nennen diese Art der Darstellung Blockschaltbild, da die einzelnen Komponenten des Systems als Blöcke dargestellt werden, welche jeweils einen Eingang und Ausgang haben. Wir werden sehen, dass sich ein wesentlicher Teil der Regelungstechnik um die Beschreibung des Verhaltens dieser Blöcke dreht. Dazu später mehr …\nDa es sich im obigen Beispiel um eine Steuerung handelt, bezeichnen wir Abb. 1.2 auch als Steuerkette.\n\n\n\n\n\n\nTippÜbung\n\n\n\nBetrachte nochmals Abb. 1.1 und überlege dir, warum die Steuerung vermutlich nicht in der Lage ist, immer eine gleichbleibende, angenehme Raumtemperatur zu gewährleisten.\n\n\n\n\n1.2.2 Regelung\nNun betrachten wir das Beispiel der Raumtemperatur-Regelung.\n\n\n\n\n\n\nTippÜbung\n\n\n\nVergleiche die nachfolgende Abbildung mit derjenigen der Steuerung und überlege dir, was wohl aus regelungstechnischer Sicht der wesentliche Unterschied sein könnte.\n\n\n\n\n\n\n\n\nAbb. 1.3: Raumtemperatur-Regelung\n\n\n\nWiederum wollen wir die Situation von unnötigen/irrelevanten Details befreien und das entsprechende Blockschaltbild betrachten.\n\n\n\n\n\n\nAbb. 1.4: Raumtemperatur-Regelung als Blockschaltbild\n\n\n\nIn dieser Darstellung wird der entscheidende Unterschied zwischen der Regelung und der Steuerung sofort klar. Anders als bei der Steuerung wird die eigentliche Zielgrösse (hier die Raumtemperatur) effektiv gemessen (Istwert) und kann dadurch direkt mit dem Sollwert verglichen werden. Wir haben also eine Rückführung (engl. Feedback) im Blockschaltbild und bezeichnen Abb. 1.4 daher auch als Regelkreis.\nMit der Rückführung kann die Regelung auf Störungen (z. B. offene Fenster, Sonneneinstrahlung) reagieren und die Stellgröße entsprechend anpassen, um die gewünschte Raumtemperatur zu halten. Die Steuerung hingegen würde in solchen Situationen nicht automatisch reagieren, da sie keine Rückmeldung über die tatsächliche Raumtemperatur erhält.\nDie oben herausgearbeiteten Unterschiede zwischen der Steuerung und der Regelung lassen sich folgendermassen zusammenfassen:\n\n\n\n\n\n\nWichtigRegelung\n\n\n\nDie Regelgrösse (Istwert) wird fortlaufend erfasst und mit der Führungsgrösse (Sollwert) verglichen und dahingehend beeinflusst, dass eine Angleichung der Regelgrösse an die Führungsgrösse erfolgt.\nDie Regelung zeichnet sich durch den geschlossenen Wirkungsablauf aus, da die Ausgangsgrösse (Regelgrösse) zurückgeführt wird und sich selbst beeinflusst (Rückkopplung bzw. Feedback).\n\n\n\n\n\n\n\n\nWichtigSteuerung\n\n\n\nDie Steuerung beeinflusst Ausgangsgrössen anhand von Eingangsgrössen gemäss bestimmten Gesetztmässigkeiten, ohne jedoch eine Rückführung der Ausgangsgrössen zu verwenden.\nDie Steuerung zeichnet sich durch den offenen Wirkungsablauf aus, da keine Rückwirkung der Ausgangsgrössen auf sich selbst erfolgt.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L01.html#blockschaltbild-bsb",
+    "href": "chapters/L01.html#blockschaltbild-bsb",
+    "title": "1  Einführung",
+    "section": "1.3 Blockschaltbild (BSB)",
+    "text": "1.3 Blockschaltbild (BSB)\nFür die Analyse und den Entwurf von Regelkreisen verwenden wir Blockschaltbilder. Diese zeigen die verschiedenen Komponenten eines Regelkreises und deren Verbindungen.\nIm Wesentlichen setzt sich ein Blockschaltbild aus drei Arten von Elementen zusammen:\n\n\n\n\n\n\n\n\n\n\n\n(a) Block\n\n\n\n\n\n\n\n\n\n\n\n(b) Summationsstelle\n\n\n\n\n\n\n\n\n\n\n\n(c) Verzweigung\n\n\n\n\n\n\n\nAbb. 1.5: Blockschaltbild-Elemente\n\n\n\n\n1.3.1 Elemente des Regelkreises\nWie wir oben gesehen haben, findet man in einem typischen Regelkreis Regler, Stellglied, Regelstrecke, Sensor etc. und je nach Analysetiefe wird das Blockschaltbild mehr oder weniger ausführlich dargestellt (Blöcke werden mehr oder weniger zusammengefasst). Im einfachsten Fall besteht der Regelkreis lediglich aus zwei Blöcken, dem Regler (RE) und der Regelstrecke (RS), in der das Stellglied und das Messglied enthalten sind.\n\n\n\n\n\n\nAbb. 1.6: Standardregelkreis\n\n\n\nDamit wir die Signale im Standardregelkreis unabhängig von der konkreten Anwendung benennen können, verwenden wir die folgenden allgemeinen Bezeichnungen:\n\nFührungsgrösse \\(w\\) (Sollwert): Der gewünschte Wert, den die Ausgangsgröße erreichen soll.\nRegelabweichung \\(e\\): Eine ungewollte Einflussgröße, die das System beeinflusst (z. B. offene Fenster, Sonneneinstrahlung).\nStellgrösse \\(y\\): …\nRegelgrösse \\(x\\): Die gemessene Ausgangsgröße, die tatsächlich erreicht wird (z. B. Raumtemperatur).\nStörgrösse \\(z\\): Eine ungewollte Einflussgröße, die das System beeinflusst (z. B. offene Fenster, Sonneneinstrahlung).\n\nDie beiden Blöcke im Standardregelkreis sind:\n\nRegler (RE): Berechnet die Stellgröße basierend auf der Differenz zwischen Führungsgröße und Ausgangsgröße.\nRegelstrecke (RS): Das System, das geregelt werden soll.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/APX.html",
+    "href": "chapters/APX.html",
+    "title": "Anhang A — Begriffe und Symbole",
+    "section": "",
+    "text": "Begriff\nengl.\nSymbol\nKap. (Buch)\n\n\n\n\nAnregelzeit\ncontrol rise time\n\\(T_{cr}\\)\n4\n\n\nArbeitspunkt\noperating point\n\n2\n\n\nAusgangsgrösse\noutput variable\n\\(x_a\\)\n2\n\n\nAugleichszeit\nequivalent time constant\n\n\n\n\nAusregelzeit\ncontrol settling time\n\\(T_{cs}\\)\n4\n\n\nBegrenzung\nlimitation\n\n\n\n\nbleibende Regeldifferenz\nsteady-state error\n\\(e_{\\infty}\\)\n4\n\n\nDämpfung\ndamping\n\n\n\n\nDämpfungsgrad\ndamping ratio\n\\(D\\)\n4\n\n\nDifferenzierbeiwert\ndifferential action constant\n\\(K_D\\)\n4\n\n\nDifferenzierglied (D-Glied)\nderivative element (D element)\n\n\n\n\nDifferenzierzeit\nderivative action time\n\\(T_D\\)\n4\n\n\nEingangsgrösse\ninput variable\n\\(x_e\\)\n2\n\n\nFolgeregelung\nfollow-up control\n\n\n\n\nFührungsgrösse (Sollwert)\nreference variable\n\\(w\\)\n1\n\n\nFührungsverhalten\nreference variable response\n\n\n\n\nIntegrierbeiwert\nintegral action coefficient\n\\(K_I\\)\n2\n\n\nIntegrierglied (I-Glied)\nintegral element (I element)\n\n\n\n\nIntegrierzeit\nintegral action time\n\\(T_I\\)\n2\n\n\nIstwert\nactual value\n\n1\n\n\nKennkreisfrequenz\ncharateristic angular frequency\n\\(\\omega_0\\)\n2\n\n\nKennlinie\ncharacteristic curve\n\n\n\n\nMessglied\nmeasuring element\n\n\n\n\nNachstellzeit\nreset time\n\\(T_i\\)\n3\n\n\nProportionalbeiwert\nproportional action coefficient\n\\(K_P\\)\n2\n\n\nProportionalglied (P-Glied)\nproportional element (P element)\n\n\n\n\nRegeldifferenz\nerror variable\n\\(e\\)\n1\n\n\nRegelglied\ncontrolling element\n\n\n\n\nRegelgrösse\ncontrolled variable\n\\(x\\)\n1\n\n\nRegelkreis\ncontrol loop\n\\(RK\\)\n\n\n\nRegelung\nclosed-loop control (feedback control)\n\n\n\n\nRegelstrecke\ncontrolled process\n\\(RS\\)\n\n\n\nRegler\ncontroller\n\\(RE\\)\n\n\n\nRückführgrösse\nfeedback variable\n\\(r\\)\n\n\n\nSollwert\ndesired value\n\n1\n\n\nSprungantwort\nstep response\n\n\n\n\nStabilität\nstability\n\n\n\n\nStellgrösse\nmanipulated variable\n\\(y\\)\n1\n\n\nSteuerkette\ncontrol chain\n\n\n\n\nSteuerung\nopen-loop control (feedforward control)\n\n\n\n\nStörgrösse\ndisturbance variable\n\\(z\\)\n1\n\n\nStörverhalten\ndisturbance response\n\n\n\n\nTotzeit\ndead-time\n\\(T_t\\)\n2\n\n\nÜberschwingweite\novershoot\n\\(x_m\\)\n\n\n\nÜbertragungsglied\ntransfer element\n\n\n\n\nVergleichsglied\ncomparing element\n\n\n\n\nVerzögerungsglied\nlag element\n\n\n\n\nVerzögerungszeit\ntime constant\n\\(T_{1,2,..}\\)\n\n\n\nVerzugszeit\nequivalent dead-time\n\\(T_e\\)\n\n\n\nVerzweiung\nbranching point\n\n\n\n\nVorhaltezeit\nrate time\n\\(T_d\\)\n\n\n\nWendepunkt\ninflection point\n\n\n\n\nZeitkonstante\ntime constant\n\\(T_{1,2,..}\\)\n\n\n\nZeitverhalten\ntime response\n\n\n\n\nZielgrösse\ncommand variable\n\\(c\\)\n1",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Begriffe und Symbole</span>"
+    ]
+  }
+]
