@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/A01.html" rel="next">
+<link href="../chapters/L02.html" rel="next">
 <link href="../index.html" rel="prev">
 <link href="../images/logo_re.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -108,9 +108,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<script src="../assets/html2pdf.bundle.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -171,9 +186,6 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Regelungstechnik</a> 
-        <div class="sidebar-tools-main">
-    <a href="../Regelungstechnik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
-</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -204,6 +216,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -219,6 +237,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../chapters/A01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
   </div>
 </li>
       </ul>
@@ -244,7 +268,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#elemente-des-regelkreises" id="toc-elemente-des-regelkreises" class="nav-link" data-scroll-target="#elemente-des-regelkreises"><span class="header-section-number">1.3.1</span> Elemente des Regelkreises</a></li>
   </ul></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen">Übungen</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
   </ul>
 </nav>
     </div>
@@ -671,23 +695,23 @@ Abb.&nbsp;1.15: Standardregelkreis
 </div>
 <p>Damit wir die Signale im Standardregelkreis unabhängig von der konkreten Anwendung benennen können, verwenden wir die folgenden allgemeinen Bezeichnungen:</p>
 <dl>
-<dt>Führungsgrösse <span class="math inline">\(w\)</span> (Sollwert)</dt>
+<dt>Führungsgrösse <span class="math inline">w</span> (Sollwert)</dt>
 <dd>
 Der gewünschte Wert, den die Ausgangsgröße (Regelgrösse) erreichen soll.
 </dd>
-<dt>Regelabweichung <span class="math inline">\(e\)</span></dt>
+<dt>Regelabweichung <span class="math inline">e</span></dt>
 <dd>
-Differenz zwischen Führungsgrösse und Regelgrösse (<span class="math inline">\(e = w -x\)</span>).
+Differenz zwischen Führungsgrösse und Regelgrösse (<span class="math inline">e = w -x</span>).
 </dd>
-<dt>Stellgrösse <span class="math inline">\(y\)</span></dt>
+<dt>Stellgrösse <span class="math inline">y</span></dt>
 <dd>
 Die vom Regler ausgegebene Grösse, welche auf das Stellglied wirkt und somit in die Regelstrecke eingreift.
 </dd>
-<dt>Regelgrösse <span class="math inline">\(x\)</span> (Istwert)</dt>
+<dt>Regelgrösse <span class="math inline">x</span> (Istwert)</dt>
 <dd>
 Die gemessene Ausgangsgröße, die tatsächlich erreicht wird (z. B. Raumtemperatur). Die Regelgrösse wird zurückgeführt und mit der Führungsgrösse verglichen.
 </dd>
-<dt>Störgrösse <span class="math inline">\(z\)</span></dt>
+<dt>Störgrösse <span class="math inline">z</span></dt>
 <dd>
 Eine ungewollte Einflussgröße, die das System beeinflusst (z. B. offene Fenster, Sonneneinstrahlung).
 </dd>
@@ -705,8 +729,12 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 </dl>
 </section>
 </section>
-<section id="übungen" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="übungen">Übungen</h2>
+<section id="aufgaben" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
+<button class="pdf-export" data-target="aufgaben1" data-filename="AUFG01.pdf" aria-label="Aufgaben als PDF herunterladen" title="Aufgaben als PDF speichern">
+<img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
+</button>
+<div id="aufgaben1">
 <div id="ex-1-1" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -764,6 +792,7 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 </div>
 </div>
 </div>
+</div>
 
 
 <!-- -->
@@ -778,6 +807,141 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 </section>
 
 </main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".pdf-export").forEach(btn => {
+
+    btn.addEventListener("click", async () => {
+
+      const target = document.getElementById(btn.dataset.target);
+
+      const expanded = [];
+
+
+
+      document.querySelectorAll("details:not([open])").forEach(d => {
+
+        d.open = true;
+
+        expanded.push({ el: d, type: "details" });
+
+      });
+
+
+
+      document.querySelectorAll(".collapse:not(.show)").forEach(el => {
+
+        const instance =
+
+          bootstrap.Collapse.getInstance(el) ||
+
+          new bootstrap.Collapse(el, { toggle: false });
+
+        instance.show();
+
+        expanded.push({ el, type: "collapse" });
+
+      });
+
+
+
+      try {
+
+        // Wait for Quarto/MathJax math rendering to finish
+
+        if (window.MathJax?.typesetPromise) {
+
+          await MathJax.typesetPromise([target]);
+
+        }
+
+
+
+        await html2pdf()
+
+          .set({
+
+            margin: 10,
+
+            filename: btn.dataset.filename || "download.pdf",
+
+            pagebreak: {
+
+              mode: ['css', 'legacy'],
+
+              after: '.callout-tip'
+
+            },
+
+            html2canvas: {
+
+              scale: 2,
+
+              useCORS: true,
+
+              onclone: (doc) => {
+
+                // Remove MathJax assistive MathML that html2canvas may render as a duplicate
+
+                doc.querySelectorAll('.katex-mathml').forEach(el => el.remove());
+
+
+
+                // Optional: if any raw TeX script tags are present, remove those too
+
+                doc.querySelectorAll('script[type^="math/tex"]').forEach(el => el.remove());
+
+              }
+
+            },
+
+            jsPDF: {
+
+              unit: "mm",
+
+              format: "a4",
+
+              orientation: "portrait"
+
+            }
+
+          })
+
+          .from(target)
+
+          .save();
+
+      } finally {
+
+        expanded.forEach(item => {
+
+          if (item.type === "details") item.el.open = false;
+
+          if (item.type === "collapse") {
+
+            const instance =
+
+              bootstrap.Collapse.getInstance(item.el) ||
+
+              new bootstrap.Collapse(item.el, { toggle: false });
+
+            instance.hide();
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+});
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1236,8 +1400,8 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/A01.html" class="pagination-link" aria-label="Begriffe">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/L02.html" class="pagination-link" aria-label="Analyse der Regelstrecke">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1492,31 +1656,41 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 <span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>Regelstrecke (RS)</span>
 <span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>: Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regelstrecke enthält in dieser Darstellung das Stellglied und das Messglied (Sensor), diese liegen daher nicht als separate Blöcke vor.</span>
 <span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übungen {.unnumbered}</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
 <span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-1}</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.1</span></span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>Präge dir den Standardregelkreis (vgl. @fig-rk) mit sämtlichen Grössen/Symbolen so gut ein, dass du ihn auswendig aufzeichnen und vollständig beschriften/benennen kannst. </span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-2}</span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.2</span></span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>Suche in deinem Betrieb, deinem Zuhause oder auch andernorts (Arbeitsweg, Freizeit, …) ein Beispiel einer Regelung oder Steuerung und dokumentiere diese gemäss untenstehenden Punkten auf ein paar wenigen Powerpoint-Folien. Eine Vorlage ist auf TEAMS zu finden.</span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>Folgende Punkte sollten enthalten sein (sofern möglich):</span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ein möglichst übersichtliches Foto der Situation</span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Was wird geregelt (Regelgrösse)?</span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wie wird die Führungsgrösse (Sollwert) generiert bzw. woher kommt der Sollwert?</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wie wird der Istwert (Regelgrösse) erfasst/gemessen?</span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Welche allfälligen Störgrössen können auftreten?</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Erstelle ein vereinfachtes Blockschaltbild</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-3}</span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.3</span></span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>Installiere die Simulationssoftware BORIS (WinFACT). Die Installationsdatei kann vom InfoPoint bezogen werden. <span class="co">[</span><span class="ot">WinFACT</span><span class="co">](https://abbtsch.sharepoint.com/sites/Infopoint/SitePages/SW005-WinFact.aspx)</span></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben1"</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"AUFG01.pdf"</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF herunterladen"</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben1}</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-1}</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.1</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>Präge dir den Standardregelkreis (vgl. @fig-rk) mit sämtlichen Grössen/Symbolen so gut ein, dass du ihn auswendig aufzeichnen und vollständig beschriften/benennen kannst. </span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-2}</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.2</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>Suche in deinem Betrieb, deinem Zuhause oder auch andernorts (Arbeitsweg, Freizeit, …) ein Beispiel einer Regelung oder Steuerung und dokumentiere diese gemäss untenstehenden Punkten auf ein paar wenigen Powerpoint-Folien. Eine Vorlage ist auf TEAMS zu finden.</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>Folgende Punkte sollten enthalten sein (sofern möglich):</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ein möglichst übersichtliches Foto der Situation</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Was wird geregelt (Regelgrösse)?</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wie wird die Führungsgrösse (Sollwert) generiert bzw. woher kommt der Sollwert?</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wie wird der Istwert (Regelgrösse) erfasst/gemessen?</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Welche allfälligen Störgrössen können auftreten?</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Erstelle ein vereinfachtes Blockschaltbild</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-3}</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.3</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>Installiere die Simulationssoftware BORIS (WinFACT). Die Installationsdatei kann vom InfoPoint bezogen werden. <span class="co">[</span><span class="ot">WinFACT</span><span class="co">](https://abbtsch.sharepoint.com/sites/Infopoint/SitePages/SW005-WinFact.aspx)</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

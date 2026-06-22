@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-CH" xml:lang="de-CH"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Analyse der Regelstrecke – Regelungstechnik</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/A01.html" rel="next">
+<link href="../chapters/L01.html" rel="prev">
+<link href="../images/logo_re.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-11f943d916b1390b48b2627ac8a86575.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script src="../assets/html2pdf.bundle.min.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo_re.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logo_re.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regelungstechnik</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modulorganisation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unterrichtseinheiten</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhang</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#regelungstechnik-workflow" id="toc-regelungstechnik-workflow" class="nav-link active" data-scroll-target="#regelungstechnik-workflow"><span class="header-section-number">2.1</span> Regelungstechnik-Workflow</a></li>
+  <li><a href="#regelstrecken-mit-und-ohne-ausgleich" id="toc-regelstrecken-mit-und-ohne-ausgleich" class="nav-link" data-scroll-target="#regelstrecken-mit-und-ohne-ausgleich"><span class="header-section-number">2.2</span> Regelstrecken mit und ohne Ausgleich</a></li>
+  <li><a href="#übertragungsverhalten" id="toc-übertragungsverhalten" class="nav-link" data-scroll-target="#übertragungsverhalten"><span class="header-section-number">2.3</span> Übertragungsverhalten</a>
+  <ul class="collapse">
+  <li><a href="#statisches-verhalten-der-regelstrecke" id="toc-statisches-verhalten-der-regelstrecke" class="nav-link" data-scroll-target="#statisches-verhalten-der-regelstrecke"><span class="header-section-number">2.3.1</span> Statisches Verhalten der Regelstrecke</a></li>
+  <li><a href="#dynamisches-verhalten-der-regelstrecke" id="toc-dynamisches-verhalten-der-regelstrecke" class="nav-link" data-scroll-target="#dynamisches-verhalten-der-regelstrecke"><span class="header-section-number">2.3.2</span> Dynamisches Verhalten der Regelstrecke</a></li>
+  <li><a href="#verzögerungen" id="toc-verzögerungen" class="nav-link" data-scroll-target="#verzögerungen">Verzögerungen</a></li>
+  </ul></li>
+  <li><a href="#gliederung" id="toc-gliederung" class="nav-link" data-scroll-target="#gliederung"><span class="header-section-number">2.4</span> Gliederung</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Quellcode anzeigen</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Einer der wichtigsten Schritte in der Regelungstechik ist es, die Regelstrecke zu analysieren bzw. zu identifizieren, um ihr Verhalten in der Simulation abbilden zu können. Diesem Unterfangen widmet sich dieser und zukünftige Unterrichtsblöcke.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Ziele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Ziele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Du kannst das <strong>statische Verhalten</strong> eines Übertragungsgliedes erklären und mittels statischer Kennlinie beschreiben.</li>
+<li>Du kannst das <strong>dynamische Verhalten</strong> eines Übertragungsgliedes erklären und kennst die Bedeutung der Sprungantwort (Impulsantwort &amp; Rampenantwort)</li>
+<li>Du kennst den Unterschied zwischen Regelstrecken <strong>mit Ausgleich (P-Strecken)</strong> und solchen <strong>ohne Ausgleich (I-Strecken)</strong>.</li>
+</ul>
+</div>
+</div>
+<section id="regelungstechnik-workflow" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="regelungstechnik-workflow"><span class="header-section-number">2.1</span> Regelungstechnik-Workflow</h2>
+<p>Ausgehend vom Standardregelkreis können wir uns bereits jetzt überlegen, wie wir Vorgehen würden, um eine regelungstechnische Problemstellung systematisch zu bearbeiten. Das folgende Vorgehen nennen wir <em>Regelungtechnik-Workflow</em> und es besteht aus den folgenden Schritten:</p>
+<ol type="1">
+<li>Verhalten der Regelstrecke analysieren/beschreiben (reales System)</li>
+<li>Modell der Regelstrecke aufbauen (Simulation)</li>
+<li>Anforderungen an Regelung definieren</li>
+<li>Regler entwerfen/auslegen (Simulation)</li>
+<li>Regler implementieren und testen (reales System)</li>
+</ol>
+<p>Wir sehen, dass die Simulation dabei eine wichtige Rolle einnimmt. Für die Modellierung der Regelstrecke (Schritt 2) und den Reglerentwurf (Schritt 4) werden wir primär mit dem Simulationstool arbeiten. <a href="#fig-workflow" class="quarto-xref">Abb.&nbsp;<span>2.1</span></a> zeigt den Workflow grafisch.</p>
+<div id="fig-workflow" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Workflow.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.1: Regelungstechnik-Workflow
+</figcaption>
+</figure>
+</div>
+<p>Im Folgenden werden wir uns die Grundlagen für die Schritte 1 und 2 - der Analyse und Modellierung der Regelstrecke - erarbeiten. Wir werden feststellen, dass wir Systeme, die auf den ersten Blick völlige unterschiedlich aussehen (elektrisch, mechanisch, thermisch, …) in der Regelungstechnik mit denselben <em>Grundgliedern</em> beschreiben können.</p>
+<p>Wie wir im ersten Kapitel gelernt haben, beschreibt ein Übertragungsglied (Block) den Ursache-Wirkungs-Zusammenhang zwischen dem Ein- und Ausgang (z. B. der Regelstrecke oder Teilen davon). Ein- und Ausgang bezeichnen wir allgemein mit <span class="math inline">x_e</span> und <span class="math inline">x_a</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Symbole">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Symbole
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wenn wir ganz allgemein ein Übertragungsglied betrachten, dann verwenden wir die Symbole <span class="math inline">x_e</span> und <span class="math inline">x_a</span> für Ein- und Ausgang.</p>
+<p>Wenn wir eine konkrete Regelstrecke betrachten, verwenden wir gemäss den Bezeichnungen des Standardregelkreise (vgl. <a href="L01.html#fig-rk" class="quarto-xref">Abb.&nbsp;<span>1.15</span></a>) als Eingang <span class="math inline">y</span> (Stellgrösse) und als Ausgang <span class="math inline">x</span> (Regelgrösse). Wenn typische physikalische Grössen (z. B. Geschwindigkeit, Drehzahl, Kraft, …) auftreten, verwenden wir häufig auch die Symbole, welche wir aus der Physik kennen (z. B. <span class="math inline">v</span> für Geschwindigkeit, <span class="math inline">n</span> für Drehzahl, <span class="math inline">F</span> für Kraft, …).</p>
+</div>
+</div>
+<div id="fig-uebertragungsverhalten" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-uebertragungsverhalten-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Uebertragungsverhalten.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-uebertragungsverhalten-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.2: Übertragungsverhalten
+</figcaption>
+</figure>
+</div>
+<p>Die zentrale Frage, welche uns durch das gesamte Kapitel begleitet, lautet:</p>
+<blockquote class="blockquote">
+<p>Wie können wir das Verhalten der Regelstrecke bzw. allgemein eines Übertragungsgliedes beschreiben? Wie hängt der Ausgang <span class="math inline">x_a</span> vom Eingang <span class="math inline">x_e</span> ab?</p>
+</blockquote>
+</section>
+<section id="regelstrecken-mit-und-ohne-ausgleich" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="regelstrecken-mit-und-ohne-ausgleich"><span class="header-section-number">2.2</span> Regelstrecken mit und ohne Ausgleich</h2>
+<p>Als erstes betrachten wir die nachfolgend abgebildeten Regelstrecken.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Regelstrecke
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es geht jetzt noch nicht um die Regelung, d.&nbsp;h. wir betrachten die Regelstrecke isoliert, um ihr Verhalten zu beschreiben. Dazu überlegen wir uns, wie sich das Ausgangssignal verhält, wenn ein konstantes Eingangssignal eingespeist wird.</p>
+</div>
+</div>
+<div id="fig-PvsI" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PvsI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PvsI" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-pstrecke" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-pstrecke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/ani_motor_site.gif" class="img-fluid figure-img" data-ref-parent="fig-PvsI">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-pstrecke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) DC-Motor/Antriebsstrang
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PvsI" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-istrecke" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-istrecke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/ani_fuellstand_site.gif" class="img-fluid figure-img" data-ref-parent="fig-PvsI">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-istrecke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Befüllung eines Tanks
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PvsI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.3: Regelstrecke mit und ohne Ausgleich
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Übung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Betrachte <a href="#fig-PvsI" class="quarto-xref">Abb.&nbsp;<span>2.3</span></a> und überlege dir, was der fundamentale Unterschied zwischen den beiden Regelstrecken ist, wenn das <em>Übertragungsverhalten</em> (Zusammenhang zwischen Ein- und Ausgang) im Fokus steht.</p>
+</div>
+</div>
+<p>Eine erste Gliederung der Regelstrecken können wir anhand des Beharrungsverhaltens vornehmen. Weist die Regelstrecke einen Beharrungszustand auf, d.&nbsp;h. nähert sich der Ausgangswert bei konstantem Eingangswert einem Beharrungszustand an (ändert sich also mit der Zeit nicht mehr), so sprechen wir von einer <strong>P-Strecke</strong> (vgl. <a href="#fig-pstrecke" class="quarto-xref">Abb.&nbsp;<span>2.3 (a)</span></a>). Die Bezeichnung <em>P-Strecke</em> kommt daher, dass der Ausgangswert im Beharrungszustand <em>proportional</em> zum Eingangswert ist.</p>
+<p>Wächst der Ausgangswert dagegen immer weiter an für einen konstanten Eingangswert, so sprechen wir von einer <strong>I-Strecke</strong> (vgl. <a href="#fig-istrecke" class="quarto-xref">Abb.&nbsp;<span>2.3 (b)</span></a>). Die Strecke wirkt <em>integrierend</em>. Wir werden in Kürze sehen, woher diese Bezeichnung kommt und warum sie passend ist.</p>
+<p>Zusammenfassend können wir festhalten:</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="callout callout-style-default callout-note callout-titled" title="Strecke mit Ausgleich (P-Strecke)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Strecke mit Ausgleich (P-Strecke)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bei Regelstrecken mit Ausgleich strebt die Ausgangsgrösse (Regelgrösse) nach Anlegen einer konstanten Eingangsgrösse (Stellgrösse) ebenfalls einem konstanten Wert entgegen.</p>
+</div>
+</div>
+</div><div class="column" style="width:49%;">
+<div class="callout callout-style-default callout-note callout-titled" title="Strecke ohne Ausgleich (I-Strecke)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Strecke ohne Ausgleich (I-Strecke)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bei Regelstrecken ohne Ausgleich strebt die Ausgangsgrösse (Regelgrösse) nach Anlegen einer konstanten Eingangsgrösse (Stellgrösse) keinem stationären Zustand entgegen.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Im Folgenden betrachten wir einen PKW (stark vereinfacht) als Übertragungsglied. Eingangsgrösse (Stellgrösse) ist die Gaspedalstellung <span class="math inline">s</span> [%] und Ausgangsgrösse ist die Geschwindigkeit <span class="math inline">v</span> [km/h].</p>
+<div id="fig-pkw" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pkw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/PKW.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pkw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.4: PKW als Übertragungsglied
+</figcaption>
+</figure>
+</div>
+<p>Nachfolgend ist eine interaktive Demo, wobei der Slider links das Gaspedal [0-100%] repräsentiert. Spiele etwas damit herum und überzeuge dich, dass es sich dabei um eine P-Strecke handelt.</p>
+<style>
+.slider-col {
+  display: flex;
+  flex-direction: column;
+}
+.slider-col .cell, .slider-col .cell-output, .slider-col .cell-output-display {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.slider-col .slider-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.slider-col .slider-label {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 0.25em;
+}
+.slider-col input[type="range"] {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  height: 320px;
+  width: 36px;
+  cursor: pointer;
+  accent-color: #2980b9;
+}
+</style>
+<div class="columns">
+<div class="column text-center slider-col" style="width:24%;">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="127" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 126;"><span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>u_input <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;input type="range" min="0" max="100" step="1" value="0"&gt;`</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> Generators<span class="op">.</span><span class="fu">input</span>(u_input)</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>disturbance_cb <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;input type="checkbox"&gt;`</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="slider-label"&gt;Gaspedal [%]&lt;/div&gt;&lt;div class="slider-wrap"&gt;</span><span class="sc">${</span>u_input<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;label style="display:flex;align-items:center;gap:0.5em;justify-content:center;margin-top:0.75em;font-size:0.9em;cursor:pointer;"&gt;</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>disturbance_cb<span class="sc">}</span><span class="vs"> Störsignal</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/label&gt;`</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:74%;">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="141" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> T <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> dt <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>sim <span class="op">=</span> Generators<span class="op">.</span><span class="fu">observe</span>((change) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> t <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> lastSign <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> distValue <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> data <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> id <span class="op">=</span> <span class="pp">setInterval</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    t <span class="op">+=</span> dt<span class="op">;</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> inp <span class="op">=</span> <span class="pp">parseFloat</span>(u_input<span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (disturbance_cb<span class="op">.</span><span class="at">checked</span>) {</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> sign <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(<span class="fl">0.5</span> <span class="op">*</span> t) <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (sign <span class="op">!==</span> lastSign) {</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>        distValue <span class="op">=</span> sign <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>        lastSign <span class="op">=</span> sign<span class="op">;</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>      distValue <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>      lastSign <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    y <span class="op">+=</span> dt <span class="op">/</span> T <span class="op">*</span> (K <span class="op">*</span> inp <span class="op">-</span> y)<span class="op">;</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>    data<span class="op">.</span><span class="fu">push</span>({t<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> inp<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y<span class="op">+</span>distValue<span class="op">,</span> <span class="dt">d</span><span class="op">:</span> distValue})<span class="op">;</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (data<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">1000</span>) data<span class="op">.</span><span class="fu">shift</span>()<span class="op">;</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>    <span class="fu">change</span>(data<span class="op">.</span><span class="fu">slice</span>())<span class="op">;</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span> dt <span class="op">*</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> () <span class="kw">=&gt;</span> <span class="pp">clearInterval</span>(id)<span class="op">;</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="170" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 169;"><span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>x_max <span class="op">=</span> sim<span class="op">?.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> sim[sim<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">t</span> <span class="op">:</span> <span class="dv">0</span></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div style="display:flex;flex-direction:column;align-items:center;"&gt;</span></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>      <span class="dt">height</span><span class="op">:</span> <span class="dv">480</span><span class="op">,</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">95</span><span class="op">,</span></span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginTop</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginBottom</span><span class="op">:</span> <span class="dv">65</span><span class="op">,</span></span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>      <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>      <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"#333"</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">"20px"</span>}<span class="op">,</span></span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Zeit"</span><span class="op">,</span> <span class="dt">labelAnchor</span><span class="op">:</span> <span class="st">"center"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> x_max <span class="op">-</span> <span class="dv">50</span>)<span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">50</span><span class="op">,</span> x_max)]}<span class="op">,</span></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Wert"</span><span class="op">,</span> <span class="dt">labelAnchor</span><span class="op">:</span> <span class="st">"center"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">200</span>]}<span class="op">,</span></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>        Plot<span class="op">.</span><span class="fu">lineY</span>(sim <span class="op">||</span> []<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#2980b9"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>        Plot<span class="op">.</span><span class="fu">lineY</span>(sim <span class="op">||</span> []<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e74c3c"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Plot.lineY(sim || [], {x: "t", y: "d", stroke: "#2ecc71", strokeWidth: 1, strokeDasharray: "4 4"}),</span></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>  <span class="sc">}</span></span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">legend</span>({</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>      <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>        <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Gaspedalstellung [%]"</span><span class="op">,</span> <span class="st">"Geschwindigkeit [km/h]"</span>]<span class="op">,</span></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>        <span class="dt">range</span><span class="op">:</span> [<span class="st">"#2980b9"</span><span class="op">,</span> <span class="st">"#e74c3c"</span>]</span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>      <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">"14px"</span>}</span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>  <span class="sc">}</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Übung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Überlege dir, wie wir dabei den Zusammenhang zwischen Ein- und Ausgang mögichst kompakt beschreiben können?</p>
+</div>
+</div>
+</section>
+<section id="übertragungsverhalten" class="level2 page-columns page-full" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="übertragungsverhalten"><span class="header-section-number">2.3</span> Übertragungsverhalten</h2>
+<p>Um das Verhalten eines Übertragungsglied beschreiben zu können, gibt es zwei grundlegende Verfahren.</p>
+<ul>
+<li><p><strong>Theoretische Modellbildung</strong> auf Grundlage von physikalischen Bilanzgleichungen/Erhaltungssätzen (<em>White-Box-Methode</em>). Dieses Verfahren wird bei uns nicht im Fokus stehen.</p></li>
+<li><p><strong>Experimentelle Streckenidentifikation</strong> mittels Testfunktionen (<em>Black-Box-Methode</em>). Am Eingang des Systems wird ein bestimmtes Signal eingespeist und das Ausgangssignal wird analysiert. Das Übertragungsverhalten kann durch typische Übertragungsglieder (Grundglieder) angenähert werden. Wir werden primär mit diesem Verfahren arbeiten.</p></li>
+</ul>
+<p>Beim Herumspielen mit der Demo-Regelstrecke ist dir vermutlich aufgefallen, dass sich bei einer Änderung des Eingangs der Ausgang sich nach einiger Zeit nicht mehr ändert - also einen Beharrungszustand einnimmt. Wir unterscheiden beim Übertragungsverhalten daher:</p>
+<ul>
+<li>Statisches Übertragungsverhalten (Beharrungsverhalten)</li>
+<li>Dynamisches Übertragungsverhalten (Übergangsverhalten)</li>
+</ul>
+<section id="statisches-verhalten-der-regelstrecke" class="level3 page-columns page-full" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="statisches-verhalten-der-regelstrecke"><span class="header-section-number">2.3.1</span> Statisches Verhalten der Regelstrecke</h3>
+<p>Beim statischen Übertragungsverhalten geht es um die Frage, welchen Wert die Ausgangsgrösse <span class="math inline">x_a</span> bei einer konstanten Eingangsgrösse <span class="math inline">x_e</span> annimmt. Dies beschreiben wir mit der <strong>Kennlinie</strong>, in der auf der horizontalen Achse die Ein- und auf der vertikalen Achse die Ausgangsgrösse aufgetragen wird. Die Kennlinie stellt also den Zusammenhang zwischen Ein- und Ausgang dar (mathematisch kann die Ausgangsgrösse als Funktion der Eingangsgrösse geschrieben werden, also <span class="math inline">x_a = f(x_e)</span>).</p>
+<div id="fig-kennlinie" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-kennlinie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Kennlinie.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-kennlinie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.5: Kennlinie
+</figcaption>
+</figure>
+</div>
+<p>Die Kennlinie in <a href="#fig-kennlinie" class="quarto-xref">Abb.&nbsp;<span>2.5</span></a> ist <em>linear</em> und ist daher durch die Steigung vollständig beschrieben. Die Steigung der Kennlinie wird in der Regelungstechnik <strong>Proportionalbeiwert <span class="math inline">K_P</span></strong> genannt.</p>
+<p><span class="math display">
+K_P = \frac{\Delta x_a}{\Delta x_e}
+</span></p>
+<p>Eine lineare Kennlinie ist also nichts anderes als eine Gerade durch den Ursprung mit Steigung <span class="math inline">K_P</span>, die man mathematisch mit <span class="math inline">x_a = K_P \cdot x_e</span> schreiben kann. Der Proportionalbeiwert <span class="math inline">K_P</span> wird auch <em>Verstärkung</em> genannt, da er angibt, wie stark das Eingangssignal (im stationären Zustand) verstärkt (oder abgeschwächt) wird.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Proportionalbeiwert $K_P$">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Proportionalbeiwert <span class="math inline">K_P</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Der Proportionalbeiwert <span class="math inline">K_P</span> gibt an, mit welcher stationären Ausgangsveränderung <span class="math inline">\Delta x_a</span> ein Übertragungsglied (z. B. die Regelstrecke) auf eine bestimmte Eingangsgrössenänderung <span class="math inline">\Delta x_e</span> reagiert.</p>
+<p>Bei linearen Übertragungsgliedern hat der Proportionalbeiwert über den gesamten Betriebsbereich (auch <em>Arbeitsbereich</em> genannt) denselben Wert.</p>
+</div>
+</div>
+<p>Reale Regelstrecken sind selten exakt linear über den gesamten Arbeitsbereich und weisen daher <em>nichtlineares Verhalten</em> auf. Wir werden in einem kommenden Unterrichtsblock Methoden kennenlernen, um mit solchen Strecken umzugehen.</p>
+</section>
+<section id="dynamisches-verhalten-der-regelstrecke" class="level3 page-columns page-full" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="dynamisches-verhalten-der-regelstrecke"><span class="header-section-number">2.3.2</span> Dynamisches Verhalten der Regelstrecke</h3>
+<p>Das statische Übertragungsverhalten (also die Kennlinie) sagt nichts darüber aus, <em>wie rasch</em> bzw. <em>auf welche Weise</em> das Ausgangssignal bei einer Änderung des Eingangssignals den neuen stationären Wert erreicht. Um diese Frage geht es beim dynamischen Übertragungsverhalten - wir sprechen auch vom <em>Übergangsverhalten</em>.</p>
+<p>Wie du vermutlich beim Herumspielen mit der interaktiven Demo oben erkannt hast, brauchen wir ein systematisches Vorgehen, um das dynamische Verhalten zu beschreiben. Vermutlich hast du das Eingangssignal einmal sprungförmig geändert, oder kurz impulsartig hoch und wieder runtergefahren etc. um das Verhalten des Übertragungsgliedes zu analysieren. Genau diese intuitive Vorgehensweise findet sich in den folgenden Methoden wieder.</p>
+<section id="sprungantwort" class="level4 unnumbered page-columns page-full">
+<h4 class="unnumbered anchored" data-anchor-id="sprungantwort">Sprungantwort</h4>
+<p>Bei der Sprungantwort wird das Eingangssignal sprungförmig verändert (häufig von 0 auf 1 - wir sprechen dann vom <em>Einheitssprung</em>) und dann geschaut, was das Ausgangssignal macht. <a href="#fig-sprungantwort" class="quarto-xref">Abb.&nbsp;<span>2.6</span></a> zeigt eine Animation einer Sprungantwort, wobei hier <span class="math inline">K_P = 1</span> gewählt wurde, sodass Ein- und Ausgang im stationären Zustand identisch sind.</p>
+<div id="fig-sprungantwort" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-sprungantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Sprungantwort.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-sprungantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.6: Sprungantwort
+</figcaption>
+</figure>
+</div>
+<p>Die Sprungantwort spielt eine herausragende Rolle in der Regelungstechnik und wird uns durch sämtliche Kapitel begleiten. Es ist daher äusserst wichtig, dieses Werkzeug zu kennen und zu verstehen. Neben dem <em>Sprung</em> als Eingangssignal wird z. B. in der Elektrotechnik häufig auch der <em>Impuls</em> (kurze, starke pulsförmige Anregung) und folglich die <em>Impulsantwort</em> verwendet. Bei Systemen, die keine sprunghafte Eingangsänderung zulassen, kann auf eine <em>Rampe</em> am Eingang (folglich <em>Rampenantwort</em>) ausgewichen werden.</p>
+<div id="fig-impulsantwort" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-impulsantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Impulsantwort.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-impulsantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.7: Impulsantwort
+</figcaption>
+</figure>
+</div>
+<div id="fig-rampenantwort" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-rampenantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Rampenantwort.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-rampenantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;2.8: Rampenantwort
+</figcaption>
+</figure>
+</div>
+<p>Da die Sprung-, die Impuls- und die Rampenfunktion via Integral/Ableitung zusammenhängen, liefern die entsprechenden Antworten grundsätzlich dieselben Informationen, einfach in einer anderen Darstellung.</p>
+<p><span class="math display">
+\text{Impulsantwort} \mathrel{
+\substack{
+\xrightarrow{\int} \\
+\xleftarrow[\frac{d}{dt}]{}
+}
+} \text{Sprungantwort} \mathrel{
+\substack{
+\xrightarrow{\int} \\
+\xleftarrow[\frac{d}{dt}]{}
+}
+} \text{Rampenantwort}
+</span></p>
+</section>
+</section>
+<section id="verzögerungen" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="verzögerungen">Verzögerungen</h3>
+<p>Wir haben oben gesehen, dass der Ausgang häufig <em>verzögert</em> reagiert, wenn der Eingang verändert wird. Warum das so ist, wollen wir hier noch kurz anschauen. Wir betrachten dazu wieder beispielhaft das Auto, für das wir später eine Geschwindigkeitsregelung (Tempomat) entwickeln wollen. Die Ausgangsgrösse ist daher die Geschwindigkeit [km/h] und die Eingangsgrösse die Gaspedalstellung [0-100 %]. Aus dem Alltag wissen wir intuitiv, dass wenn wir das Gaspedal voll durchdrücken [100 %], die Geschwindigkeit nicht sofort (sprunghaft) auf die Maximalgeschwindigkeit springt, sondern die Geschwindigkeit sich allmählich erhöht und sich einem Maximum annähert. Am Anfang ändert sich die Geschwindigkeit stark (hohe Beschleunigung) und mit der Zeit immer weniger, da Reibung/Luftwiderstand etc. zunehmen. Irgendwann ändert sich die Geschwindigkeit nicht mehr (Maximalgeschwindigkeit). Man kann das Auto auch als <strong>Energiespeicher</strong> von Bewegungsenergie (<em>kinetischer Energie</em>) betrachten, der von <span class="math inline">E_{kin} = 0</span> im Stillstand auf <span class="math inline">E_{kin} = \frac{1}{2} m v^2</span> <em>geladen</em> werden muss. Dieses <em>Laden</em> des Energiespeichers kann nicht unendlich rasch erfolgen (träge Masse <span class="math inline">m</span>) - es kommt also zu einer <strong>Verzögerung</strong>.</p>
+<p>Wir werden feststellen, dass solche Energiespeicher und damit Verzögerungen bei allen Arten von Systemen (mechanisch, elektrisch, thermisch, …) existieren und damit eine zentrale Rolle in der Regelungstechnik spielen.</p>
+</section>
+</section>
+<section id="gliederung" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="gliederung"><span class="header-section-number">2.4</span> Gliederung</h2>
+<p>Gemäss den oben erarbeiteten Unterscheidungsmerkmale (mit/ohne Ausgleich bzw. mit/ohne Verzögerung) können die Regelstrecken folgendermassen gegliedert werden.</p>
+<p>Der erste Buchstabe (P oder I) gibt an, ob es sich um eine Strecke mit Ausgleich (P-Strecke) oder ohne Ausgleich (I-Strecke) handelt. Treten Verzögerungen (Energiespeicher) auf, so wird dies mit <span class="math inline">T_1</span>, <span class="math inline">T_2</span> usw. angehängt, wobei die Nummer der Anzahl der Energiespeicher entspricht (<span class="math inline">T_2</span> bedeutet z. B., dass das System zwei Energiespeicher enthält). Wir werden uns damit im nächsten Unterrichtsblock genauer beschäftigen.</p>
+<div id="tbl-gliederung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-gliederung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 23%">
+<col style="width: 26%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">mit Ausgleich</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">ohne Ausgleich</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ohne Verzögerung</td>
+<td style="text-align: left;">mit Verzögerung</td>
+<td style="text-align: left;">ohne Verzögerung</td>
+<td style="text-align: left;">mit Verzögerung</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">P</span></td>
+<td style="text-align: left;"><span class="math inline">P-T_1</span></td>
+<td style="text-align: left;"><span class="math inline">I</span></td>
+<td style="text-align: left;"><span class="math inline">I-T_1</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">P-T_2</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">I-T_2</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">P-T_n</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">I-T_n</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">P-T_t</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">I-T_t</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-gliederung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tab.&nbsp;2.1: Gliederung
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="aufgaben" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
+<button class="pdf-export" data-target="aufgaben2" data-filename="AUFG02.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
+<img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
+</button>
+<div id="aufgaben2">
+<div id="ex-2-1" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 2.1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ein Differenzdrucksensor hat einen Messbereich von -50 mbar bis +50 mbar und gibt eine Ausgangsspannung von -10 V (bei -50 mbar) bis +10 V (bei +50 mbar) aus.</p>
+<ol type="a">
+<li>Stelle die (statische) Kennlinie grafisch dar (inkl. Achsenbeschriftungen). Gehe dabei von perfekt linearem Verhalten aus.</li>
+</ol>
+<p><img src="../images/diagrams/A2_1a.svg" class="img-fluid"></p>
+<ol start="2" type="a">
+<li>Bestimme den Proportionalbeiwert <span class="math inline">K_P</span> und gebe diesen mit Einheit an.</li>
+</ol>
+<p><span class="math display">
+K_P =
+</span></p>
+<ol start="3" type="a">
+<li>Du hast vom Hersteller die untenstehende Sprungantwort des Sensors erhalten. Bestimme die Zeitkonstante <span class="math inline">T_1</span>?</li>
+</ol>
+<p><img src="../images/diagrams/A2_1c.svg" class="img-fluid"></p>
+<p><span class="math display">
+T_1 =
+</span></p>
+<ol start="4" type="a">
+<li>Welche Druckdifferenz wurde für diese Sprungantwort am Sensor aufgeprägt?</li>
+</ol>
+<p><span class="math display">
+\Delta p =
+</span></p>
+</div>
+</div>
+</div>
+<div id="ex-2-2" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 2.2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ein quaderförmiger Wassertank mit der Grundfläche 1m x 1m wird mit Wasser befüllt. Der Zufluss beträgt 5 Liter pro Sekunde und nichts fliesst aus dem Tank heraus. Für eine zukünftige Regelung des Füllstandes <span class="math inline">h</span> sollst du erste Überlegungen anstellen.</p>
+<p><img src="../images/diagrams/A2_2a.png" class="img-fluid"></p>
+<ol type="a">
+<li><p>Würdest du dieses System als Regelstrecke mit Ausgleich oder als Regelstrecke ohne Ausgleich einstufen? (Eingangsgrösse: Volumenstrom, Ausgangsgrösse: Füllstand)</p></li>
+<li><p>Skizziere den zeitlichen Verlauf des Füllstandes für die ersten 10 s im untenstehenden Diagramm (Annahme: Tank ist leer (<span class="math inline">h = 0</span>) bei <span class="math inline">t = 0</span>). Beschrifte die Achsen vollständig.</p></li>
+</ol>
+<p><img src="../images/diagrams/A2_2b.svg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div id="ex-2-3" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 2.3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Für einen Beschichtungsprozess wird ein Förderband verwendet, das eine Länge von 2 m hat und die Produkte mit einer Geschwindigkeit <span class="math inline">v</span> von 0.8 m/s befördert. Mit was für einer <strong>Verzugszeit (Totzeit <span class="math inline">T_t</span>)</strong> ist im Minimum zu rechnen, wenn das Stellglied am einen Ende und das Messsystem (Sensor) am anderen Ende des Förderbandes angebracht sind?</p>
+<p><img src="../images/diagrams/A2_3.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".pdf-export").forEach(btn => {
+
+    btn.addEventListener("click", async () => {
+
+      const target = document.getElementById(btn.dataset.target);
+
+      const expanded = [];
+
+
+
+      document.querySelectorAll("details:not([open])").forEach(d => {
+
+        d.open = true;
+
+        expanded.push({ el: d, type: "details" });
+
+      });
+
+
+
+      document.querySelectorAll(".collapse:not(.show)").forEach(el => {
+
+        const instance =
+
+          bootstrap.Collapse.getInstance(el) ||
+
+          new bootstrap.Collapse(el, { toggle: false });
+
+        instance.show();
+
+        expanded.push({ el, type: "collapse" });
+
+      });
+
+
+
+      try {
+
+        // Wait for Quarto/MathJax math rendering to finish
+
+        if (window.MathJax?.typesetPromise) {
+
+          await MathJax.typesetPromise([target]);
+
+        }
+
+
+
+        await html2pdf()
+
+          .set({
+
+            margin: 10,
+
+            filename: btn.dataset.filename || "download.pdf",
+
+            pagebreak: {
+
+              mode: ['css', 'legacy'],
+
+              after: '.callout-tip'
+
+            },
+
+            html2canvas: {
+
+              scale: 2,
+
+              useCORS: true,
+
+              onclone: (doc) => {
+
+                // Remove MathJax assistive MathML that html2canvas may render as a duplicate
+
+                doc.querySelectorAll('.katex-mathml').forEach(el => el.remove());
+
+
+
+                // Optional: if any raw TeX script tags are present, remove those too
+
+                doc.querySelectorAll('script[type^="math/tex"]').forEach(el => el.remove());
+
+              }
+
+            },
+
+            jsPDF: {
+
+              unit: "mm",
+
+              format: "a4",
+
+              orientation: "portrait"
+
+            }
+
+          })
+
+          .from(target)
+
+          .save();
+
+      } finally {
+
+        expanded.forEach(item => {
+
+          if (item.type === "details") item.el.open = false;
+
+          if (item.type === "collapse") {
+
+            const instance =
+
+              bootstrap.Collapse.getInstance(item.el) ||
+
+              new bootstrap.Collapse(item.el, { toggle: false });
+
+            instance.hide();
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+});
+
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InVfaW5wdXQgPSBodG1sYDxpbnB1dCB0eXBlPVwicmFuZ2VcIiBtaW49XCIwXCIgbWF4PVwiMTAwXCIgc3RlcD1cIjFcIiB2YWx1ZT1cIjBcIj5gXHJcbnUgPSBHZW5lcmF0b3JzLmlucHV0KHVfaW5wdXQpXHJcbmRpc3R1cmJhbmNlX2NiID0gaHRtbGA8aW5wdXQgdHlwZT1cImNoZWNrYm94XCI+YFxyXG5odG1sYDxkaXYgY2xhc3M9XCJzbGlkZXItbGFiZWxcIj5HYXNwZWRhbCBbJV08L2Rpdj48ZGl2IGNsYXNzPVwic2xpZGVyLXdyYXBcIj4ke3VfaW5wdXR9PC9kaXY+XHJcbjxsYWJlbCBzdHlsZT1cImRpc3BsYXk6ZmxleDthbGlnbi1pdGVtczpjZW50ZXI7Z2FwOjAuNWVtO2p1c3RpZnktY29udGVudDpjZW50ZXI7bWFyZ2luLXRvcDowLjc1ZW07Zm9udC1zaXplOjAuOWVtO2N1cnNvcjpwb2ludGVyO1wiPlxyXG4gICR7ZGlzdHVyYmFuY2VfY2J9IFN0w7Zyc2lnbmFsXHJcbjwvbGFiZWw+YFxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJLID0gMjsgVCA9IDQ7IGR0ID0gMC4wNVxyXG5cclxuc2ltID0gR2VuZXJhdG9ycy5vYnNlcnZlKChjaGFuZ2UpID0+IHtcclxuICBsZXQgeSA9IDAsIHQgPSAwLCBsYXN0U2lnbiA9IDAsIGRpc3RWYWx1ZSA9IDA7XHJcbiAgY29uc3QgZGF0YSA9IFtdO1xyXG4gIGNvbnN0IGlkID0gc2V0SW50ZXJ2YWwoKCkgPT4ge1xyXG4gICAgdCArPSBkdDtcclxuICAgIGNvbnN0IGlucCA9IHBhcnNlRmxvYXQodV9pbnB1dC52YWx1ZSk7XHJcbiAgICBpZiAoZGlzdHVyYmFuY2VfY2IuY2hlY2tlZCkge1xyXG4gICAgICBjb25zdCBzaWduID0gTWF0aC5zaW4oMC41ICogdCkgPj0gMCA/IDEgOiAtMTtcclxuICAgICAgaWYgKHNpZ24gIT09IGxhc3RTaWduKSB7XHJcbiAgICAgICAgZGlzdFZhbHVlID0gc2lnbiAqICgxICsgTWF0aC5yYW5kb20oKSAqIDIpO1xyXG4gICAgICAgIGxhc3RTaWduID0gc2lnbjtcclxuICAgICAgfVxyXG4gICAgfSBlbHNlIHtcclxuICAgICAgZGlzdFZhbHVlID0gMDtcclxuICAgICAgbGFzdFNpZ24gPSAwO1xyXG4gICAgfVxyXG4gICAgeSArPSBkdCAvIFQgKiAoSyAqIGlucCAtIHkpO1xyXG4gICAgZGF0YS5wdXNoKHt0LCB1OiBpbnAsIHk6IHkrZGlzdFZhbHVlLCBkOiBkaXN0VmFsdWV9KTtcclxuICAgIHdoaWxlIChkYXRhLmxlbmd0aCA+IDEwMDApIGRhdGEuc2hpZnQoKTtcclxuICAgIGNoYW5nZShkYXRhLnNsaWNlKCkpO1xyXG4gIH0sIGR0ICogMTAwMCk7XHJcbiAgcmV0dXJuICgpID0+IGNsZWFySW50ZXJ2YWwoaWQpO1xyXG59KVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ4X21heCA9IHNpbT8ubGVuZ3RoID4gMCA/IHNpbVtzaW0ubGVuZ3RoIC0gMV0udCA6IDBcclxuXHJcbmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6ZmxleDtmbGV4LWRpcmVjdGlvbjpjb2x1bW47YWxpZ24taXRlbXM6Y2VudGVyO1wiPlxyXG4gICR7XHJcbiAgICBQbG90LnBsb3Qoe1xyXG4gICAgICBoZWlnaHQ6IDQ4MCxcclxuICAgICAgbWFyZ2luTGVmdDogOTUsXHJcbiAgICAgIG1hcmdpblRvcDogNDUsXHJcbiAgICAgIG1hcmdpbkJvdHRvbTogNjUsXHJcbiAgICAgIGdyaWQ6IHRydWUsXHJcbiAgICAgIHN0eWxlOiB7YmFja2dyb3VuZDogXCJ0cmFuc3BhcmVudFwiLCBjb2xvcjogXCIjMzMzXCIsIGZvbnRTaXplOiBcIjIwcHhcIn0sXHJcbiAgICAgIHg6IHtsYWJlbDogXCJaZWl0XCIsIGxhYmVsQW5jaG9yOiBcImNlbnRlclwiLCBkb21haW46IFtNYXRoLm1heCgwLCB4X21heCAtIDUwKSwgTWF0aC5tYXgoNTAsIHhfbWF4KV19LFxyXG4gICAgICB5OiB7bGFiZWw6IFwiV2VydFwiLCBsYWJlbEFuY2hvcjogXCJjZW50ZXJcIiwgZG9tYWluOiBbMCwgMjAwXX0sXHJcbiAgICAgIG1hcmtzOiBbXHJcbiAgICAgICAgUGxvdC5saW5lWShzaW0gfHwgW10sIHt4OiBcInRcIiwgeTogXCJ1XCIsIHN0cm9rZTogXCIjMjk4MGI5XCIsIHN0cm9rZVdpZHRoOiAyfSksXHJcbiAgICAgICAgUGxvdC5saW5lWShzaW0gfHwgW10sIHt4OiBcInRcIiwgeTogXCJ5XCIsIHN0cm9rZTogXCIjZTc0YzNjXCIsIHN0cm9rZVdpZHRoOiAyfSksXHJcbiAgICAgICAgLy8gUGxvdC5saW5lWShzaW0gfHwgW10sIHt4OiBcInRcIiwgeTogXCJkXCIsIHN0cm9rZTogXCIjMmVjYzcxXCIsIHN0cm9rZVdpZHRoOiAxLCBzdHJva2VEYXNoYXJyYXk6IFwiNCA0XCJ9KSxcclxuICAgICAgXVxyXG4gICAgfSlcclxuICB9XHJcbiAgJHtcclxuICAgIFBsb3QubGVnZW5kKHtcclxuICAgICAgY29sb3I6IHtcclxuICAgICAgICBkb21haW46IFtcIkdhc3BlZGFsc3RlbGx1bmcgWyVdXCIsIFwiR2VzY2h3aW5kaWdrZWl0IFtrbS9oXVwiXSxcclxuICAgICAgICByYW5nZTogW1wiIzI5ODBiOVwiLCBcIiNlNzRjM2NcIl1cclxuICAgICAgfSxcclxuICAgICAgc3R5bGU6IHtmb250U2l6ZTogXCIxNHB4XCJ9XHJcbiAgICB9KVxyXG4gIH1cclxuPC9kaXY+YFxyXG4ifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../chapters";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/L01.html" class="pagination-link" aria-label="Einführung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/A01.html" class="pagination-link" aria-label="Begriffe">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Analyse der Regelstrecke</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Einer der wichtigsten Schritte in der Regelungstechik ist es, die Regelstrecke zu analysieren bzw. zu identifizieren, um ihr Verhalten in der Simulation abbilden zu können. Diesem Unterfangen widmet sich dieser und zukünftige Unterrichtsblöcke.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Ziele"}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst das **statische Verhalten** eines Übertragungsgliedes erklären und mittels statischer Kennlinie beschreiben.</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst das **dynamische Verhalten** eines Übertragungsgliedes erklären und kennst die Bedeutung der Sprungantwort (Impulsantwort &amp; Rampenantwort)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kennst den Unterschied zwischen Regelstrecken **mit Ausgleich (P-Strecken)** und solchen **ohne Ausgleich (I-Strecken)**.</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regelungstechnik-Workflow</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Ausgehend vom Standardregelkreis können wir uns bereits jetzt überlegen, wie wir Vorgehen würden, um eine regelungstechnische Problemstellung systematisch zu bearbeiten. Das folgende Vorgehen nennen wir *Regelungtechnik-Workflow* und es besteht aus den folgenden Schritten:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Verhalten der Regelstrecke analysieren/beschreiben (reales System)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Modell der Regelstrecke aufbauen (Simulation)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Anforderungen an Regelung definieren</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Regler entwerfen/auslegen (Simulation)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Regler implementieren und testen (reales System)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>Wir sehen, dass die Simulation dabei eine wichtige Rolle einnimmt. Für die Modellierung der Regelstrecke (Schritt 2) und den Reglerentwurf (Schritt 4) werden wir primär mit dem Simulationstool arbeiten. @fig-workflow zeigt den Workflow grafisch.</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="al">![Regelungstechnik-Workflow](../images/diagrams/Workflow.png)</span>{#fig-workflow}</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>Im Folgenden werden wir uns die Grundlagen für die Schritte 1 und 2 - der Analyse und Modellierung der Regelstrecke - erarbeiten. Wir werden feststellen, dass wir Systeme, die auf den ersten Blick völlige unterschiedlich aussehen (elektrisch, mechanisch, thermisch, ...) in der Regelungstechnik mit denselben *Grundgliedern* beschreiben können. </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>Wie wir im ersten Kapitel gelernt haben, beschreibt ein Übertragungsglied (Block) den Ursache-Wirkungs-Zusammenhang zwischen dem Ein- und Ausgang (z. B. der Regelstrecke oder Teilen davon). Ein- und Ausgang bezeichnen wir allgemein mit $x_e$ und $x_a$. </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Symbole"}</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>Wenn wir ganz allgemein ein Übertragungsglied betrachten, dann verwenden wir die Symbole $x_e$ und $x_a$ für Ein- und Ausgang. </span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>Wenn wir eine konkrete Regelstrecke betrachten, verwenden wir gemäss den Bezeichnungen des Standardregelkreise (vgl. @fig-rk) als Eingang $y$  (Stellgrösse) und als Ausgang $x$ (Regelgrösse). Wenn typische physikalische Grössen (z. B. Geschwindigkeit, Drehzahl, Kraft, ...) auftreten, verwenden wir häufig auch die Symbole, welche wir aus der Physik kennen (z. B. $v$ für Geschwindigkeit, $n$ für Drehzahl, $F$ für Kraft, ...).</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="al">![Übertragungsverhalten](../images/diagrams/Uebertragungsverhalten.svg)</span>{#fig-uebertragungsverhalten}</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>Die zentrale Frage, welche uns durch das gesamte Kapitel begleitet, lautet:</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Wie können wir das Verhalten der Regelstrecke bzw. allgemein eines Übertragungsgliedes beschreiben? Wie hängt der Ausgang $x_a$ vom Eingang $x_e$ ab?</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regelstrecken mit und ohne Ausgleich</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>Als erstes betrachten wir die nachfolgend abgebildeten Regelstrecken. </span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regelstrecke</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>Es geht jetzt noch nicht um die Regelung, d. h. wir betrachten die Regelstrecke isoliert, um ihr Verhalten zu beschreiben. Dazu überlegen wir uns, wie sich das Ausgangssignal verhält, wenn ein konstantes Eingangssignal eingespeist wird.</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>::: {#fig-PvsI layout-ncol=2}</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="al">![DC-Motor/Antriebsstrang](../images/diagrams/ani_motor_site.gif)</span>{#fig-pstrecke}</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="al">![Befüllung eines Tanks](../images/diagrams/ani_fuellstand_site.gif)</span>{#fig-istrecke}</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>Regelstrecke mit und ohne Ausgleich</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übung</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>Betrachte @fig-PvsI und überlege dir, was der fundamentale Unterschied zwischen den beiden Regelstrecken ist, wenn das *Übertragungsverhalten* (Zusammenhang zwischen Ein- und Ausgang) im Fokus steht.</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>Eine erste Gliederung der Regelstrecken können wir anhand des Beharrungsverhaltens vornehmen. Weist die Regelstrecke einen Beharrungszustand auf, d. h. nähert sich der Ausgangswert bei konstantem Eingangswert einem Beharrungszustand an (ändert sich also mit der Zeit nicht mehr), so sprechen wir von einer **P-Strecke** (vgl. @fig-pstrecke). Die Bezeichnung *P-Strecke* kommt daher, dass der Ausgangswert im Beharrungszustand *proportional* zum Eingangswert ist.</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>Wächst der Ausgangswert dagegen immer weiter an für einen konstanten Eingangswert, so sprechen wir von einer **I-Strecke** (vgl. @fig-istrecke). Die Strecke wirkt *integrierend*. Wir werden in Kürze sehen, woher diese Bezeichnung kommt und warum sie passend ist.</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>Zusammenfassend können wir festhalten:</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>::::: {.columns}</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>:::: {.column width="49%"}</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Strecke mit Ausgleich (P-Strecke)"}</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>Bei Regelstrecken mit Ausgleich strebt die Ausgangsgrösse (Regelgrösse) nach Anlegen einer konstanten Eingangsgrösse (Stellgrösse) ebenfalls einem konstanten Wert entgegen.</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>:::: {.column width="49%"}</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Strecke ohne Ausgleich (I-Strecke)"}</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>Bei Regelstrecken ohne Ausgleich strebt die Ausgangsgrösse (Regelgrösse) nach Anlegen einer konstanten Eingangsgrösse (Stellgrösse) keinem stationären Zustand entgegen.</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>:::::</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>Im Folgenden betrachten wir einen PKW (stark vereinfacht) als Übertragungsglied. Eingangsgrösse (Stellgrösse) ist die Gaspedalstellung $s$ <span class="co">[</span><span class="ot">%</span><span class="co">]</span> und Ausgangsgrösse ist die Geschwindigkeit $v$ <span class="co">[</span><span class="ot">km/h</span><span class="co">]</span>.</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="al">![PKW als Übertragungsglied](../images/diagrams/PKW.png)</span>{#fig-pkw}</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist eine interaktive Demo, wobei der Slider links das Gaspedal <span class="co">[</span><span class="ot">0-100%</span><span class="co">]</span> repräsentiert. Spiele etwas damit herum und überzeuge dich, dass es sich dabei um eine P-Strecke handelt. </span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="fu">.slider-col</span> {</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="fu">.slider-col</span> <span class="fu">.cell</span><span class="op">,</span> <span class="fu">.slider-col</span> <span class="fu">.cell-output</span><span class="op">,</span> <span class="fu">.slider-col</span> <span class="fu">.cell-output-display</span> {</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex</span><span class="ch">:</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="fu">.slider-col</span> <span class="fu">.slider-wrap</span> {</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex</span><span class="ch">:</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="fu">.slider-col</span> <span class="fu">.slider-label</span> {</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#333</span><span class="op">;</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span><span class="ch">:</span> <span class="dv">0.25</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="fu">.slider-col</span> input<span class="ex">[</span><span class="ss">type</span><span class="op">=</span><span class="st">"range"</span><span class="ex">]</span> {</span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>  <span class="kw">writing-mode</span><span class="ch">:</span> <span class="dv">vertical-lr</span><span class="op">;</span></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>  <span class="kw">direction</span><span class="ch">:</span> <span class="dv">rtl</span><span class="op">;</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>  <span class="kw">height</span><span class="ch">:</span> <span class="dv">320</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">36</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>  <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">pointer</span><span class="op">;</span></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>  <span class="kw">accent-color</span><span class="ch">:</span> <span class="cn">#2980b9</span><span class="op">;</span></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>::: {.column width="24%" .text-center .slider-col}</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: false</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>u_input <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;input type="range" min="0" max="100" step="1" value="0"&gt;`</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> Generators<span class="op">.</span><span class="fu">input</span>(u_input)</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>disturbance_cb <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;input type="checkbox"&gt;`</span></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="slider-label"&gt;Gaspedal [%]&lt;/div&gt;&lt;div class="slider-wrap"&gt;</span><span class="sc">${</span>u_input<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;label style="display:flex;align-items:center;gap:0.5em;justify-content:center;margin-top:0.75em;font-size:0.9em;cursor:pointer;"&gt;</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>disturbance_cb<span class="sc">}</span><span class="vs"> Störsignal</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/label&gt;`</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>::: {.column width="74%"}</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: false</span></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> T <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> dt <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>sim <span class="op">=</span> Generators<span class="op">.</span><span class="fu">observe</span>((change) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> t <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> lastSign <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> distValue <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> data <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> id <span class="op">=</span> <span class="pp">setInterval</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>    t <span class="op">+=</span> dt<span class="op">;</span></span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> inp <span class="op">=</span> <span class="pp">parseFloat</span>(u_input<span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (disturbance_cb<span class="op">.</span><span class="at">checked</span>) {</span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> sign <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(<span class="fl">0.5</span> <span class="op">*</span> t) <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (sign <span class="op">!==</span> lastSign) {</span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>        distValue <span class="op">=</span> sign <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>        lastSign <span class="op">=</span> sign<span class="op">;</span></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>      distValue <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>      lastSign <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a>    y <span class="op">+=</span> dt <span class="op">/</span> T <span class="op">*</span> (K <span class="op">*</span> inp <span class="op">-</span> y)<span class="op">;</span></span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>    data<span class="op">.</span><span class="fu">push</span>({t<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> inp<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y<span class="op">+</span>distValue<span class="op">,</span> <span class="dt">d</span><span class="op">:</span> distValue})<span class="op">;</span></span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (data<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">1000</span>) data<span class="op">.</span><span class="fu">shift</span>()<span class="op">;</span></span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>    <span class="fu">change</span>(data<span class="op">.</span><span class="fu">slice</span>())<span class="op">;</span></span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span> dt <span class="op">*</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> () <span class="kw">=&gt;</span> <span class="pp">clearInterval</span>(id)<span class="op">;</span></span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: false</span></span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>x_max <span class="op">=</span> sim<span class="op">?.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> sim[sim<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">t</span> <span class="op">:</span> <span class="dv">0</span></span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div style="display:flex;flex-direction:column;align-items:center;"&gt;</span></span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span></span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>      <span class="dt">height</span><span class="op">:</span> <span class="dv">480</span><span class="op">,</span></span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">95</span><span class="op">,</span></span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginTop</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginBottom</span><span class="op">:</span> <span class="dv">65</span><span class="op">,</span></span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>      <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a>      <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"#333"</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">"20px"</span>}<span class="op">,</span></span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Zeit"</span><span class="op">,</span> <span class="dt">labelAnchor</span><span class="op">:</span> <span class="st">"center"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> x_max <span class="op">-</span> <span class="dv">50</span>)<span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">50</span><span class="op">,</span> x_max)]}<span class="op">,</span></span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Wert"</span><span class="op">,</span> <span class="dt">labelAnchor</span><span class="op">:</span> <span class="st">"center"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">200</span>]}<span class="op">,</span></span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a>        Plot<span class="op">.</span><span class="fu">lineY</span>(sim <span class="op">||</span> []<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#2980b9"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a>        Plot<span class="op">.</span><span class="fu">lineY</span>(sim <span class="op">||</span> []<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e74c3c"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Plot.lineY(sim || [], {x: "t", y: "d", stroke: "#2ecc71", strokeWidth: 1, strokeDasharray: "4 4"}),</span></span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a>  <span class="sc">}</span></span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span></span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">legend</span>({</span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a>      <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a>        <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Gaspedalstellung [%]"</span><span class="op">,</span> <span class="st">"Geschwindigkeit [km/h]"</span>]<span class="op">,</span></span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a>        <span class="dt">range</span><span class="op">:</span> [<span class="st">"#2980b9"</span><span class="op">,</span> <span class="st">"#e74c3c"</span>]</span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>      <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">"14px"</span>}</span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a>  <span class="sc">}</span></span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übung</span></span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a>Überlege dir, wie wir dabei den Zusammenhang zwischen Ein- und Ausgang mögichst kompakt beschreiben können?</span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übertragungsverhalten</span></span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a>Um das Verhalten eines Übertragungsglied beschreiben zu können, gibt es zwei grundlegende Verfahren.</span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Theoretische Modellbildung** auf Grundlage von physikalischen Bilanzgleichungen/Erhaltungssätzen (*White-Box-Methode*). Dieses Verfahren wird bei uns nicht im Fokus stehen.</span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Experimentelle Streckenidentifikation** mittels Testfunktionen (*Black-Box-Methode*). Am Eingang des Systems wird ein bestimmtes Signal eingespeist und das Ausgangssignal wird analysiert. Das Übertragungsverhalten kann durch typische Übertragungsglieder (Grundglieder) angenähert werden. Wir werden primär mit diesem Verfahren arbeiten.</span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a>Beim Herumspielen mit der Demo-Regelstrecke ist dir vermutlich aufgefallen, dass sich bei einer Änderung des Eingangs der Ausgang sich nach einiger Zeit nicht mehr ändert - also einen Beharrungszustand einnimmt. Wir unterscheiden beim Übertragungsverhalten daher:</span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Statisches Übertragungsverhalten (Beharrungsverhalten)</span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dynamisches Übertragungsverhalten (Übergangsverhalten)</span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statisches Verhalten der Regelstrecke</span></span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a>Beim statischen Übertragungsverhalten geht es um die Frage, welchen Wert die Ausgangsgrösse $x_a$ bei einer konstanten Eingangsgrösse $x_e$ annimmt. Dies beschreiben wir mit der **Kennlinie**, in der auf der horizontalen Achse die Ein- und auf der vertikalen Achse die Ausgangsgrösse aufgetragen wird. Die Kennlinie stellt also den Zusammenhang zwischen Ein- und Ausgang dar (mathematisch kann die Ausgangsgrösse als Funktion der Eingangsgrösse geschrieben werden, also $x_a = f(x_e)$).</span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a><span class="al">![Kennlinie](../images/diagrams/Kennlinie.svg)</span>{#fig-kennlinie}</span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a>Die Kennlinie in @fig-kennlinie ist *linear* und ist daher durch die Steigung vollständig beschrieben. Die Steigung der Kennlinie wird in der Regelungstechnik **Proportionalbeiwert $K_P$** genannt.</span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a>K_P = \frac{\Delta x_a}{\Delta x_e} </span>
+<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a>Eine lineare Kennlinie ist also nichts anderes als eine Gerade durch den Ursprung mit Steigung $K_P$, die man mathematisch mit $x_a = K_P \cdot x_e$ schreiben kann. Der Proportionalbeiwert $K_P$ wird auch *Verstärkung* genannt, da er angibt, wie stark das Eingangssignal (im stationären Zustand) verstärkt (oder abgeschwächt) wird. </span>
+<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Proportionalbeiwert $K_P$"}</span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a>Der Proportionalbeiwert $K_P$ gibt an, mit welcher stationären Ausgangsveränderung $\Delta x_a$ ein Übertragungsglied (z. B. die Regelstrecke) auf eine bestimmte Eingangsgrössenänderung $\Delta x_e$ reagiert.</span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a>Bei linearen Übertragungsgliedern hat der Proportionalbeiwert über den gesamten Betriebsbereich (auch *Arbeitsbereich* genannt) denselben Wert.</span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a>Reale Regelstrecken sind selten exakt linear über den gesamten Arbeitsbereich und weisen daher *nichtlineares Verhalten* auf. Wir werden in einem kommenden Unterrichtsblock Methoden kennenlernen, um mit solchen Strecken umzugehen.</span>
+<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dynamisches Verhalten der Regelstrecke</span></span>
+<span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a>Das statische Übertragungsverhalten (also die Kennlinie) sagt nichts darüber aus, *wie rasch* bzw. *auf welche Weise* das Ausgangssignal bei einer Änderung des Eingangssignals den neuen stationären Wert erreicht. Um diese Frage geht es beim dynamischen Übertragungsverhalten - wir sprechen auch vom *Übergangsverhalten*.</span>
+<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a>Wie du vermutlich beim Herumspielen mit der interaktiven Demo oben erkannt hast, brauchen wir ein systematisches Vorgehen, um das dynamische Verhalten zu beschreiben. Vermutlich hast du das Eingangssignal einmal sprungförmig geändert, oder kurz impulsartig hoch und wieder runtergefahren etc. um das Verhalten des Übertragungsgliedes zu analysieren. Genau diese intuitive Vorgehensweise findet sich in den folgenden Methoden wieder.</span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sprungantwort {.unnumbered}</span></span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a>Bei der Sprungantwort wird das Eingangssignal sprungförmig verändert (häufig von 0 auf 1 - wir sprechen dann vom *Einheitssprung*) und dann geschaut, was das Ausgangssignal macht. @fig-sprungantwort zeigt eine Animation einer Sprungantwort, wobei hier $K_P = 1$ gewählt wurde, sodass Ein- und Ausgang im stationären Zustand identisch sind.</span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a><span class="al">![Sprungantwort](../images/diagrams/Sprungantwort.gif)</span>{#fig-sprungantwort}</span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a>Die Sprungantwort spielt eine herausragende Rolle in der Regelungstechnik und wird uns durch sämtliche Kapitel begleiten. Es ist daher äusserst wichtig, dieses Werkzeug zu kennen und zu verstehen. Neben dem *Sprung* als Eingangssignal wird z. B. in der Elektrotechnik häufig auch der *Impuls* (kurze, starke pulsförmige Anregung) und folglich die *Impulsantwort* verwendet. Bei Systemen, die keine sprunghafte Eingangsänderung zulassen, kann auf eine *Rampe* am Eingang (folglich *Rampenantwort*) ausgewichen werden.</span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a><span class="al">![Impulsantwort](../images/diagrams/Impulsantwort.gif)</span>{#fig-impulsantwort}</span>
+<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="al">![Rampenantwort](../images/diagrams/Rampenantwort.gif)</span>{#fig-rampenantwort}</span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a>Da die Sprung-, die Impuls- und die Rampenfunktion via Integral/Ableitung zusammenhängen, liefern die entsprechenden Antworten grundsätzlich dieselben Informationen, einfach in einer anderen Darstellung.</span>
+<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a>\text{Impulsantwort} \mathrel{</span>
+<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a>\substack{</span>
+<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a>\xrightarrow{\int} <span class="sc">\\</span></span>
+<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a>\xleftarrow<span class="co">[</span><span class="ot">\frac{d}{dt}</span><span class="co">]</span>{}</span>
+<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a>} \text{Sprungantwort} \mathrel{</span>
+<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a>\substack{</span>
+<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a>\xrightarrow{\int} <span class="sc">\\</span></span>
+<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a>\xleftarrow<span class="co">[</span><span class="ot">\frac{d}{dt}</span><span class="co">]</span>{}</span>
+<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a>} \text{Rampenantwort}</span>
+<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Verzögerungen {.unnumbered}</span></span>
+<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a>Wir haben oben gesehen, dass der Ausgang häufig *verzögert* reagiert, wenn der Eingang verändert wird. Warum das so ist, wollen wir hier noch kurz anschauen. Wir betrachten dazu wieder beispielhaft das Auto, für das wir später eine Geschwindigkeitsregelung (Tempomat) entwickeln wollen. Die Ausgangsgrösse ist daher die Geschwindigkeit [km/h] und die Eingangsgrösse die Gaspedalstellung [0-100 %]. Aus dem Alltag wissen wir intuitiv, dass wenn wir das Gaspedal voll durchdrücken [100 %], die Geschwindigkeit nicht sofort (sprunghaft) auf die Maximalgeschwindigkeit springt, sondern die Geschwindigkeit sich allmählich erhöht und sich einem Maximum annähert. Am Anfang ändert sich die Geschwindigkeit stark (hohe Beschleunigung) und mit der Zeit immer weniger, da Reibung/Luftwiderstand etc. zunehmen. Irgendwann ändert sich die Geschwindigkeit nicht mehr (Maximalgeschwindigkeit). Man kann das Auto auch als **Energiespeicher** von Bewegungsenergie (*kinetischer Energie*) betrachten, der von $E_{kin} = 0$ im Stillstand auf $E_{kin} = \frac{1}{2} m v^2$ *geladen* werden muss. Dieses *Laden* des Energiespeichers kann nicht unendlich rasch erfolgen (träge Masse $m$) - es kommt also zu einer **Verzögerung**.</span>
+<span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a>Wir werden feststellen, dass solche Energiespeicher und damit Verzögerungen bei allen Arten von Systemen (mechanisch, elektrisch, thermisch, ...) existieren und damit eine zentrale Rolle in der Regelungstechnik spielen.</span>
+<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gliederung</span></span>
+<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a>Gemäss den oben erarbeiteten Unterscheidungsmerkmale (mit/ohne Ausgleich bzw. mit/ohne Verzögerung) können die Regelstrecken folgendermassen gegliedert werden.</span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a>Der erste Buchstabe (P oder I) gibt an, ob es sich um eine Strecke mit Ausgleich (P-Strecke) oder ohne Ausgleich (I-Strecke) handelt. Treten Verzögerungen (Energiespeicher) auf, so wird dies mit $T_1$, $T_2$ usw. angehängt, wobei die Nummer der Anzahl der Energiespeicher entspricht ($T_2$ bedeutet z. B., dass das System zwei Energiespeicher enthält). Wir werden uns damit im nächsten Unterrichtsblock genauer beschäftigen.</span>
+<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a>::: {#tbl-gliederung}</span>
+<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mit Ausgleich        <span class="pp">|</span> <span class="pp">|</span> ohne Ausgleich      <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------|:----------|:-----------|:----------|</span></span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ohne Verzögerung <span class="pp">|</span> mit Verzögerung <span class="pp">|</span> ohne Verzögerung <span class="pp">|</span> mit Verzögerung <span class="pp">|</span></span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $P$        <span class="pp">|</span> $P-T_1$   <span class="pp">|</span> $I$        <span class="pp">|</span> $I-T_1$   <span class="pp">|</span></span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>            <span class="pp">|</span> $P-T_2$   <span class="pp">|</span>            <span class="pp">|</span> $I-T_2$   <span class="pp">|</span></span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>            <span class="pp">|</span> $P-T_n$   <span class="pp">|</span>            <span class="pp">|</span> $I-T_n$   <span class="pp">|</span></span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>            <span class="pp">|</span> $P-T_t$   <span class="pp">|</span>            <span class="pp">|</span> $I-T_t$   <span class="pp">|</span></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a>Gliederung</span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben2"</span></span>
+<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"AUFG02.pdf"</span></span>
+<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb4-329"><a href="#cb4-329" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb4-330"><a href="#cb4-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-331"><a href="#cb4-331" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben2}</span>
+<span id="cb4-332"><a href="#cb4-332" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-1}</span>
+<span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.1</span></span>
+<span id="cb4-334"><a href="#cb4-334" aria-hidden="true" tabindex="-1"></a>Ein Differenzdrucksensor hat einen Messbereich von -50 mbar bis +50 mbar und gibt eine Ausgangsspannung von -10 V (bei -50 mbar) bis +10 V (bei +50 mbar) aus. </span>
+<span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a>(a) Stelle die (statische) Kennlinie grafisch dar (inkl. Achsenbeschriftungen). Gehe dabei von perfekt linearem Verhalten aus.</span>
+<span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_1a.svg)</span></span>
+<span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a>(b) Bestimme den Proportionalbeiwert $K_P$ und gebe diesen mit Einheit an.</span>
+<span id="cb4-341"><a href="#cb4-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-342"><a href="#cb4-342" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-343"><a href="#cb4-343" aria-hidden="true" tabindex="-1"></a>K_P =</span>
+<span id="cb4-344"><a href="#cb4-344" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a>(c) Du hast vom Hersteller die untenstehende Sprungantwort des Sensors erhalten. Bestimme die Zeitkonstante $T_1$? </span>
+<span id="cb4-347"><a href="#cb4-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-348"><a href="#cb4-348" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_1c.svg)</span></span>
+<span id="cb4-349"><a href="#cb4-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-350"><a href="#cb4-350" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-351"><a href="#cb4-351" aria-hidden="true" tabindex="-1"></a>T_1 =</span>
+<span id="cb4-352"><a href="#cb4-352" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-353"><a href="#cb4-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-354"><a href="#cb4-354" aria-hidden="true" tabindex="-1"></a>(d) Welche Druckdifferenz wurde für diese Sprungantwort am Sensor aufgeprägt?</span>
+<span id="cb4-355"><a href="#cb4-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-356"><a href="#cb4-356" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-357"><a href="#cb4-357" aria-hidden="true" tabindex="-1"></a>\Delta p =</span>
+<span id="cb4-358"><a href="#cb4-358" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-361"><a href="#cb4-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-2}</span>
+<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.2</span></span>
+<span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a>Ein quaderförmiger Wassertank mit der Grundfläche 1m x 1m wird mit Wasser befüllt. Der Zufluss beträgt 5 Liter pro Sekunde und nichts fliesst aus dem Tank heraus. Für eine zukünftige Regelung des Füllstandes $h$ sollst du erste Überlegungen anstellen. </span>
+<span id="cb4-365"><a href="#cb4-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-366"><a href="#cb4-366" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2a.png)</span></span>
+<span id="cb4-367"><a href="#cb4-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-368"><a href="#cb4-368" aria-hidden="true" tabindex="-1"></a>a) Würdest du dieses System als Regelstrecke mit Ausgleich oder als Regelstrecke ohne Ausgleich einstufen? (Eingangsgrösse: Volumenstrom, Ausgangsgrösse: Füllstand)</span>
+<span id="cb4-369"><a href="#cb4-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-370"><a href="#cb4-370" aria-hidden="true" tabindex="-1"></a>b) Skizziere den zeitlichen Verlauf des Füllstandes für die ersten 10 s im untenstehenden Diagramm (Annahme: Tank ist leer ($h = 0$) bei $t = 0$). Beschrifte die Achsen vollständig.</span>
+<span id="cb4-371"><a href="#cb4-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-372"><a href="#cb4-372" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2b.svg)</span></span>
+<span id="cb4-373"><a href="#cb4-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-374"><a href="#cb4-374" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-375"><a href="#cb4-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-376"><a href="#cb4-376" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-3}</span>
+<span id="cb4-377"><a href="#cb4-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.3</span></span>
+<span id="cb4-378"><a href="#cb4-378" aria-hidden="true" tabindex="-1"></a>Für einen Beschichtungsprozess wird ein Förderband verwendet, das eine Länge von 2 m hat und die Produkte mit einer Geschwindigkeit $v$ von 0.8 m/s befördert. Mit was für einer **Verzugszeit (Totzeit $T_t$)** ist im Minimum zu rechnen, wenn das Stellglied am einen Ende und das Messsystem (Sensor) am anderen Ende des Förderbandes angebracht sind?</span>
+<span id="cb4-379"><a href="#cb4-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-380"><a href="#cb4-380" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_3.png)</span></span>
+<span id="cb4-381"><a href="#cb4-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-382"><a href="#cb4-382" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-383"><a href="#cb4-383" aria-hidden="true" tabindex="-1"></a>::::</span>
+</code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>SYS_RE1 | 2026</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>S. Krauss | ABBTS</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

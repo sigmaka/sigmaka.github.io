@@ -107,6 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<script src="./assets/html2pdf.bundle.min.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -141,9 +142,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Regelungstechnik</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Regelungstechnik.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
-</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -174,6 +172,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/L02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -189,6 +193,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./chapters/A01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/A02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
   </div>
 </li>
       </ul>
@@ -354,6 +364,141 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".pdf-export").forEach(btn => {
+
+    btn.addEventListener("click", async () => {
+
+      const target = document.getElementById(btn.dataset.target);
+
+      const expanded = [];
+
+
+
+      document.querySelectorAll("details:not([open])").forEach(d => {
+
+        d.open = true;
+
+        expanded.push({ el: d, type: "details" });
+
+      });
+
+
+
+      document.querySelectorAll(".collapse:not(.show)").forEach(el => {
+
+        const instance =
+
+          bootstrap.Collapse.getInstance(el) ||
+
+          new bootstrap.Collapse(el, { toggle: false });
+
+        instance.show();
+
+        expanded.push({ el, type: "collapse" });
+
+      });
+
+
+
+      try {
+
+        // Wait for Quarto/MathJax math rendering to finish
+
+        if (window.MathJax?.typesetPromise) {
+
+          await MathJax.typesetPromise([target]);
+
+        }
+
+
+
+        await html2pdf()
+
+          .set({
+
+            margin: 10,
+
+            filename: btn.dataset.filename || "download.pdf",
+
+            pagebreak: {
+
+              mode: ['css', 'legacy'],
+
+              after: '.callout-tip'
+
+            },
+
+            html2canvas: {
+
+              scale: 2,
+
+              useCORS: true,
+
+              onclone: (doc) => {
+
+                // Remove MathJax assistive MathML that html2canvas may render as a duplicate
+
+                doc.querySelectorAll('.katex-mathml').forEach(el => el.remove());
+
+
+
+                // Optional: if any raw TeX script tags are present, remove those too
+
+                doc.querySelectorAll('script[type^="math/tex"]').forEach(el => el.remove());
+
+              }
+
+            },
+
+            jsPDF: {
+
+              unit: "mm",
+
+              format: "a4",
+
+              orientation: "portrait"
+
+            }
+
+          })
+
+          .from(target)
+
+          .save();
+
+      } finally {
+
+        expanded.forEach(item => {
+
+          if (item.type === "details") item.el.open = false;
+
+          if (item.type === "collapse") {
+
+            const instance =
+
+              bootstrap.Collapse.getInstance(item.el) ||
+
+              new bootstrap.Collapse(item.el, { toggle: false });
+
+            instance.hide();
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+});
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
