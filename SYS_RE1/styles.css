@@ -22,3 +22,15 @@ button.pdf-export:hover {
 mjx-assistive-mml {
   display: none !important;
 }
+
+.cap {
+    font-variant: small-caps;
+  }
+
+h4 {
+    font-weight: bold;
+}
+
+.small-eq {
+  font-size: 0.8em;
+}

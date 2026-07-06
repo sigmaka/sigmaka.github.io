@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-CH" xml:lang="de-CH"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Grundglieder – Regelungstechnik</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/L04.html" rel="next">
+<link href="../chapters/L02.html" rel="prev">
+<link href="../images/logo_re.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-11f943d916b1390b48b2627ac8a86575.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script src="../assets/html2pdf.bundle.min.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundglieder</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo_re.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logo_re.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regelungstechnik</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modulorganisation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unterrichtseinheiten</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Streckenidentifikation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhang</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#glieder-mit-ausgleich-p-glieder" id="toc-glieder-mit-ausgleich-p-glieder" class="nav-link active" data-scroll-target="#glieder-mit-ausgleich-p-glieder"><span class="header-section-number">3.1</span> Glieder mit Ausgleich (P-Glieder)</a>
+  <ul class="collapse">
+  <li><a href="#p-glied" id="toc-p-glied" class="nav-link" data-scroll-target="#p-glied">P-Glied</a></li>
+  <li><a href="#p-t1-glied" id="toc-p-t1-glied" class="nav-link" data-scroll-target="#p-t1-glied">P-T<sub>1</sub>-Glied</a></li>
+  <li><a href="#p-t2-glied" id="toc-p-t2-glied" class="nav-link" data-scroll-target="#p-t2-glied">P-T<sub>2</sub>-Glied</a></li>
+  </ul></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundglieder</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundglieder</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Die in <a href="L02.html#tbl-gliederung" class="quarto-xref">Tab.&nbsp;<span>2.1</span></a> aufgeführten Übertragungsglieder bilden die Basis für die Abbildung realer Regelstrecken in der Simulation. Wir nennen diese deshalb <em>Grundglieder</em> und wollen sie im Folgenden etwas näher betrachten.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Ziele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Ziele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Du kennst die typischen Übertragungsglieder (<em>Grundglieder</em>) und kannst ihr Verhalten beschreiben.</li>
+<li>Du kannst mit den <em>Grundgliedern</em> in <span class="cap">Boris</span> eine Regelstrecke aufbauen und Simulationen durchführen (z. B. Sprungantwort).</li>
+<li>Du kannst ein System in Bezug auf die Regelbarkeit anhand der Verzugs- <span class="math inline">T_e</span> bzw. Ausgleichszeit <span class="math inline">T_b</span> beurteilen.</li>
+</ul>
+</div>
+</div>
+<p>Wir haben gelernt, dass eine Regelstrecke in eine der beiden Klassen fällt:</p>
+<ul>
+<li><strong>Strecken mit Ausgleich</strong> (P-Strecken bzw. im Folgenden P-Glieder genannt)</li>
+<li><strong>Strecken ohne Ausgleich</strong> (I-Strecken bzw. im Folgenden I-Glieder genannt)</li>
+</ul>
+<section id="glieder-mit-ausgleich-p-glieder" class="level2 page-columns page-full" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="glieder-mit-ausgleich-p-glieder"><span class="header-section-number">3.1</span> Glieder mit Ausgleich (P-Glieder)</h2>
+<p>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang <span class="math inline">x_a</span> bei einem konstanten Eingang <span class="math inline">x_e</span> einen stationären Endwert. Es wird also ein <em>Beharrungszustand</em> erreicht, wobei der stationäre Endwert proportional zum Eingang ist (daher kommt das <em>P</em>).</p>
+<p><span class="math display">
+x_a = K_P \cdot x_e \qquad \text{(Beharrungszustand)}
+</span></p>
+<p>Die <strong>Kennlinie</strong> (Ausgang <span class="math inline">x_a</span> in Abhängigkeit vom Eingang <span class="math inline">x_e</span> im Beharrungszustand) ist eine Gerade, die durch den Ursprung geht und deren Steigung dem Proportionalbeiwert <span class="math inline">K_P</span> entspricht (<span class="math inline">K_P = \frac{\Delta x_a}{\Delta x_e}</span>). Sämtliche P-Glieder weisen daher qualitativ dieselbe Kennlinie auf.</p>
+<div id="fig-kennlinie-allg" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-kennlinie-allg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Kennlinie_allg.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-kennlinie-allg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.1: Kennlinie
+</figcaption>
+</figure>
+</div>
+<p>Das <em>statische Verhalten</em> bzw. der Proportionalbeiwert <span class="math inline">K_P</span> wird im Folgenden nicht weiter behandelt. Im Folgenden gehen wir sämtliche Grundglieder durch und betrachten das <em>dynamische Verhalten</em> anhand der <strong>Sprungantwort</strong>.</p>
+<section id="p-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="p-glied">P-Glied</h3>
+<p>Das (reine) P-Glied weist keine Verzögerung auf, d.&nbsp;h. der Ausgang folgt dem Eingang sofort. Ein P-Glied ist also nichts anderes als eine Skalierung (Multiplikation mit <span class="math inline">K_P</span>) und ist folglich mit dem Proportionalbeiwert <span class="math inline">K_P</span> vollständig beschrieben.</p>
+<p><span class="math display">
+x_a(t) = K_P \cdot x_e(t)
+</span></p>
+<div id="fig-P" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-P-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-P-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.2: P-Glied
+</figcaption>
+</figure>
+</div>
+<p>Typische Beispiele sind:</p>
+<ul>
+<li>Übersetzung (z. B. eines Getriebes, wo eine Drehzahl bzw. ein Drehmoment verändert wird)</li>
+<li>Transformator</li>
+<li>Spannungsteiler</li>
+<li>allg. jede Skalierung (z. B. eines Sensors, der eine physikalische Grösse in eine elektrische umwandelt, ohne dass eine nennenswerte Verzögerung auftritt)</li>
+</ul>
+</section>
+<section id="p-t1-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="p-t1-glied">P-T<sub>1</sub>-Glied</h3>
+<p>Reale Systeme weisen häufig Energiespeicher auf, die geladen/entladen werden müssen. Dies führt zu Verzögerungen, d.&nbsp;h. der Ausgang folgt dem Eingang nicht sofort, sondern zeitlich verzögert. Das einfachste Übertragungsglied mit einer Verzögerung ist das P-T<sub>1</sub>-Glied, das neben dem Proportionalbeiwert <span class="math inline">K_P</span> durch die Zeitkonstante <span class="math inline">T_1</span> beschrieben wird.</p>
+<p><span class="math display">
+T_1 \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)
+</span></p>
+<p>Die Ordnung der obigen Differentialgleichung ist 1 (=höchste Ableitung), d.&nbsp;h. wir nennen das P-T<sub>1</sub>-Glied auch <strong>Verzögerungsglied 1. Ordnung</strong>.</p>
+<p>Die Zeitkonstante <span class="math inline">T_1</span> kann direkt aus der Sprungantwort herausgelesen werden.</p>
+<div id="fig-PT1" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PT1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-T1-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-T1-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PT1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.3: P-T<sub>1</sub>-Glied
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="e-Funktion">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>e-Funktion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wir werden uns nicht mit dem Lösen von Differentialgleichungen befassen, doch wir können mitnehmen, dass in der Lösung solcher Differentialgleichungen typischerweise Exponentialfunktionen auftreten. Darum steigt der Ausgangswert in der obigen Sprungantwort exponentiell (Sättigungsfunktion).</p>
+<p>Die genaueLösung für die Sprungantwort eines P-T<sub>1</sub>-Gliedes für einen Einheitssprung am Eingang lautet:</p>
+<p><span class="math display">
+x_a(t) = K_P \cdot \left(1 - e^{-\frac{t}{T_1}}\right)
+</span></p>
+</div>
+</div>
+<p>Ein klassisches Beispiel für ein P-T<sub>1</sub>-Glied ist ein RC-Glied, bei dem ein Kondensator über einen Widerstand geladen/entladen wird. Ein weiteres Beispiel ist ein Druckbehälter, der über eine Drossel gefüllt wird. Allg. können sehr viele Systeme näherungsweise als P-T<sub>1</sub>-Glied betrachtet werden, da häufig ein Energiespeicher das Verhalten dominiert (auch wenn effektiv mehrere Energiespeicher vorhanden sind).</p>
+<div id="fig-PT1Bsp" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PT1Bsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT1Bsp" style="flex-basis: 53.1%;justify-content: flex-start;">
+<div id="fig-rc1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-rc1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/Tiefpass.svg" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-PT1Bsp">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-rc1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Schema
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT1Bsp" style="flex-basis: 46.9%;justify-content: flex-start;">
+<div id="fig-rc2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-rc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/Ladevorgang.svg" class="img-fluid figure-img" data-ref-parent="fig-PT1Bsp">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-rc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Ladevorgang
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PT1Bsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.4: RC-Glied <a href="https://de.wikipedia.org/wiki/RC-Glied">Quelle</a>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="p-t2-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="p-t2-glied">P-T<sub>2</sub>-Glied</h3>
+<p>Enthält das System zwei (<em>gleichartige</em>) Energiespeicher (z. B. zwei RC-Glieder in Reihe oder zwei Druckbehälter in Reihe etc.), so sprechen wir von einem P-T<sub>2</sub>-Glied. Es sind dann zwei Zeitkonstanten <span class="math inline">T_1</span> und <span class="math inline">T_2</span> zur Beschreibung notwendig.</p>
+<p><span class="math display">
+T_1 \cdot T_2 \cdot \ddot{x}_a(t) + (T_1+T_2) \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)
+</span></p>
+<p>In der obigen Differentialgleichung ist eine zweite Ableitung vorhanden, d.&nbsp;h. wir nennen das P-T<sub>2</sub>-Glied auch <strong>Verzögerungsglied 2. Ordnung</strong>.</p>
+<div id="fig-PT2" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PT2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-T2-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-T2-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PT2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.5: P-T<sub>2</sub>-Glied
+</figcaption>
+</figure>
+</div>
+<p>Die Zeitkonstanten <span class="math inline">T_1</span> bzw. <span class="math inline">T_2</span> des P-T<sub>2</sub>-Gliedes können nicht direkt aus der Sprungantwort herausgelesen werden. Anhand der <strong>Wendentangente</strong> können die sogenannten Ersatzzeitkonstanten <span class="math inline">T_e</span> (Verzugszeit) bzw. <span class="math inline">T_b</span> (Ausgleichszeit) bestimmt werden. Wir werden in <a href="L04.html" class="quarto-xref"><span>Abschnitt 4</span></a> Verfahren kennenlernen, um damit die effektiven Zeitkonstanten <span class="math inline">T_1</span> bzw. <span class="math inline">T_2</span> zu bestimmen.</p>
+<div id="nte-wt" class="callout callout-style-default callout-note callout-titled" title="Wendetangente">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis&nbsp;3.1: Wendetangente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Wendetangente ist die Tangente an die Sprungantwort im Wendepunkt, d.&nbsp;h. dort wo die Krümmung von positiv (Gegenuhrzeigerinn) nach negativ (Uhrzeigersinn) wechselt. Dies ist gleichzeitig auch die steilste Stelle der Sprungantwort. Die Wendetangente schneidet die Zeitachse bei der Verzugszeit <span class="math inline">T_e</span> und erreicht den Wert des stationären Endwertes bei der Ausgleichszeit <span class="math inline">T_b</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/Wendetangente.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-PT2Bsp" class="quarto-xref">Abb.&nbsp;<span>3.6</span></a> zeigt zwei typische Beispiele für P-T<sub>2</sub>-Glieder.</p>
+<div id="fig-PT2Bsp" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PT2Bsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT2Bsp" style="flex-basis: 56.0%;justify-content: flex-start;">
+<div id="fig-rcs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-rcs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/rc_in_reihe.png" class="img-fluid figure-img" data-ref-parent="fig-PT2Bsp">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-rcs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) aneinandergehängte RC-Glieder
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT2Bsp" style="flex-basis: 44.0%;justify-content: flex-start;">
+<div id="fig-tanks" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-tanks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/tanks_in_reihe.png" class="img-fluid figure-img" data-ref-parent="fig-PT2Bsp">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-tanks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) zusammengeschlossene Druckbehälter
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PT2Bsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.6: P-T<sub>2</sub>-Beispiele <span class="citation" data-cites="crashkurs">(<a href="../index.html#ref-crashkurs" role="doc-biblioref">Kahlert 2023</a>)</span>
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Reihenschaltung von Übertragungsgliedern">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Reihenschaltung von Übertragungsgliedern
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein P-T<sub>2</sub>-Glied kann als Reihenschaltung von zwei P-T<sub>1</sub>-Gliedern aufgefasst werden. Dies gilt ganz allgemein, d.&nbsp;h. ein P-T<sub>3</sub>-Glied kann als Reihenschaltung von drei P-T<sub>1</sub>-Gliedern aufgefasst werden (oder alternativ als Reihenschaltung von einem P-T<sub>2</sub>-Glied und einem P-T<sub>1</sub>-Glied etc.).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Auflistung nicht vollständig">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Auflistung nicht vollständig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die weiteren Übertragungsglieder folgen nach dem heutigen Unterrichtsblock.</p>
+</div>
+</div>
+<!--
+
+### P-T~2S~-Glied {.unnumbered}
+
+Enthält das Übertragungsglied zwei Energiespeicher, die *nicht gleichartig* sind, so kann es zu oszillierenden Energietransfers zwischen diesen Energiespeichern kommen und damit zu *Schwingungen*. Wir nennen das Übertragungsglied dann P-T~2S~ (S für *schwingfähig*) und beschreiben es mit der Kennkreisfrequenz $\omega_0$ und dem Dämpfungsgrad $D$.
+
+$$
+\frac{1}{\omega_0^2} \cdot \ddot{x}_a(t) + 2 \cdot \frac{D}{\omega_0} \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)
+$$
+
+::: {#fig-PT2S layout="[25,75]"}
+
+![](../images/diagrams/P-T2S-Icon.svg)
+
+![](../images/diagrams/P-T2S-Glied.svg)
+
+P-T~2S~-Glied
+:::
+
+Die Kennkreisfrequenz $\omega_0$ und der Dämpfungsgrad $D$ können anhand der folgenden Beziehungen aus der Sprungantwort bestimmt werden. Die Kennkreisfrequenz $\omega_0$ ist die charakteristische Frequenz des Systems (mit dieser Frequenz schwingt das System, wenn es ungedämpft ist). Der Dämpfungsgrad $D$ besagt wie rasch die Schwingung abklingt ($0 < D < 1$). Bei $D = 1$ ist das System *kritisch gedämpft* und schwingt nicht mehr, d. h. es wird zum (nicht-schwingfähigen) P-T~2~-Glied.
+
+$$
+D = \frac{\ln{\frac{\Delta_1}{\Delta_2}}}{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\Delta_2}}}}
+$$
+
+$$
+\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}
+$$
+
+P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).
+
+::: {#fig-PT2SBsp}
+
+![](../images/external/mass-spring-damper.gif){width=50% #fig-mass-spring-damper}
+
+Masse-Feder-System [Quelle](https://tex.stackexchange.com/questions/640906/animate-mass-spring-damper-tikz)
+:::
+
+### P-T~n~-Glied {.unnumbered}
+
+Natürlich können auch mehr als zwei Energiespeicher auftreten, was zu P-T~3~-, P-T~4~-, ..., P-T~n~-Gliedern führt. Die Sprungantworten solcher Glieder sehen qualitativ alle ähnlich aus wie das P-T~2~-Glied, da sie lediglich stärker verzögert sind.
+
+Nachfolgend ist stellvertretend ein P-T~3~-Glied aufgeführt (analog für P-T~4~ usw.). 
+
+$$
+\begin{aligned}
+T_1 \cdot T_2 \cdot T_3 \cdot \dddot{x}_a(t)
+&+ (T_1 \cdot T_2 + T_1 \cdot T_3 + T_2 \cdot T_3) \cdot \ddot{x}_a(t) \\
+&+ (T_1 + T_2 + T_3) \cdot \dot{x}_a(t)
++ x_a(t) \\
+&= K_P \cdot x_e(t)
+\end{aligned}
+$$
+
+::: {#fig-PTn layout="[25,75]"}
+
+![](../images/diagrams/P-Tn-Icon.svg)
+
+![](../images/diagrams/P-Tn-Glied.svg)
+
+P-T~n~-Glied
+:::
+
+Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1$, ..., $T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.
+
+::: {.callout-note title="P-T~n~-Glied in BORIS"}
+Beim P-T~n~-Glied in <span class="cap">Boris</span> werden alle $n$ Zeitkonstanten $T_1$, ..., $T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert.
+
+Will man ein P-T~n~-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T~1~ oder P-T~2~-Gliedern erstellt werden.
+:::
+
+### P-T~t~-Glied {.unnumbered}
+
+Es gibt auch Verzögerungen, die nicht von Energiespeichern verursacht werden, sondern aufgrund von Transportvorgängen/Laufzeiten (typisch für Stofftransporte in Fördereinrichtungen/Rohrleitungen etc.). Eine solche Verzögerung wird **Totzeit** $T_t$ genannt und verhält sich fundamental anders als die oben betrachteten Verzögerungen. Eine Änderung am Eingang zeigt sich am Ausgang erst nach Ablauf der Totzeit, doch dann schlagartig. Das P-T~t~-Glied wird folglich als **Totzeitglied** bezeichnet.
+
+$$
+x_a(t) = K_P \cdot x_e(t - T_t)
+$$
+
+::: {#fig-PTt layout="[25,75]"}
+
+![](../images/diagrams/P-Tt-Icon.svg)
+
+![](../images/diagrams/P-Tt-Glied.svg)
+
+P-T~t~-Glied (Totzeit)
+:::
+
+Ein typisches Beispiel für ein P-T~t~-Glied ist ein Förderband (vgl. @fig-PTtBsp)
+
+::: {#fig-PTtBsp}
+
+![](../images/external/temperature-sensor.png){width=60% #fig-foerderband}
+
+Förderband [Quelle](https://instrumentationtools.com/dead-time/)
+:::
+
+## Glieder ohne Ausgleich (I-Glieder)
+
+Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.
+
+Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang $x_a$ bei einem stationären Eingang $x_e$ schliesslich *linear* ansteigt (bzw. abfällt). Für einen konstanten Eingang $x_e$ resultiert also eine konstante Steigung des Ausgangs $\Delta x_a/\Delta t$. Eine sinnvolle Kenngrösse ist daher der **Integrierbeiwert** $K_I$, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.
+
+$$
+K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)
+$$
+
+Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit** $T_I = \frac{1}{K_I}$ bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.
+
+### I-Glied {.unnumbered}
+
+Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ vollständig beschrieben.
+
+$$
+x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}
+$$
+
+Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:
+
+$$
+\dot{x}_a(t) = K_I \cdot x_e(t)
+$$
+
+
+::: {#fig-I layout="[25,75]"}
+
+![](../images/diagrams/I-Icon.svg)
+
+![](../images/diagrams/I-Glied.svg)
+
+I-Glied
+:::
+
+Ein typisches Beispiel für ein I-Glied ist die Linearachse, wenn als Eingang die Spindeldrehzahl und als Ausgang die Schlittenposition betrachtet wird. Allg. treten I-Glieder auf, wo eine Grösse durch Integration (Aufsummierung) in die entsprechende Speichergrösse überführt wird.
+
+- Durchfluss (Volumenstrom) → Tankinhalt (Füllhöhe)
+- Beschleunigung/Kraft → Geschwindigkeit
+- Geschwindigkeit → Position (Weg)
+- Drehzahl → Drehwinkel
+- ...
+
+::: {#fig-IBsp}
+
+![](../images/external/linearachse.jpg){width=60%}
+
+Linearachse [Quelle](https://www.festo.com/ch/de/p/spindelachse-id_EGC_BS)
+:::
+
+I-Strecken mit Verzögerungen sind in <span class="cap">Boris</span> nicht direkt verfügbar und müssen daher durch Reihenschaltungen erzeugt werden (ein I-T~1~-Glied z. B. durch eine Reihenschaltung von einem I-Glied und einem P-T~1~-Glied etc.).
+
+### I-T~1~-Glied {.unnumbered}
+
+Kommt beim I-Glied nun eine Verzögerung (Energiespeicher) hinzu, landen wir beim I-T~1~-Glied, für dessen Beschreibung neben $K_I$$ (alternativ $T_I$) nun wiederum die Zeitkonstante $T_1$ nötig ist.
+
+$$
+T_1 \cdot \ddot{x}_a(t) + \dot{x}_a(t) = K_I \cdot x_e(t)
+$$
+
+::: {#fig-IT1 layout="[25,75]"}
+
+![](../images/diagrams/I-T1-Icon.svg)
+
+![](../images/diagrams/I-T1-Glied.svg)
+
+I-T~1~-Glied
+:::
+
+Wird die in @fig-IBsp gezeigte Linearachse mit einem DC-Motor angetrieben (der als P-T~1~-Glied modelliert wird), stellt das Gesamtsystem ein I-T~1~-Glied dar.
+
+### I-T~t~-Glied {.unnumbered}
+
+Tritt eine Totzeit $T_t$ mit einem I-Glied auf, so sprechen wir von einem I-T~t~-Glied.
+
+$$
+\dot{x}_a(t) = K_I \cdot x_e(t - T_t)
+$$
+
+::: {#fig-ITt layout="[25,75]"}
+
+![](../images/diagrams/I-Tt-Icon.svg)
+
+![](../images/diagrams/I-Tt-Glied.svg)
+
+I-T~t~-Glied
+:::
+
+Wir verzichten hier auf die Auflistung des I-T~2~-, I-T~2S~-, I-T~n~-Gliedes, da mittlerweile die Systematik klar sein sollte. 
+
+::: {.callout-note title="Reihenschaltung von Übertragungsgliedern"}
+Ein I-T~2~-Glied kann als Reihenschaltung von einem I-Glied und einem P-T~2~-Glied (oder zwei P-T~1~-Gliedern) aufgefasst werden. 
+
+> Bsp.: In einer Regelstrecke werden das Stellglied als P-T~2~-Glied, die eigentliche Strecke als reines I-Glied und das Messglied als P-T~1~-Glied modelliert. Die gesamte Regelstrecke (Stellglied, Strecke, Messglied) weist dann I-T~3~-Verhalten auf.
+:::
+
+::: {.callout-tip}
+## Übung
+Erzeuge mit <span class="cap">Boris</span> die Sprungantwort für ein I-T~2~-Glied mit $K_I = 0.1$, $T_1 = 2$ und $T_2 = 0.5$.
+:::
+
+## Regelbarkeit
+
+Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.
+
+![Zunehmende Verzugszeit (P-Strecken)](../images/diagrams/P-Strecken_allg.svg){#fig-verz-p}
+
+Ein Mass, das die *Regelbarkeit* einer P-Strecke charakterisiert, ist das Verhältnis von Verzugs- zu Ausgleichszeit $\frac{T_e}{T_b}$. Für P- bzw. P-T~1~-ähnliche Strecken ist es sehr klein (~0), d. h. diese sind sehr einfach zu regeln. Mit zunehmender Ordnung bis hin zur Totzeit wird dieses Verhältnis immer grösser und die Strecke immer schwieriger zu regeln. 
+
+![Regelbarkeit](../images/diagrams/Regelbarkeit.svg){#fig-regelbarkeit}
+
+::: {#tbl-regelbarkeit}
+
+|$\dfrac{T_e}{T_b}$| Regelbarkeit         |
+|:---------------:|:---------------------|
+|$< 0.1$          | sehr gut regelbar    |
+|$0.1 \ldots 0.2$ | gut regelbar         |
+|$0.2 \ldots 0.4$ | mässig regelbar      |
+|$0.4 \ldots 0.8$ | schwer regelbar      |
+|$> 0.8$          | sehr schwer regelbar |
+
+Regelbarkeit
+
+:::
+
+Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.
+
+![Zunehmende Verzugszeit (I-Strecken)](../images/diagrams/I-Strecken_allg.svg){#fig-verz-i}
+
+-->
+</section>
+</section>
+<section id="aufgaben" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
+<button class="pdf-export" data-target="aufgaben3" data-filename="SYS_RE1_AUFG03.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
+<img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
+</button>
+<div id="aufgaben3">
+<div id="ex-3-1" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 3.1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Du hast eine Sprungantwort aufgenommen für einen Temperatursensor, indem du einen Temperatursprung von 20 °C auf 30 °C aufgeprägt (blau) und das Spannungssignal des Sensors gemessen hast (rot).</p>
+<p><img src="../images/diagrams/A3_1.svg" class="img-fluid"></p>
+<ol type="a">
+<li>Bestimme den Proportionalbeiwert <span class="math inline">K_P</span> aus der Sprungantwort (inkl. Einheit).</li>
+</ol>
+<p><span class="math display">
+K_P =
+</span></p>
+<ol start="2" type="a">
+<li>Bestimme die Zeitkonstante <span class="math inline">T_1</span> aus der Sprungantwort (inkl. Einheit).</li>
+</ol>
+<p><span class="math display">
+T_1 =
+</span></p>
+<ol start="3" type="a">
+<li>Um was für ein Grundglied handelt es sich dabei?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="ex-3-2" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 3.2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl <span class="math inline">𝑛</span> als Eingang und die Schlittenposition <span class="math inline">𝑥</span> als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</p>
+<p><img src="../images/diagrams/A3_2a.png" class="img-fluid"></p>
+<ol type="a">
+<li>Skizziere den zeitlichen Verlauf der Schlittenposition <span class="math inline">𝑥</span> für die ersten 5 s im untenstehenden Diagramm für eine Spindeldrehzahl <span class="math inline">𝑛</span> von 1 Umdrehung pro Sekunde. (Annahme: Position <span class="math inline">𝑥 = 0</span> bei <span class="math inline">𝑡 = 0</span>).</li>
+</ol>
+<p><img src="../images/diagrams/A3_2b.svg" class="img-fluid"></p>
+<ol start="2" type="a">
+<li>Ermittle den Integrierbeiwert <span class="math inline">K_I</span> bzw. die Integrierzeit <span class="math inline">T_I</span> (rechnerisch oder grafisch).</li>
+</ol>
+<p><span class="math display">
+K_I = \quad \quad \quad \quad T_I =
+</span></p>
+</div>
+</div>
+</div>
+<div id="ex-3-3" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 3.3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Bestimme Verzugszeit <span class="math inline">T_e</span> und Ausgleichszeit <span class="math inline">T_b</span> aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>). Berechne anschliessend das Verhältnis <span class="math inline">\frac{T_e}{T_b}</span> und beurteile die Regelbarkeit des Systems.</p>
+<p><img src="../images/diagrams/A3_3.svg" class="img-fluid"></p>
+<p><span class="math display">
+T_e =
+</span></p>
+<p><span class="math display">
+T_b =
+</span></p>
+<p><span class="math display">
+\frac{T_e}{T_b} =
+</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-crashkurs" class="csl-entry" role="listitem">
+Kahlert, Jörg. 2023. <em>Crashkurs Regelungstechnik: eine praxisorientierte Einführung mit Begleitsoftware</em>. 5., aktualisierte Auflage. <a href="https://d-nb.info/1272986799">https://d-nb.info/1272986799</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".pdf-export").forEach(btn => {
+
+    btn.addEventListener("click", async () => {
+
+      const target = document.getElementById(btn.dataset.target);
+
+      const expanded = [];
+
+
+
+      document.querySelectorAll("details:not([open])").forEach(d => {
+
+        d.open = true;
+
+        expanded.push({ el: d, type: "details" });
+
+      });
+
+
+
+      document.querySelectorAll(".collapse:not(.show)").forEach(el => {
+
+        const instance =
+
+          bootstrap.Collapse.getInstance(el) ||
+
+          new bootstrap.Collapse(el, { toggle: false });
+
+        instance.show();
+
+        expanded.push({ el, type: "collapse" });
+
+      });
+
+
+
+      try {
+
+        // Wait for Quarto/MathJax math rendering to finish
+
+        if (window.MathJax?.typesetPromise) {
+
+          await MathJax.typesetPromise([target]);
+
+        }
+
+
+
+        await html2pdf()
+
+          .set({
+
+            margin: 10,
+
+            filename: btn.dataset.filename || "download.pdf",
+
+            pagebreak: {
+
+              mode: ['css', 'legacy'],
+
+              after: '.callout-tip'
+
+            },
+
+            html2canvas: {
+
+              scale: 2,
+
+              useCORS: true,
+
+              onclone: (doc) => {
+
+                // Remove MathJax assistive MathML that html2canvas may render as a duplicate
+
+                doc.querySelectorAll('.katex-mathml').forEach(el => el.remove());
+
+
+
+                // Optional: if any raw TeX script tags are present, remove those too
+
+                doc.querySelectorAll('script[type^="math/tex"]').forEach(el => el.remove());
+
+              }
+
+            },
+
+            jsPDF: {
+
+              unit: "mm",
+
+              format: "a4",
+
+              orientation: "portrait"
+
+            }
+
+          })
+
+          .from(target)
+
+          .save();
+
+      } finally {
+
+        expanded.forEach(item => {
+
+          if (item.type === "details") item.el.open = false;
+
+          if (item.type === "collapse") {
+
+            const instance =
+
+              bootstrap.Collapse.getInstance(item.el) ||
+
+              new bootstrap.Collapse(item.el, { toggle: false });
+
+            instance.hide();
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+});
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/L02.html" class="pagination-link" aria-label="Analyse der Regelstrecke">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/L04.html" class="pagination-link" aria-label="Streckenidentifikation">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Streckenidentifikation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Grundglieder</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Die in @tbl-gliederung aufgeführten Übertragungsglieder bilden die Basis für die Abbildung realer Regelstrecken in der Simulation. Wir nennen diese deshalb *Grundglieder* und wollen sie im Folgenden etwas näher betrachten.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Ziele"}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kennst die typischen Übertragungsglieder (*Grundglieder*) und kannst ihr Verhalten beschreiben.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst mit den *Grundgliedern* in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> eine Regelstrecke aufbauen und Simulationen durchführen (z. B. Sprungantwort).</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst ein System in Bezug auf die Regelbarkeit anhand der Verzugs- $T_e$ bzw. Ausgleichszeit $T_b$ beurteilen.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Wir haben gelernt, dass eine Regelstrecke in eine der beiden Klassen fällt:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strecken mit Ausgleich** (P-Strecken bzw. im Folgenden P-Glieder genannt)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strecken ohne Ausgleich** (I-Strecken bzw. im Folgenden I-Glieder genannt)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Glieder mit Ausgleich (P-Glieder)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang $x_a$ bei einem konstanten Eingang $x_e$ einen stationären Endwert. Es wird also ein *Beharrungszustand* erreicht, wobei der stationäre Endwert proportional zum Eingang ist (daher kommt das *P*).</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>x_a = K_P \cdot x_e \qquad \text{(Beharrungszustand)}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Die **Kennlinie** (Ausgang $x_a$ in Abhängigkeit vom Eingang $x_e$ im Beharrungszustand) ist eine Gerade, die durch den Ursprung geht und deren Steigung dem Proportionalbeiwert $K_P$ entspricht ($K_P = \frac{\Delta x_a}{\Delta x_e}$). Sämtliche P-Glieder weisen daher qualitativ dieselbe Kennlinie auf.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="al">![Kennlinie](../images/diagrams/Kennlinie_allg.svg)</span>{width=80% #fig-kennlinie-allg}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Das *statische Verhalten* bzw. der Proportionalbeiwert $K_P$ wird im Folgenden nicht weiter behandelt. Im Folgenden gehen wir sämtliche Grundglieder durch und betrachten das *dynamische Verhalten* anhand der **Sprungantwort**.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-Glied {.unnumbered}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Das (reine) P-Glied weist keine Verzögerung auf, d. h. der Ausgang folgt dem Eingang sofort. Ein P-Glied ist also nichts anderes als eine Skalierung (Multiplikation mit $K_P$) und ist folglich mit dem Proportionalbeiwert $K_P$ vollständig beschrieben.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>x_a(t) = K_P \cdot x_e(t)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>::: {#fig-P layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-Icon.svg)</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-Glied.svg)</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>P-Glied</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Typische Beispiele sind:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Übersetzung (z. B. eines Getriebes, wo eine Drehzahl bzw. ein Drehmoment verändert wird)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transformator</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Spannungsteiler</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>allg. jede Skalierung (z. B. eines Sensors, der eine physikalische Grösse in eine elektrische umwandelt, ohne dass eine nennenswerte Verzögerung auftritt)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-T~1~-Glied {.unnumbered}</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Reale Systeme weisen häufig Energiespeicher auf, die geladen/entladen werden müssen. Dies führt zu Verzögerungen, d. h. der Ausgang folgt dem Eingang nicht sofort, sondern zeitlich verzögert. Das einfachste Übertragungsglied mit einer Verzögerung ist das P-T~1~-Glied, das neben dem Proportionalbeiwert $K_P$ durch die Zeitkonstante $T_1$ beschrieben wird.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>T_1 \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Die Ordnung der obigen Differentialgleichung ist 1 (=höchste Ableitung), d. h. wir nennen das P-T~1~-Glied auch **Verzögerungsglied 1. Ordnung**.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>Die Zeitkonstante $T_1$ kann direkt aus der Sprungantwort herausgelesen werden.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT1 layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-T1-Icon.svg)</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-T1-Glied.svg)</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>P-T~1~-Glied</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="e-Funktion"}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>Wir werden uns nicht mit dem Lösen von Differentialgleichungen befassen, doch wir können mitnehmen, dass in der Lösung solcher Differentialgleichungen typischerweise Exponentialfunktionen auftreten. Darum steigt der Ausgangswert in der obigen Sprungantwort exponentiell (Sättigungsfunktion).</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>Die genaueLösung für die Sprungantwort eines P-T~1~-Gliedes für einen Einheitssprung am Eingang lautet:</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>x_a(t) = K_P \cdot \left(1 - e^{-\frac{t}{T_1}}\right)</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>Ein klassisches Beispiel für ein P-T~1~-Glied ist ein RC-Glied, bei dem ein Kondensator über einen Widerstand geladen/entladen wird. Ein weiteres Beispiel ist ein Druckbehälter, der über eine Drossel gefüllt wird. Allg. können sehr viele Systeme näherungsweise als P-T~1~-Glied betrachtet werden, da häufig ein Energiespeicher das Verhalten dominiert (auch wenn effektiv mehrere Energiespeicher vorhanden sind).</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT1Bsp layout="<span class="co">[</span><span class="ot">52,46</span><span class="co">]</span>"}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="al">![Schema](../images/external/Tiefpass.svg)</span>{width=80% #fig-rc1}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="al">![Ladevorgang](../images/external/Ladevorgang.svg)</span>{#fig-rc2}</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>RC-Glied <span class="co">[</span><span class="ot">Quelle</span><span class="co">](https://de.wikipedia.org/wiki/RC-Glied)</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-T~2~-Glied {.unnumbered}</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>Enthält das System zwei (*gleichartige*) Energiespeicher (z. B. zwei RC-Glieder in Reihe oder zwei Druckbehälter in Reihe etc.), so sprechen wir von einem P-T~2~-Glied. Es sind dann zwei Zeitkonstanten $T_1$ und $T_2$ zur Beschreibung notwendig.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>T_1 \cdot T_2 \cdot \ddot{x}_a(t) + (T_1+T_2) \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>In der obigen Differentialgleichung ist eine zweite Ableitung vorhanden, d. h. wir nennen das P-T~2~-Glied auch **Verzögerungsglied 2. Ordnung**.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT2 layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-T2-Icon.svg)</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-T2-Glied.svg)</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>P-T~2~-Glied</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Die Zeitkonstanten $T_1$ bzw. $T_2$ des P-T~2~-Gliedes können nicht direkt aus der Sprungantwort herausgelesen werden. Anhand der **Wendentangente** können die sogenannten Ersatzzeitkonstanten $T_e$ (Verzugszeit) bzw. $T_b$ (Ausgleichszeit) bestimmt werden. Wir werden in @sec-id Verfahren kennenlernen, um damit die effektiven Zeitkonstanten $T_1$ bzw. $T_2$ zu bestimmen.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Wendetangente" #nte-wt}</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>Die Wendetangente ist die Tangente an die Sprungantwort im Wendepunkt, d. h. dort wo die Krümmung von positiv (Gegenuhrzeigerinn) nach negativ (Uhrzeigersinn) wechselt. Dies ist gleichzeitig auch die steilste Stelle der Sprungantwort. Die Wendetangente schneidet die Zeitachse bei der Verzugszeit $T_e$ und erreicht den Wert des stationären Endwertes bei der Ausgleichszeit $T_b$.</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Wendetangente.svg)</span>{fig-align="center"}</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>@fig-PT2Bsp zeigt zwei typische Beispiele für P-T~2~-Glieder.</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT2Bsp layout="<span class="co">[</span><span class="ot">56,44</span><span class="co">]</span>"}</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="al">![aneinandergehängte RC-Glieder](../images/external/rc_in_reihe.png)</span>{#fig-rcs}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="al">![zusammengeschlossene Druckbehälter](../images/external/tanks_in_reihe.png)</span>{#fig-tanks}</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>P-T~2~-Beispiele <span class="co">[</span><span class="ot">@crashkurs</span><span class="co">]</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Reihenschaltung von Übertragungsgliedern"}</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>Ein P-T~2~-Glied kann als Reihenschaltung von zwei P-T~1~-Gliedern aufgefasst werden. Dies gilt ganz allgemein, d. h. ein P-T~3~-Glied kann als Reihenschaltung von drei P-T~1~-Gliedern aufgefasst werden (oder alternativ als Reihenschaltung von einem P-T~2~-Glied und einem P-T~1~-Glied etc.).</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Auflistung nicht vollständig"}</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>Die weiteren Übertragungsglieder folgen nach dem heutigen Unterrichtsblock.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> P-T~2S~-Glied {.unnumbered}</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="co">Enthält das Übertragungsglied zwei Energiespeicher, die *nicht gleichartig* sind, so kann es zu oszillierenden Energietransfers zwischen diesen Energiespeichern kommen und damit zu *Schwingungen*. Wir nennen das Übertragungsglied dann P-T~2S~ (S für *schwingfähig*) und beschreiben es mit der Kennkreisfrequenz $\omega_0$ und dem Dämpfungsgrad $D$.</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="co">\frac{1}{\omega_0^2} \cdot \ddot{x}_a(t) + 2 \cdot \frac{D}{\omega_0} \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PT2S layout="[25,75]"}</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-T2S-Icon.svg)</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-T2S-Glied.svg)</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~2S~-Glied</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="co">Die Kennkreisfrequenz $\omega_0$ und der Dämpfungsgrad $D$ können anhand der folgenden Beziehungen aus der Sprungantwort bestimmt werden. Die Kennkreisfrequenz $\omega_0$ ist die charakteristische Frequenz des Systems (mit dieser Frequenz schwingt das System, wenn es ungedämpft ist). Der Dämpfungsgrad $D$ besagt wie rasch die Schwingung abklingt ($0 &lt; D &lt; 1$). Bei $D = 1$ ist das System *kritisch gedämpft* und schwingt nicht mehr, d. h. es wird zum (nicht-schwingfähigen) P-T~2~-Glied.</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="co">D = \frac{\ln{\frac{\Delta_1}{\Delta_2</span><span class="re">}}}</span><span class="co">{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\Delta_2</span><span class="re">}}}</span><span class="co">}</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="co">\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PT2SBsp}</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/external/mass-spring-damper.gif){width=50% #fig-mass-spring-damper}</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="co">Masse-Feder-System [Quelle](https://tex.stackexchange.com/questions/640906/animate-mass-spring-damper-tikz)</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> P-T~n~-Glied {.unnumbered}</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="co">Natürlich können auch mehr als zwei Energiespeicher auftreten, was zu P-T~3~-, P-T~4~-, ..., P-T~n~-Gliedern führt. Die Sprungantworten solcher Glieder sehen qualitativ alle ähnlich aus wie das P-T~2~-Glied, da sie lediglich stärker verzögert sind.</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="co">Nachfolgend ist stellvertretend ein P-T~3~-Glied aufgeführt (analog für P-T~4~ usw.). </span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="co">\begin{aligned}</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="co">T_1 \cdot T_2 \cdot T_3 \cdot \dddot{x}_a(t)</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="co">&amp;+ (T_1 \cdot T_2 + T_1 \cdot T_3 + T_2 \cdot T_3) \cdot \ddot{x}_a(t) \\</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="co">&amp;+ (T_1 + T_2 + T_3) \cdot \dot{x}_a(t)</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="co">+ x_a(t) \\</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="co">&amp;= K_P \cdot x_e(t)</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="co">\end{aligned}</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PTn layout="[25,75]"}</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tn-Icon.svg)</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tn-Glied.svg)</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~n~-Glied</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="co">Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1$, ..., $T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.callout-note title="P-T~n~-Glied in BORIS"}</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="co">Beim P-T~n~-Glied in &lt;span class="cap"&gt;Boris&lt;/span&gt; werden alle $n$ Zeitkonstanten $T_1$, ..., $T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert.</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="co">Will man ein P-T~n~-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T~1~ oder P-T~2~-Gliedern erstellt werden.</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> P-T~t~-Glied {.unnumbered}</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="co">Es gibt auch Verzögerungen, die nicht von Energiespeichern verursacht werden, sondern aufgrund von Transportvorgängen/Laufzeiten (typisch für Stofftransporte in Fördereinrichtungen/Rohrleitungen etc.). Eine solche Verzögerung wird **Totzeit** $T_t$ genannt und verhält sich fundamental anders als die oben betrachteten Verzögerungen. Eine Änderung am Eingang zeigt sich am Ausgang erst nach Ablauf der Totzeit, doch dann schlagartig. Das P-T~t~-Glied wird folglich als **Totzeitglied** bezeichnet.</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="co">x_a(t) = K_P \cdot x_e(t - T_t)</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PTt layout="[25,75]"}</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tt-Icon.svg)</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tt-Glied.svg)</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~t~-Glied (Totzeit)</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="co">Ein typisches Beispiel für ein P-T~t~-Glied ist ein Förderband (vgl. @fig-PTtBsp)</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PTtBsp}</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/external/temperature-sensor.png){width=60% #fig-foerderband}</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="co">Förderband [Quelle](https://instrumentationtools.com/dead-time/)</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="co">## Glieder ohne Ausgleich (I-Glieder)</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="co">Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.</span></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="co">Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang $x_a$ bei einem stationären Eingang $x_e$ schliesslich *linear* ansteigt (bzw. abfällt). Für einen konstanten Eingang $x_e$ resultiert also eine konstante Steigung des Ausgangs $\Delta x_a/\Delta t$. Eine sinnvolle Kenngrösse ist daher der **Integrierbeiwert** $K_I$, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="co">K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="co">Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit** $T_I = \frac{1}{K_I}$ bezeichnet. In &lt;span class="cap"&gt;Boris&lt;/span&gt; werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> I-Glied {.unnumbered}</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="co">Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ vollständig beschrieben.</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="co">x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="co">Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="co">\dot{x}_a(t) = K_I \cdot x_e(t)</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-I layout="[25,75]"}</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Icon.svg)</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Glied.svg)</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="co">I-Glied</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="co">Ein typisches Beispiel für ein I-Glied ist die Linearachse, wenn als Eingang die Spindeldrehzahl und als Ausgang die Schlittenposition betrachtet wird. Allg. treten I-Glieder auf, wo eine Grösse durch Integration (Aufsummierung) in die entsprechende Speichergrösse überführt wird.</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="co">- Durchfluss (Volumenstrom) → Tankinhalt (Füllhöhe)</span></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="co">- Beschleunigung/Kraft → Geschwindigkeit</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="co">- Geschwindigkeit → Position (Weg)</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="co">- Drehzahl → Drehwinkel</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="co">- ...</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-IBsp}</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/external/linearachse.jpg){width=60%}</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="co">Linearachse [Quelle](https://www.festo.com/ch/de/p/spindelachse-id_EGC_BS)</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="co">I-Strecken mit Verzögerungen sind in &lt;span class="cap"&gt;Boris&lt;/span&gt; nicht direkt verfügbar und müssen daher durch Reihenschaltungen erzeugt werden (ein I-T~1~-Glied z. B. durch eine Reihenschaltung von einem I-Glied und einem P-T~1~-Glied etc.).</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> I-T~1~-Glied {.unnumbered}</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="co">Kommt beim I-Glied nun eine Verzögerung (Energiespeicher) hinzu, landen wir beim I-T~1~-Glied, für dessen Beschreibung neben $K_I$$ (alternativ $T_I$) nun wiederum die Zeitkonstante $T_1$ nötig ist.</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="co">T_1 \cdot \ddot{x}_a(t) + \dot{x}_a(t) = K_I \cdot x_e(t)</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-IT1 layout="[25,75]"}</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-T1-Icon.svg)</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-T1-Glied.svg)</span></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="co">I-T~1~-Glied</span></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="co">Wird die in @fig-IBsp gezeigte Linearachse mit einem DC-Motor angetrieben (der als P-T~1~-Glied modelliert wird), stellt das Gesamtsystem ein I-T~1~-Glied dar.</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> I-T~t~-Glied {.unnumbered}</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="co">Tritt eine Totzeit $T_t$ mit einem I-Glied auf, so sprechen wir von einem I-T~t~-Glied.</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="co">\dot{x}_a(t) = K_I \cdot x_e(t - T_t)</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-ITt layout="[25,75]"}</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Tt-Icon.svg)</span></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Tt-Glied.svg)</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="co">I-T~t~-Glied</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="co">Wir verzichten hier auf die Auflistung des I-T~2~-, I-T~2S~-, I-T~n~-Gliedes, da mittlerweile die Systematik klar sein sollte. </span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.callout-note title="Reihenschaltung von Übertragungsgliedern"}</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="co">Ein I-T~2~-Glied kann als Reihenschaltung von einem I-Glied und einem P-T~2~-Glied (oder zwei P-T~1~-Gliedern) aufgefasst werden. </span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="co">&gt; Bsp.: In einer Regelstrecke werden das Stellglied als P-T~2~-Glied, die eigentliche Strecke als reines I-Glied und das Messglied als P-T~1~-Glied modelliert. Die gesamte Regelstrecke (Stellglied, Strecke, Messglied) weist dann I-T~3~-Verhalten auf.</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.callout-tip}</span></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="co">## Übung</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="co">Erzeuge mit &lt;span class="cap"&gt;Boris&lt;/span&gt; die Sprungantwort für ein I-T~2~-Glied mit $K_I = 0.1$, $T_1 = 2$ und $T_2 = 0.5$.</span></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="co">## Regelbarkeit</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="co">Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="co">![Zunehmende Verzugszeit (P-Strecken)](../images/diagrams/P-Strecken_allg.svg){#fig-verz-p}</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="co">Ein Mass, das die *Regelbarkeit* einer P-Strecke charakterisiert, ist das Verhältnis von Verzugs- zu Ausgleichszeit $\frac{T_e}{T_b}$. Für P- bzw. P-T~1~-ähnliche Strecken ist es sehr klein (~0), d. h. diese sind sehr einfach zu regeln. Mit zunehmender Ordnung bis hin zur Totzeit wird dieses Verhältnis immer grösser und die Strecke immer schwieriger zu regeln. </span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="co">![Regelbarkeit](../images/diagrams/Regelbarkeit.svg){#fig-regelbarkeit}</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#tbl-regelbarkeit}</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="co">|$\dfrac{T_e}{T_b}$| Regelbarkeit         |</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="co">|:---------------:|:---------------------|</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="co">|$&lt; 0.1$          | sehr gut regelbar    |</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="co">|$0.1 \ldots 0.2$ | gut regelbar         |</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="co">|$0.2 \ldots 0.4$ | mässig regelbar      |</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="co">|$0.4 \ldots 0.8$ | schwer regelbar      |</span></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="co">|$&gt; 0.8$          | sehr schwer regelbar |</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="co">Regelbarkeit</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="co">Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="co">![Zunehmende Verzugszeit (I-Strecken)](../images/diagrams/I-Strecken_allg.svg){#fig-verz-i}</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben3"</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG03.pdf"</span></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben3}</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-1}</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.1</span></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>Du hast eine Sprungantwort aufgenommen für einen Temperatursensor, indem du einen Temperatursprung von 20 °C auf 30 °C aufgeprägt (blau) und das Spannungssignal des Sensors gemessen hast (rot).</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1.svg)</span></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>a) Bestimme den Proportionalbeiwert $K_P$ aus der Sprungantwort (inkl. Einheit).</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>K_P = </span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>b) Bestimme die Zeitkonstante $T_1$ aus der Sprungantwort (inkl. Einheit).</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>T_1 =</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>c) Um was für ein Grundglied handelt es sich dabei?</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl $𝑛$ als Eingang und die Schlittenposition $𝑥$ als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2a.png)</span></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>a) Skizziere den zeitlichen Verlauf der Schlittenposition $𝑥$ für die ersten 5 s im</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>untenstehenden Diagramm für eine Spindeldrehzahl $𝑛$ von 1 Umdrehung pro Sekunde.</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>(Annahme: Position $𝑥 = 0$ bei $𝑡 = 0$).</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2b.svg)</span></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>b) Ermittle den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ (rechnerisch oder grafisch).</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>K_I = \quad \quad \quad \quad T_I =</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>Bestimme Verzugszeit $T_e$ und Ausgleichszeit $T_b$ aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. @nte-wt). Berechne anschliessend das Verhältnis $\frac{T_e}{T_b}$ und beurteile die Regelbarkeit des Systems.</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_3.svg)</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>T_e = </span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>T_b = </span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>\frac{T_e}{T_b} = </span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>SYS_RE1 | 2026</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>S. Krauss | ABBTS</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

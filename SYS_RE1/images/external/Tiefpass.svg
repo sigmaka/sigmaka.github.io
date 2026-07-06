@@ -1,0 +1,6 @@
+<svg version="1.1" viewBox="0 0 210 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect width="210" height="128" fill="#fff"/>
+ <g stroke="#000" stroke-width="2"><path d="m151 55h-34m0 8h34" fill="none" stroke-width="3"/><path d="m134 55v-43m0 106v-55m-124 55 190 0m0-106h-190"/><rect x="50" y="5" width="38" height="14" fill="#fff"/>
+ <g id="a" fill="#fff"><circle cx="10" cy="12" r="6"/><circle cx="10" cy="118" r="6"/></g>
+ <use transform="translate(190)" xlink:href="#a"/></g>
+ <circle cx="134" cy="118" r="4"/><circle cx="134" cy="12" r="4"/>
+ <g font-family="Arial" font-size="19px" font-style="italic" font-weight="bold"><text x="10" y="68">U<tspan baseline-shift="sub" font-size="16px">e</tspan></text><text x="183" y="68">U<tspan baseline-shift="sub" font-size="16px">a</tspan></text><text x="60" y="39">R</text><text x="99" y="66">C</text></g></svg>

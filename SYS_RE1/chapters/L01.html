@@ -222,6 +222,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Streckenidentifikation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -370,6 +382,11 @@ Abb.&nbsp;1.4: Internet Insight, Incredible head stabilization by Falcon and sta
 <section id="steuern-vs.-regeln" class="level2 page-columns page-full" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="steuern-vs.-regeln"><span class="header-section-number">1.2</span> Steuern vs.&nbsp;Regeln</h2>
 <p>Aus dem Alltag kennen wir die Begriffe <em>Steuerung</em> und <em>Regelung</em>, doch wir verwenden diese teilweise gleichbedeutend bzw. inkorrekt. Als erstes müssen wir uns daher den Unterschied zwischen <em>Steuern</em> und <em>Regeln</em> klarmachen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Dazu betrachten wir das Beispiel einer Gebäudeheizung.</p>
+<aside id="footnotes" class="footnotes footnotes-end-of-block" role="doc-footnote">
+<ol>
+<li id="fn1"><p>Im Englischen wird der Begriff <em>Control</em> sowohl für Steuerung als auch für Regelung verwendet, deshalb werden zur Unterscheidung die Begriffe <strong>open-loop control</strong> (für Steuerung) und <strong>closed-loop/feedback control</strong> (für Regelung) verwendet. Diese Begriffe beschreiben den Unterschied sehr treffend.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
 <p>Bekanntermassen besteht das Ziel einer Gebäudeheizung darin, eine für den Menschen <em>angenehme Temperatur</em> zu erreichen (die durchaus je nach Raumnutzung/Tageszeit usw. variieren kann).</p>
 <section id="steuerung" class="level3 page-columns page-full" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="steuerung"><span class="header-section-number">1.2.1</span> Steuerung</h3>
@@ -407,6 +424,11 @@ Für die Erfassung der Aussentemperatur wird ein Temperatursensor verwendet - wi
 Einflussfaktoren, die wir nicht direkt kontrollieren können und aus steuerungs-/regelungstechnischer Sicht negativ auf unser System einwirken nennen wir allg. <strong>Störgrössen</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.
 </dd>
 </dl>
+<aside id="footnotes-2" class="footnotes footnotes-end-of-block" role="doc-footnote">
+<ol start="2">
+<li id="fn2"><p>Der Begriff <em>Störung</em> bzw. <em>Störgrösse</em> hat in der Regelungstechnik nichts mit einer Fehlfunktion zu tun, sondern beschreibt eine Einflussgrösse, welche aus unserer Sicht <em>störend</em> auf das zu steuernde/regelnde System einwirkt.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
 <p>Wollen wir die obige Darstellung auf (die aus Sicht der Steuerungs-/Regelungstechnik) relevanten Komponenten reduziern, so landen wir bei der nachfolgenden Darstellung.</p>
 <div id="fig-stg-bsb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -731,7 +753,7 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 </section>
 <section id="aufgaben" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
-<button class="pdf-export" data-target="aufgaben1" data-filename="AUFG01.pdf" aria-label="Aufgaben als PDF herunterladen" title="Aufgaben als PDF speichern">
+<button class="pdf-export" data-target="aufgaben1" data-filename="SYS_RE1_AUFG01.pdf" aria-label="Aufgaben als PDF herunterladen" title="Aufgaben als PDF speichern">
 <img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
 </button>
 <div id="aufgaben1">
@@ -797,13 +819,6 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 
 <!-- -->
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Im Englischen wird der Begriff <em>Control</em> sowohl für Steuerung als auch für Regelung verwendet, deshalb werden zur Unterscheidung die Begriffe <strong>open-loop control</strong> (für Steuerung) und <strong>closed-loop/feedback control</strong> (für Regelung) verwendet. Diese Begriffe beschreiben den Unterschied sehr treffend.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Der Begriff <em>Störung</em> bzw. <em>Störgrösse</em> hat in der Regelungstechnik nichts mit einer Fehlfunktion zu tun, sondern beschreibt eine Einflussgrösse, welche aus unserer Sicht <em>störend</em> auf das zu steuernde/regelnde System einwirkt.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1660,7 +1675,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
 <span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben1"</span></span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"AUFG01.pdf"</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG01.pdf"</span></span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF herunterladen"</span></span>
 <span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
 <span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>

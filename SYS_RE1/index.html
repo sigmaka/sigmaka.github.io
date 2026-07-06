@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -178,6 +197,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/L03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/L04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Streckenidentifikation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -217,6 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#unterrichtsblöcke" id="toc-unterrichtsblöcke" class="nav-link" data-scroll-target="#unterrichtsblöcke">Unterrichtsblöcke</a></li>
   <li><a href="#unterrichtsunterlagen" id="toc-unterrichtsunterlagen" class="nav-link" data-scroll-target="#unterrichtsunterlagen">Unterrichtsunterlagen</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -261,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="unterrichtsblöcke" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="unterrichtsblöcke">Unterrichtsblöcke</h2>
-<p>Die Inhalte der Unterrichtsblöcke richten sich grob nach dem Buch <strong>Crashkurs Regelungstechnik</strong> von <em>Dr.-Ing. Jörg Kahlert</em>. Im Modul Regelungstechnik I (SYS_RE1) werden wir die Kap. 1-4 behandeln.</p>
+<p>Die Inhalte der Unterrichtsblöcke richten sich grob nach dem Buch <strong>Crashkurs Regelungstechnik</strong> <span class="citation" data-cites="crashkurs">(<a href="index.html#ref-crashkurs" role="doc-biblioref">Kahlert 2023</a>)</span>. Im Modul Regelungstechnik I (SYS_RE1) werden wir die Kap. 1-4 behandeln.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="images/book.webp" class="img-fluid figure-img" style="width:30.0%"></p>
@@ -356,6 +388,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="unterrichtsunterlagen" class="level2">
 <h2 class="anchored" data-anchor-id="unterrichtsunterlagen">Unterrichtsunterlagen</h2>
 <p>Neben dem Buch steht die vorliegende Webseite zur Verfügung, welche die Inhalte in kondensierter Form bereitstellt (zusammen mit weiterführenden Materialien und Übungen dient diese uns als Nachschlagewerk). Es ist äusserst wichtig, die Unterlagen regelmässig durchzugehen, die Übungen zu bearbeiten sowie individuelle Wissenslücken selbstständig zu schliessen. Die Folien im Unterricht dienen lediglich als Leitfaden und ersetzen nicht die Erklärungen und Beispiele in den Unterlagen.</p>
+</section>
+<section id="literatur" class="level2">
+<h2 class="anchored" data-anchor-id="literatur">Literatur</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-crashkurs" class="csl-entry" role="listitem">
+Kahlert, Jörg. 2023. <em>Crashkurs Regelungstechnik: Eine
+Praxisorientierte Einführung Mit Begleitsoftware</em>. 5., aktualisierte
+Auflage. <a href="https://d-nb.info/1272986799">https://d-nb.info/1272986799</a>.
+</div>
+</div>
 
 
 <!-- -->
@@ -972,7 +1014,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unterrichtsblöcke</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Die Inhalte der Unterrichtsblöcke richten sich grob nach dem Buch **Crashkurs Regelungstechnik** von *Dr.-Ing. Jörg Kahlert*. Im Modul Regelungstechnik I (SYS_RE1) werden wir die Kap. 1-4 behandeln.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Die Inhalte der Unterrichtsblöcke richten sich grob nach dem Buch **Crashkurs Regelungstechnik** <span class="co">[</span><span class="ot">@crashkurs</span><span class="co">]</span>. Im Modul Regelungstechnik I (SYS_RE1) werden wir die Kap. 1-4 behandeln.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Crashkurs Regelungstechnik [Quelle](https://www.exlibris.ch/de/buecher-buch/deutschsprachige-buecher/joerg-kahlert/crashkurs-regelungstechnik/id/9783800758371/)</span><span class="co">](images/book.webp)</span>{width=30%}</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -993,7 +1035,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unterrichtsunterlagen</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> Neben dem Buch steht die vorliegende Webseite zur Verfügung, welche die Inhalte in kondensierter Form bereitstellt (zusammen mit weiterführenden Materialien und Übungen dient diese uns als Nachschlagewerk). Es ist äusserst wichtig, die Unterlagen regelmässig durchzugehen, die Übungen zu bearbeiten sowie individuelle Wissenslücken selbstständig zu schliessen. Die Folien im Unterricht dienen lediglich als Leitfaden und ersetzen nicht die Erklärungen und Beispiele in den Unterlagen.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> Neben dem Buch steht die vorliegende Webseite zur Verfügung, welche die Inhalte in kondensierter Form bereitstellt (zusammen mit weiterführenden Materialien und Übungen dient diese uns als Nachschlagewerk). Es ist äusserst wichtig, die Unterlagen regelmässig durchzugehen, die Übungen zu bearbeiten sowie individuelle Wissenslücken selbstständig zu schliessen. Die Folien im Unterricht dienen lediglich als Leitfaden und ersetzen nicht die Erklärungen und Beispiele in den Unterlagen.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Literatur</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
