@@ -320,7 +320,7 @@ window.Quarto = {
 </header>
 
 
-<p>Die in <a href="L02.html#tbl-gliederung" class="quarto-xref">Tab.&nbsp;<span>2.1</span></a> aufgeführten Übertragungsglieder bilden die Basis für die Abbildung realer Regelstrecken in der Simulation. Wir nennen diese deshalb <em>Grundglieder</em> und wollen sie im Folgenden etwas näher betrachten.</p>
+<p>Die in <a href="L02.html#tbl-gliederung" class="quarto-xref">Tab.&nbsp;<span>2.1</span></a> aufgeführten Übertragungsglieder bilden die Basis für die Modellierung realer Regelstrecken in der Simulation. Wir nennen diese deshalb <em>Grundglieder</em> und wollen sie im Folgenden etwas näher betrachten.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Ziele">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,15 +333,15 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <ul>
 <li>Du kennst die typischen Übertragungsglieder (<em>Grundglieder</em>) und kannst ihr Verhalten beschreiben.</li>
-<li>Du kannst mit den <em>Grundgliedern</em> in <span class="cap">Boris</span> eine Regelstrecke aufbauen und Simulationen durchführen (z. B. Sprungantwort).</li>
+<li>Du kannst mit den <em>Grundgliedern</em> in <span class="cap">Boris</span> eine Regelstrecke aufbauen und die Sprungantwort simulieren.</li>
 <li>Du kannst ein System in Bezug auf die Regelbarkeit anhand der Verzugs- <span class="math inline">T_e</span> bzw. Ausgleichszeit <span class="math inline">T_b</span> beurteilen.</li>
 </ul>
 </div>
 </div>
 <p>Wir haben gelernt, dass eine Regelstrecke in eine der beiden Klassen fällt:</p>
 <ul>
-<li><strong>Strecken mit Ausgleich</strong> (P-Strecken bzw. im Folgenden P-Glieder genannt)</li>
-<li><strong>Strecken ohne Ausgleich</strong> (I-Strecken bzw. im Folgenden I-Glieder genannt)</li>
+<li><strong>Strecken mit Ausgleich</strong> (P-Strecken bzw. allgemein P-Glieder genannt)</li>
+<li><strong>Strecken ohne Ausgleich</strong> (I-Strecken bzw. allgemein I-Glieder genannt)</li>
 </ul>
 <section id="glieder-mit-ausgleich-p-glieder" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="glieder-mit-ausgleich-p-glieder"><span class="header-section-number">3.1</span> Glieder mit Ausgleich (P-Glieder)</h2>
@@ -360,7 +360,7 @@ Abb.&nbsp;3.1: Kennlinie
 </figcaption>
 </figure>
 </div>
-<p>Das <em>statische Verhalten</em> bzw. der Proportionalbeiwert <span class="math inline">K_P</span> wird im Folgenden nicht weiter behandelt. Im Folgenden gehen wir sämtliche Grundglieder durch und betrachten das <em>dynamische Verhalten</em> anhand der <strong>Sprungantwort</strong>.</p>
+<p>Das <em>statische Verhalten</em> bzw. der Proportionalbeiwert <span class="math inline">K_P</span> werden wir an dieser Stelle nicht weiter behandeln. Im Folgenden gehen wir sämtliche Grundglieder durch und betrachten das <em>dynamische Verhalten</em> anhand der <strong>Sprungantwort</strong>.</p>
 <section id="p-glied" class="level3 unnumbered page-columns page-full">
 <h3 class="unnumbered anchored" data-anchor-id="p-glied">P-Glied</h3>
 <p>Das (reine) P-Glied weist keine Verzögerung auf, d.&nbsp;h. der Ausgang folgt dem Eingang sofort. Ein P-Glied ist also nichts anderes als eine Skalierung (Multiplikation mit <span class="math inline">K_P</span>) und ist folglich mit dem Proportionalbeiwert <span class="math inline">K_P</span> vollständig beschrieben.</p>
@@ -386,10 +386,10 @@ Abb.&nbsp;3.2: P-Glied
 </div>
 <p>Typische Beispiele sind:</p>
 <ul>
-<li>Übersetzung (z. B. eines Getriebes, wo eine Drehzahl bzw. ein Drehmoment verändert wird)</li>
+<li>Übersetzung (z. B. ein Getriebe, wo eine Drehzahl bzw. ein Drehmoment umgewandelt wird)</li>
 <li>Transformator</li>
 <li>Spannungsteiler</li>
-<li>allg. jede Skalierung (z. B. eines Sensors, der eine physikalische Grösse in eine elektrische umwandelt, ohne dass eine nennenswerte Verzögerung auftritt)</li>
+<li>allg. jede Skalierung (z. B. ein Sensor, der eine physikalische Grösse in eine elektrische Grösse umwandelt, ohne dass dabei eine nennenswerte Verzögerung auftritt)</li>
 </ul>
 </section>
 <section id="p-t1-glied" class="level3 unnumbered page-columns page-full">
@@ -439,7 +439,7 @@ x_a(t) = K_P \cdot \left(1 - e^{-\frac{t}{T_1}}\right)
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PT1Bsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT1Bsp" style="flex-basis: 53.1%;justify-content: flex-start;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT1Bsp" style="flex-basis: 53.6%;justify-content: flex-start;">
 <div id="fig-rc1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-rc1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -451,7 +451,7 @@ x_a(t) = K_P \cdot \left(1 - e^{-\frac{t}{T_1}}\right)
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT1Bsp" style="flex-basis: 46.9%;justify-content: flex-start;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-PT1Bsp" style="flex-basis: 46.4%;justify-content: flex-start;">
 <div id="fig-rc2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-rc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -868,6 +868,9 @@ T_1 =
 <p><span class="math display">
 K_I = \quad \quad \quad \quad T_I =
 </span></p>
+<ol start="3" type="a">
+<li>Simuliere die Sprungantwort der obigen I-Strecke in <span class="cap">Boris</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1510,18 +1513,18 @@ document.addEventListener("DOMContentLoaded", () => {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Grundglieder</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Die in @tbl-gliederung aufgeführten Übertragungsglieder bilden die Basis für die Abbildung realer Regelstrecken in der Simulation. Wir nennen diese deshalb *Grundglieder* und wollen sie im Folgenden etwas näher betrachten.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Die in @tbl-gliederung aufgeführten Übertragungsglieder bilden die Basis für die Modellierung realer Regelstrecken in der Simulation. Wir nennen diese deshalb *Grundglieder* und wollen sie im Folgenden etwas näher betrachten.</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Ziele"}</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kennst die typischen Übertragungsglieder (*Grundglieder*) und kannst ihr Verhalten beschreiben.</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst mit den *Grundgliedern* in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> eine Regelstrecke aufbauen und Simulationen durchführen (z. B. Sprungantwort).</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst mit den *Grundgliedern* in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> eine Regelstrecke aufbauen und die Sprungantwort simulieren.</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst ein System in Bezug auf die Regelbarkeit anhand der Verzugs- $T_e$ bzw. Ausgleichszeit $T_b$ beurteilen.</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Wir haben gelernt, dass eine Regelstrecke in eine der beiden Klassen fällt:</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strecken mit Ausgleich** (P-Strecken bzw. im Folgenden P-Glieder genannt)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strecken ohne Ausgleich** (I-Strecken bzw. im Folgenden I-Glieder genannt)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strecken mit Ausgleich** (P-Strecken bzw. allgemein P-Glieder genannt)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strecken ohne Ausgleich** (I-Strecken bzw. allgemein I-Glieder genannt)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Glieder mit Ausgleich (P-Glieder)</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -1535,7 +1538,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="al">![Kennlinie](../images/diagrams/Kennlinie_allg.svg)</span>{width=80% #fig-kennlinie-allg}</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Das *statische Verhalten* bzw. der Proportionalbeiwert $K_P$ wird im Folgenden nicht weiter behandelt. Im Folgenden gehen wir sämtliche Grundglieder durch und betrachten das *dynamische Verhalten* anhand der **Sprungantwort**.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Das *statische Verhalten* bzw. der Proportionalbeiwert $K_P$ werden wir an dieser Stelle nicht weiter behandeln. Im Folgenden gehen wir sämtliche Grundglieder durch und betrachten das *dynamische Verhalten* anhand der **Sprungantwort**.</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-Glied {.unnumbered}</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
@@ -1556,10 +1559,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Typische Beispiele sind:</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Übersetzung (z. B. eines Getriebes, wo eine Drehzahl bzw. ein Drehmoment verändert wird)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Übersetzung (z. B. ein Getriebe, wo eine Drehzahl bzw. ein Drehmoment umgewandelt wird)</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transformator</span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Spannungsteiler</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>allg. jede Skalierung (z. B. eines Sensors, der eine physikalische Grösse in eine elektrische umwandelt, ohne dass eine nennenswerte Verzögerung auftritt)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>allg. jede Skalierung (z. B. ein Sensor, der eine physikalische Grösse in eine elektrische Grösse umwandelt, ohne dass dabei eine nennenswerte Verzögerung auftritt)</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-T~1~-Glied {.unnumbered}</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
@@ -1596,7 +1599,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>Ein klassisches Beispiel für ein P-T~1~-Glied ist ein RC-Glied, bei dem ein Kondensator über einen Widerstand geladen/entladen wird. Ein weiteres Beispiel ist ein Druckbehälter, der über eine Drossel gefüllt wird. Allg. können sehr viele Systeme näherungsweise als P-T~1~-Glied betrachtet werden, da häufig ein Energiespeicher das Verhalten dominiert (auch wenn effektiv mehrere Energiespeicher vorhanden sind).</span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT1Bsp layout="<span class="co">[</span><span class="ot">52,46</span><span class="co">]</span>"}</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT1Bsp layout="<span class="co">[</span><span class="ot">52,45</span><span class="co">]</span>"}</span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="al">![Schema](../images/external/Tiefpass.svg)</span>{width=80% #fig-rc1}</span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
@@ -1934,7 +1937,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>K_I = \quad \quad \quad \quad T_I =</span>
 <span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Sprungantwort der obigen I-Strecke in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</span>
 <span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
