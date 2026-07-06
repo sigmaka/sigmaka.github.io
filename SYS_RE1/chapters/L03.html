@@ -293,7 +293,17 @@ window.Quarto = {
   <li><a href="#p-glied" id="toc-p-glied" class="nav-link" data-scroll-target="#p-glied">P-Glied</a></li>
   <li><a href="#p-t1-glied" id="toc-p-t1-glied" class="nav-link" data-scroll-target="#p-t1-glied">P-T<sub>1</sub>-Glied</a></li>
   <li><a href="#p-t2-glied" id="toc-p-t2-glied" class="nav-link" data-scroll-target="#p-t2-glied">P-T<sub>2</sub>-Glied</a></li>
+  <li><a href="#p-t2s-glied" id="toc-p-t2s-glied" class="nav-link" data-scroll-target="#p-t2s-glied">P-T<sub>2S</sub>-Glied</a></li>
+  <li><a href="#p-tn-glied" id="toc-p-tn-glied" class="nav-link" data-scroll-target="#p-tn-glied">P-T<sub>n</sub>-Glied</a></li>
+  <li><a href="#p-tt-glied" id="toc-p-tt-glied" class="nav-link" data-scroll-target="#p-tt-glied">P-T<sub>t</sub>-Glied</a></li>
   </ul></li>
+  <li><a href="#glieder-ohne-ausgleich-i-glieder" id="toc-glieder-ohne-ausgleich-i-glieder" class="nav-link" data-scroll-target="#glieder-ohne-ausgleich-i-glieder"><span class="header-section-number">3.2</span> Glieder ohne Ausgleich (I-Glieder)</a>
+  <ul class="collapse">
+  <li><a href="#i-glied" id="toc-i-glied" class="nav-link" data-scroll-target="#i-glied">I-Glied</a></li>
+  <li><a href="#i-t1-glied" id="toc-i-t1-glied" class="nav-link" data-scroll-target="#i-t1-glied">I-T<sub>1</sub>-Glied</a></li>
+  <li><a href="#i-tt-glied" id="toc-i-tt-glied" class="nav-link" data-scroll-target="#i-tt-glied">I-T<sub>t</sub>-Glied</a></li>
+  </ul></li>
+  <li><a href="#regelbarkeit" id="toc-regelbarkeit" class="nav-link" data-scroll-target="#regelbarkeit"><span class="header-section-number">3.3</span> Regelbarkeit</a></li>
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
   </ul>
 </nav>
@@ -563,248 +573,340 @@ Abb.&nbsp;3.6: P-T<sub>2</sub>-Beispiele <span class="citation" data-cites="cras
 <p>Ein P-T<sub>2</sub>-Glied kann als Reihenschaltung von zwei P-T<sub>1</sub>-Gliedern aufgefasst werden. Dies gilt ganz allgemein, d.&nbsp;h. ein P-T<sub>3</sub>-Glied kann als Reihenschaltung von drei P-T<sub>1</sub>-Gliedern aufgefasst werden (oder alternativ als Reihenschaltung von einem P-T<sub>2</sub>-Glied und einem P-T<sub>1</sub>-Glied etc.).</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Auflistung nicht vollständig">
+</section>
+<section id="p-t2s-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="p-t2s-glied">P-T<sub>2S</sub>-Glied</h3>
+<p>Enthält das Übertragungsglied zwei Energiespeicher, die <em>nicht gleichartig</em> sind, so kann es zu oszillierenden Energietransfers zwischen diesen Energiespeichern kommen und damit zu <em>Schwingungen</em>. Wir nennen das Übertragungsglied dann P-T<sub>2S</sub> (S für <em>schwingfähig</em>) und beschreiben es mit der Kennkreisfrequenz <span class="math inline">\omega_0</span> und dem Dämpfungsgrad <span class="math inline">D</span>.</p>
+<p><span class="math display">
+\frac{1}{\omega_0^2} \cdot \ddot{x}_a(t) + 2 \cdot \frac{D}{\omega_0} \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)
+</span></p>
+<div id="fig-PT2S" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PT2S-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-T2S-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-T2S-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PT2S-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.7: P-T<sub>2S</sub>-Glied
+</figcaption>
+</figure>
+</div>
+<p>Die Kennkreisfrequenz <span class="math inline">\omega_0</span> und der Dämpfungsgrad <span class="math inline">D</span> können anhand der folgenden Beziehungen aus der Sprungantwort bestimmt werden. Die Kennkreisfrequenz <span class="math inline">\omega_0</span> ist die charakteristische Frequenz des Systems (mit dieser Frequenz schwingt das System, wenn es ungedämpft ist). Der Dämpfungsgrad <span class="math inline">D</span> besagt wie rasch die Schwingung abklingt (<span class="math inline">0 &lt; D &lt; 1</span>). Bei <span class="math inline">D = 1</span> ist das System <em>kritisch gedämpft</em> und schwingt nicht mehr, d.&nbsp;h. es wird zum (nicht-schwingfähigen) P-T<sub>2</sub>-Glied.</p>
+<p><span class="math display">
+D = \frac{\ln{\frac{\Delta_1}{\Delta_2}}}{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\Delta_2}}}}
+</span></p>
+<p><span class="math display">
+\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}
+</span></p>
+<p>P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</p>
+<div id="fig-PT2SBsp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PT2SBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/mass-spring-damper.gif" id="fig-mass-spring-damper" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PT2SBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.8: Masse-Feder-System <a href="https://tex.stackexchange.com/questions/640906/animate-mass-spring-damper-tikz">Quelle</a>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="p-tn-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="p-tn-glied">P-T<sub>n</sub>-Glied</h3>
+<p>Natürlich können auch mehr als zwei Energiespeicher auftreten, was zu P-T<sub>3</sub>-, P-T<sub>4</sub>-, …, P-T<sub>n</sub>-Gliedern führt. Die Sprungantworten solcher Glieder sehen qualitativ alle ähnlich aus wie das P-T<sub>2</sub>-Glied, da sie lediglich stärker verzögert sind.</p>
+<p>Nachfolgend ist stellvertretend ein P-T<sub>3</sub>-Glied aufgeführt (analog für P-T<sub>4</sub> usw.).</p>
+<p><span class="math display">
+\begin{aligned}
+T_1 \cdot T_2 \cdot T_3 \cdot \dddot{x}_a(t)
+&amp;+ (T_1 \cdot T_2 + T_1 \cdot T_3 + T_2 \cdot T_3) \cdot \ddot{x}_a(t) \\
+&amp;+ (T_1 + T_2 + T_3) \cdot \dot{x}_a(t)
++ x_a(t) \\
+&amp;= K_P \cdot x_e(t)
+\end{aligned}
+</span></p>
+<div id="fig-PTn" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PTn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-Tn-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-Tn-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PTn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.9: P-T<sub>n</sub>-Glied
+</figcaption>
+</figure>
+</div>
+<p>Wie beim P-T<sub>2</sub>-Glied können die Zeitkonstanten <span class="math inline">T_1</span>, …, <span class="math inline">T_n</span> bei P-T<sub>n</sub>-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d.&nbsp;h. es können wiederum lediglich Verzugszeit <span class="math inline">T_e</span> bzw. Ausgleichszeit <span class="math inline">T_b</span> anhand der Wendetangente (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>) bestimmt werden.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="P-T~n~-Glied in BORIS">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Wichtig</span>Auflistung nicht vollständig
+<span class="screen-reader-only">Hinweis</span>P-T<sub>n</sub>-Glied in BORIS
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die weiteren Übertragungsglieder folgen nach dem heutigen Unterrichtsblock.</p>
+<p>Beim P-T<sub>n</sub>-Glied in <span class="cap">Boris</span> werden alle <span class="math inline">n</span> Zeitkonstanten <span class="math inline">T_1</span>, …, <span class="math inline">T_n</span> als identisch angenommen, d.&nbsp;h. es wird ein P-T<sub>n</sub>-Glied mit identischen Zeitkonstanten modelliert.</p>
+<p>Will man ein P-T<sub>n</sub>-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T<sub>1</sub> oder P-T<sub>2</sub>-Gliedern erstellt werden.</p>
 </div>
 </div>
-<!--
-
-### P-T~2S~-Glied {.unnumbered}
-
-Enthält das Übertragungsglied zwei Energiespeicher, die *nicht gleichartig* sind, so kann es zu oszillierenden Energietransfers zwischen diesen Energiespeichern kommen und damit zu *Schwingungen*. Wir nennen das Übertragungsglied dann P-T~2S~ (S für *schwingfähig*) und beschreiben es mit der Kennkreisfrequenz $\omega_0$ und dem Dämpfungsgrad $D$.
-
-$$
-\frac{1}{\omega_0^2} \cdot \ddot{x}_a(t) + 2 \cdot \frac{D}{\omega_0} \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)
-$$
-
-::: {#fig-PT2S layout="[25,75]"}
-
-![](../images/diagrams/P-T2S-Icon.svg)
-
-![](../images/diagrams/P-T2S-Glied.svg)
-
-P-T~2S~-Glied
-:::
-
-Die Kennkreisfrequenz $\omega_0$ und der Dämpfungsgrad $D$ können anhand der folgenden Beziehungen aus der Sprungantwort bestimmt werden. Die Kennkreisfrequenz $\omega_0$ ist die charakteristische Frequenz des Systems (mit dieser Frequenz schwingt das System, wenn es ungedämpft ist). Der Dämpfungsgrad $D$ besagt wie rasch die Schwingung abklingt ($0 < D < 1$). Bei $D = 1$ ist das System *kritisch gedämpft* und schwingt nicht mehr, d. h. es wird zum (nicht-schwingfähigen) P-T~2~-Glied.
-
-$$
-D = \frac{\ln{\frac{\Delta_1}{\Delta_2}}}{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\Delta_2}}}}
-$$
-
-$$
-\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}
-$$
-
-P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).
-
-::: {#fig-PT2SBsp}
-
-![](../images/external/mass-spring-damper.gif){width=50% #fig-mass-spring-damper}
-
-Masse-Feder-System [Quelle](https://tex.stackexchange.com/questions/640906/animate-mass-spring-damper-tikz)
-:::
-
-### P-T~n~-Glied {.unnumbered}
-
-Natürlich können auch mehr als zwei Energiespeicher auftreten, was zu P-T~3~-, P-T~4~-, ..., P-T~n~-Gliedern führt. Die Sprungantworten solcher Glieder sehen qualitativ alle ähnlich aus wie das P-T~2~-Glied, da sie lediglich stärker verzögert sind.
-
-Nachfolgend ist stellvertretend ein P-T~3~-Glied aufgeführt (analog für P-T~4~ usw.). 
-
-$$
-\begin{aligned}
-T_1 \cdot T_2 \cdot T_3 \cdot \dddot{x}_a(t)
-&+ (T_1 \cdot T_2 + T_1 \cdot T_3 + T_2 \cdot T_3) \cdot \ddot{x}_a(t) \\
-&+ (T_1 + T_2 + T_3) \cdot \dot{x}_a(t)
-+ x_a(t) \\
-&= K_P \cdot x_e(t)
-\end{aligned}
-$$
-
-::: {#fig-PTn layout="[25,75]"}
-
-![](../images/diagrams/P-Tn-Icon.svg)
-
-![](../images/diagrams/P-Tn-Glied.svg)
-
-P-T~n~-Glied
-:::
-
-Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1$, ..., $T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.
-
-::: {.callout-note title="P-T~n~-Glied in BORIS"}
-Beim P-T~n~-Glied in <span class="cap">Boris</span> werden alle $n$ Zeitkonstanten $T_1$, ..., $T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert.
-
-Will man ein P-T~n~-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T~1~ oder P-T~2~-Gliedern erstellt werden.
-:::
-
-### P-T~t~-Glied {.unnumbered}
-
-Es gibt auch Verzögerungen, die nicht von Energiespeichern verursacht werden, sondern aufgrund von Transportvorgängen/Laufzeiten (typisch für Stofftransporte in Fördereinrichtungen/Rohrleitungen etc.). Eine solche Verzögerung wird **Totzeit** $T_t$ genannt und verhält sich fundamental anders als die oben betrachteten Verzögerungen. Eine Änderung am Eingang zeigt sich am Ausgang erst nach Ablauf der Totzeit, doch dann schlagartig. Das P-T~t~-Glied wird folglich als **Totzeitglied** bezeichnet.
-
-$$
-x_a(t) = K_P \cdot x_e(t - T_t)
-$$
-
-::: {#fig-PTt layout="[25,75]"}
-
-![](../images/diagrams/P-Tt-Icon.svg)
-
-![](../images/diagrams/P-Tt-Glied.svg)
-
-P-T~t~-Glied (Totzeit)
-:::
-
-Ein typisches Beispiel für ein P-T~t~-Glied ist ein Förderband (vgl. @fig-PTtBsp)
-
-::: {#fig-PTtBsp}
-
-![](../images/external/temperature-sensor.png){width=60% #fig-foerderband}
-
-Förderband [Quelle](https://instrumentationtools.com/dead-time/)
-:::
-
-## Glieder ohne Ausgleich (I-Glieder)
-
-Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.
-
-Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang $x_a$ bei einem stationären Eingang $x_e$ schliesslich *linear* ansteigt (bzw. abfällt). Für einen konstanten Eingang $x_e$ resultiert also eine konstante Steigung des Ausgangs $\Delta x_a/\Delta t$. Eine sinnvolle Kenngrösse ist daher der **Integrierbeiwert** $K_I$, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.
-
-$$
-K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)
-$$
-
-Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit** $T_I = \frac{1}{K_I}$ bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.
-
-### I-Glied {.unnumbered}
-
-Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ vollständig beschrieben.
-
-$$
-x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}
-$$
-
-Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:
-
-$$
-\dot{x}_a(t) = K_I \cdot x_e(t)
-$$
-
-
-::: {#fig-I layout="[25,75]"}
-
-![](../images/diagrams/I-Icon.svg)
-
-![](../images/diagrams/I-Glied.svg)
-
-I-Glied
-:::
-
-Ein typisches Beispiel für ein I-Glied ist die Linearachse, wenn als Eingang die Spindeldrehzahl und als Ausgang die Schlittenposition betrachtet wird. Allg. treten I-Glieder auf, wo eine Grösse durch Integration (Aufsummierung) in die entsprechende Speichergrösse überführt wird.
-
-- Durchfluss (Volumenstrom) → Tankinhalt (Füllhöhe)
-- Beschleunigung/Kraft → Geschwindigkeit
-- Geschwindigkeit → Position (Weg)
-- Drehzahl → Drehwinkel
-- ...
-
-::: {#fig-IBsp}
-
-![](../images/external/linearachse.jpg){width=60%}
-
-Linearachse [Quelle](https://www.festo.com/ch/de/p/spindelachse-id_EGC_BS)
-:::
-
-I-Strecken mit Verzögerungen sind in <span class="cap">Boris</span> nicht direkt verfügbar und müssen daher durch Reihenschaltungen erzeugt werden (ein I-T~1~-Glied z. B. durch eine Reihenschaltung von einem I-Glied und einem P-T~1~-Glied etc.).
-
-### I-T~1~-Glied {.unnumbered}
-
-Kommt beim I-Glied nun eine Verzögerung (Energiespeicher) hinzu, landen wir beim I-T~1~-Glied, für dessen Beschreibung neben $K_I$$ (alternativ $T_I$) nun wiederum die Zeitkonstante $T_1$ nötig ist.
-
-$$
-T_1 \cdot \ddot{x}_a(t) + \dot{x}_a(t) = K_I \cdot x_e(t)
-$$
-
-::: {#fig-IT1 layout="[25,75]"}
-
-![](../images/diagrams/I-T1-Icon.svg)
-
-![](../images/diagrams/I-T1-Glied.svg)
-
-I-T~1~-Glied
-:::
-
-Wird die in @fig-IBsp gezeigte Linearachse mit einem DC-Motor angetrieben (der als P-T~1~-Glied modelliert wird), stellt das Gesamtsystem ein I-T~1~-Glied dar.
-
-### I-T~t~-Glied {.unnumbered}
-
-Tritt eine Totzeit $T_t$ mit einem I-Glied auf, so sprechen wir von einem I-T~t~-Glied.
-
-$$
-\dot{x}_a(t) = K_I \cdot x_e(t - T_t)
-$$
-
-::: {#fig-ITt layout="[25,75]"}
-
-![](../images/diagrams/I-Tt-Icon.svg)
-
-![](../images/diagrams/I-Tt-Glied.svg)
-
-I-T~t~-Glied
-:::
-
-Wir verzichten hier auf die Auflistung des I-T~2~-, I-T~2S~-, I-T~n~-Gliedes, da mittlerweile die Systematik klar sein sollte. 
-
-::: {.callout-note title="Reihenschaltung von Übertragungsgliedern"}
-Ein I-T~2~-Glied kann als Reihenschaltung von einem I-Glied und einem P-T~2~-Glied (oder zwei P-T~1~-Gliedern) aufgefasst werden. 
-
-> Bsp.: In einer Regelstrecke werden das Stellglied als P-T~2~-Glied, die eigentliche Strecke als reines I-Glied und das Messglied als P-T~1~-Glied modelliert. Die gesamte Regelstrecke (Stellglied, Strecke, Messglied) weist dann I-T~3~-Verhalten auf.
-:::
-
-::: {.callout-tip}
-## Übung
-Erzeuge mit <span class="cap">Boris</span> die Sprungantwort für ein I-T~2~-Glied mit $K_I = 0.1$, $T_1 = 2$ und $T_2 = 0.5$.
-:::
-
-## Regelbarkeit
-
-Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.
-
-![Zunehmende Verzugszeit (P-Strecken)](../images/diagrams/P-Strecken_allg.svg){#fig-verz-p}
-
-Ein Mass, das die *Regelbarkeit* einer P-Strecke charakterisiert, ist das Verhältnis von Verzugs- zu Ausgleichszeit $\frac{T_e}{T_b}$. Für P- bzw. P-T~1~-ähnliche Strecken ist es sehr klein (~0), d. h. diese sind sehr einfach zu regeln. Mit zunehmender Ordnung bis hin zur Totzeit wird dieses Verhältnis immer grösser und die Strecke immer schwieriger zu regeln. 
-
-![Regelbarkeit](../images/diagrams/Regelbarkeit.svg){#fig-regelbarkeit}
-
-::: {#tbl-regelbarkeit}
-
-|$\dfrac{T_e}{T_b}$| Regelbarkeit         |
-|:---------------:|:---------------------|
-|$< 0.1$          | sehr gut regelbar    |
-|$0.1 \ldots 0.2$ | gut regelbar         |
-|$0.2 \ldots 0.4$ | mässig regelbar      |
-|$0.4 \ldots 0.8$ | schwer regelbar      |
-|$> 0.8$          | sehr schwer regelbar |
-
-Regelbarkeit
-
-:::
-
-Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.
-
-![Zunehmende Verzugszeit (I-Strecken)](../images/diagrams/I-Strecken_allg.svg){#fig-verz-i}
-
--->
 </section>
+<section id="p-tt-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="p-tt-glied">P-T<sub>t</sub>-Glied</h3>
+<p>Es gibt auch Verzögerungen, die nicht von Energiespeichern verursacht werden, sondern aufgrund von Transportvorgängen/Laufzeiten (typisch für Stofftransporte in Fördereinrichtungen/Rohrleitungen etc.). Eine solche Verzögerung wird <strong>Totzeit</strong> <span class="math inline">T_t</span> genannt und verhält sich fundamental anders als die oben betrachteten Verzögerungen. Eine Änderung am Eingang zeigt sich am Ausgang erst nach Ablauf der Totzeit, doch dann schlagartig. Das P-T<sub>t</sub>-Glied wird folglich als <strong>Totzeitglied</strong> bezeichnet.</p>
+<p><span class="math display">
+x_a(t) = K_P \cdot x_e(t - T_t)
+</span></p>
+<div id="fig-PTt" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PTt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-Tt-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/P-Tt-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PTt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.10: P-T<sub>t</sub>-Glied (Totzeit)
+</figcaption>
+</figure>
+</div>
+<p>Ein typisches Beispiel für ein P-T<sub>t</sub>-Glied ist ein Förderband (vgl. <a href="#fig-PTtBsp" class="quarto-xref">Abb.&nbsp;<span>3.11</span></a>)</p>
+<div id="fig-PTtBsp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-PTtBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/temperature-sensor.png" id="fig-foerderband" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-PTtBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.11: Förderband <a href="https://instrumentationtools.com/dead-time/">Quelle</a>
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="glieder-ohne-ausgleich-i-glieder" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="glieder-ohne-ausgleich-i-glieder"><span class="header-section-number">3.2</span> Glieder ohne Ausgleich (I-Glieder)</h2>
+<p>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d.&nbsp;h. der Ausgang <span class="math inline">x_a</span> strebt bei konstantem Eingang <span class="math inline">x_e</span> keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert <span class="math inline">K_P</span>.</p>
+<p>Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang <span class="math inline">x_a</span> bei einem stationären Eingang <span class="math inline">x_e</span> schliesslich <em>linear</em> ansteigt (bzw. abfällt). Für einen konstanten Eingang <span class="math inline">x_e</span> resultiert also eine konstante Steigung des Ausgangs <span class="math inline">\Delta x_a/\Delta t</span>. Eine sinnvolle Kenngrösse ist daher der <strong>Integrierbeiwert</strong> <span class="math inline">K_I</span>, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</p>
+<p><span class="math display">
+K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)
+</span></p>
+<p>Der Kehrwert des Integrierbeiwerts wird als <strong>Integrierzeit</strong> <span class="math inline">T_I = \frac{1}{K_I}</span> bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit <span class="math inline">T_I</span> arbeiten.</p>
+<section id="i-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="i-glied">I-Glied</h3>
+<p>Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert <span class="math inline">K_I</span> bzw. die Integrierzeit <span class="math inline">T_I</span> vollständig beschrieben.</p>
+<p><span class="math display">
+x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}
+</span></p>
+<p>Wir erkennen in obiger Gleichung sehr schön, dass der Eingang <em>integriert</em> wird (daher der Name <em>I-Glieder</em>). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</p>
+<p><span class="math display">
+\dot{x}_a(t) = K_I \cdot x_e(t)
+</span></p>
+<div id="fig-I" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-I-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/I-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/I-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-I-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.12: I-Glied
+</figcaption>
+</figure>
+</div>
+<p>Ein typisches Beispiel für ein I-Glied ist die Linearachse, wenn als Eingang die Spindeldrehzahl und als Ausgang die Schlittenposition betrachtet wird. Allg. treten I-Glieder auf, wo eine Grösse durch Integration (Aufsummierung) in die entsprechende Speichergrösse überführt wird.</p>
+<ul>
+<li>Durchfluss (Volumenstrom) → Tankinhalt (Füllhöhe)</li>
+<li>Beschleunigung/Kraft → Geschwindigkeit</li>
+<li>Geschwindigkeit → Position (Weg)</li>
+<li>Drehzahl → Drehwinkel</li>
+<li>…</li>
+</ul>
+<div id="fig-IBsp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-IBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/linearachse.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-IBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.13: Linearachse <a href="https://www.festo.com/ch/de/p/spindelachse-id_EGC_BS">Quelle</a>
+</figcaption>
+</figure>
+</div>
+<p>I-Strecken mit Verzögerungen sind in <span class="cap">Boris</span> nicht direkt verfügbar und müssen daher durch Reihenschaltungen erzeugt werden (ein I-T<sub>1</sub>-Glied z. B. durch eine Reihenschaltung von einem I-Glied und einem P-T<sub>1</sub>-Glied etc.).</p>
+</section>
+<section id="i-t1-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="i-t1-glied">I-T<sub>1</sub>-Glied</h3>
+<p>Kommt beim I-Glied nun eine Verzögerung (Energiespeicher) hinzu, landen wir beim I-T<sub>1</sub>-Glied, für dessen Beschreibung neben <span class="math inline">K_I</span>$ (alternativ <span class="math inline">T_I</span>) nun wiederum die Zeitkonstante <span class="math inline">T_1</span> nötig ist.</p>
+<p><span class="math display">
+T_1 \cdot \ddot{x}_a(t) + \dot{x}_a(t) = K_I \cdot x_e(t)
+</span></p>
+<div id="fig-IT1" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-IT1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/I-T1-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/I-T1-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-IT1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.14: I-T<sub>1</sub>-Glied
+</figcaption>
+</figure>
+</div>
+<p>Wird die in <a href="#fig-IBsp" class="quarto-xref">Abb.&nbsp;<span>3.13</span></a> gezeigte Linearachse mit einem DC-Motor angetrieben (der als P-T<sub>1</sub>-Glied modelliert wird), stellt das Gesamtsystem ein I-T<sub>1</sub>-Glied dar.</p>
+</section>
+<section id="i-tt-glied" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="i-tt-glied">I-T<sub>t</sub>-Glied</h3>
+<p>Tritt eine Totzeit <span class="math inline">T_t</span> mit einem I-Glied auf, so sprechen wir von einem I-T<sub>t</sub>-Glied.</p>
+<p><span class="math display">
+\dot{x}_a(t) = K_I \cdot x_e(t - T_t)
+</span></p>
+<div id="fig-ITt" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ITt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="../images/diagrams/I-Tt-Icon.svg" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 75.0%;justify-content: center;">
+<p><img src="../images/diagrams/I-Tt-Glied.svg" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-ITt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.15: I-T<sub>t</sub>-Glied
+</figcaption>
+</figure>
+</div>
+<p>Wir verzichten hier auf die Auflistung des I-T<sub>2</sub>-, I-T<sub>2S</sub>-, I-T<sub>n</sub>-Gliedes, da mittlerweile die Systematik klar sein sollte.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Reihenschaltung von Übertragungsgliedern">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Reihenschaltung von Übertragungsgliedern
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein I-T<sub>2</sub>-Glied kann als Reihenschaltung von einem I-Glied und einem P-T<sub>2</sub>-Glied (oder zwei P-T<sub>1</sub>-Gliedern) aufgefasst werden.</p>
+<blockquote class="blockquote">
+<p>Bsp.: In einer Regelstrecke werden das Stellglied als P-T<sub>2</sub>-Glied, die eigentliche Strecke als reines I-Glied und das Messglied als P-T<sub>1</sub>-Glied modelliert. Die gesamte Regelstrecke (Stellglied, Strecke, Messglied) weist dann I-T<sub>3</sub>-Verhalten auf.</p>
+</blockquote>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Übung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Erzeuge mit <span class="cap">Boris</span> die Sprungantwort für ein I-T<sub>2</sub>-Glied mit <span class="math inline">K_I = 0.1</span>, <span class="math inline">T_1 = 2</span> und <span class="math inline">T_2 = 0.5</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="regelbarkeit" class="level2 page-columns page-full" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="regelbarkeit"><span class="header-section-number">3.3</span> Regelbarkeit</h2>
+<p>Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T<sub>5</sub>-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T<sub>1</sub>). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</p>
+<div id="fig-verz-p" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-verz-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/P-Strecken_allg.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-verz-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.16: Zunehmende Verzugszeit (P-Strecken)
+</figcaption>
+</figure>
+</div>
+<p>Ein Mass, das die <em>Regelbarkeit</em> einer P-Strecke charakterisiert, ist das Verhältnis von Verzugs- zu Ausgleichszeit <span class="math inline">\frac{T_e}{T_b}</span>. Für P- bzw. P-T<sub>1</sub>-ähnliche Strecken ist es sehr klein (~0), d.&nbsp;h. diese sind sehr einfach zu regeln. Mit zunehmender Ordnung bis hin zur Totzeit wird dieses Verhältnis immer grösser und die Strecke immer schwieriger zu regeln.</p>
+<div id="fig-regelbarkeit" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-regelbarkeit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regelbarkeit.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-regelbarkeit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.17: Regelbarkeit
+</figcaption>
+</figure>
+</div>
+<div id="tbl-regelbarkeit" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-regelbarkeit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\dfrac{T_e}{T_b}</span></th>
+<th style="text-align: left;">Regelbarkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">&lt; 0.1</span></td>
+<td style="text-align: left;">sehr gut regelbar</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">0.1 \ldots 0.2</span></td>
+<td style="text-align: left;">gut regelbar</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">0.2 \ldots 0.4</span></td>
+<td style="text-align: left;">mässig regelbar</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">0.4 \ldots 0.8</span></td>
+<td style="text-align: left;">schwer regelbar</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">&gt; 0.8</span></td>
+<td style="text-align: left;">sehr schwer regelbar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-regelbarkeit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tab.&nbsp;3.1: Regelbarkeit
+</figcaption>
+</figure>
+</div>
+<p>Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit <span class="math inline">T_e</span> (reines I-Glied → I-T<sub>1</sub> → I-T<sub>2</sub> → … → I-T<sub>t</sub>) wird es immer schwieriger für die Regelung.</p>
+<div id="fig-verz-i" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-verz-i-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/I-Strecken_allg.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-verz-i-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;3.18: Zunehmende Verzugszeit (I-Strecken)
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="aufgaben" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
@@ -813,7 +915,7 @@ Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_
 </button>
 <div id="aufgaben3">
 <div id="ex-3-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -822,7 +924,7 @@ Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Du hast eine Sprungantwort aufgenommen für einen Temperatursensor, indem du einen Temperatursprung von 20 °C auf 30 °C aufgeprägt (blau) und das Spannungssignal des Sensors gemessen hast (rot).</p>
 <p><img src="../images/diagrams/A3_1.svg" class="img-fluid"></p>
@@ -845,7 +947,7 @@ T_1 =
 </div>
 </div>
 <div id="ex-3-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -854,7 +956,7 @@ T_1 =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl <span class="math inline">𝑛</span> als Eingang und die Schlittenposition <span class="math inline">𝑥</span> als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</p>
 <p><img src="../images/diagrams/A3_2a.png" class="img-fluid"></p>
@@ -875,7 +977,7 @@ K_I = \quad \quad \quad \quad T_I =
 </div>
 </div>
 <div id="ex-3-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -884,7 +986,7 @@ K_I = \quad \quad \quad \quad T_I =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Bestimme Verzugszeit <span class="math inline">T_e</span> und Ausgleichszeit <span class="math inline">T_b</span> aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>). Berechne anschliessend das Verhältnis <span class="math inline">\frac{T_e}{T_b}</span> und beurteile die Regelbarkeit des Systems.</p>
 <p><img src="../images/diagrams/A3_3.svg" class="img-fluid"></p>
@@ -1651,317 +1753,310 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>Ein P-T~2~-Glied kann als Reihenschaltung von zwei P-T~1~-Gliedern aufgefasst werden. Dies gilt ganz allgemein, d. h. ein P-T~3~-Glied kann als Reihenschaltung von drei P-T~1~-Gliedern aufgefasst werden (oder alternativ als Reihenschaltung von einem P-T~2~-Glied und einem P-T~1~-Glied etc.).</span>
 <span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Auflistung nicht vollständig"}</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>Die weiteren Übertragungsglieder folgen nach dem heutigen Unterrichtsblock.</span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-T~2S~-Glied {.unnumbered}</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>Enthält das Übertragungsglied zwei Energiespeicher, die *nicht gleichartig* sind, so kann es zu oszillierenden Energietransfers zwischen diesen Energiespeichern kommen und damit zu *Schwingungen*. Wir nennen das Übertragungsglied dann P-T~2S~ (S für *schwingfähig*) und beschreiben es mit der Kennkreisfrequenz $\omega_0$ und dem Dämpfungsgrad $D$.</span>
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> P-T~2S~-Glied {.unnumbered}</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>\frac{1}{\omega_0^2} \cdot \ddot{x}_a(t) + 2 \cdot \frac{D}{\omega_0} \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="co">Enthält das Übertragungsglied zwei Energiespeicher, die *nicht gleichartig* sind, so kann es zu oszillierenden Energietransfers zwischen diesen Energiespeichern kommen und damit zu *Schwingungen*. Wir nennen das Übertragungsglied dann P-T~2S~ (S für *schwingfähig*) und beschreiben es mit der Kennkreisfrequenz $\omega_0$ und dem Dämpfungsgrad $D$.</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT2S layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="co">\frac{1}{\omega_0^2} \cdot \ddot{x}_a(t) + 2 \cdot \frac{D}{\omega_0} \cdot \dot{x}_a(t) + x_a(t) = K_P \cdot x_e(t)</span></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-T2S-Icon.svg)</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-T2S-Glied.svg)</span></span>
 <span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PT2S layout="[25,75]"}</span></span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-T2S-Icon.svg)</span></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-T2S-Glied.svg)</span></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~2S~-Glied</span></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>P-T~2S~-Glied</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>Die Kennkreisfrequenz $\omega_0$ und der Dämpfungsgrad $D$ können anhand der folgenden Beziehungen aus der Sprungantwort bestimmt werden. Die Kennkreisfrequenz $\omega_0$ ist die charakteristische Frequenz des Systems (mit dieser Frequenz schwingt das System, wenn es ungedämpft ist). Der Dämpfungsgrad $D$ besagt wie rasch die Schwingung abklingt ($0 &lt; D &lt; 1$). Bei $D = 1$ ist das System *kritisch gedämpft* und schwingt nicht mehr, d. h. es wird zum (nicht-schwingfähigen) P-T~2~-Glied.</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>D = \frac{\ln{\frac{\Delta_1}{\Delta_2}}}{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\Delta_2}}}}</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="co">Die Kennkreisfrequenz $\omega_0$ und der Dämpfungsgrad $D$ können anhand der folgenden Beziehungen aus der Sprungantwort bestimmt werden. Die Kennkreisfrequenz $\omega_0$ ist die charakteristische Frequenz des Systems (mit dieser Frequenz schwingt das System, wenn es ungedämpft ist). Der Dämpfungsgrad $D$ besagt wie rasch die Schwingung abklingt ($0 &lt; D &lt; 1$). Bei $D = 1$ ist das System *kritisch gedämpft* und schwingt nicht mehr, d. h. es wird zum (nicht-schwingfähigen) P-T~2~-Glied.</span></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="co">D = \frac{\ln{\frac{\Delta_1}{\Delta_2</span><span class="re">}}}</span><span class="co">{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\Delta_2</span><span class="re">}}}</span><span class="co">}</span></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="co">\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}</span></span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT2SBsp}</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/external/mass-spring-damper.gif)</span>{width=50% #fig-mass-spring-damper}</span>
 <span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</span></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PT2SBsp}</span></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/external/mass-spring-damper.gif){width=50% #fig-mass-spring-damper}</span></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="co">Masse-Feder-System [Quelle](https://tex.stackexchange.com/questions/640906/animate-mass-spring-damper-tikz)</span></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>Masse-Feder-System <span class="co">[</span><span class="ot">Quelle</span><span class="co">](https://tex.stackexchange.com/questions/640906/animate-mass-spring-damper-tikz)</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-T~n~-Glied {.unnumbered}</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>Natürlich können auch mehr als zwei Energiespeicher auftreten, was zu P-T~3~-, P-T~4~-, ..., P-T~n~-Gliedern führt. Die Sprungantworten solcher Glieder sehen qualitativ alle ähnlich aus wie das P-T~2~-Glied, da sie lediglich stärker verzögert sind.</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist stellvertretend ein P-T~3~-Glied aufgeführt (analog für P-T~4~ usw.). </span>
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> P-T~n~-Glied {.unnumbered}</span></span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="co">Natürlich können auch mehr als zwei Energiespeicher auftreten, was zu P-T~3~-, P-T~4~-, ..., P-T~n~-Gliedern führt. Die Sprungantworten solcher Glieder sehen qualitativ alle ähnlich aus wie das P-T~2~-Glied, da sie lediglich stärker verzögert sind.</span></span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="co">Nachfolgend ist stellvertretend ein P-T~3~-Glied aufgeführt (analog für P-T~4~ usw.). </span></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="co">\begin{aligned}</span></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="co">T_1 \cdot T_2 \cdot T_3 \cdot \dddot{x}_a(t)</span></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="co">&amp;+ (T_1 \cdot T_2 + T_1 \cdot T_3 + T_2 \cdot T_3) \cdot \ddot{x}_a(t) \\</span></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="co">&amp;+ (T_1 + T_2 + T_3) \cdot \dot{x}_a(t)</span></span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="co">+ x_a(t) \\</span></span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="co">&amp;= K_P \cdot x_e(t)</span></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="co">\end{aligned}</span></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>T_1 \cdot T_2 \cdot T_3 \cdot \dddot{x}_a(t)</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>&amp;+ (T_1 \cdot T_2 + T_1 \cdot T_3 + T_2 \cdot T_3) \cdot \ddot{x}_a(t) <span class="sc">\\</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>&amp;+ (T_1 + T_2 + T_3) \cdot \dot{x}_a(t)</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>x_a(t) <span class="sc">\\</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>&amp;= K_P \cdot x_e(t)</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>::: {#fig-PTn layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-Tn-Icon.svg)</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-Tn-Glied.svg)</span></span>
 <span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PTn layout="[25,75]"}</span></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tn-Icon.svg)</span></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tn-Glied.svg)</span></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~n~-Glied</span></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="co">Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1$, ..., $T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>P-T~n~-Glied</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1$, ..., $T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="P-T~n~-Glied in BORIS"}</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>Beim P-T~n~-Glied in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden alle $n$ Zeitkonstanten $T_1$, ..., $T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert.</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>Will man ein P-T~n~-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T~1~ oder P-T~2~-Gliedern erstellt werden.</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.callout-note title="P-T~n~-Glied in BORIS"}</span></span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="co">Beim P-T~n~-Glied in &lt;span class="cap"&gt;Boris&lt;/span&gt; werden alle $n$ Zeitkonstanten $T_1$, ..., $T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert.</span></span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="co">Will man ein P-T~n~-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T~1~ oder P-T~2~-Gliedern erstellt werden.</span></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> P-T~t~-Glied {.unnumbered}</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-T~t~-Glied {.unnumbered}</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>Es gibt auch Verzögerungen, die nicht von Energiespeichern verursacht werden, sondern aufgrund von Transportvorgängen/Laufzeiten (typisch für Stofftransporte in Fördereinrichtungen/Rohrleitungen etc.). Eine solche Verzögerung wird **Totzeit** $T_t$ genannt und verhält sich fundamental anders als die oben betrachteten Verzögerungen. Eine Änderung am Eingang zeigt sich am Ausgang erst nach Ablauf der Totzeit, doch dann schlagartig. Das P-T~t~-Glied wird folglich als **Totzeitglied** bezeichnet.</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>x_a(t) = K_P \cdot x_e(t - T_t)</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="co">Es gibt auch Verzögerungen, die nicht von Energiespeichern verursacht werden, sondern aufgrund von Transportvorgängen/Laufzeiten (typisch für Stofftransporte in Fördereinrichtungen/Rohrleitungen etc.). Eine solche Verzögerung wird **Totzeit** $T_t$ genannt und verhält sich fundamental anders als die oben betrachteten Verzögerungen. Eine Änderung am Eingang zeigt sich am Ausgang erst nach Ablauf der Totzeit, doch dann schlagartig. Das P-T~t~-Glied wird folglich als **Totzeitglied** bezeichnet.</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>::: {#fig-PTt layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
 <span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="co">x_a(t) = K_P \cdot x_e(t - T_t)</span></span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-Tt-Icon.svg)</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/P-Tt-Glied.svg)</span></span>
 <span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PTt layout="[25,75]"}</span></span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tt-Icon.svg)</span></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/P-Tt-Glied.svg)</span></span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="co">P-T~t~-Glied (Totzeit)</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>P-T~t~-Glied (Totzeit)</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>Ein typisches Beispiel für ein P-T~t~-Glied ist ein Förderband (vgl. @fig-PTtBsp)</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>::: {#fig-PTtBsp}</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/external/temperature-sensor.png)</span>{width=60% #fig-foerderband}</span>
 <span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="co">Ein typisches Beispiel für ein P-T~t~-Glied ist ein Förderband (vgl. @fig-PTtBsp)</span></span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-PTtBsp}</span></span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/external/temperature-sensor.png){width=60% #fig-foerderband}</span></span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="co">Förderband [Quelle](https://instrumentationtools.com/dead-time/)</span></span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>Förderband <span class="co">[</span><span class="ot">Quelle</span><span class="co">](https://instrumentationtools.com/dead-time/)</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Glieder ohne Ausgleich (I-Glieder)</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang $x_a$ bei einem stationären Eingang $x_e$ schliesslich *linear* ansteigt (bzw. abfällt). Für einen konstanten Eingang $x_e$ resultiert also eine konstante Steigung des Ausgangs $\Delta x_a/\Delta t$. Eine sinnvolle Kenngrösse ist daher der **Integrierbeiwert** $K_I$, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</span>
 <span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="co">## Glieder ohne Ausgleich (I-Glieder)</span></span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="co">Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="co">Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang $x_a$ bei einem stationären Eingang $x_e$ schliesslich *linear* ansteigt (bzw. abfällt). Für einen konstanten Eingang $x_e$ resultiert also eine konstante Steigung des Ausgangs $\Delta x_a/\Delta t$. Eine sinnvolle Kenngrösse ist daher der **Integrierbeiwert** $K_I$, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit** $T_I = \frac{1}{K_I}$ bezeichnet. In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.</span>
 <span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="co">K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)</span></span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### I-Glied {.unnumbered}</span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ vollständig beschrieben.</span>
 <span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="co">Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit** $T_I = \frac{1}{K_I}$ bezeichnet. In &lt;span class="cap"&gt;Boris&lt;/span&gt; werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.</span></span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> I-Glied {.unnumbered}</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="co">Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ vollständig beschrieben.</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="co">x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}</span></span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>\dot{x}_a(t) = K_I \cdot x_e(t)</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="co">Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</span></span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="co">\dot{x}_a(t) = K_I \cdot x_e(t)</span></span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>::: {#fig-I layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/I-Icon.svg)</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/I-Glied.svg)</span></span>
 <span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-I layout="[25,75]"}</span></span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Icon.svg)</span></span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Glied.svg)</span></span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="co">I-Glied</span></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="co">Ein typisches Beispiel für ein I-Glied ist die Linearachse, wenn als Eingang die Spindeldrehzahl und als Ausgang die Schlittenposition betrachtet wird. Allg. treten I-Glieder auf, wo eine Grösse durch Integration (Aufsummierung) in die entsprechende Speichergrösse überführt wird.</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>I-Glied</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>Ein typisches Beispiel für ein I-Glied ist die Linearachse, wenn als Eingang die Spindeldrehzahl und als Ausgang die Schlittenposition betrachtet wird. Allg. treten I-Glieder auf, wo eine Grösse durch Integration (Aufsummierung) in die entsprechende Speichergrösse überführt wird.</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Durchfluss (Volumenstrom) → Tankinhalt (Füllhöhe)</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Beschleunigung/Kraft → Geschwindigkeit</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Geschwindigkeit → Position (Weg)</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drehzahl → Drehwinkel</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>...</span>
 <span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="co">- Durchfluss (Volumenstrom) → Tankinhalt (Füllhöhe)</span></span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="co">- Beschleunigung/Kraft → Geschwindigkeit</span></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="co">- Geschwindigkeit → Position (Weg)</span></span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="co">- Drehzahl → Drehwinkel</span></span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="co">- ...</span></span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-IBsp}</span></span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/external/linearachse.jpg){width=60%}</span></span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="co">Linearachse [Quelle](https://www.festo.com/ch/de/p/spindelachse-id_EGC_BS)</span></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>::: {#fig-IBsp}</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/external/linearachse.jpg)</span>{width=60%}</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>Linearachse <span class="co">[</span><span class="ot">Quelle</span><span class="co">](https://www.festo.com/ch/de/p/spindelachse-id_EGC_BS)</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>I-Strecken mit Verzögerungen sind in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> nicht direkt verfügbar und müssen daher durch Reihenschaltungen erzeugt werden (ein I-T~1~-Glied z. B. durch eine Reihenschaltung von einem I-Glied und einem P-T~1~-Glied etc.).</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="fu">### I-T~1~-Glied {.unnumbered}</span></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>Kommt beim I-Glied nun eine Verzögerung (Energiespeicher) hinzu, landen wir beim I-T~1~-Glied, für dessen Beschreibung neben $K_I$$ (alternativ $T_I$) nun wiederum die Zeitkonstante $T_1$ nötig ist.</span>
 <span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="co">I-Strecken mit Verzögerungen sind in &lt;span class="cap"&gt;Boris&lt;/span&gt; nicht direkt verfügbar und müssen daher durch Reihenschaltungen erzeugt werden (ein I-T~1~-Glied z. B. durch eine Reihenschaltung von einem I-Glied und einem P-T~1~-Glied etc.).</span></span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> I-T~1~-Glied {.unnumbered}</span></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>T_1 \cdot \ddot{x}_a(t) + \dot{x}_a(t) = K_I \cdot x_e(t)</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="co">Kommt beim I-Glied nun eine Verzögerung (Energiespeicher) hinzu, landen wir beim I-T~1~-Glied, für dessen Beschreibung neben $K_I$$ (alternativ $T_I$) nun wiederum die Zeitkonstante $T_1$ nötig ist.</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>::: {#fig-IT1 layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
 <span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="co">T_1 \cdot \ddot{x}_a(t) + \dot{x}_a(t) = K_I \cdot x_e(t)</span></span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/I-T1-Icon.svg)</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/I-T1-Glied.svg)</span></span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-IT1 layout="[25,75]"}</span></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-T1-Icon.svg)</span></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-T1-Glied.svg)</span></span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="co">I-T~1~-Glied</span></span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>I-T~1~-Glied</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Wird die in @fig-IBsp gezeigte Linearachse mit einem DC-Motor angetrieben (der als P-T~1~-Glied modelliert wird), stellt das Gesamtsystem ein I-T~1~-Glied dar.</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="fu">### I-T~t~-Glied {.unnumbered}</span></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>Tritt eine Totzeit $T_t$ mit einem I-Glied auf, so sprechen wir von einem I-T~t~-Glied.</span>
 <span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="co">Wird die in @fig-IBsp gezeigte Linearachse mit einem DC-Motor angetrieben (der als P-T~1~-Glied modelliert wird), stellt das Gesamtsystem ein I-T~1~-Glied dar.</span></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="al">###</span><span class="co"> I-T~t~-Glied {.unnumbered}</span></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>\dot{x}_a(t) = K_I \cdot x_e(t - T_t)</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="co">Tritt eine Totzeit $T_t$ mit einem I-Glied auf, so sprechen wir von einem I-T~t~-Glied.</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>::: {#fig-ITt layout="<span class="co">[</span><span class="ot">25,75</span><span class="co">]</span>"}</span>
 <span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="co">\dot{x}_a(t) = K_I \cdot x_e(t - T_t)</span></span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="co">$$</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/I-Tt-Icon.svg)</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/I-Tt-Glied.svg)</span></span>
 <span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#fig-ITt layout="[25,75]"}</span></span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Tt-Icon.svg)</span></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="co">![](../images/diagrams/I-Tt-Glied.svg)</span></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="co">I-T~t~-Glied</span></span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="co">Wir verzichten hier auf die Auflistung des I-T~2~-, I-T~2S~-, I-T~n~-Gliedes, da mittlerweile die Systematik klar sein sollte. </span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>I-T~t~-Glied</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>Wir verzichten hier auf die Auflistung des I-T~2~-, I-T~2S~-, I-T~n~-Gliedes, da mittlerweile die Systematik klar sein sollte. </span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Reihenschaltung von Übertragungsgliedern"}</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>Ein I-T~2~-Glied kann als Reihenschaltung von einem I-Glied und einem P-T~2~-Glied (oder zwei P-T~1~-Gliedern) aufgefasst werden. </span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Bsp.: In einer Regelstrecke werden das Stellglied als P-T~2~-Glied, die eigentliche Strecke als reines I-Glied und das Messglied als P-T~1~-Glied modelliert. Die gesamte Regelstrecke (Stellglied, Strecke, Messglied) weist dann I-T~3~-Verhalten auf.</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="at">:::</span></span>
 <span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.callout-note title="Reihenschaltung von Übertragungsgliedern"}</span></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="co">Ein I-T~2~-Glied kann als Reihenschaltung von einem I-Glied und einem P-T~2~-Glied (oder zwei P-T~1~-Gliedern) aufgefasst werden. </span></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="co">&gt; Bsp.: In einer Regelstrecke werden das Stellglied als P-T~2~-Glied, die eigentliche Strecke als reines I-Glied und das Messglied als P-T~1~-Glied modelliert. Die gesamte Regelstrecke (Stellglied, Strecke, Messglied) weist dann I-T~3~-Verhalten auf.</span></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.callout-tip}</span></span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="co">## Übung</span></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="co">Erzeuge mit &lt;span class="cap"&gt;Boris&lt;/span&gt; die Sprungantwort für ein I-T~2~-Glied mit $K_I = 0.1$, $T_1 = 2$ und $T_2 = 0.5$.</span></span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übung</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>Erzeuge mit <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> die Sprungantwort für ein I-T~2~-Glied mit $K_I = 0.1$, $T_1 = 2$ und $T_2 = 0.5$.</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regelbarkeit</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="al">![Zunehmende Verzugszeit (P-Strecken)](../images/diagrams/P-Strecken_allg.svg)</span>{#fig-verz-p}</span>
 <span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="co">## Regelbarkeit</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>Ein Mass, das die *Regelbarkeit* einer P-Strecke charakterisiert, ist das Verhältnis von Verzugs- zu Ausgleichszeit $\frac{T_e}{T_b}$. Für P- bzw. P-T~1~-ähnliche Strecken ist es sehr klein (~0), d. h. diese sind sehr einfach zu regeln. Mit zunehmender Ordnung bis hin zur Totzeit wird dieses Verhältnis immer grösser und die Strecke immer schwieriger zu regeln. </span>
 <span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="co">Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="al">![Regelbarkeit](../images/diagrams/Regelbarkeit.svg)</span>{#fig-regelbarkeit}</span>
 <span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="co">![Zunehmende Verzugszeit (P-Strecken)](../images/diagrams/P-Strecken_allg.svg){#fig-verz-p}</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>::: {#tbl-regelbarkeit}</span>
 <span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="co">Ein Mass, das die *Regelbarkeit* einer P-Strecke charakterisiert, ist das Verhältnis von Verzugs- zu Ausgleichszeit $\frac{T_e}{T_b}$. Für P- bzw. P-T~1~-ähnliche Strecken ist es sehr klein (~0), d. h. diese sind sehr einfach zu regeln. Mit zunehmender Ordnung bis hin zur Totzeit wird dieses Verhältnis immer grösser und die Strecke immer schwieriger zu regeln. </span></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="co">![Regelbarkeit](../images/diagrams/Regelbarkeit.svg){#fig-regelbarkeit}</span></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#tbl-regelbarkeit}</span></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="co">|$\dfrac{T_e}{T_b}$| Regelbarkeit         |</span></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="co">|:---------------:|:---------------------|</span></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="co">|$&lt; 0.1$          | sehr gut regelbar    |</span></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="co">|$0.1 \ldots 0.2$ | gut regelbar         |</span></span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="co">|$0.2 \ldots 0.4$ | mässig regelbar      |</span></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="co">|$0.4 \ldots 0.8$ | schwer regelbar      |</span></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="co">|$&gt; 0.8$          | sehr schwer regelbar |</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>$\dfrac{T_e}{T_b}$<span class="pp">|</span> Regelbarkeit         <span class="pp">|</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---------------:|:---------------------|</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>$&lt; 0.1$          <span class="pp">|</span> sehr gut regelbar    <span class="pp">|</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>$0.1 \ldots 0.2$ <span class="pp">|</span> gut regelbar         <span class="pp">|</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>$0.2 \ldots 0.4$ <span class="pp">|</span> mässig regelbar      <span class="pp">|</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>$0.4 \ldots 0.8$ <span class="pp">|</span> schwer regelbar      <span class="pp">|</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>$&gt; 0.8$          <span class="pp">|</span> sehr schwer regelbar <span class="pp">|</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>Regelbarkeit</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.</span>
 <span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="co">Regelbarkeit</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="al">![Zunehmende Verzugszeit (I-Strecken)](../images/diagrams/I-Strecken_allg.svg)</span>{#fig-verz-i}</span>
 <span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="co">Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.</span></span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="co">![Zunehmende Verzugszeit (I-Strecken)](../images/diagrams/I-Strecken_allg.svg){#fig-verz-i}</span></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben3"</span></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG03.pdf"</span></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben3}</span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-1}</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.1</span></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>Du hast eine Sprungantwort aufgenommen für einen Temperatursensor, indem du einen Temperatursprung von 20 °C auf 30 °C aufgeprägt (blau) und das Spannungssignal des Sensors gemessen hast (rot).</span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1.svg)</span></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>a) Bestimme den Proportionalbeiwert $K_P$ aus der Sprungantwort (inkl. Einheit).</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>K_P = </span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>b) Bestimme die Zeitkonstante $T_1$ aus der Sprungantwort (inkl. Einheit).</span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>T_1 =</span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben3"</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG03.pdf"</span></span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben3}</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-1}</span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.1</span></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>Du hast eine Sprungantwort aufgenommen für einen Temperatursensor, indem du einen Temperatursprung von 20 °C auf 30 °C aufgeprägt (blau) und das Spannungssignal des Sensors gemessen hast (rot).</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1.svg)</span></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>a) Bestimme den Proportionalbeiwert $K_P$ aus der Sprungantwort (inkl. Einheit).</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>K_P = </span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>b) Bestimme die Zeitkonstante $T_1$ aus der Sprungantwort (inkl. Einheit).</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>T_1 =</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>c) Um was für ein Grundglied handelt es sich dabei?</span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
 <span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>c) Um was für ein Grundglied handelt es sich dabei?</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl $𝑛$ als Eingang und die Schlittenposition $𝑥$ als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</span>
 <span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2a.png)</span></span>
 <span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl $𝑛$ als Eingang und die Schlittenposition $𝑥$ als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2a.png)</span></span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>a) Skizziere den zeitlichen Verlauf der Schlittenposition $𝑥$ für die ersten 5 s im</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>untenstehenden Diagramm für eine Spindeldrehzahl $𝑛$ von 1 Umdrehung pro Sekunde.</span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>(Annahme: Position $𝑥 = 0$ bei $𝑡 = 0$).</span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2b.svg)</span></span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>b) Ermittle den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ (rechnerisch oder grafisch).</span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>K_I = \quad \quad \quad \quad T_I =</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>a) Skizziere den zeitlichen Verlauf der Schlittenposition $𝑥$ für die ersten 5 s im</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>untenstehenden Diagramm für eine Spindeldrehzahl $𝑛$ von 1 Umdrehung pro Sekunde.</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>(Annahme: Position $𝑥 = 0$ bei $𝑡 = 0$).</span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2b.svg)</span></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>b) Ermittle den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ (rechnerisch oder grafisch).</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>K_I = \quad \quad \quad \quad T_I =</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Sprungantwort der obigen I-Strecke in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
 <span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Sprungantwort der obigen I-Strecke in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>Bestimme Verzugszeit $T_e$ und Ausgleichszeit $T_b$ aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. @nte-wt). Berechne anschliessend das Verhältnis $\frac{T_e}{T_b}$ und beurteile die Regelbarkeit des Systems.</span>
 <span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_3.svg)</span></span>
 <span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>Bestimme Verzugszeit $T_e$ und Ausgleichszeit $T_b$ aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. @nte-wt). Berechne anschliessend das Verhältnis $\frac{T_e}{T_b}$ und beurteile die Regelbarkeit des Systems.</span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_3.svg)</span></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>T_e = </span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>T_b = </span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>\frac{T_e}{T_b} = </span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>T_e = </span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>T_b = </span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>\frac{T_e}{T_b} = </span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
