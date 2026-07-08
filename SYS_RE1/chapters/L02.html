@@ -326,7 +326,7 @@ window.Quarto = {
 </div>
 <section id="regelungstechnik-workflow" class="level2 page-columns page-full" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="regelungstechnik-workflow"><span class="header-section-number">2.1</span> Regelungstechnik-Workflow</h2>
-<p>Ausgehend vom Standardregelkreis können wir uns bereits jetzt überlegen, wie wir Vorgehen würden, um eine regelungstechnische Problemstellung systematisch zu bearbeiten. Das folgende Vorgehen nennen wir <em>Regelungtechnik-Workflow</em> und es besteht aus den folgenden Schritten:</p>
+<p>Ausgehend vom Standardregelkreis können wir uns bereits jetzt überlegen, wie wir Vorgehen würden, um eine regelungstechnische Problemstellung systematisch zu bearbeiten. Das folgende Vorgehen nennen wir <em>Regelungstechnik-Workflow</em> und es besteht aus den folgenden Schritten:</p>
 <ol type="1">
 <li>Verhalten der Regelstrecke analysieren/beschreiben (reales System)</li>
 <li>Modell der Regelstrecke aufbauen (Simulation)</li>
@@ -334,7 +334,7 @@ window.Quarto = {
 <li>Regler entwerfen/auslegen (Simulation)</li>
 <li>Regler implementieren und testen (reales System)</li>
 </ol>
-<p>Wir sehen, dass die Simulation dabei eine wichtige Rolle einnimmt. Für die Modellierung der Regelstrecke (Schritt 2) und den Reglerentwurf (Schritt 4) werden wir primär mit dem Simulationstool arbeiten. <a href="#fig-workflow" class="quarto-xref">Abb.&nbsp;<span>2.1</span></a> zeigt den Workflow grafisch.</p>
+<p>Wir sehen, dass die Simulation dabei eine wichtige Rolle einnimmt. Für die Modellierung der Regelstrecke (Schritt 2) und den Reglerentwurf (Schritt 4) werden wir primär mit dem Simulationstool <span class="cap">Boris</span> arbeiten. <a href="#fig-workflow" class="quarto-xref">Abb.&nbsp;<span>2.1</span></a> zeigt den Workflow grafisch.</p>
 <div id="fig-workflow" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -345,7 +345,7 @@ Abb.&nbsp;2.1: Regelungstechnik-Workflow
 </figcaption>
 </figure>
 </div>
-<p>Im Folgenden werden wir uns die Grundlagen für die Schritte 1 und 2 - der Analyse und Modellierung der Regelstrecke - erarbeiten. Wir werden feststellen, dass wir Systeme, die auf den ersten Blick völlige unterschiedlich aussehen (elektrisch, mechanisch, thermisch, …) in der Regelungstechnik mit denselben <em>Grundgliedern</em> beschreiben können.</p>
+<p>Im Folgenden werden wir uns die Grundlagen für die Schritte 1 und 2 - der Analyse und Modellierung der Regelstrecke - erarbeiten. Wir werden feststellen, dass wir Systeme, die auf den ersten Blick völlig unterschiedlich aussehen (elektrisch, mechanisch, thermisch, …) in der Regelungstechnik mit denselben <em>Grundgliedern</em> beschreiben können.</p>
 <p>Wie wir im ersten Kapitel gelernt haben, beschreibt ein Übertragungsglied (Block) den Ursache-Wirkungs-Zusammenhang zwischen dem Ein- und Ausgang (z. B. der Regelstrecke oder Teilen davon). Ein- und Ausgang bezeichnen wir allgemein mit <span class="math inline">x_e</span> und <span class="math inline">x_a</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Symbole">
 <div class="callout-header d-flex align-content-center">
@@ -357,7 +357,7 @@ Abb.&nbsp;2.1: Regelungstechnik-Workflow
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wenn wir ganz allgemein ein Übertragungsglied betrachten, dann verwenden wir die Symbole <span class="math inline">x_e</span> und <span class="math inline">x_a</span> für Ein- und Ausgang.</p>
+<p>Wenn wir allgemein ein Übertragungsglied betrachten, verwenden wir typischerweise die Symbole <span class="math inline">x_e</span> und <span class="math inline">x_a</span> für Ein- und Ausgang.</p>
 <p>Wenn wir eine konkrete Regelstrecke betrachten, verwenden wir gemäss den Bezeichnungen des Standardregelkreise (vgl. <a href="L01.html#fig-rk" class="quarto-xref">Abb.&nbsp;<span>1.15</span></a>) als Eingang <span class="math inline">y</span> (Stellgrösse) und als Ausgang <span class="math inline">x</span> (Regelgrösse). Wenn typische physikalische Grössen (z. B. Geschwindigkeit, Drehzahl, Kraft, …) auftreten, verwenden wir häufig auch die Symbole, welche wir aus der Physik kennen (z. B. <span class="math inline">v</span> für Geschwindigkeit, <span class="math inline">n</span> für Drehzahl, <span class="math inline">F</span> für Kraft, …).</p>
 </div>
 </div>
@@ -445,13 +445,13 @@ Abb.&nbsp;2.3: Regelstrecke mit und ohne Ausgleich
 <p>Zusammenfassend können wir festhalten:</p>
 <div class="columns">
 <div class="column" style="width:49%;">
-<div class="callout callout-style-default callout-note callout-titled" title="Strecke mit Ausgleich (P-Strecke)">
+<div class="callout callout-style-default callout-note callout-titled" title="Strecken mit Ausgleich (P-Strecken)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Strecke mit Ausgleich (P-Strecke)
+<span class="screen-reader-only">Hinweis</span>Strecken mit Ausgleich (P-Strecken)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -459,13 +459,13 @@ Abb.&nbsp;2.3: Regelstrecke mit und ohne Ausgleich
 </div>
 </div>
 </div><div class="column" style="width:49%;">
-<div class="callout callout-style-default callout-note callout-titled" title="Strecke ohne Ausgleich (I-Strecke)">
+<div class="callout callout-style-default callout-note callout-titled" title="Strecken ohne Ausgleich (I-Strecken)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Strecke ohne Ausgleich (I-Strecke)
+<span class="screen-reader-only">Hinweis</span>Strecken ohne Ausgleich (I-Strecken)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -474,7 +474,7 @@ Abb.&nbsp;2.3: Regelstrecke mit und ohne Ausgleich
 </div>
 </div>
 </div>
-<p>Im Folgenden betrachten wir einen PKW (stark vereinfacht) als Übertragungsglied. Eingangsgrösse (Stellgrösse) ist die Gaspedalstellung <span class="math inline">s</span> [%] und Ausgangsgrösse ist die Geschwindigkeit <span class="math inline">v</span> [km/h].</p>
+<p>Im Folgenden betrachten wir einen PKW (stark vereinfacht) als Demo-Regelstrecke. Eingangsgrösse (Stellgrösse) ist die Gaspedalstellung <span class="math inline">s</span> [%] und Ausgangsgrösse ist die Geschwindigkeit <span class="math inline">v</span> [km/h].</p>
 <div id="fig-pkw" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pkw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -485,7 +485,7 @@ Abb.&nbsp;2.4: PKW als Übertragungsglied
 </figcaption>
 </figure>
 </div>
-<p>Nachfolgend ist eine interaktive Demo, wobei der Slider links das Gaspedal [0-100%] repräsentiert. Spiele etwas damit herum und überzeuge dich, dass es sich dabei um eine P-Strecke handelt.</p>
+<p>Nachfolgend ist das Verhalten der Demo-Regelstrecke interaktiv dargestellt, wobei der Slider links das Gaspedal [0-100%] repräsentiert. Spiele etwas damit herum und überzeuge dich, dass es sich dabei um eine P-Strecke handelt.</p>
 <style>
 .slider-col {
   display: flex;
@@ -679,7 +679,7 @@ Abb.&nbsp;2.4: PKW als Übertragungsglied
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Überlege dir, wie wir dabei den Zusammenhang zwischen Ein- und Ausgang mögichst kompakt beschreiben können?</p>
+<p>Überlege dir, wie wir den Zusammenhang zwischen Ein- und Ausgang der obigen Demo-Regelstrecke möglichst kompakt beschreiben können?</p>
 </div>
 </div>
 </section>
@@ -732,7 +732,7 @@ K_P = \frac{\Delta x_a}{\Delta x_e}
 <section id="dynamisches-verhalten-der-regelstrecke" class="level3 page-columns page-full" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="dynamisches-verhalten-der-regelstrecke"><span class="header-section-number">2.3.2</span> Dynamisches Verhalten der Regelstrecke</h3>
 <p>Das statische Übertragungsverhalten (also die Kennlinie) sagt nichts darüber aus, <em>wie rasch</em> bzw. <em>auf welche Weise</em> das Ausgangssignal bei einer Änderung des Eingangssignals den neuen stationären Wert erreicht. Um diese Frage geht es beim dynamischen Übertragungsverhalten - wir sprechen auch vom <em>Übergangsverhalten</em>.</p>
-<p>Wie du vermutlich beim Herumspielen mit der interaktiven Demo oben erkannt hast, brauchen wir ein systematisches Vorgehen, um das dynamische Verhalten zu beschreiben. Vermutlich hast du das Eingangssignal einmal sprungförmig geändert, oder kurz impulsartig hoch und wieder runtergefahren etc. um das Verhalten des Übertragungsgliedes zu analysieren. Genau diese intuitive Vorgehensweise findet sich in den folgenden Methoden wieder.</p>
+<p>Wie du vermutlich beim Herumspielen mit der interaktiven Demo oben erkannt hast, brauchen wir ein systematisches Vorgehen, um das dynamische Verhalten zu beschreiben. Vermutlich hast du das Eingangssignal einmal sprungförmig geändert, oder kurz impulsartig hoch und wieder runter gefahren etc. um das Verhalten des Übertragungsgliedes zu analysieren. Genau diese intuitive Vorgehensweise findet sich in den folgenden Methoden wieder.</p>
 <section id="sprungantwort" class="level4 unnumbered page-columns page-full">
 <h4 class="unnumbered anchored" data-anchor-id="sprungantwort">Sprungantwort</h4>
 <p>Bei der Sprungantwort wird das Eingangssignal sprungförmig verändert (häufig von 0 auf 1 - wir sprechen dann vom <em>Einheitssprung</em>) und dann geschaut, was das Ausgangssignal macht. <a href="#fig-sprungantwort" class="quarto-xref">Abb.&nbsp;<span>2.6</span></a> zeigt eine Animation einer Sprungantwort, wobei hier <span class="math inline">K_P = 1</span> gewählt wurde, sodass Ein- und Ausgang im stationären Zustand identisch sind.</p>
@@ -1564,7 +1564,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regelungstechnik-Workflow</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Ausgehend vom Standardregelkreis können wir uns bereits jetzt überlegen, wie wir Vorgehen würden, um eine regelungstechnische Problemstellung systematisch zu bearbeiten. Das folgende Vorgehen nennen wir *Regelungtechnik-Workflow* und es besteht aus den folgenden Schritten:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Ausgehend vom Standardregelkreis können wir uns bereits jetzt überlegen, wie wir Vorgehen würden, um eine regelungstechnische Problemstellung systematisch zu bearbeiten. Das folgende Vorgehen nennen wir *Regelungstechnik-Workflow* und es besteht aus den folgenden Schritten:</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Verhalten der Regelstrecke analysieren/beschreiben (reales System)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Modell der Regelstrecke aufbauen (Simulation)</span>
@@ -1572,16 +1572,16 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Regler entwerfen/auslegen (Simulation)</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Regler implementieren und testen (reales System)</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>Wir sehen, dass die Simulation dabei eine wichtige Rolle einnimmt. Für die Modellierung der Regelstrecke (Schritt 2) und den Reglerentwurf (Schritt 4) werden wir primär mit dem Simulationstool arbeiten. @fig-workflow zeigt den Workflow grafisch.</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>Wir sehen, dass die Simulation dabei eine wichtige Rolle einnimmt. Für die Modellierung der Regelstrecke (Schritt 2) und den Reglerentwurf (Schritt 4) werden wir primär mit dem Simulationstool <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> arbeiten. @fig-workflow zeigt den Workflow grafisch.</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="al">![Regelungstechnik-Workflow](../images/diagrams/Workflow.png)</span>{#fig-workflow}</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>Im Folgenden werden wir uns die Grundlagen für die Schritte 1 und 2 - der Analyse und Modellierung der Regelstrecke - erarbeiten. Wir werden feststellen, dass wir Systeme, die auf den ersten Blick völlige unterschiedlich aussehen (elektrisch, mechanisch, thermisch, ...) in der Regelungstechnik mit denselben *Grundgliedern* beschreiben können. </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>Im Folgenden werden wir uns die Grundlagen für die Schritte 1 und 2 - der Analyse und Modellierung der Regelstrecke - erarbeiten. Wir werden feststellen, dass wir Systeme, die auf den ersten Blick völlig unterschiedlich aussehen (elektrisch, mechanisch, thermisch, ...) in der Regelungstechnik mit denselben *Grundgliedern* beschreiben können. </span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>Wie wir im ersten Kapitel gelernt haben, beschreibt ein Übertragungsglied (Block) den Ursache-Wirkungs-Zusammenhang zwischen dem Ein- und Ausgang (z. B. der Regelstrecke oder Teilen davon). Ein- und Ausgang bezeichnen wir allgemein mit $x_e$ und $x_a$. </span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Symbole"}</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>Wenn wir ganz allgemein ein Übertragungsglied betrachten, dann verwenden wir die Symbole $x_e$ und $x_a$ für Ein- und Ausgang. </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>Wenn wir allgemein ein Übertragungsglied betrachten, verwenden wir typischerweise die Symbole $x_e$ und $x_a$ für Ein- und Ausgang. </span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>Wenn wir eine konkrete Regelstrecke betrachten, verwenden wir gemäss den Bezeichnungen des Standardregelkreise (vgl. @fig-rk) als Eingang $y$  (Stellgrösse) und als Ausgang $x$ (Regelgrösse). Wenn typische physikalische Grössen (z. B. Geschwindigkeit, Drehzahl, Kraft, ...) auftreten, verwenden wir häufig auch die Symbole, welche wir aus der Physik kennen (z. B. $v$ für Geschwindigkeit, $n$ für Drehzahl, $F$ für Kraft, ...).</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -1623,23 +1623,23 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>::::: {.columns}</span>
 <span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>:::: {.column width="49%"}</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Strecke mit Ausgleich (P-Strecke)"}</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Strecken mit Ausgleich (P-Strecken)"}</span>
 <span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>Bei Regelstrecken mit Ausgleich strebt die Ausgangsgrösse (Regelgrösse) nach Anlegen einer konstanten Eingangsgrösse (Stellgrösse) ebenfalls einem konstanten Wert entgegen.</span>
 <span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>:::: {.column width="49%"}</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Strecke ohne Ausgleich (I-Strecke)"}</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Strecken ohne Ausgleich (I-Strecken)"}</span>
 <span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>Bei Regelstrecken ohne Ausgleich strebt die Ausgangsgrösse (Regelgrösse) nach Anlegen einer konstanten Eingangsgrösse (Stellgrösse) keinem stationären Zustand entgegen.</span>
 <span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>:::::</span>
 <span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>Im Folgenden betrachten wir einen PKW (stark vereinfacht) als Übertragungsglied. Eingangsgrösse (Stellgrösse) ist die Gaspedalstellung $s$ <span class="co">[</span><span class="ot">%</span><span class="co">]</span> und Ausgangsgrösse ist die Geschwindigkeit $v$ <span class="co">[</span><span class="ot">km/h</span><span class="co">]</span>.</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>Im Folgenden betrachten wir einen PKW (stark vereinfacht) als Demo-Regelstrecke. Eingangsgrösse (Stellgrösse) ist die Gaspedalstellung $s$ <span class="co">[</span><span class="ot">%</span><span class="co">]</span> und Ausgangsgrösse ist die Geschwindigkeit $v$ <span class="co">[</span><span class="ot">km/h</span><span class="co">]</span>.</span>
 <span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="al">![PKW als Übertragungsglied](../images/diagrams/PKW.png)</span>{#fig-pkw}</span>
 <span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist eine interaktive Demo, wobei der Slider links das Gaspedal <span class="co">[</span><span class="ot">0-100%</span><span class="co">]</span> repräsentiert. Spiele etwas damit herum und überzeuge dich, dass es sich dabei um eine P-Strecke handelt. </span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist das Verhalten der Demo-Regelstrecke interaktiv dargestellt, wobei der Slider links das Gaspedal <span class="co">[</span><span class="ot">0-100%</span><span class="co">]</span> repräsentiert. Spiele etwas damit herum und überzeuge dich, dass es sich dabei um eine P-Strecke handelt. </span>
 <span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
 <span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="fu">.slider-col</span> {</span>
@@ -1758,7 +1758,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
 <span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übung</span></span>
-<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a>Überlege dir, wie wir dabei den Zusammenhang zwischen Ein- und Ausgang mögichst kompakt beschreiben können?</span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a>Überlege dir, wie wir den Zusammenhang zwischen Ein- und Ausgang der obigen Demo-Regelstrecke möglichst kompakt beschreiben können?</span>
 <span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übertragungsverhalten</span></span>
@@ -1800,7 +1800,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a>Das statische Übertragungsverhalten (also die Kennlinie) sagt nichts darüber aus, *wie rasch* bzw. *auf welche Weise* das Ausgangssignal bei einer Änderung des Eingangssignals den neuen stationären Wert erreicht. Um diese Frage geht es beim dynamischen Übertragungsverhalten - wir sprechen auch vom *Übergangsverhalten*.</span>
 <span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a>Wie du vermutlich beim Herumspielen mit der interaktiven Demo oben erkannt hast, brauchen wir ein systematisches Vorgehen, um das dynamische Verhalten zu beschreiben. Vermutlich hast du das Eingangssignal einmal sprungförmig geändert, oder kurz impulsartig hoch und wieder runtergefahren etc. um das Verhalten des Übertragungsgliedes zu analysieren. Genau diese intuitive Vorgehensweise findet sich in den folgenden Methoden wieder.</span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a>Wie du vermutlich beim Herumspielen mit der interaktiven Demo oben erkannt hast, brauchen wir ein systematisches Vorgehen, um das dynamische Verhalten zu beschreiben. Vermutlich hast du das Eingangssignal einmal sprungförmig geändert, oder kurz impulsartig hoch und wieder runter gefahren etc. um das Verhalten des Übertragungsgliedes zu analysieren. Genau diese intuitive Vorgehensweise findet sich in den folgenden Methoden wieder.</span>
 <span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sprungantwort {.unnumbered}</span></span>
 <span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a></span>
