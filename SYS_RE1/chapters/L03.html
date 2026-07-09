@@ -357,7 +357,7 @@ window.Quarto = {
 </ul>
 <section id="glieder-mit-ausgleich-p-glieder" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="glieder-mit-ausgleich-p-glieder"><span class="header-section-number">3.1</span> Glieder mit Ausgleich (P-Glieder)</h2>
-<p>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang <span class="math inline">x_a</span> bei einem konstanten Eingang <span class="math inline">x_e</span> einen stationären Endwert. Es wird also ein <em>Beharrungszustand</em> erreicht, wobei der stationäre Endwert proportional zum Eingang ist (daher kommt das <em>P</em>).</p>
+<p>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang <span class="math inline">x_a</span> bei einem konstanten Eingang <span class="math inline">x_e</span> einen stationären Endwert. Es wird also ein <em>Beharrungszustand</em> erreicht, wobei der stationäre Endwert <em>proportional</em> zum Eingang ist (daher kommt der Name <em>P-Glieder</em>).</p>
 <p><span class="math display">
 x_a = K_P \cdot x_e \qquad \text{(Beharrungszustand)}
 </span></p>
@@ -897,7 +897,7 @@ K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{
 <p><span class="math display">
 x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}
 </span></p>
-<p>Wir erkennen in obiger Gleichung sehr schön, dass der Eingang <em>integriert</em> wird (daher der Name <em>I-Glieder</em>). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</p>
+<p>Wir erkennen in obiger Gleichung sehr schön, dass der Eingang <em>integriert</em> wird (daher kommt der Name <em>I-Glieder</em>). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</p>
 <p><span class="math display">
 \dot{x}_a(t) = K_I \cdot x_e(t)
 </span></p>
@@ -1038,7 +1038,7 @@ Abb.&nbsp;3.15: I-T<sub>t</sub>-Glied
 </section>
 <section id="regelbarkeit" class="level2 page-columns page-full" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="regelbarkeit"><span class="header-section-number">3.3</span> Regelbarkeit</h2>
-<p>Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T<sub>5</sub>-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T<sub>1</sub>). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</p>
+<p>Wie man intuitiv vermuten würde, sind Verzögerungen höherer Ordnung (z. B. ein P-T<sub>5</sub>-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen niedriger Ordnung (z. B. ein P-T<sub>1</sub>). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang “erscheint”. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann plötzlich rasch ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann rasch zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</p>
 <div id="fig-verz-p" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-verz-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1099,7 +1099,7 @@ Tab.&nbsp;3.1: Regelbarkeit
 </figcaption>
 </figure>
 </div>
-<p>Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit <span class="math inline">T_e</span> (reines I-Glied → I-T<sub>1</sub> → I-T<sub>2</sub> → … → I-T<sub>t</sub>) wird es immer schwieriger für die Regelung.</p>
+<p>Sinngemäss gilt dies auch für I-Strecken. Mit zunehmender Verzugszeit <span class="math inline">T_e</span> (reines I-Glied → I-T<sub>1</sub> → I-T<sub>2</sub> → … → I-T<sub>t</sub>) wird es immer schwieriger für die Regelung.</p>
 <div id="fig-verz-i" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-verz-i-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1844,7 +1844,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Glieder mit Ausgleich (P-Glieder)</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang $x_a$ bei einem konstanten Eingang $x_e$ einen stationären Endwert. Es wird also ein *Beharrungszustand* erreicht, wobei der stationäre Endwert proportional zum Eingang ist (daher kommt das *P*).</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang $x_a$ bei einem konstanten Eingang $x_e$ einen stationären Endwert. Es wird also ein *Beharrungszustand* erreicht, wobei der stationäre Endwert *proportional* zum Eingang ist (daher kommt der Name *P-Glieder*).</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>x_a = K_P \cdot x_e \qquad \text{(Beharrungszustand)}</span>
@@ -2225,7 +2225,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-402"><a href="#cb4-402" aria-hidden="true" tabindex="-1"></a>x_a(t) = K_I \cdot \int{x_e(t)\, \mathrm{d}t}</span>
 <span id="cb4-403"><a href="#cb4-403" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-404"><a href="#cb4-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-405"><a href="#cb4-405" aria-hidden="true" tabindex="-1"></a>Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</span>
+<span id="cb4-405"><a href="#cb4-405" aria-hidden="true" tabindex="-1"></a>Wir erkennen in obiger Gleichung sehr schön, dass der Eingang *integriert* wird (daher kommt der Name *I-Glieder*). Leitet man beide Seiten der Gleichung ab, so resultiert die folgende äquivalente Differentialgleichung 1. Ordnung:</span>
 <span id="cb4-406"><a href="#cb4-406" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-407"><a href="#cb4-407" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-408"><a href="#cb4-408" aria-hidden="true" tabindex="-1"></a>\dot{x}_a(t) = K_I \cdot x_e(t)</span>
@@ -2316,7 +2316,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-493"><a href="#cb4-493" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-494"><a href="#cb4-494" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regelbarkeit</span></span>
 <span id="cb4-495"><a href="#cb4-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-496"><a href="#cb4-496" aria-hidden="true" tabindex="-1"></a>Wie man intuitiv vermuten würde, sind Verzögerungen hoher Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen tiefer Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang erscheint. Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann schlagartig ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann plötzlich zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</span>
+<span id="cb4-496"><a href="#cb4-496" aria-hidden="true" tabindex="-1"></a>Wie man intuitiv vermuten würde, sind Verzögerungen höherer Ordnung (z. B. ein P-T~5~-Glied bzw. Totzeiten) für die Regelung deutlich ungünstiger als Verzögerungen niedriger Ordnung (z. B. ein P-T~1~). Mit zunehmender Verzögerung dauert es verhältnismässig immer länger bis eine Eingangsänderung am Ausgang "erscheint". Sehr ungünstig wird es, wenn (wie bei der Totzeit) der Ausgang verzögert ist und dann plötzlich rasch ansteigt. Die ist für den Regler eine grosse Herausforderung, da er zuerst stark eingreift, weil am Ausgang noch nichts passiert, und dann rasch zurückfahren muss, wenn die Änderung am Ausgang schlagartig erscheint.</span>
 <span id="cb4-497"><a href="#cb4-497" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-498"><a href="#cb4-498" aria-hidden="true" tabindex="-1"></a><span class="al">![Zunehmende Verzugszeit (P-Strecken)](../images/diagrams/P-Strecken_allg.svg)</span>{#fig-verz-p}</span>
 <span id="cb4-499"><a href="#cb4-499" aria-hidden="true" tabindex="-1"></a></span>
@@ -2338,7 +2338,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-515"><a href="#cb4-515" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-516"><a href="#cb4-516" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-517"><a href="#cb4-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-518"><a href="#cb4-518" aria-hidden="true" tabindex="-1"></a>Das obige gilt sinngemäss auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.</span>
+<span id="cb4-518"><a href="#cb4-518" aria-hidden="true" tabindex="-1"></a>Sinngemäss gilt dies auch für I-Strecken. Mit zunehmender Verzugszeit $T_e$ (reines I-Glied → I-T~1~ → I-T~2~ → ... → I-T~t~) wird es immer schwieriger für die Regelung.</span>
 <span id="cb4-519"><a href="#cb4-519" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-520"><a href="#cb4-520" aria-hidden="true" tabindex="-1"></a><span class="al">![Zunehmende Verzugszeit (I-Strecken)](../images/diagrams/I-Strecken_allg.svg)</span>{#fig-verz-i}</span>
 <span id="cb4-521"><a href="#cb4-521" aria-hidden="true" tabindex="-1"></a></span>
