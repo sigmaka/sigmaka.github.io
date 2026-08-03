@@ -34,3 +34,38 @@ h4 {
 .small-eq {
   font-size: 0.8em;
 }
+
+.footnotes {
+  display: none;
+}
+
+.katex {
+  font-size: 1.05em;
+}
+
+.katex-display .katex {
+  font-size: 1.21em;
+}
+
+.quarto-video video {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.icon-list ul {
+  list-style: none;
+  padding-left: 1.0rem;
+}
+
+.icon-list li {
+  position: relative;
+  padding-left: 1.8em;
+}
+
+.icon-list li::before {
+  font-family: "bootstrap-icons";
+  content: "\F114";
+  position: absolute;
+  left: 0;
+}

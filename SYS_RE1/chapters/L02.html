@@ -77,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c875dbb4c9335aca9cc352e974a4ec92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-11f943d916b1390b48b2627ac8a86575.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b656b24f5c349facd40ab035f1972472.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -236,6 +236,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Streckenidentifikation</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Stetige Regler</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -289,7 +295,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Quellcode anzeigen</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-rs" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analyse der Regelstrecke</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Quellcode anzeigen</a></li></ul></div></div>
 </div>
 
 
@@ -858,7 +864,7 @@ Tab.&nbsp;2.1: Gliederung
 </button>
 <div id="aufgaben2">
 <div id="ex-2-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -867,7 +873,7 @@ Tab.&nbsp;2.1: Gliederung
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Ein Differenzdrucksensor hat einen Messbereich von -50 mbar bis +50 mbar und gibt eine Ausgangsspannung von -10 V (bei -50 mbar) bis +10 V (bei +50 mbar) aus.</p>
 <ol type="a">
@@ -893,11 +899,49 @@ T_1 =
 <p><span class="math display">
 \Delta p =
 </span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Bei einem Sensor ist die Eingangsgrösse die physikalische Grösse (hier Differenzdruck) und die Ausgangsgrösse das elektrische Signal (hier Spannung).</li>
+</ol>
+<p><img src="../images/diagrams/A2_1a_LSG.svg" class="img-fluid"></p>
+<ol start="2" type="a">
+<li>Der Proportionalbeiwert <span class="math inline">K_P</span> entspricht der Steigung der Kennlinie. Bei einer linearen Kennlinie kann die Steigung mit einem beliebigen Steigungsdreieck bestimmt werden.</li>
+</ol>
+<p><span class="math display">
+K_P = \frac{10\,\mathrm{V} - (-10\,\mathrm{V})}{50\,\mathrm{mbar} - (-50\,\mathrm{mbar})} = \frac{20\,\mathrm{V}}{100\,\mathrm{mbar}} = 0.2 \frac{\mathrm{V}}{\mathrm{mbar}}
+</span></p>
+<ol start="3" type="a">
+<li>Bei einem P-T<sub>1</sub> kann die Zeitkonstante <span class="math inline">T_1</span> mittels Tangente am Startpunkt bestimmt werden (Lot vom Schnittpunkt des stationären Endwertes fällen). Alternativ: Nach Ablauf der Zeitkonstante ist die Sprungantwort auf 63% des stationären Endwertes angestiegen (<span class="math inline">0.63 \cdot 2 = 1.26</span>).</li>
+</ol>
+<p><img src="../images/diagrams/A2_1c_LSG.svg" class="img-fluid"></p>
+<p><span class="math display">
+T_1 = 0.1\,s
+</span></p>
+<ol start="4" type="a">
+<li>Für einen stationären Endwert von 2 V ist gemäss Kennlinie eine Druckdifferenz von 10 mbar erforderlich. Alternativ kann das Ergebnis gemäss <span class="math inline">\Delta U = K_P \cdot \Delta p</span> auch rechnerisch ermittelt werden.</li>
+</ol>
+<p><span class="math display">
+\Delta p = \frac{\Delta U}{K_P} = \frac{2\,\mathrm{V}}{0.2 \frac{\mathrm{V}}{\mathrm{mbar}}} = 10\,\mathrm{mbar}
+</span></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-2-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -906,7 +950,7 @@ T_1 =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Ein quaderförmiger Wassertank mit der Grundfläche 1m x 1m wird mit Wasser befüllt. Der Zufluss beträgt 5 Liter pro Sekunde und nichts fliesst aus dem Tank heraus. Für eine zukünftige Regelung des Füllstandes <span class="math inline">h</span> sollst du erste Überlegungen anstellen.</p>
 <p><img src="../images/diagrams/A2_2a.png" class="img-fluid"></p>
@@ -915,11 +959,34 @@ T_1 =
 <li><p>Skizziere den zeitlichen Verlauf des Füllstandes für die ersten 10 s im untenstehenden Diagramm (Annahme: Tank ist leer (<span class="math inline">h = 0</span>) bei <span class="math inline">t = 0</span>). Beschrifte die Achsen vollständig.</p></li>
 </ol>
 <p><img src="../images/diagrams/A2_2b.svg" class="img-fluid"></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Bei einer konstanten Eingangsgrösse (also einem konstanten Volumenstrom) strebt die Ausgangsgrösse (also der Füllstand) nicht gegen einen stationären Endwert, sondern steigt kontinuierlich an. Daher handelt es sich um eine Regelstrecke ohne Ausgleich (auch I-Strecke genannt).</p></li>
+<li><p>Pro Sekunde steigt der Füllstand um:</p></li>
+</ol>
+<p><span class="math display">
+\Delta h = \frac{5\,\mathrm{l/s}}{1\,\mathrm{m^2}} = \frac{0.005\,\mathrm{m^3/s}}{1\,\mathrm{m^2}} = 0.005\,\mathrm{m/s} = 5\,\mathrm{mm/s}
+</span></p>
+<p><img src="../images/diagrams/A2_2b_LSG.svg" class="img-fluid"></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-2-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -928,10 +995,29 @@ T_1 =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Für einen Beschichtungsprozess wird ein Förderband verwendet, das eine Länge von 2 m hat und die Produkte mit einer Geschwindigkeit <span class="math inline">v</span> von 0.8 m/s befördert. Mit was für einer <strong>Verzugszeit (Totzeit <span class="math inline">T_t</span>)</strong> ist im Minimum zu rechnen, wenn das Stellglied am einen Ende und das Messsystem (Sensor) am anderen Ende des Förderbandes angebracht sind?</p>
 <p><img src="../images/diagrams/A2_3.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Die Totzeit <span class="math inline">T_t</span> entspricht der Zeit, die verstreicht, bis das Produkt von der einen Seite des Förderbands (wo sich das Stellglied befindet) auf der anderen Seite angekommen ist (wo sich der Sensor befindet). Diese Zeitdauer lässt sich bei konstanter Geschwindigkeit <span class="math inline">v</span> und Förderbandlänge <span class="math inline">l</span> bestimmen.</p>
+<p><span class="math display">
+T_t = \frac{l}{v} = \frac{2\,\mathrm{m}}{0.8\,\frac{\mathrm{m}}{\mathrm{s}}} = 2.5\,\mathrm{s}
+</span></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1552,7 +1638,7 @@ window._ojs.runtime.interpretFromScriptTags();
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Analyse der Regelstrecke</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Analyse der Regelstrecke {#sec-rs}</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Einer der wichtigsten Schritte in der Regelungstechik ist es, die Regelstrecke zu analysieren bzw. zu identifizieren, um ihr Verhalten in der Simulation abbilden zu können. Diesem Unterfangen widmet sich dieser und zukünftige Unterrichtsblöcke.</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1905,30 +1991,77 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-357"><a href="#cb4-357" aria-hidden="true" tabindex="-1"></a>\Delta p =</span>
 <span id="cb4-358"><a href="#cb4-358" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-361"><a href="#cb4-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-2}</span>
-<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.2</span></span>
-<span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a>Ein quaderförmiger Wassertank mit der Grundfläche 1m x 1m wird mit Wasser befüllt. Der Zufluss beträgt 5 Liter pro Sekunde und nichts fliesst aus dem Tank heraus. Für eine zukünftige Regelung des Füllstandes $h$ sollst du erste Überlegungen anstellen. </span>
+<span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb4-361"><a href="#cb4-361" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a>(a) Bei einem Sensor ist die Eingangsgrösse die physikalische Grösse (hier Differenzdruck) und die Ausgangsgrösse das elektrische Signal (hier Spannung).</span>
+<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_1a_LSG.svg)</span></span>
 <span id="cb4-365"><a href="#cb4-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-366"><a href="#cb4-366" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2a.png)</span></span>
+<span id="cb4-366"><a href="#cb4-366" aria-hidden="true" tabindex="-1"></a>(b) Der Proportionalbeiwert $K_P$ entspricht der Steigung der Kennlinie. Bei einer linearen Kennlinie kann die Steigung mit einem beliebigen Steigungsdreieck bestimmt werden.</span>
 <span id="cb4-367"><a href="#cb4-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-368"><a href="#cb4-368" aria-hidden="true" tabindex="-1"></a>a) Würdest du dieses System als Regelstrecke mit Ausgleich oder als Regelstrecke ohne Ausgleich einstufen? (Eingangsgrösse: Volumenstrom, Ausgangsgrösse: Füllstand)</span>
-<span id="cb4-369"><a href="#cb4-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-370"><a href="#cb4-370" aria-hidden="true" tabindex="-1"></a>b) Skizziere den zeitlichen Verlauf des Füllstandes für die ersten 10 s im untenstehenden Diagramm (Annahme: Tank ist leer ($h = 0$) bei $t = 0$). Beschrifte die Achsen vollständig.</span>
+<span id="cb4-368"><a href="#cb4-368" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-369"><a href="#cb4-369" aria-hidden="true" tabindex="-1"></a>K_P = \frac{10\,\mathrm{V} - (-10\,\mathrm{V})}{50\,\mathrm{mbar} - (-50\,\mathrm{mbar})} = \frac{20\,\mathrm{V}}{100\,\mathrm{mbar}} = 0.2 \frac{\mathrm{V}}{\mathrm{mbar}} </span>
+<span id="cb4-370"><a href="#cb4-370" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-371"><a href="#cb4-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-372"><a href="#cb4-372" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2b.svg)</span></span>
+<span id="cb4-372"><a href="#cb4-372" aria-hidden="true" tabindex="-1"></a>(c) Bei einem P-T~1~ kann die Zeitkonstante $T_1$ mittels Tangente am Startpunkt bestimmt werden (Lot vom Schnittpunkt des stationären Endwertes fällen). Alternativ: Nach Ablauf der Zeitkonstante ist die Sprungantwort auf 63% des stationären Endwertes angestiegen ($0.63 \cdot 2 = 1.26$).</span>
 <span id="cb4-373"><a href="#cb4-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-374"><a href="#cb4-374" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-374"><a href="#cb4-374" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_1c_LSG.svg)</span></span>
 <span id="cb4-375"><a href="#cb4-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-376"><a href="#cb4-376" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-3}</span>
-<span id="cb4-377"><a href="#cb4-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.3</span></span>
-<span id="cb4-378"><a href="#cb4-378" aria-hidden="true" tabindex="-1"></a>Für einen Beschichtungsprozess wird ein Förderband verwendet, das eine Länge von 2 m hat und die Produkte mit einer Geschwindigkeit $v$ von 0.8 m/s befördert. Mit was für einer **Verzugszeit (Totzeit $T_t$)** ist im Minimum zu rechnen, wenn das Stellglied am einen Ende und das Messsystem (Sensor) am anderen Ende des Förderbandes angebracht sind?</span>
+<span id="cb4-376"><a href="#cb4-376" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-377"><a href="#cb4-377" aria-hidden="true" tabindex="-1"></a>T_1 = 0.1\,s</span>
+<span id="cb4-378"><a href="#cb4-378" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-379"><a href="#cb4-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-380"><a href="#cb4-380" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_3.png)</span></span>
+<span id="cb4-380"><a href="#cb4-380" aria-hidden="true" tabindex="-1"></a>(d) Für einen stationären Endwert von 2 V ist gemäss Kennlinie eine Druckdifferenz von 10 mbar erforderlich. Alternativ kann das Ergebnis gemäss $\Delta U = K_P \cdot \Delta p$ auch rechnerisch ermittelt werden.</span>
 <span id="cb4-381"><a href="#cb4-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-382"><a href="#cb4-382" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-383"><a href="#cb4-383" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-382"><a href="#cb4-382" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-383"><a href="#cb4-383" aria-hidden="true" tabindex="-1"></a>\Delta p = \frac{\Delta U}{K_P} = \frac{2\,\mathrm{V}}{0.2 \frac{\mathrm{V}}{\mathrm{mbar}}} = 10\,\mathrm{mbar}</span>
+<span id="cb4-384"><a href="#cb4-384" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-385"><a href="#cb4-385" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-386"><a href="#cb4-386" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-387"><a href="#cb4-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-388"><a href="#cb4-388" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-2}</span>
+<span id="cb4-389"><a href="#cb4-389" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.2</span></span>
+<span id="cb4-390"><a href="#cb4-390" aria-hidden="true" tabindex="-1"></a>Ein quaderförmiger Wassertank mit der Grundfläche 1m x 1m wird mit Wasser befüllt. Der Zufluss beträgt 5 Liter pro Sekunde und nichts fliesst aus dem Tank heraus. Für eine zukünftige Regelung des Füllstandes $h$ sollst du erste Überlegungen anstellen. </span>
+<span id="cb4-391"><a href="#cb4-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-392"><a href="#cb4-392" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2a.png)</span></span>
+<span id="cb4-393"><a href="#cb4-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-394"><a href="#cb4-394" aria-hidden="true" tabindex="-1"></a>a) Würdest du dieses System als Regelstrecke mit Ausgleich oder als Regelstrecke ohne Ausgleich einstufen? (Eingangsgrösse: Volumenstrom, Ausgangsgrösse: Füllstand)</span>
+<span id="cb4-395"><a href="#cb4-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-396"><a href="#cb4-396" aria-hidden="true" tabindex="-1"></a>b) Skizziere den zeitlichen Verlauf des Füllstandes für die ersten 10 s im untenstehenden Diagramm (Annahme: Tank ist leer ($h = 0$) bei $t = 0$). Beschrifte die Achsen vollständig.</span>
+<span id="cb4-397"><a href="#cb4-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-398"><a href="#cb4-398" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2b.svg)</span></span>
+<span id="cb4-399"><a href="#cb4-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-400"><a href="#cb4-400" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb4-401"><a href="#cb4-401" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb4-402"><a href="#cb4-402" aria-hidden="true" tabindex="-1"></a>(a) Bei einer konstanten Eingangsgrösse (also einem konstanten Volumenstrom) strebt die Ausgangsgrösse (also der Füllstand) nicht gegen einen stationären Endwert, sondern steigt kontinuierlich an. Daher handelt es sich um eine Regelstrecke ohne Ausgleich (auch I-Strecke genannt).</span>
+<span id="cb4-403"><a href="#cb4-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-404"><a href="#cb4-404" aria-hidden="true" tabindex="-1"></a>(b) Pro Sekunde steigt der Füllstand um:</span>
+<span id="cb4-405"><a href="#cb4-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-406"><a href="#cb4-406" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-407"><a href="#cb4-407" aria-hidden="true" tabindex="-1"></a>\Delta h = \frac{5\,\mathrm{l/s}}{1\,\mathrm{m^2}} = \frac{0.005\,\mathrm{m^3/s}}{1\,\mathrm{m^2}} = 0.005\,\mathrm{m/s} = 5\,\mathrm{mm/s}</span>
+<span id="cb4-408"><a href="#cb4-408" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-409"><a href="#cb4-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-410"><a href="#cb4-410" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_2b_LSG.svg)</span></span>
+<span id="cb4-411"><a href="#cb4-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-412"><a href="#cb4-412" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-413"><a href="#cb4-413" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-414"><a href="#cb4-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-415"><a href="#cb4-415" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-3}</span>
+<span id="cb4-416"><a href="#cb4-416" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.3</span></span>
+<span id="cb4-417"><a href="#cb4-417" aria-hidden="true" tabindex="-1"></a>Für einen Beschichtungsprozess wird ein Förderband verwendet, das eine Länge von 2 m hat und die Produkte mit einer Geschwindigkeit $v$ von 0.8 m/s befördert. Mit was für einer **Verzugszeit (Totzeit $T_t$)** ist im Minimum zu rechnen, wenn das Stellglied am einen Ende und das Messsystem (Sensor) am anderen Ende des Förderbandes angebracht sind?</span>
+<span id="cb4-418"><a href="#cb4-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-419"><a href="#cb4-419" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A2_3.png)</span></span>
+<span id="cb4-420"><a href="#cb4-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-421"><a href="#cb4-421" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb4-422"><a href="#cb4-422" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb4-423"><a href="#cb4-423" aria-hidden="true" tabindex="-1"></a>Die Totzeit $T_t$ entspricht der Zeit, die verstreicht, bis das Produkt von der einen Seite des Förderbands (wo sich das Stellglied befindet) auf der anderen Seite angekommen ist (wo sich der Sensor befindet). Diese Zeitdauer lässt sich bei konstanter Geschwindigkeit $v$ und Förderbandlänge $l$ bestimmen.</span>
+<span id="cb4-424"><a href="#cb4-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-425"><a href="#cb4-425" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-426"><a href="#cb4-426" aria-hidden="true" tabindex="-1"></a>T_t = \frac{l}{v} = \frac{2\,\mathrm{m}}{0.8\,\frac{\mathrm{m}}{\mathrm{s}}} = 2.5\,\mathrm{s}</span>
+<span id="cb4-427"><a href="#cb4-427" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-428"><a href="#cb4-428" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-429"><a href="#cb4-429" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-430"><a href="#cb4-430" aria-hidden="true" tabindex="-1"></a>::::</span>
 </code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -1941,7 +2074,7 @@ window._ojs.runtime.interpretFromScriptTags();
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>S. Krauss | ABBTS</p>
+<p>ABBTS | S. Krauss</p>
 </div>
   </div>
 </footer>

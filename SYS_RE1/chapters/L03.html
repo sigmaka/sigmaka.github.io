@@ -96,10 +96,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c875dbb4c9335aca9cc352e974a4ec92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-11f943d916b1390b48b2627ac8a86575.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b656b24f5c349facd40ab035f1972472.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -253,6 +253,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../chapters/L04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Streckenidentifikation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Stetige Regler</span></span></a>
   </div>
 </li>
       </ul>
@@ -890,7 +896,12 @@ Abb.&nbsp;3.11: Förderband <a href="https://instrumentationtools.com/dead-time/
 <p><span class="math display">
 K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)
 </span></p>
-<p>Der Kehrwert des Integrierbeiwerts wird als <strong>Integrierzeit</strong> <span class="math inline">T_I = \frac{1}{K_I}</span> bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit <span class="math inline">T_I</span> arbeiten.</p>
+<p>Der Kehrwert des Integrierbeiwerts wird als <strong>Integrierzeit</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">T_I = \frac{1}{K_I}</span> bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit <span class="math inline">T_I</span> arbeiten.</p>
+<aside id="footnotes" class="footnotes footnotes-end-of-block" role="doc-footnote">
+<ol>
+<li id="fn1"><p>Die Integrierzeit <span class="math inline">T_I</span> hat je nach Einheit der Ein- und Ausgangsgrösse eine andere Einheit. Nur wenn Ein- und Ausgangsgrösse die gleiche Einheit haben, hat <span class="math inline">T_I</span> eine Zeiteinheit (z. B. [s]).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
 <section id="i-glied" class="level3 unnumbered page-columns page-full">
 <h3 class="unnumbered anchored" data-anchor-id="i-glied">I-Glied</h3>
 <p>Das (reine) I-Glied ist das einfachste Übertragungsglied ohne Ausgleich und weist keine Verzögerung auf. Es wird durch den Integrierbeiwert <span class="math inline">K_I</span> bzw. die Integrierzeit <span class="math inline">T_I</span> vollständig beschrieben.</p>
@@ -1118,7 +1129,7 @@ Abb.&nbsp;3.18: Zunehmende Verzugszeit (I-Strecken)
 </button>
 <div id="aufgaben3">
 <div id="ex-3-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1127,7 +1138,7 @@ Abb.&nbsp;3.18: Zunehmende Verzugszeit (I-Strecken)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Du hast eine Sprungantwort aufgenommen für einen Temperatursensor, indem du einen Temperatursprung von 20 °C auf 30 °C aufgeprägt (blau) und das Spannungssignal des Sensors gemessen hast (rot).</p>
 <p><img src="../images/diagrams/A3_1.svg" class="img-fluid"></p>
@@ -1146,11 +1157,42 @@ T_1 =
 <ol start="3" type="a">
 <li>Um was für ein Grundglied handelt es sich dabei?</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="../images/diagrams/A3_1_LSG.svg" class="img-fluid"></p>
+<ol type="a">
+<li>Der Proportionalbeiwert <span class="math inline">K_P</span> entspricht der Änderung des Ausgangssignals dividiert durch die Änderung des Eingangssignals.</li>
+</ol>
+<p><span class="math display">
+K_P = \frac{\Delta U}{\Delta \vartheta} = \frac{6\,\mathrm{V}-4\,\mathrm{V}}{30\,\mathrm{°C}-20\,\mathrm{°C}} = \frac{2\,\mathrm{V}}{10\,\mathrm{°C}} = 0.2\frac{\mathrm{V}}{\mathrm{°C}}
+</span></p>
+<ol start="2" type="a">
+<li>Die Zeitkonstante <span class="math inline">T_1</span> wird mittels Tangente bzw. 63%-Anstiegszeit bestimmt.</li>
+</ol>
+<p><span class="math display">
+T_1 = 1.5\,\mathrm{s}
+</span></p>
+<ol start="3" type="a">
+<li>P-T<sub>1</sub></li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-3-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1159,7 +1201,7 @@ T_1 =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl <span class="math inline">𝑛</span> als Eingang und die Schlittenposition <span class="math inline">𝑥</span> als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</p>
 <p><img src="../images/diagrams/A3_2a.png" class="img-fluid"></p>
@@ -1176,11 +1218,49 @@ K_I = \quad \quad \quad \quad T_I =
 <ol start="3" type="a">
 <li>Simuliere die Sprungantwort der obigen I-Strecke in <span class="cap">Boris</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Die Änderung der Schlittenposition <span class="math inline">x</span> pro Umdrehung entspricht der Steigung der Gewindespindel (=5 mm). Bei einer Drehzahl von 1 Umdrehung pro Sekunde ergibt das eine Positionsänderung von 5 mm/s.</li>
+</ol>
+<p><img src="../images/diagrams/A3_2b_LSG.svg" class="img-fluid"></p>
+<ol start="2" type="a">
+<li>Der Integrierbeiwert <span class="math inline">K_I</span> entspricht der Steigung der Sprungantwort (bezogen auf das Eingangssignal). Der Kehrwert davon ist <span class="math inline">T_I</span> und wird Integrierzeit genannt. Die Integrierzeit entspricht der Zeitdauer bis zum Erreichen des Wertes 1.</li>
+</ol>
+<p><span class="math display">
+K_I = \frac{\Delta x}{\Delta t \cdot \Delta n} = \frac{5\,\mathrm{mm}}{1\,\mathrm{s}\cdot1\,\frac{1}{\mathrm{s}}} = 5\,\mathrm{mm} \quad \quad T_I = \frac{1}{K_I} = 0.2\,\frac{1}{\mathrm{mm}}
+</span></p>
+<ol start="3" type="a">
+<li>Die Simulation in <span class="cap">Boris</span> ist straight-forward. Zu beachten ist, dass beim I-Glied die Integrierzeit <span class="math inline">T_I</span> eingegeben werden muss (und nicht der Integrierbeiwert <span class="math inline">K_I</span>).</li>
+</ol>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="../images/diagrams/A3_2c.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="../images/diagrams/A3_2c_Chart.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-3-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1189,9 +1269,9 @@ K_I = \quad \quad \quad \quad T_I =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Bestimme Verzugszeit <span class="math inline">T_e</span> und Ausgleichszeit <span class="math inline">T_b</span> aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>). Berechne anschliessend das Verhältnis <span class="math inline">\frac{T_e}{T_b}</span> und beurteile die Regelbarkeit des Systems.</p>
+<p>Bestimme Verzugszeit <span class="math inline">T_e</span> und Ausgleichszeit <span class="math inline">T_b</span> aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>). Berechne anschliessend das Verhältnis <span class="math inline">T_e/T_b</span> und beurteile die Regelbarkeit des Systems.</p>
 <p><img src="../images/diagrams/A3_3.svg" class="img-fluid"></p>
 <p><span class="math display">
 T_e =
@@ -1202,6 +1282,32 @@ T_b =
 <p><span class="math display">
 \frac{T_e}{T_b} =
 </span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="../images/diagrams/A3_3_LSG.svg" class="img-fluid"></p>
+<p><span class="math display">
+T_e \approx 1\,\mathrm{s}
+</span></p>
+<p><span class="math display">
+T_b \approx 7\,\mathrm{s}-1\,\mathrm{s} = 6\,\mathrm{s}
+</span></p>
+<p><span class="math display">
+\frac{T_e}{T_b} = \frac{1\,\mathrm{s}}{6\,\mathrm{s}} = 0.17\,\mathrm{s}
+</span></p>
+<p>Damit ist die Regelstrecke gemäss <a href="#tbl-regelbarkeit" class="quarto-xref">Tab.&nbsp;<span>3.1</span></a> noch <em>gut regelbar</em>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2215,7 +2321,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-392"><a href="#cb4-392" aria-hidden="true" tabindex="-1"></a>K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)</span>
 <span id="cb4-393"><a href="#cb4-393" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-394"><a href="#cb4-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-395"><a href="#cb4-395" aria-hidden="true" tabindex="-1"></a>Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit** $T_I = \frac{1}{K_I}$ bezeichnet. In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.</span>
+<span id="cb4-395"><a href="#cb4-395" aria-hidden="true" tabindex="-1"></a>Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit**<span class="ot">[^integrierzeit]</span> $T_I = \frac{1}{K_I}$ bezeichnet. In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.</span>
 <span id="cb4-396"><a href="#cb4-396" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-397"><a href="#cb4-397" aria-hidden="true" tabindex="-1"></a><span class="fu">### I-Glied {.unnumbered}</span></span>
 <span id="cb4-398"><a href="#cb4-398" aria-hidden="true" tabindex="-1"></a></span>
@@ -2361,66 +2467,130 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-538"><a href="#cb4-538" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-539"><a href="#cb4-539" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1.svg)</span></span>
 <span id="cb4-540"><a href="#cb4-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-541"><a href="#cb4-541" aria-hidden="true" tabindex="-1"></a>a) Bestimme den Proportionalbeiwert $K_P$ aus der Sprungantwort (inkl. Einheit).</span>
+<span id="cb4-541"><a href="#cb4-541" aria-hidden="true" tabindex="-1"></a>(a) Bestimme den Proportionalbeiwert $K_P$ aus der Sprungantwort (inkl. Einheit).</span>
 <span id="cb4-542"><a href="#cb4-542" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-543"><a href="#cb4-543" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-544"><a href="#cb4-544" aria-hidden="true" tabindex="-1"></a>K_P = </span>
 <span id="cb4-545"><a href="#cb4-545" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-546"><a href="#cb4-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-547"><a href="#cb4-547" aria-hidden="true" tabindex="-1"></a>b) Bestimme die Zeitkonstante $T_1$ aus der Sprungantwort (inkl. Einheit).</span>
+<span id="cb4-547"><a href="#cb4-547" aria-hidden="true" tabindex="-1"></a>(b) Bestimme die Zeitkonstante $T_1$ aus der Sprungantwort (inkl. Einheit).</span>
 <span id="cb4-548"><a href="#cb4-548" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-549"><a href="#cb4-549" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-550"><a href="#cb4-550" aria-hidden="true" tabindex="-1"></a>T_1 =</span>
 <span id="cb4-551"><a href="#cb4-551" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-552"><a href="#cb4-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-553"><a href="#cb4-553" aria-hidden="true" tabindex="-1"></a>c) Um was für ein Grundglied handelt es sich dabei?</span>
+<span id="cb4-553"><a href="#cb4-553" aria-hidden="true" tabindex="-1"></a>(c) Um was für ein Grundglied handelt es sich dabei?</span>
 <span id="cb4-554"><a href="#cb4-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-555"><a href="#cb4-555" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-556"><a href="#cb4-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-557"><a href="#cb4-557" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
-<span id="cb4-558"><a href="#cb4-558" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
+<span id="cb4-555"><a href="#cb4-555" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb4-556"><a href="#cb4-556" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb4-557"><a href="#cb4-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-558"><a href="#cb4-558" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1_LSG.svg)</span></span>
 <span id="cb4-559"><a href="#cb4-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-560"><a href="#cb4-560" aria-hidden="true" tabindex="-1"></a>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl $𝑛$ als Eingang und die Schlittenposition $𝑥$ als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</span>
+<span id="cb4-560"><a href="#cb4-560" aria-hidden="true" tabindex="-1"></a>(a) Der Proportionalbeiwert $K_P$ entspricht der Änderung des Ausgangssignals dividiert durch die Änderung des Eingangssignals.</span>
 <span id="cb4-561"><a href="#cb4-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-562"><a href="#cb4-562" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2a.png)</span></span>
-<span id="cb4-563"><a href="#cb4-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-564"><a href="#cb4-564" aria-hidden="true" tabindex="-1"></a>a) Skizziere den zeitlichen Verlauf der Schlittenposition $𝑥$ für die ersten 5 s im</span>
-<span id="cb4-565"><a href="#cb4-565" aria-hidden="true" tabindex="-1"></a>untenstehenden Diagramm für eine Spindeldrehzahl $𝑛$ von 1 Umdrehung pro Sekunde.</span>
-<span id="cb4-566"><a href="#cb4-566" aria-hidden="true" tabindex="-1"></a>(Annahme: Position $𝑥 = 0$ bei $𝑡 = 0$).</span>
+<span id="cb4-562"><a href="#cb4-562" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-563"><a href="#cb4-563" aria-hidden="true" tabindex="-1"></a>K_P = \frac{\Delta U}{\Delta \vartheta} = \frac{6\,\mathrm{V}-4\,\mathrm{V}}{30\,\mathrm{°C}-20\,\mathrm{°C}} = \frac{2\,\mathrm{V}}{10\,\mathrm{°C}} = 0.2\frac{\mathrm{V}}{\mathrm{°C}}</span>
+<span id="cb4-564"><a href="#cb4-564" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-565"><a href="#cb4-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-566"><a href="#cb4-566" aria-hidden="true" tabindex="-1"></a>(b) Die Zeitkonstante $T_1$ wird mittels Tangente bzw. 63%-Anstiegszeit bestimmt.</span>
 <span id="cb4-567"><a href="#cb4-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-568"><a href="#cb4-568" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2b.svg)</span></span>
-<span id="cb4-569"><a href="#cb4-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-570"><a href="#cb4-570" aria-hidden="true" tabindex="-1"></a>b) Ermittle den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ (rechnerisch oder grafisch).</span>
+<span id="cb4-568"><a href="#cb4-568" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-569"><a href="#cb4-569" aria-hidden="true" tabindex="-1"></a>T_1 = 1.5\,\mathrm{s}</span>
+<span id="cb4-570"><a href="#cb4-570" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-571"><a href="#cb4-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-572"><a href="#cb4-572" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-573"><a href="#cb4-573" aria-hidden="true" tabindex="-1"></a>K_I = \quad \quad \quad \quad T_I =</span>
-<span id="cb4-574"><a href="#cb4-574" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-575"><a href="#cb4-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-576"><a href="#cb4-576" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Sprungantwort der obigen I-Strecke in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</span>
-<span id="cb4-577"><a href="#cb4-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-578"><a href="#cb4-578" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-572"><a href="#cb4-572" aria-hidden="true" tabindex="-1"></a>(c) P-T~1~</span>
+<span id="cb4-573"><a href="#cb4-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-574"><a href="#cb4-574" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-575"><a href="#cb4-575" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-576"><a href="#cb4-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-577"><a href="#cb4-577" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
+<span id="cb4-578"><a href="#cb4-578" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
 <span id="cb4-579"><a href="#cb4-579" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-580"><a href="#cb4-580" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
-<span id="cb4-581"><a href="#cb4-581" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
-<span id="cb4-582"><a href="#cb4-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-583"><a href="#cb4-583" aria-hidden="true" tabindex="-1"></a>Bestimme Verzugszeit $T_e$ und Ausgleichszeit $T_b$ aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. @nte-wt). Berechne anschliessend das Verhältnis $\frac{T_e}{T_b}$ und beurteile die Regelbarkeit des Systems.</span>
-<span id="cb4-584"><a href="#cb4-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-585"><a href="#cb4-585" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_3.svg)</span></span>
-<span id="cb4-586"><a href="#cb4-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-587"><a href="#cb4-587" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-588"><a href="#cb4-588" aria-hidden="true" tabindex="-1"></a>T_e = </span>
-<span id="cb4-589"><a href="#cb4-589" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-590"><a href="#cb4-590" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-591"><a href="#cb4-591" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-592"><a href="#cb4-592" aria-hidden="true" tabindex="-1"></a>T_b = </span>
-<span id="cb4-593"><a href="#cb4-593" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-594"><a href="#cb4-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-595"><a href="#cb4-595" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-596"><a href="#cb4-596" aria-hidden="true" tabindex="-1"></a>\frac{T_e}{T_b} = </span>
-<span id="cb4-597"><a href="#cb4-597" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb4-598"><a href="#cb4-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-599"><a href="#cb4-599" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-600"><a href="#cb4-600" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-580"><a href="#cb4-580" aria-hidden="true" tabindex="-1"></a>Die nachfolgend abgebildete Lineareinheit (Positioniereinheit mit Spindel) soll für eine spätere Regelung untersucht werden. Betrachtet man die Spindeldrehzahl $𝑛$ als Eingang und die Schlittenposition $𝑥$ als Ausgang, so stellt das System ein I-Glied dar. Die Gewindesteigung der Spindel beträgt 5 mm.</span>
+<span id="cb4-581"><a href="#cb4-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-582"><a href="#cb4-582" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2a.png)</span></span>
+<span id="cb4-583"><a href="#cb4-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-584"><a href="#cb4-584" aria-hidden="true" tabindex="-1"></a>(a) Skizziere den zeitlichen Verlauf der Schlittenposition $𝑥$ für die ersten 5 s im</span>
+<span id="cb4-585"><a href="#cb4-585" aria-hidden="true" tabindex="-1"></a>untenstehenden Diagramm für eine Spindeldrehzahl $𝑛$ von 1 Umdrehung pro Sekunde.</span>
+<span id="cb4-586"><a href="#cb4-586" aria-hidden="true" tabindex="-1"></a>(Annahme: Position $𝑥 = 0$ bei $𝑡 = 0$).</span>
+<span id="cb4-587"><a href="#cb4-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-588"><a href="#cb4-588" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2b.svg)</span></span>
+<span id="cb4-589"><a href="#cb4-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-590"><a href="#cb4-590" aria-hidden="true" tabindex="-1"></a>(b) Ermittle den Integrierbeiwert $K_I$ bzw. die Integrierzeit $T_I$ (rechnerisch oder grafisch).</span>
+<span id="cb4-591"><a href="#cb4-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-592"><a href="#cb4-592" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-593"><a href="#cb4-593" aria-hidden="true" tabindex="-1"></a>K_I = \quad \quad \quad \quad T_I =</span>
+<span id="cb4-594"><a href="#cb4-594" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-595"><a href="#cb4-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-596"><a href="#cb4-596" aria-hidden="true" tabindex="-1"></a>(c) Simuliere die Sprungantwort der obigen I-Strecke in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>. Stelle die Simulationsdauer dabei auf 5 Sekunden.</span>
+<span id="cb4-597"><a href="#cb4-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-598"><a href="#cb4-598" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb4-599"><a href="#cb4-599" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb4-600"><a href="#cb4-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-601"><a href="#cb4-601" aria-hidden="true" tabindex="-1"></a>(a) Die Änderung der Schlittenposition $x$ pro Umdrehung entspricht der Steigung der Gewindespindel (=5 mm). Bei einer Drehzahl von 1 Umdrehung pro Sekunde ergibt das eine Positionsänderung von 5 mm/s. </span>
+<span id="cb4-602"><a href="#cb4-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-603"><a href="#cb4-603" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2b_LSG.svg)</span></span>
+<span id="cb4-604"><a href="#cb4-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-605"><a href="#cb4-605" aria-hidden="true" tabindex="-1"></a>(b) Der Integrierbeiwert $K_I$ entspricht der Steigung der Sprungantwort (bezogen auf das Eingangssignal). Der Kehrwert davon ist $T_I$ und wird Integrierzeit genannt. Die Integrierzeit entspricht der Zeitdauer bis zum Erreichen des Wertes 1.</span>
+<span id="cb4-606"><a href="#cb4-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-607"><a href="#cb4-607" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-608"><a href="#cb4-608" aria-hidden="true" tabindex="-1"></a>K_I = \frac{\Delta x}{\Delta t \cdot \Delta n} = \frac{5\,\mathrm{mm}}{1\,\mathrm{s}\cdot1\,\frac{1}{\mathrm{s}}} = 5\,\mathrm{mm} \quad \quad T_I = \frac{1}{K_I} = 0.2\,\frac{1}{\mathrm{mm}}</span>
+<span id="cb4-609"><a href="#cb4-609" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-610"><a href="#cb4-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-611"><a href="#cb4-611" aria-hidden="true" tabindex="-1"></a>(c) Die Simulation in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> ist straight-forward. Zu beachten ist, dass beim I-Glied die Integrierzeit $T_I$ eingegeben werden muss (und nicht der Integrierbeiwert $K_I$).</span>
+<span id="cb4-612"><a href="#cb4-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-613"><a href="#cb4-613" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
+<span id="cb4-614"><a href="#cb4-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-615"><a href="#cb4-615" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2c.png)</span></span>
+<span id="cb4-616"><a href="#cb4-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-617"><a href="#cb4-617" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2c_Chart.png)</span></span>
+<span id="cb4-618"><a href="#cb4-618" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-619"><a href="#cb4-619" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-620"><a href="#cb4-620" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-621"><a href="#cb4-621" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-622"><a href="#cb4-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-623"><a href="#cb4-623" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
+<span id="cb4-624"><a href="#cb4-624" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
+<span id="cb4-625"><a href="#cb4-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-626"><a href="#cb4-626" aria-hidden="true" tabindex="-1"></a>Bestimme Verzugszeit $T_e$ und Ausgleichszeit $T_b$ aus der Sprungantwort des nachfolgend abgebildeten Übertragungsgliedes (vgl. @nte-wt). Berechne anschliessend das Verhältnis $T_e/T_b$ und beurteile die Regelbarkeit des Systems.</span>
+<span id="cb4-627"><a href="#cb4-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-628"><a href="#cb4-628" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_3.svg)</span></span>
+<span id="cb4-629"><a href="#cb4-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-630"><a href="#cb4-630" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-631"><a href="#cb4-631" aria-hidden="true" tabindex="-1"></a>T_e = </span>
+<span id="cb4-632"><a href="#cb4-632" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-633"><a href="#cb4-633" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-634"><a href="#cb4-634" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-635"><a href="#cb4-635" aria-hidden="true" tabindex="-1"></a>T_b = </span>
+<span id="cb4-636"><a href="#cb4-636" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-637"><a href="#cb4-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-638"><a href="#cb4-638" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-639"><a href="#cb4-639" aria-hidden="true" tabindex="-1"></a>\frac{T_e}{T_b} = </span>
+<span id="cb4-640"><a href="#cb4-640" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-641"><a href="#cb4-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-642"><a href="#cb4-642" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb4-643"><a href="#cb4-643" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb4-644"><a href="#cb4-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-645"><a href="#cb4-645" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_3_LSG.svg)</span></span>
+<span id="cb4-646"><a href="#cb4-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-647"><a href="#cb4-647" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-648"><a href="#cb4-648" aria-hidden="true" tabindex="-1"></a>T_e \approx 1\,\mathrm{s}</span>
+<span id="cb4-649"><a href="#cb4-649" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-650"><a href="#cb4-650" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-651"><a href="#cb4-651" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-652"><a href="#cb4-652" aria-hidden="true" tabindex="-1"></a>T_b \approx 7\,\mathrm{s}-1\,\mathrm{s} = 6\,\mathrm{s}</span>
+<span id="cb4-653"><a href="#cb4-653" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-654"><a href="#cb4-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-655"><a href="#cb4-655" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-656"><a href="#cb4-656" aria-hidden="true" tabindex="-1"></a>\frac{T_e}{T_b} = \frac{1\,\mathrm{s}}{6\,\mathrm{s}} = 0.17\,\mathrm{s}</span>
+<span id="cb4-657"><a href="#cb4-657" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-658"><a href="#cb4-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-659"><a href="#cb4-659" aria-hidden="true" tabindex="-1"></a>Damit ist die Regelstrecke gemäss @tbl-regelbarkeit noch *gut regelbar*.</span>
+<span id="cb4-660"><a href="#cb4-660" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-661"><a href="#cb4-661" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-662"><a href="#cb4-662" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-663"><a href="#cb4-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-664"><a href="#cb4-664" aria-hidden="true" tabindex="-1"></a><span class="ot">[^integrierzeit]: </span>Die Integrierzeit $T_I$ hat je nach Einheit der Ein- und Ausgangsgrösse eine andere Einheit. Nur wenn Ein- und Ausgangsgrösse die gleiche Einheit haben, hat $T_I$ eine Zeiteinheit (z. B. <span class="co">[</span><span class="ot">s</span><span class="co">]</span>).</span>
 </code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -2433,7 +2603,7 @@ window._ojs.runtime.interpretFromScriptTags();
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>S. Krauss | ABBTS</p>
+<p>ABBTS | S. Krauss</p>
 </div>
   </div>
 </footer>
