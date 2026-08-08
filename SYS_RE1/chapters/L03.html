@@ -654,7 +654,7 @@ Abb.&nbsp;3.9: P-T<sub>n</sub>-Glied
 </figcaption>
 </figure>
 </div>
-<p>Wie beim P-T<sub>2</sub>-Glied können die Zeitkonstanten <span class="math inline">T_1</span>, …, <span class="math inline">T_n</span> bei P-T<sub>n</sub>-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d.&nbsp;h. es können wiederum lediglich Verzugszeit <span class="math inline">T_e</span> bzw. Ausgleichszeit <span class="math inline">T_b</span> anhand der Wendetangente (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>) bestimmt werden.</p>
+<p>Wie beim P-T<sub>2</sub>-Glied können die Zeitkonstanten <span class="math inline">T_1, \dots, T_n</span> bei P-T<sub>n</sub>-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d.&nbsp;h. es können wiederum lediglich Verzugszeit <span class="math inline">T_e</span> bzw. Ausgleichszeit <span class="math inline">T_b</span> anhand der Wendetangente (vgl. <a href="#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a>) bestimmt werden.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="P-T~n~-Glied in BORIS">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -665,7 +665,7 @@ Abb.&nbsp;3.9: P-T<sub>n</sub>-Glied
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Beim P-T<sub>n</sub>-Glied in <span class="cap">Boris</span> werden alle <span class="math inline">n</span> Zeitkonstanten <span class="math inline">T_1</span>, …, <span class="math inline">T_n</span> als identisch angenommen, d.&nbsp;h. es wird ein P-T<sub>n</sub>-Glied mit identischen Zeitkonstanten modelliert.</p>
+<p>Beim P-T<sub>n</sub>-Glied in <span class="cap">Boris</span> werden alle <span class="math inline">n</span> Zeitkonstanten <span class="math inline">T_1, \dots, T_n</span> als identisch angenommen, d.&nbsp;h. es wird ein P-T<sub>n</sub>-Glied mit identischen Zeitkonstanten modelliert (<span class="math inline">T_1 = T_2 = \dots = T_n</span>).</p>
 <p>Will man ein P-T<sub>n</sub>-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T<sub>1</sub> oder P-T<sub>2</sub>-Gliedern erstellt werden.</p>
 </div>
 </div>
@@ -893,9 +893,9 @@ Abb.&nbsp;3.11: Förderband <a href="https://instrumentationtools.com/dead-time/
 <h2 data-number="3.2" class="anchored" data-anchor-id="glieder-ohne-ausgleich-i-glieder"><span class="header-section-number">3.2</span> Glieder ohne Ausgleich (I-Glieder)</h2>
 <p>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d.&nbsp;h. der Ausgang <span class="math inline">x_a</span> strebt bei konstantem Eingang <span class="math inline">x_e</span> keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert <span class="math inline">K_P</span>.</p>
 <p>Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang <span class="math inline">x_a</span> bei einem stationären Eingang <span class="math inline">x_e</span> schliesslich <em>linear</em> ansteigt (bzw. abfällt). Für einen konstanten Eingang <span class="math inline">x_e</span> resultiert also eine konstante Steigung des Ausgangs <span class="math inline">\Delta x_a/\Delta t</span>. Eine sinnvolle Kenngrösse ist daher der <strong>Integrierbeiwert</strong> <span class="math inline">K_I</span>, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</p>
-<p><span class="math display">
+<p><span id="eq-ki"><span class="math display">
 K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)
-</span></p>
+\tag{3.1}</span></span></p>
 <p>Der Kehrwert des Integrierbeiwerts wird als <strong>Integrierzeit</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">T_I = \frac{1}{K_I}</span> bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit <span class="math inline">T_I</span> arbeiten.</p>
 <aside id="footnotes" class="footnotes footnotes-end-of-block" role="doc-footnote">
 <ol>
@@ -2134,10 +2134,10 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a>P-T~n~-Glied</span>
 <span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1$, ..., $T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.</span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>Wie beim P-T~2~-Glied können die Zeitkonstanten $T_1, \dots, T_n$ bei P-T~n~-Gliedern nicht direkt aus der Sprungantwort bestimmt werden, d. h. es können wiederum lediglich Verzugszeit $T_e$ bzw. Ausgleichszeit $T_b$ anhand der Wendetangente (vgl. @nte-wt) bestimmt werden.</span>
 <span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="P-T~n~-Glied in BORIS"}</span>
-<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a>Beim P-T~n~-Glied in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden alle $n$ Zeitkonstanten $T_1$, ..., $T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert.</span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a>Beim P-T~n~-Glied in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden alle $n$ Zeitkonstanten $T_1, \dots, T_n$ als identisch angenommen, d. h. es wird ein P-T~n~-Glied mit identischen Zeitkonstanten modelliert ($T_1 = T_2 = \dots = T_n$).</span>
 <span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a>Will man ein P-T~n~-Glied mit unterschiedlichen Zeitkonstanten modellieren, so muss eine Reihenschaltung von mehreren P-T~1~ oder P-T~2~-Gliedern erstellt werden.</span>
 <span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -2319,7 +2319,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-390"><a href="#cb4-390" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-391"><a href="#cb4-391" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-392"><a href="#cb4-392" aria-hidden="true" tabindex="-1"></a>K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)</span>
-<span id="cb4-393"><a href="#cb4-393" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-393"><a href="#cb4-393" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ki}</span>
 <span id="cb4-394"><a href="#cb4-394" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-395"><a href="#cb4-395" aria-hidden="true" tabindex="-1"></a>Der Kehrwert des Integrierbeiwerts wird als **Integrierzeit**<span class="ot">[^integrierzeit]</span> $T_I = \frac{1}{K_I}$ bezeichnet. In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> werden wir üblicherweise mit der Integrierzeit $T_I$ arbeiten.</span>
 <span id="cb4-396"><a href="#cb4-396" aria-hidden="true" tabindex="-1"></a></span>

@@ -477,9 +477,9 @@ Abb.&nbsp;5.2: Anforderungen
 <section id="sec-p-regler" class="level3 page-columns page-full" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-p-regler"><span class="header-section-number">5.3.1</span> P-Regler (Proportional-Regler)</h3>
 <p>Der einfachste aller Regler ist der P-Regler, da es sich dabei um das bekannte <a href="L03.html#p-glied">P-Glied</a> handelt. Wie wir wissen, wird ein P-Glied mit einem einzigen Parameter, dem Proportionalbeiwert <span class="math inline">K_P</span> beschrieben (in diesem Kontext häufig als <em>Reglerverstärkung</em> oder einfach <em>Verstärkung</em> bezeichnet).</p>
-<p><span class="math display">
+<p><span id="eq-p-regler"><span class="math display">
 y(t) = K_P \cdot e(t)
-</span></p>
+\tag{5.1}</span></span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Reglerverstärkung">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -584,9 +584,9 @@ Abb.&nbsp;5.3: Blockschaltbild-Animation der obigen Führungssprungantwort
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="sec-i-regler"><span class="header-section-number">5.3.2</span> I-Regler (Integral-Regler)</h3>
 <p>Im Gegensatz zum P-Glied kann ein <a href="L03.html#i-glied">I-Glied</a> auch einen Wert ausgegeben, wenn der Eingang gleich 0 ist. Das I-Glied integriert das Eingangssignal, d.&nbsp;h. wenn 0 am Eingang anliegt, ändert sich das Integral nicht mehr und der Wert des Integrals (Ausgangsgrösse) bleibt konstant. Bei einer konstanten Eingangsgrösse nimmt die Ausgangsgrösse stetig zu, wie wir das von der Sprungantwort des I-Gliedes kennen.</p>
 <p>Verwenden wir das I-Glied als Regler, so sprechen wir vom I-Regler. Beschrieben wir dieser mit dem bekannten Integrierbeiwert <span class="math inline">K_I</span>, den wir wiederum auch als <em>Reglerverstärkung</em> oder einfach <em>Verstärkung</em> bezeichnen.</p>
-<p><span class="math display">
+<p><span id="eq-i-regler"><span class="math display">
 y(t) = K_I \cdot \int e(t) \, \mathrm{d}t
-</span></p>
+\tag{5.2}</span></span></p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="../images/diagrams/Regler_I_1.gif" class="img-fluid figure-img"></p>
@@ -640,13 +640,13 @@ Abb.&nbsp;5.4: Struktur des PI-Reglers
 </figure>
 </div>
 <p>Die obige Struktur bzw. das Blockschaltbild des PI-Reglers (vgl. <a href="#fig-pi-bsb" class="quarto-xref">Abb.&nbsp;<span>5.4</span></a>) ist mathematisch eine Addition und lässt sich folgendermassen formulieren:</p>
-<p><span class="math display">
+<p><span id="eq-pi-regler"><span class="math display">
 \begin{aligned}
 y(t)
 &amp;= y_P(t) + y_I(t) \\
 &amp;= K_P \cdot \left( e(t) + \frac{1}{T_i} \cdot \int{e(t) \, \mathrm{d}t} \right)
 \end{aligned}
-</span></p>
+\tag{5.3}</span></span></p>
 <p>Neben dem Proportionalbeiwert <span class="math inline">K_P</span> (Verstärkung) wird zur Beschreibung des PI-Reglers die <em>Nachstellzeit</em> <span class="math inline">T_i</span> verwendet<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. Die oben gezeigte Addition von P- und I-Anteil lässt sich in der Sprungantwort des PI-Reglers sehr schön erkennen und ebenfalls ist darin die Wirkung von <span class="math inline">K_P</span> bzw. <span class="math inline">T_i</span> zu sehen.</p>
 <aside id="footnotes-6" class="footnotes footnotes-end-of-block" role="doc-footnote">
 <ol start="7">
@@ -726,13 +726,13 @@ Abb.&nbsp;5.6: Struktur des PID-Reglers
 </figure>
 </div>
 <p>Die obige Struktur bzw. das Blockschaltbild des PID-Reglers (vgl. <a href="#fig-pid-bsb" class="quarto-xref">Abb.&nbsp;<span>5.6</span></a>) lässt sich mathematisch folgendermassen formulieren:</p>
-<p><span class="math display">
+<p><span id="eq-pid-regler"><span class="math display">
 \begin{aligned}
 y(t)
 &amp;= y_P(t) + y_I(t) + y_D(t) \\
 &amp;= K_P \cdot \left( e(t) + \frac{1}{T_i} \cdot \int{e(t) \, \mathrm{d}t} + T_d \cdot \dot{e}(t) \right)
 \end{aligned}
-</span></p>
+\tag{5.4}</span></span></p>
 <p>Um die Sprungantwort des PID-Reglers zu verstehen, betrachten wir die nachfolgende Visualisierung. Die Sprungantwort des PID-Reglers lässt sich in die drei Anteile P, I und D zerlegen.</p>
 <div id="fig-pid-visualization" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -798,13 +798,13 @@ Abb.&nbsp;5.9: Sprungantwort des realen PID-Reglers
 <h3 data-number="5.3.5" class="anchored" data-anchor-id="sec-pd-regler"><span class="header-section-number">5.3.5</span> PD-Regler (Proportional-Differential-Regler)</h3>
 <p>Entfernt man den I-Anteil des PID-Reglers (vgl. <a href="#fig-pid-bsb" class="quarto-xref">Abb.&nbsp;<span>5.6</span></a>) so resultiert der PD-Regler. Dieser kommt zum Einsatz, wenn z. B. in der Regelstrecke bereits ein I-Anteil enthalten ist und im Regler keiner mehr nötig ist.</p>
 <p>Mathematisch lässt sich der PD-Regler folgendermassen formulieren:</p>
-<p><span class="math display">
+<p><span id="eq-pd-regler"><span class="math display">
 \begin{aligned}
 y(t)
 &amp;= y_P(t) + y_D(t) \\
 &amp;= K_P \cdot \left( e(t) + T_d \cdot \dot{e}(t) \right)
 \end{aligned}
-</span></p>
+\tag{5.5}</span></span></p>
 <p>Die Sprungantwort sollte mit dem aktuellen Wissen zu keiner Überraschung mehr führen. Nachfolgend ist die Sprungantwort des <em>realen</em> PD-Reglers gezeigt, d.&nbsp;h. mit der zusätzlichen Verzögerung <span class="math inline">T_{\mathrm{Vz}}</span>.</p>
 <div id="fig-pd-t1-sprungantwort" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -895,7 +895,7 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">P(D)</td>
+<td style="text-align: center;">P/PD</td>
 <td style="text-align: center;">P</td>
 <td style="text-align: center;"><span class="math inline">\dfrac{\Delta w}{1 + K_{PR} \cdot K_{PS}}</span></td>
 <td style="text-align: center;"><span class="math inline">\infty</span></td>
@@ -903,7 +903,7 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 <td style="text-align: center;"><span class="math inline">\dfrac{\Delta z_2}{1 + K_{PR} \cdot K_{PS}}</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">PI(D)</td>
+<td style="text-align: center;">PI/PID</td>
 <td style="text-align: center;">P</td>
 <td style="text-align: center;"><span class="math inline">0</span></td>
 <td style="text-align: center;"><span class="math inline">\dfrac{\Delta w}{\left(\dfrac{K_{PR}}{T_i}\right) \cdot K_{PS}}</span></td>
@@ -911,7 +911,7 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 <td style="text-align: center;"><span class="math inline">0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">P(D)</td>
+<td style="text-align: center;">P/PD</td>
 <td style="text-align: center;">I</td>
 <td style="text-align: center;"><span class="math inline">0</span></td>
 <td style="text-align: center;"><span class="math inline">\dfrac{\Delta w}{K_{PR} \cdot K_{IS}}</span></td>
@@ -919,7 +919,7 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 <td style="text-align: center;"><span class="math inline">0</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">PI(D)</td>
+<td style="text-align: center;">PI/PID</td>
 <td style="text-align: center;">I</td>
 <td style="text-align: center;"><span class="math inline">0</span></td>
 <td style="text-align: center;"><span class="math inline">0</span></td>
@@ -1693,7 +1693,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>y(t) = K_P \cdot e(t)</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>$$ {#eq-p-regler}</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Reglerverstärkung"}</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>Der Proportionalbeiwert des Reglers (Reglerverstärkung) darf nicht mit dem Proportionalbeiwert der Strecke (Streckenverstärkung) verwechselt werden. Beide werden i. Allg. mit $K_P$ bezeichnet. Falls Verwechslungsgefahr herrscht, wird zur Unterscheidung $K_{PR}$ für den Regler sowie $K_{PS}$ für die Strecke verwendet.</span>
@@ -1755,7 +1755,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>y(t) = K_I \cdot \int e(t) \, \mathrm{d}t</span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>$$ {#eq-i-regler}</span>
 <span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (I-Regler mit $K_I=0.008$)](../images/diagrams/Regler_I_1.gif)</span></span>
 <span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
@@ -1791,7 +1791,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>&amp;= y_P(t) + y_I(t) <span class="sc">\\</span></span>
 <span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>&amp;= K_P \cdot \left( e(t) + \frac{1}{T_i} \cdot \int{e(t) \, \mathrm{d}t} \right)</span>
 <span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>$$ {#eq-pi-regler}</span>
 <span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>Neben dem Proportionalbeiwert $K_P$ (Verstärkung) wird zur Beschreibung des PI-Reglers die *Nachstellzeit* $T_i$ verwendet<span class="ot">[^nachstellzeit]</span>. Die oben gezeigte Addition von P- und I-Anteil lässt sich in der Sprungantwort des PI-Reglers sehr schön erkennen und ebenfalls ist darin die Wirkung von $K_P$ bzw. $T_i$ zu sehen.</span>
 <span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
@@ -1838,7 +1838,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>&amp;= y_P(t) + y_I(t) + y_D(t) <span class="sc">\\</span></span>
 <span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>&amp;= K_P \cdot \left( e(t) + \frac{1}{T_i} \cdot \int{e(t) \, \mathrm{d}t} + T_d \cdot \dot{e}(t) \right)</span>
 <span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>$$ {#eq-pid-regler}</span>
 <span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>Um die Sprungantwort des PID-Reglers zu verstehen, betrachten wir die nachfolgende Visualisierung. Die Sprungantwort des PID-Reglers lässt sich in die drei Anteile P, I und D zerlegen.</span>
 <span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
@@ -1882,7 +1882,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>&amp;= y_P(t) + y_D(t) <span class="sc">\\</span></span>
 <span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>&amp;= K_P \cdot \left( e(t) + T_d \cdot \dot{e}(t) \right)</span>
 <span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>$$ {#eq-pd-regler}</span>
 <span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>Die Sprungantwort sollte mit dem aktuellen Wissen zu keiner Überraschung mehr führen. Nachfolgend ist die Sprungantwort des *realen* PD-Reglers gezeigt, d. h. mit der zusätzlichen Verzögerung $T_{\mathrm{Vz}}$.</span>
 <span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
@@ -1926,10 +1926,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reglertyp <span class="pp">|</span> Streckentyp <span class="pp">|</span> Regeldifferenz bei Sprung $w$ <span class="pp">|</span> Regeldifferenz bei Rampe $w$ <span class="pp">|</span> Regeldifferenz bei Sprung $z_1$ <span class="pp">|</span> Regeldifferenz bei Sprung $z_2$ <span class="pp">|</span></span>
 <span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---:|:---:|:---:|:---:|:---:|:---:|</span></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P(D) <span class="pp">|</span> P <span class="pp">|</span> $\dfrac{\Delta w}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\dfrac{K_{PS} \cdot \Delta z_1}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\dfrac{\Delta z_2}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI(D) <span class="pp">|</span> P <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{\left(\dfrac{K_{PR}}{T_i}\right) \cdot K_{PS}}$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P(D) <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{K_{PR} \cdot K_{IS}}$ <span class="pp">|</span> $\dfrac{\Delta z_1}{K_{PR}}$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI(D) <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P/PD <span class="pp">|</span> P <span class="pp">|</span> $\dfrac{\Delta w}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\dfrac{K_{PS} \cdot \Delta z_1}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\dfrac{\Delta z_2}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI/PID <span class="pp">|</span> P <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{\left(\dfrac{K_{PR}}{T_i}\right) \cdot K_{PS}}$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P/PD <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{K_{PR} \cdot K_{IS}}$ <span class="pp">|</span> $\dfrac{\Delta z_1}{K_{PR}}$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI/PID <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
 <span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
 <span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
