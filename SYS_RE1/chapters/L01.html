@@ -246,6 +246,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reglerentwurf</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -839,6 +845,7 @@ Die Regelstrecke ist das eigentliche System, das geregelt werden soll. Die Regel
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Installiere die Simulationssoftware <span class="cap">Boris</span> (WinFACT). Die Installationsdatei kann vom InfoPoint bezogen werden. <a href="https://abbtsch.sharepoint.com/sites/Infopoint/SitePages/SW005-WinFact.aspx">WinFACT</a></p>
+<p><i class="bi bi-filetype-exe"></i> Installiere <code>SW005_Setup WinFactory_V10_00.exe</code> und danach auch das Servie Pack <code>SW005_Setup_WF10_SP_2.EXE</code>.</p>
 </div>
 </div>
 </div>
@@ -1733,12 +1740,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-3}</span>
 <span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.3</span></span>
 <span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>Installiere die Simulationssoftware <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> (WinFACT). Die Installationsdatei kann vom InfoPoint bezogen werden. <span class="co">[</span><span class="ot">WinFACT</span><span class="co">](https://abbtsch.sharepoint.com/sites/Infopoint/SitePages/SW005-WinFact.aspx)</span></span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ot">[^control]: </span>Im Englischen wird der Begriff *Control* sowohl für Steuerung als auch für Regelung verwendet, deshalb werden zur Unterscheidung die Begriffe **open-loop control** (für Steuerung) und **closed-loop/feedback control** (für Regelung) verwendet. Diese Begriffe beschreiben den Unterschied sehr treffend.</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-filetype-exe"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Installiere <span class="dt">&lt;</span><span class="kw">code</span><span class="dt">&gt;</span>SW005_Setup WinFactory_V10_00.exe<span class="dt">&lt;/</span><span class="kw">code</span><span class="dt">&gt;</span> und danach auch das Servie Pack <span class="dt">&lt;</span><span class="kw">code</span><span class="dt">&gt;</span>SW005_Setup_WF10_SP_2.EXE<span class="dt">&lt;/</span><span class="kw">code</span><span class="dt">&gt;</span>.</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="ot">[^disturbance]: </span>Der Begriff *Störung* bzw. *Störgrösse* hat in der Regelungstechnik nichts mit einer Fehlfunktion zu tun, sondern beschreibt eine Einflussgrösse, welche aus unserer Sicht *störend* auf das zu steuernde/regelnde System einwirkt.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="ot">[^control]: </span>Im Englischen wird der Begriff *Control* sowohl für Steuerung als auch für Regelung verwendet, deshalb werden zur Unterscheidung die Begriffe **open-loop control** (für Steuerung) und **closed-loop/feedback control** (für Regelung) verwendet. Diese Begriffe beschreiben den Unterschied sehr treffend.</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="ot">[^disturbance]: </span>Der Begriff *Störung* bzw. *Störgrösse* hat in der Regelungstechnik nichts mit einer Fehlfunktion zu tun, sondern beschreibt eine Einflussgrösse, welche aus unserer Sicht *störend* auf das zu steuernde/regelnde System einwirkt.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

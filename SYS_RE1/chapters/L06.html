@@ -87,7 +87,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/A01.html" rel="next">
+<link href="../chapters/L07.html" rel="next">
 <link href="../chapters/L05.html" rel="prev">
 <link href="../images/logo_re.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -263,6 +263,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../chapters/L06.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reglerentwurf</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,8 +502,8 @@ Abb.&nbsp;6.2: Gütekriterien (Störverhalten)
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="#zn-i-schwingversuch">Ziegler/Nichols I (Schwingversuch)</a></td>
-<td style="text-align: left;"><a href="#zn-ii-sprungantwort-analyse">Ziegler/Nichols II (Sprungantwort)</a></td>
+<td style="text-align: left;"><a href="#zn-i-schwingversuch">Ziegler/Nichols (Schwingversuch)</a></td>
+<td style="text-align: left;"><a href="#zn-ii-sprungantwort-analyse">Ziegler/Nichols (Sprungantwort)</a></td>
 <td style="text-align: left;"><a href="#entwurf-nach-der-t-summen-regel">T-Summen-Regel</a></td>
 </tr>
 <tr class="even">
@@ -1521,7 +1527,7 @@ Tab.&nbsp;6.6: Einstellregeln nach Oppelt (Strecken mit/ohne Ausgleich)
 <h3 data-number="6.2.4" class="anchored" data-anchor-id="entwurf-nach-der-t-summen-regel"><span class="header-section-number">6.2.4</span> Entwurf nach der T-Summen-Regel</h3>
 <p>Dieses Verfahren basiert auf der <em>Summenzeitkonstante</em> <span class="math inline">T_{\Sigma}</span>, d.&nbsp;h. der Summe der Zeitkonstanten der Regelstrecke. Wenn sämtliche Zeitkonstanten bekannt sind, kann die Summenzeitkonstante direkt berechnet werden.</p>
 <p><span class="math display">
-T_{\Sigma} = T_1 + T_2 + \ldots \qquad \text{(inkl. allfälliger Totzeiten)}
+T_{\Sigma} = T_1 + T_2 + \ldots \qquad \mathsf{(inkl. allfälliger Totzeiten)}
 </span></p>
 <p>In vielen Fällen sind die Zeitkonstanten nicht direkt bekannt und es wird das folgende grafische Verfahren angewendet (vgl. <a href="#fig-tsumme" class="quarto-xref">Abb.&nbsp;<span>6.3</span></a>). Die Summenzeitkonstante <span class="math inline">T_{\Sigma}</span> kann dort abgelesen werden, wo die beiden Flächen links bzw. rechts davon gerade gleich gross sind.</p>
 <div id="fig-tsumme" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -1686,7 +1692,7 @@ Tab.&nbsp;6.7: Einstellregeln gemäss T-Summen-Regel
 <h4 class="unnumbered anchored" data-anchor-id="eine-dominante-zeitkonstante-t_1">Eine dominante Zeitkonstante <span class="math inline">T_1</span></h4>
 <p>Liegt eine dominante Zeitkonstante <span class="math inline">T_1</span> vor, gilt also</p>
 <p><span class="math display">
-T_1 \gg T_{\Sigma^*} \qquad \text{mit} \qquad T_{\Sigma^*} = T_2 + T_3 + \ldots
+T_1 \gg T_{\Sigma^*} \qquad \mathsf{mit} \qquad T_{\Sigma^*} = T_2 + T_3 + \ldots
 </span></p>
 <p>so kann der Regler anhand von <a href="#tbl-betrag1" class="quarto-xref">Tab.&nbsp;<span>6.8</span></a> parametriert werden.</p>
 <div id="tbl-betrag1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-colwidths="[30,70]">
@@ -1810,7 +1816,7 @@ Tab.&nbsp;6.8: Einstellregeln nach dem Betragsoptimum (1 dominante Zeitkonstante
 <h4 class="unnumbered anchored" data-anchor-id="zwei-dominante-zeitkonstanten-t_1-und-t_2">Zwei dominante Zeitkonstanten <span class="math inline">T_1</span> und <span class="math inline">T_2</span></h4>
 <p>Liegen zwei dominante Zeitkonstanten <span class="math inline">T_1</span> und <span class="math inline">T_2</span> vor, gilt also</p>
 <p><span class="math display">
-T_1, T_2 \gg T_{\Sigma^*} \qquad \text{mit} \qquad T_{\Sigma^*} = T_3 + T_4 + \ldots
+T_1, T_2 \gg T_{\Sigma^*} \qquad \mathsf{mit} \qquad T_{\Sigma^*} = T_3 + T_4 + \ldots
 </span></p>
 <p>so kann der Regler anhand von <a href="#tbl-betrag2" class="quarto-xref">Tab.&nbsp;<span>6.9</span></a> parametriert werden.</p>
 <div id="tbl-betrag2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-colwidths="[30,70]">
@@ -1973,7 +1979,7 @@ Tab.&nbsp;6.9: Einstellregeln nach dem Betragsoptimum (2 dominante Zeitkonstante
 <p>Für schwingfähige Strecken finden wir in <span class="citation" data-cites="crashkurs">Kahlert (<a href="../index.html#ref-crashkurs" role="doc-biblioref">2023</a>)</span> kein Entwurfsverfahren. Schwingfähige Strecken werden üblicherweise im Frequenzbereich entworfen, in den wir erst im nächsten Regelungstechnik-Modul vorstossen. Damit wir trotzdem ein Verfahren für P-T<sub>2S</sub>-Strecken kennen, ist nachfolgend ein einfaches Verfahren aufgeführt.</p>
 <p>Bei dem Verfahren versucht man die Schwingung der Strecke mit dem PID-Regler zu kompensieren, um idealerweise im Regelkreis P-T<sub>1</sub>-Verhalten zu erreichen. Die <a href="L03.html#p-t2s-glied">P-T<sub>2S</sub>-Regelstrecke</a> wird bekanntlich mit der Kennkreisfrequenz <span class="math inline">\omega_0</span> und dem Dämpfungsgrad <span class="math inline">D</span> beschrieben. Um die erwähnte Kompensation zu erreichen, setzt man:</p>
 <p><span class="math display">
-T_i = \frac{2 \cdot D}{\omega_0} \qquad \text{und} \qquad T_d = \frac{1}{2 \cdot D \cdot \omega_0}
+T_i = \frac{2 \cdot D}{\omega_0} \qquad \mathsf{und} \qquad T_d = \frac{1}{2 \cdot D \cdot \omega_0}
 </span></p>
 <p>Die Reglerverstärkung <span class="math inline">K_{PR}</span> kann mit der nachfolgend aufgeführten Beziehung bestimmt werden, wobei <span class="math inline">T_{RK}</span> der Zeitkonstanten des gewünschten Regelverhaltens (~P-T<sub>1</sub>) entspricht. Falls keine Vorgaben bestehen, kann für <span class="math inline">T_{RK}</span> initial <span class="math inline">1/\omega_0</span> gewählt werden und dann mittels Finetuning manuell optimiert werden.</p>
 <p><span class="math display">
@@ -2025,7 +2031,7 @@ Abb.&nbsp;6.4: Numerische Optimierung
 <button class="pdf-export" data-target="aufgaben6" data-filename="SYS_RE1_AUFG06.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
 <img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
 </button>
-<div id="aufgaben4">
+<div id="aufgaben6">
 <div id="ex-6-1" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2059,7 +2065,7 @@ Abb.&nbsp;6.4: Numerische Optimierung
 <p><span class="math display">
 𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}
 </span></p>
-<p>Der PID-Regler soll mit Fokus auf gutes Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <a href="#güterkriterien-für-das-führungsverhalten">Gütekriterien</a>:</p>
+<p>Der PID-Regler soll mit Fokus auf gutes Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <a href="#güterkriterien-für-das-führungsverhalten">Gütekriterien</a>, wobei ein 10%-Toleranzband verwendet werden soll.</p>
 <ul>
 <li>Anregelzeit [s] <span class="math display">
 T_{cr} =
@@ -2703,8 +2709,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/A01.html" class="pagination-link" aria-label="Begriffe">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Begriffe</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/L07.html" class="pagination-link" aria-label="Stellgrössenbeschränkung">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -2786,7 +2792,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelstrecke <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>unbekannt <span class="pp">|</span> Regelstrecke <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>grob bekannt <span class="pp">|</span> Regelstrecke <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>genau bekannt <span class="pp">|</span></span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---</span>                   <span class="pp">| :---</span>                          <span class="pp">| :---</span>                       <span class="pp">|</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ziegler/Nichols I (Schwingversuch)</span><span class="co">](#zn-i-schwingversuch)</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">Ziegler/Nichols II (Sprungantwort)</span><span class="co">](#zn-ii-sprungantwort-analyse)</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">T-Summen-Regel</span><span class="co">](#entwurf-nach-der-t-summen-regel)</span> <span class="pp">|</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ziegler/Nichols (Schwingversuch)</span><span class="co">](#zn-i-schwingversuch)</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">Ziegler/Nichols (Sprungantwort)</span><span class="co">](#zn-ii-sprungantwort-analyse)</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">T-Summen-Regel</span><span class="co">](#entwurf-nach-der-t-summen-regel)</span> <span class="pp">|</span></span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">Chien/Hrones/Reswick</span><span class="co">](#entwurf-nach-chienhronesreswick-chr)</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">Betragsoptimum</span><span class="co">](#entwurf-nach-dem-betragsoptimum)</span> <span class="pp">|</span></span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">Oppelt</span><span class="co">](#entwurf-nach-oppelt)</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">numerische Optimierung</span><span class="co">](#entwurf-mittels-numerischer-optimierung)</span> <span class="pp">|</span></span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">T-Summen-Regel</span><span class="co">](#entwurf-nach-der-t-summen-regel)</span> <span class="pp">|</span> <span class="pp">|</span></span>
@@ -3468,7 +3474,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-758"><a href="#cb1-758" aria-hidden="true" tabindex="-1"></a>Dieses Verfahren basiert auf der *Summenzeitkonstante* $T_{\Sigma}$, d. h. der Summe der Zeitkonstanten der Regelstrecke. Wenn sämtliche Zeitkonstanten bekannt sind, kann die Summenzeitkonstante direkt berechnet werden.</span>
 <span id="cb1-759"><a href="#cb1-759" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-760"><a href="#cb1-760" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-761"><a href="#cb1-761" aria-hidden="true" tabindex="-1"></a>T_{\Sigma} = T_1 + T_2 + \ldots \qquad \text{(inkl. allfälliger Totzeiten)}</span>
+<span id="cb1-761"><a href="#cb1-761" aria-hidden="true" tabindex="-1"></a>T_{\Sigma} = T_1 + T_2 + \ldots \qquad \mathsf{(inkl. allfälliger Totzeiten)}</span>
 <span id="cb1-762"><a href="#cb1-762" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-763"><a href="#cb1-763" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-764"><a href="#cb1-764" aria-hidden="true" tabindex="-1"></a>In vielen Fällen sind die Zeitkonstanten nicht direkt bekannt und es wird das folgende grafische Verfahren angewendet (vgl. @fig-tsumme). Die Summenzeitkonstante $T_{\Sigma}$ kann dort abgelesen werden, wo die beiden Flächen links bzw. rechts davon gerade gleich gross sind.</span>
@@ -3598,7 +3604,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-888"><a href="#cb1-888" aria-hidden="true" tabindex="-1"></a>Liegt eine dominante Zeitkonstante $T_1$ vor, gilt also</span>
 <span id="cb1-889"><a href="#cb1-889" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-890"><a href="#cb1-890" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-891"><a href="#cb1-891" aria-hidden="true" tabindex="-1"></a>T_1 \gg T_{\Sigma^*} \qquad \text{mit} \qquad T_{\Sigma^*} = T_2 + T_3 + \ldots</span>
+<span id="cb1-891"><a href="#cb1-891" aria-hidden="true" tabindex="-1"></a>T_1 \gg T_{\Sigma^*} \qquad \mathsf{mit} \qquad T_{\Sigma^*} = T_2 + T_3 + \ldots</span>
 <span id="cb1-892"><a href="#cb1-892" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-893"><a href="#cb1-893" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-894"><a href="#cb1-894" aria-hidden="true" tabindex="-1"></a>so kann der Regler anhand von @tbl-betrag1 parametriert werden.</span>
@@ -3705,7 +3711,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-995"><a href="#cb1-995" aria-hidden="true" tabindex="-1"></a>Liegen zwei dominante Zeitkonstanten $T_1$ und $T_2$ vor, gilt also</span>
 <span id="cb1-996"><a href="#cb1-996" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-997"><a href="#cb1-997" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-998"><a href="#cb1-998" aria-hidden="true" tabindex="-1"></a>T_1, T_2 \gg T_{\Sigma^*} \qquad \text{mit} \qquad T_{\Sigma^*} = T_3 + T_4 + \ldots</span>
+<span id="cb1-998"><a href="#cb1-998" aria-hidden="true" tabindex="-1"></a>T_1, T_2 \gg T_{\Sigma^*} \qquad \mathsf{mit} \qquad T_{\Sigma^*} = T_3 + T_4 + \ldots</span>
 <span id="cb1-999"><a href="#cb1-999" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1000"><a href="#cb1-1000" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1001"><a href="#cb1-1001" aria-hidden="true" tabindex="-1"></a>so kann der Regler anhand von @tbl-betrag2 parametriert werden.</span>
@@ -3854,7 +3860,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1144"><a href="#cb1-1144" aria-hidden="true" tabindex="-1"></a>Bei dem Verfahren versucht man die Schwingung der Strecke mit dem PID-Regler zu kompensieren, um idealerweise im Regelkreis P-T~1~-Verhalten zu erreichen. Die <span class="co">[</span><span class="ot">P-T~2S~-Regelstrecke</span><span class="co">](#p-t2s-glied)</span> wird bekanntlich mit der Kennkreisfrequenz $\omega_0$ und dem Dämpfungsgrad $D$ beschrieben. Um die erwähnte Kompensation zu erreichen, setzt man:</span>
 <span id="cb1-1145"><a href="#cb1-1145" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1146"><a href="#cb1-1146" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-1147"><a href="#cb1-1147" aria-hidden="true" tabindex="-1"></a>T_i = \frac{2 \cdot D}{\omega_0} \qquad \text{und} \qquad T_d = \frac{1}{2 \cdot D \cdot \omega_0}</span>
+<span id="cb1-1147"><a href="#cb1-1147" aria-hidden="true" tabindex="-1"></a>T_i = \frac{2 \cdot D}{\omega_0} \qquad \mathsf{und} \qquad T_d = \frac{1}{2 \cdot D \cdot \omega_0}</span>
 <span id="cb1-1148"><a href="#cb1-1148" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1149"><a href="#cb1-1149" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1150"><a href="#cb1-1150" aria-hidden="true" tabindex="-1"></a>Die Reglerverstärkung $K_{PR}$ kann mit der nachfolgend aufgeführten Beziehung bestimmt werden, wobei $T_{RK}$ der Zeitkonstanten des gewünschten Regelverhaltens (\~P-T~1~) entspricht. Falls keine Vorgaben bestehen, kann für $T_{RK}$ initial $1/\omega_0$ gewählt werden und dann mittels Finetuning manuell optimiert werden.</span>
@@ -3912,7 +3918,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1202"><a href="#cb1-1202" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
 <span id="cb1-1203"><a href="#cb1-1203" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb1-1204"><a href="#cb1-1204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1205"><a href="#cb1-1205" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben4}</span>
+<span id="cb1-1205"><a href="#cb1-1205" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben6}</span>
 <span id="cb1-1206"><a href="#cb1-1206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1207"><a href="#cb1-1207" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-1}</span>
 <span id="cb1-1208"><a href="#cb1-1208" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.1</span></span>
@@ -3932,7 +3938,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1222"><a href="#cb1-1222" aria-hidden="true" tabindex="-1"></a>𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}</span>
 <span id="cb1-1223"><a href="#cb1-1223" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1224"><a href="#cb1-1224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1225"><a href="#cb1-1225" aria-hidden="true" tabindex="-1"></a>Der PID-Regler soll mit Fokus auf gutes Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <span class="co">[</span><span class="ot">Gütekriterien</span><span class="co">](#güterkriterien-für-das-führungsverhalten)</span>:</span>
+<span id="cb1-1225"><a href="#cb1-1225" aria-hidden="true" tabindex="-1"></a>Der PID-Regler soll mit Fokus auf gutes Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <span class="co">[</span><span class="ot">Gütekriterien</span><span class="co">](#güterkriterien-für-das-führungsverhalten)</span>, wobei ein 10%-Toleranzband verwendet werden soll.</span>
 <span id="cb1-1226"><a href="#cb1-1226" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1227"><a href="#cb1-1227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
 <span id="cb1-1228"><a href="#cb1-1228" aria-hidden="true" tabindex="-1"></a>  $$</span>

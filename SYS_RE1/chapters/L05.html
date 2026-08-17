@@ -248,6 +248,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reglerentwurf</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -500,10 +506,14 @@ y(t) = K_P \cdot e(t)
 </div>
 </div>
 <p>Wir beginnen mit einer Reglerverstärkung von <span class="math inline">K_P=0.5</span> und betrachten nachfolgend die Führungssprungantwort.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (P-Regler mit <span class="math inline">K_P=0.5</span>)</figcaption>
+<div id="fig-pregler-wsprung1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.3: Führungssprungantwort (P-Regler mit <span class="math inline">K_P=0.5</span>)
+</figcaption>
 </figure>
 </div>
 <p>Das anfängliche Verhalten scheint sehr gut zu sein, doch im stationären Zustand bleibt eine deutliche Regeldifferenz bestehen. Warum sich eine bleibende Regelabweichung einstellt, können wir in der folgenden Animation sehr schön sehen. Die Animation zeigt das Regelverhalten in Zeitlupentempo und man sieht schön, wie sich der stationäre Zustand allmählich einstellt. Der Sollwert kann nicht erreicht werden, da sonst die Regeldifferenz und damit die Stellgrösse null werden würden, was wiederum eine Ausgangsgrösse von null ergeben würde. Es stellt sich also ein entsprechendes Gleichgewicht<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> ein.</p>
@@ -529,23 +539,31 @@ x &amp;= \frac{K_{PS} \cdot K_{PR}}{1 + K_{PS} \cdot K_{PR}}\\
 <div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="../images/videos/RK_ani.mp4"></video></div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-rk-ani-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.3: Blockschaltbild-Animation der obigen Führungssprungantwort
+Abb.&nbsp;5.4: Blockschaltbild-Animation der obigen Führungssprungantwort
 </figcaption>
 </figure>
 </div>
 <p>Um zu untersuchen, ob eine höhere Verstärkung die Situation verbessert, erhöhen wir die Verstärkung auf <span class="math inline">K_P=1.0</span>.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_3.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (P-Regler mit <span class="math inline">K_P=1.0</span>)</figcaption>
+<div id="fig-pregler-wsprung2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_3.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.5: Führungssprungantwort (P-Regler mit <span class="math inline">K_P=1.0</span>)
+</figcaption>
 </figure>
 </div>
 <p>Wir stellen fest, dass durch die Erhöhung der Verstärkung die bleibende Regelabweichung abnimmt, die Schwingneigung allerdings zunimmt. Die Regelung ist also <em>schlechter gedämpft</em>. Dies ist ein generelles Problem in der Regelungstechnik und begrenzt die maximal mögliche Verstärkung.</p>
 <p>Nachfolgend ist die Führungssprungantwort für eine Verstärkung <span class="math inline">K_P=3.0</span> dargestellt und man kann sich gut vorstellen, dass eine weitere Erhöhung der Verstärkung allmählich zu einer Dauerschwingung bzw. schliesslich zu <em>instabilem</em> Verhalten führt.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_4.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (P-Regler mit <span class="math inline">K_P=3.0</span>)</figcaption>
+<div id="fig-pregler-wsprung3" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-wsprung3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_4.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-wsprung3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.6: Führungssprungantwort (P-Regler mit <span class="math inline">K_P=3.0</span>)
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="P-Regler an P-Strecke">
@@ -565,10 +583,14 @@ Abb.&nbsp;5.3: Blockschaltbild-Animation der obigen Führungssprungantwort
 <section id="störsprungantwort" class="level4 unnumbered page-columns page-full">
 <h4 class="unnumbered anchored" data-anchor-id="störsprungantwort">Störsprungantwort</h4>
 <p>Um den Einfluss von Störungen zu untersuchen, simulieren wir entsprechende Störsprungantworten. Wir setzen dabei <span class="math inline">w=0</span> und leiten ein Sprungsignal am Störeingang <span class="math inline">z_1</span> oder <span class="math inline">z_2</span> ein. Die Störsprungantwort zeigt uns, welchen Einfluss eine Störung auf das Regelverhalten hat. Im Idealfall geht die Störsprungantwort möglichst rasch gegen 0 (was bedeutet, dass die Störung vollständig ausgeregelt wird).</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_3_z2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Störsprungantwort für <span class="math inline">z_2</span> (P-Regler mit <span class="math inline">K_P=1.0</span>)</figcaption>
+<div id="fig-pregler-zsprung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-zsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_3_z2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-zsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.7: Störsprungantwort für <span class="math inline">z_2</span> (P-Regler mit <span class="math inline">K_P=1.0</span>)
+</figcaption>
 </figure>
 </div>
 <p>Wir stellen fest, dass der P-Regler die Störung <span class="math inline">z_2</span> nicht vollständig ausregeln kann und es auch hier (nicht überraschend) zu einer bleibenden Regeldifferenz kommt. Wir verzichten hier auf die Störgrösse <span class="math inline">z_1</span>, da qualitativ dasselbe Verhalten resultiert (der Einfluss von <span class="math inline">z_1</span> ist allerdings deutlich grösser, da sie noch von der Strecke verstärkt wird).</p>
@@ -576,10 +598,14 @@ Abb.&nbsp;5.3: Blockschaltbild-Animation der obigen Führungssprungantwort
 <section id="führungsrampenantwort" class="level4 unnumbered page-columns page-full">
 <h4 class="unnumbered anchored" data-anchor-id="führungsrampenantwort">Führungsrampenantwort</h4>
 <p>Abschliessend wollen wir wieder die Führungsgrösse vorgeben, aber diesmal rampenförmig hochfahren (wir sprechen von einer Führungsrampe). Damit können wir das Führungsverhalten einer Folgeregelung beurteilen. Als Beispiel einer Folgeregelung kann man sich z. B. eine Drehzahl- bzw. Geschwindigkeitsregelung eines Elektromotors vorstellen, bei der ein bestimmtes Geschwindigkeitsprofil abgefahren werden soll. Dabei wird der Sollwert (gemäss Geschwindigkeitsprofil) i. Allg. dauernd verändert.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_3_ramp.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungsrampenantwort (P-Regler mit <span class="math inline">K_P=1.0</span>)</figcaption>
+<div id="fig-pregler-wrampe" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-wrampe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_3_ramp.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-wrampe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.8: Führungsrampenantwort (P-Regler mit <span class="math inline">K_P=1.0</span>)
+</figcaption>
 </figure>
 </div>
 <p>Wir stellen fest, dass die Regeldifferenz beim rampenförmigen Sollwertverlauf sogar immer grösser wird, d.&nbsp;h. ein P-Regler wäre für eine Folgeregelung an einer P-Strecke ungeeignet.</p>
@@ -593,17 +619,25 @@ Abb.&nbsp;5.3: Blockschaltbild-Animation der obigen Führungssprungantwort
 <p><span id="eq-i-regler"><span class="math display">
 y(t) = K_I \cdot \int e(t) \, \mathrm{d}t
 \tag{5.2}</span></span></p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_I_1.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (I-Regler mit <span class="math inline">K_I=0.008</span>)</figcaption>
+<div id="fig-iregler-wsprung1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-iregler-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_I_1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-iregler-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.9: Führungssprungantwort (I-Regler mit <span class="math inline">K_I=0.008</span>)
+</figcaption>
 </figure>
 </div>
 <p>Wir sehen, dass der I-Regler tatsächlich zu keiner bleibenden Abweichung führt, d.&nbsp;h. eine <em>genaue</em> Regelung ermöglicht. Leider dauert es sehr lange bis der Sollwert erreicht wird, d.&nbsp;h. wir versuchen die Schnelligkeit durch die Verdopplung der Verstärkung zu verbessern.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_I_2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (I-Regler mit <span class="math inline">K_I=0.016</span>)</figcaption>
+<div id="fig-iregler-wsprung2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-iregler-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_I_2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-iregler-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.10: Führungssprungantwort (I-Regler mit <span class="math inline">K_I=0.016</span>)
+</figcaption>
 </figure>
 </div>
 <p>Die Schnelligkeit konnte durch eine grössere Verstärkung tatsächlich erhöht werden, es dauert jedoch immer noch relativ lange. Die Schwingneigung hat ebenfalls zugenommen (= geringere Dämpfung), d.&nbsp;h. eine weitere Erhöhung der Verstärkung ist wiederum problematisch.</p>
@@ -641,11 +675,11 @@ y(t) = K_I \cdot \int e(t) \, \mathrm{d}t
 <img src="../images/diagrams/BSB_PI.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pi-bsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.4: Struktur des PI-Reglers
+Abb.&nbsp;5.11: Struktur des PI-Reglers
 </figcaption>
 </figure>
 </div>
-<p>Die obige Struktur bzw. das Blockschaltbild des PI-Reglers (vgl. <a href="#fig-pi-bsb" class="quarto-xref">Abb.&nbsp;<span>5.4</span></a>) ist mathematisch eine Addition und lässt sich folgendermassen formulieren:</p>
+<p>Die obige Struktur bzw. das Blockschaltbild des PI-Reglers (vgl. <a href="#fig-pi-bsb" class="quarto-xref">Abb.&nbsp;<span>5.11</span></a>) ist mathematisch eine Addition und lässt sich folgendermassen formulieren:</p>
 <p><span id="eq-pi-regler"><span class="math display">
 \begin{aligned}
 y(t)
@@ -665,22 +699,30 @@ y(t)
 <img src="../images/diagrams/PI-Glied.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pi-sprungantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.5: Sprungantwort des PI-Reglers
+Abb.&nbsp;5.12: Sprungantwort des PI-Reglers
 </figcaption>
 </figure>
 </div>
 <p>Durch diese Überlagerung von P- und I-Anteil ist der PI-Regler in der Lage die wichtigen Anforderungen <em>Schnelligkeit</em> (durch P-Regler) und <em>Genauigkeit</em> (durch I-Regler) zu erfüllen.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PI_1.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (PI-Regler mit <span class="math inline">K_P=0.16</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)</figcaption>
+<div id="fig-piregler-wsprung1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-piregler-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PI_1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-piregler-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.13: Führungssprungantwort (PI-Regler mit <span class="math inline">K_P=0.16</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)
+</figcaption>
 </figure>
 </div>
 <p>Damit kann im Vergleich zum (reinen) P- bzw. I-Regler ein deutlich besseres Verhalten erreicht werden. Wiederum kann mit der Erhöhung der Verstärkung ein Überschwingen und damit eine noch schnellere Regelung erzielt werden.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PI_2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (PI-Regler mit <span class="math inline">K_P=0.45</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)</figcaption>
+<div id="fig-piregler-wsprung2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-piregler-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PI_2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-piregler-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.14: Führungssprungantwort (PI-Regler mit <span class="math inline">K_P=0.45</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="PI-Regler">
@@ -700,20 +742,28 @@ Abb.&nbsp;5.5: Sprungantwort des PI-Reglers
 <section id="störsprungantwort-1" class="level4 unnumbered page-columns page-full">
 <h4 class="unnumbered anchored" data-anchor-id="störsprungantwort-1">Störsprungantwort</h4>
 <p>Betrachten wir wieder das Störverhalten so stellen wir fest, dass nun auch die Störgrössen komplett ausgeregelt werden (analog für <span class="math inline">z_1</span>).</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PI_2_z2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Störsprungantwort für <span class="math inline">z_2</span> (PI-Regler mit <span class="math inline">K_P=0.45</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)</figcaption>
+<div id="fig-piregler-zsprung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-piregler-zsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PI_2_z2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-piregler-zsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.15: Störsprungantwort für <span class="math inline">z_2</span> (PI-Regler mit <span class="math inline">K_P=0.45</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="führungsrampenantwort-1" class="level4 unnumbered page-columns page-full">
 <h4 class="unnumbered anchored" data-anchor-id="führungsrampenantwort-1">Führungsrampenantwort</h4>
 <p>Um das Folgeverhalten zu beurteilen, betrachten wir abschliessend noch die Führungsrampenantwort. Wir stellen fest, dass zwar eine Regelabweichung auftritt, diese bleibt aber konstant (nicht wie beim P-Regler, wo diese immer grösser wird). Eine solche Abweichung wird als <em>Schleppfehler</em> bezeichnet.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PI_2_ramp.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungsrampenantwort (PI-Regler mit <span class="math inline">K_P=0.45</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)</figcaption>
+<div id="fig-piregler-wrampe" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-piregler-wrampe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PI_2_ramp.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-piregler-wrampe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.16: Führungsrampenantwort (PI-Regler mit <span class="math inline">K_P=0.45</span> und <span class="math inline">T_i=3\,\mathrm{s}</span>)
+</figcaption>
 </figure>
 </div>
 </section>
@@ -727,11 +777,11 @@ Abb.&nbsp;5.5: Sprungantwort des PI-Reglers
 <img src="../images/diagrams/BSB_PID.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pid-bsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.6: Struktur des PID-Reglers
+Abb.&nbsp;5.17: Struktur des PID-Reglers
 </figcaption>
 </figure>
 </div>
-<p>Die obige Struktur bzw. das Blockschaltbild des PID-Reglers (vgl. <a href="#fig-pid-bsb" class="quarto-xref">Abb.&nbsp;<span>5.6</span></a>) lässt sich mathematisch folgendermassen formulieren:</p>
+<p>Die obige Struktur bzw. das Blockschaltbild des PID-Reglers (vgl. <a href="#fig-pid-bsb" class="quarto-xref">Abb.&nbsp;<span>5.17</span></a>) lässt sich mathematisch folgendermassen formulieren:</p>
 <p><span id="eq-pid-regler"><span class="math display">
 \begin{aligned}
 y(t)
@@ -746,7 +796,7 @@ y(t)
 <img src="../images/diagrams/Visualization_PID.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pid-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.7: Visualisierung zur Sprungantwort des PID-Reglers
+Abb.&nbsp;5.18: Visualisierung zur Sprungantwort des PID-Reglers
 </figcaption>
 </figure>
 </div>
@@ -757,7 +807,7 @@ Abb.&nbsp;5.7: Visualisierung zur Sprungantwort des PID-Reglers
 <img src="../images/diagrams/PID-Glied.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pid-sprungantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.8: Sprungantwort des idealen PID-Reglers
+Abb.&nbsp;5.19: Sprungantwort des idealen PID-Reglers
 </figcaption>
 </figure>
 </div>
@@ -773,16 +823,20 @@ Abb.&nbsp;5.8: Sprungantwort des idealen PID-Reglers
 <img src="../images/diagrams/PID-T1-Glied.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pid-t1-sprungantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.9: Sprungantwort des realen PID-Reglers
+Abb.&nbsp;5.20: Sprungantwort des realen PID-Reglers
 </figcaption>
 </figure>
 </div>
 <p>Der D-Anteil sorgt dafür, dass der Regler spezifisch auf die <em>Änderungsgeschwindigkeit</em> der Regeldifferenz reagieren kann. Man kann sich den D-Anteil als eine Art “Blick in die Zukunft” vorstellen, da er auf die Ableitung (Steigung) der Regeldifferenz reagiert und damit die Stellgrösse “vorausschauend” verstellt. Dadurch kann i. Allg. das Überschwingen verringert werden, d.&nbsp;h. die Dämpfung/Stabilität erhöht werden.</p>
 <p>Mit dem PID-Regler haben wir einen sehr flexiblen und äusserst mächtigen Regler, der für viele Anwendungen ein sehr gutes Regelverhalten ermöglicht und trotzdem durch eine vergleichsweise einfache Struktur bzw. Parametrierung besticht. Aus diesen Gründen ist er als Standardregler allgegenwärtig in der Industrie.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PID_1.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (PID-Regler mit <span class="math inline">K_P=1.3</span>, <span class="math inline">T_i=3\,\mathrm{s}</span> und <span class="math inline">T_d=0.5\,\mathrm{s}</span>)</figcaption>
+<div id="fig-pidregler-wsprung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pidregler-wsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PID_1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pidregler-wsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.21: Führungssprungantwort (PID-Regler mit <span class="math inline">K_P=1.3</span>, <span class="math inline">T_i=3\,\mathrm{s}</span> und <span class="math inline">T_d=0.5\,\mathrm{s}</span>)
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="PID-Regler">
@@ -802,7 +856,7 @@ Abb.&nbsp;5.9: Sprungantwort des realen PID-Reglers
 </section>
 <section id="sec-pd-regler" class="level3 page-columns page-full" data-number="5.3.5">
 <h3 data-number="5.3.5" class="anchored" data-anchor-id="sec-pd-regler"><span class="header-section-number">5.3.5</span> PD-Regler (Proportional-Differential-Regler)</h3>
-<p>Entfernt man den I-Anteil des PID-Reglers (vgl. <a href="#fig-pid-bsb" class="quarto-xref">Abb.&nbsp;<span>5.6</span></a>) so resultiert der PD-Regler. Dieser kommt zum Einsatz, wenn z. B. in der Regelstrecke bereits ein I-Anteil enthalten ist und im Regler keiner mehr nötig ist.</p>
+<p>Entfernt man den I-Anteil des PID-Reglers (vgl. <a href="#fig-pid-bsb" class="quarto-xref">Abb.&nbsp;<span>5.17</span></a>) so resultiert der PD-Regler. Dieser kommt zum Einsatz, wenn z. B. in der Regelstrecke bereits ein I-Anteil enthalten ist und im Regler keiner mehr nötig ist.</p>
 <p>Mathematisch lässt sich der PD-Regler folgendermassen formulieren:</p>
 <p><span id="eq-pd-regler"><span class="math display">
 \begin{aligned}
@@ -818,31 +872,43 @@ y(t)
 <img src="../images/diagrams/PD-T1-Glied.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pd-t1-sprungantwort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
+Abb.&nbsp;5.22: Sprungantwort des realen PD-Reglers
 </figcaption>
 </figure>
 </div>
 <p>Da der PD-Regler keinen I-Anteil aufweist, würde er an der obigen P-T<sub>3</sub>-Strecke (wie der P-Regler) eine bleibende Regelabweichung produzieren. Die Dynamik könnte allerdings verbessert werden (Schnelligkeit, Dämpfung).</p>
 <p>Um die Vorteile des PD-Reglers deutlich sichtbar zu machen, betrachten wir im Folgenden eine I-T<sub>2</sub>-Strecke, d.&nbsp;h. eine Strecke, die selber bereits einen I-Anteil enthält. Als Streckenparameter verwenden wir <span class="math inline">K_I = 0.2</span> sowie <span class="math inline">T_1 = 2\,\mathrm{s}</span> und <span class="math inline">T_1 = 0.5\,\mathrm{s}</span>.</p>
 <p>Wir beginnen wieder mit dem einfachen P-Regler und werden feststellen, dass dieser an einer I-Strecke keine bleibende Regelabweichung aufweist - da in der Strecke ein I-Anteil vorhanden ist.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_I-S_1.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (P-Regler mit <span class="math inline">K_P=1</span> an I-Strecke)</figcaption>
+<div id="fig-pregler-istrecke-wsprung1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-istrecke-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_I-S_1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-istrecke-wsprung1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.23: Führungssprungantwort (P-Regler mit <span class="math inline">K_P=1</span> an I-Strecke)
+</figcaption>
 </figure>
 </div>
 <p>Wir verdoppeln die Verstärkung und beobachten wiederum, dass die Schwingneigung deutlich zunimmt. Eine weitere Erhöhung der Verstärkung des P-Reglers ist daher nicht zu empfehlen.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_P_I-S_2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (P-Regler mit <span class="math inline">K_P=2</span> an I-Strecke)</figcaption>
+<div id="fig-pregler-istrecke-wsprung2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pregler-istrecke-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_P_I-S_2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pregler-istrecke-wsprung2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.24: Führungssprungantwort (P-Regler mit <span class="math inline">K_P=2</span> an I-Strecke)
+</figcaption>
 </figure>
 </div>
 <p>Verwenden wir anstelle des P-Reglers nun einen PD-Regler, so sieht die Situation deutlich anders aus. Der D-Anteil greift im entscheidenden Moment stark ein und verringert dadurch die Regelabweichung ziemlich rasch. Der P-Anteil “muss” sich dann “nur” noch über die verbleibende Regelabweichung kümmern (und ein Überreagieren bzw. Überschwingen wird dadurch reduziert). Damit ist wiederum eine höhere Verstärkung möglich.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PD_I-S_1.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Führungssprungantwort (PD-Regler mit <span class="math inline">K_P=3</span> und <span class="math inline">T_d=2\,\mathrm{s}</span> an I-Strecke)</figcaption>
+<div id="fig-pdregler-istrecke-wsprung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pdregler-istrecke-wsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PD_I-S_1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pdregler-istrecke-wsprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.25: Führungssprungantwort (PD-Regler mit <span class="math inline">K_P=3</span> und <span class="math inline">T_d=2\,\mathrm{s}</span> an I-Strecke)
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="P-/PD-Regler an I-Strecke">
@@ -861,17 +927,25 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 <section id="störgrössensprung" class="level4 page-columns page-full" data-number="5.3.5.1">
 <h4 data-number="5.3.5.1" class="anchored" data-anchor-id="störgrössensprung"><span class="header-section-number">5.3.5.1</span> Störgrössensprung</h4>
 <p>Um abschliessend das Störverhalten des P/PD-Reglers an einer I-Strecke zu beurteilen, prägen wir wiederum einen Störgrössensprung am Eingang <span class="math inline">z_2</span> (nach der Regelstrecke) auf und betrachten das Regelverhalten.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PD_I-S_1_z2.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Störsprungantwort <span class="math inline">z_2</span> (PD-Regler mit <span class="math inline">K_P=3</span> und <span class="math inline">T_d=2\,\mathrm{s}</span> an I-Strecke)</figcaption>
+<div id="fig-pdregler-istrecke-z2sprung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pdregler-istrecke-z2sprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PD_I-S_1_z2.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pdregler-istrecke-z2sprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.26: Störsprungantwort <span class="math inline">z_2</span> (PD-Regler mit <span class="math inline">K_P=3</span> und <span class="math inline">T_d=2\,\mathrm{s}</span> an I-Strecke)
+</figcaption>
 </figure>
 </div>
 <p>Eine Störung am Regelstreckenausgang (<span class="math inline">z_2</span>) kann vom P/PD-Regler an einer I-Strecke komplett ausgeregelt werden (vgl. obige Abb.), eine Störung am Streckeneingang (<span class="math inline">z_1</span>) allerdings nicht (vgl. nachfolgende Abb.), da wir zu deren Kompensation wiederum eine Stellgrösse benötigen würde bei einer Regeldifferenz von 0.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../images/diagrams/Regler_PD_I-S_1_z1.gif" class="img-fluid figure-img"></p>
-<figcaption class="margin-caption">Störsprungantwort <span class="math inline">z_1</span> (PD-Regler mit <span class="math inline">K_P=3</span> und <span class="math inline">T_d=2\,\mathrm{s}</span> an I-Strecke)</figcaption>
+<div id="fig-pdregler-istrecke-z1sprung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pdregler-istrecke-z1sprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/Regler_PD_I-S_1_z1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pdregler-istrecke-z1sprung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.27: Störsprungantwort <span class="math inline">z_1</span> (PD-Regler mit <span class="math inline">K_P=3</span> und <span class="math inline">T_d=2\,\mathrm{s}</span> an I-Strecke)
+</figcaption>
 </figure>
 </div>
 </section>
@@ -942,7 +1016,7 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 </button>
 <div id="aufgaben5">
 <div id="ex-5-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -951,14 +1025,36 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Um die Vertrautheit mit <span class="cap">Boris</span> zu üben, sollen die obigen Simulationen reproduziert werden. Spiele dabei mit den Reglerparametern und beobachte die Auswirkungen auf das Regelverhalten.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Für Führungssprungantwort werden Störgrössen auf 0 gesetzt und für Störgrössensprung wird Führungsgrösse (und andere Störgrösse) auf 0 gesetzt. Für eine Führungsrampe wird im Funktionsgenerator von Puls auf Funktion (im Eingabefeld <span class="math inline">t</span> eingeben) umgestellt (oder alternativ Puls mit Anstiegszeit TR).</p>
+<p>Bsp.: Führungssprungantwort PI an P-Strecke (analog für P/PID-Regler etc.):</p>
+<p><img src="../images/diagrams/A5_1_P_BSB.png" class="img-fluid"></p>
+<p><img src="../images/diagrams/A5_1_P_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<p>Bsp.: Führungssprungantwort PD an I-Strecke (analog für P-Regler etc.):</p>
+<p><img src="../images/diagrams/A5_1_I_BSB.png" class="img-fluid"></p>
+<p><img src="../images/diagrams/A5_1_I_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-5-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -967,18 +1063,36 @@ Abb.&nbsp;5.10: Sprungantwort des realen PD-Reglers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Simuliere die Führungssprungantwort eines Regelkreises mit einem PI-Regler und einer P-T<sub>2</sub>-Strecke. Die Streckenparameter sind: <span class="math display">
 K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}
 </span></p>
 <p>Für den PI-Regler soll <span class="math inline">T_i = T_1</span> verwendet werden und die Verstärkung so eingestellt werden, dass ein Überschwingen von ca. 10% des Sollwertes erreicht wird. Stelle die Simulationsdauer auf 20 s ein.</p>
-<p><i class="bi bi-hand-index-thumb"></i> Menu <em>Messung &gt; Aktivieren</em> im Zeitverlaufsdiagramm ermöglicht das genaue Ablesen von Werten. Mit der Maus kann man die Messpunkte verschieben und so die Werte an der gewünschten Stelle ablesen.</p>
+<p><i class="bi bi-hand-index-thumb"></i> Menu <em>Messung → Aktivieren</em> im Zeitverlaufsdiagramm ermöglicht das genaue Ablesen von Werten. Mit der Maus kann man die Messpunkte verschieben und so die Werte an der gewünschten Stelle ablesen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mit <span class="math inline">K_P = 0.75</span> erreichen wir ein Überschwingen von ca. 10%.</p>
+<p><img src="../images/diagrams/A5_2_BSB.png" class="img-fluid"></p>
+<p><img src="../images/diagrams/A5_2_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-5-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -987,11 +1101,34 @@ K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Eine I-T<sub>1</sub>-Strecke mit <span class="math inline">T_I=0.5\,\mathrm{s}</span> und <span class="math inline">T_1=0.75\,\mathrm{s}</span> soll mit einem P-Regler geregelt werden. Zwischen dem I-Glied und dem P-T<sub>1</sub>-Glied (Reminder: Ein I-T<sub>1</sub> ist eine Reihenschaltung von I und P-T<sub>1</sub>) greift eine Störgrösse <span class="math inline">z</span> ein.</p>
 <p>Stelle die Verstärkung des P-Reglers so ein, dass die Regelabweichung bei der Störsprungantwort spätestens nach 2.5 s auf +/- 0.1 abgesunken ist. Simuliere anschliessen die Führungssprungantwort und lese das Überschwingens ab (in % des Sollwertes).</p>
 <p><i class="bi bi-hand-index-thumb"></i> Mit dem Block <em>Verknüpfer</em> (Palette <em>Funktion</em>) kann die Störgrösse <span class="math inline">z</span> zwischen I-Glied und P-T<sub>1</sub>-Glied eingeleitet werden. Die Störgrössensprung selbst wird mit dem Funktionsgenerator erzeugt (analog zur Führungsgrösse).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Störsprungantwort</strong></p>
+<p>Mit <span class="math inline">K_P = 0.75</span> ist die Störsprungantwort für <span class="math inline">t &gt; 2.5\,\mathrm{s}</span> nie mehr ausserhalb des +/-0.1-Bandes.</p>
+<p><img src="../images/diagrams/A5_3_zSprung_BSB.png" class="img-fluid"></p>
+<p><img src="../images/diagrams/A5_3_zSprung_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<p><strong>Führungssprungantwort</strong></p>
+<p><img src="../images/diagrams/A5_3_wSprung_BSB.png" class="img-fluid"></p>
+<p><img src="../images/diagrams/A5_3_wSprung_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<p>Damit resultiert ein Überschwingen von ca. 20%.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1707,7 +1844,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>Wir beginnen mit einer Reglerverstärkung von $K_P=0.5$ und betrachten nachfolgend die Führungssprungantwort.</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=0.5$)](../images/diagrams/Regler_P_2.gif)</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=0.5$)](../images/diagrams/Regler_P_2.gif)</span>{#fig-pregler-wsprung1}</span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Das anfängliche Verhalten scheint sehr gut zu sein, doch im stationären Zustand bleibt eine deutliche Regeldifferenz bestehen. Warum sich eine bleibende Regelabweichung einstellt, können wir in der folgenden Animation sehr schön sehen. Die Animation zeigt das Regelverhalten in Zeitlupentempo und man sieht schön, wie sich der stationäre Zustand allmählich einstellt. Der Sollwert kann nicht erreicht werden, da sonst die Regeldifferenz und damit die Stellgrösse null werden würden, was wiederum eine Ausgangsgrösse von null ergeben würde. Es stellt sich also ein entsprechendes Gleichgewicht<span class="ot">[^gleichgewicht]</span> ein.</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
@@ -1721,13 +1858,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>Um zu untersuchen, ob eine höhere Verstärkung die Situation verbessert, erhöhen wir die Verstärkung auf $K_P=1.0$.</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=1.0$)](../images/diagrams/Regler_P_3.gif)</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=1.0$)](../images/diagrams/Regler_P_3.gif)</span>{#fig-pregler-wsprung2}</span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>Wir stellen fest, dass durch die Erhöhung der Verstärkung die bleibende Regelabweichung abnimmt, die Schwingneigung allerdings zunimmt. Die Regelung ist also *schlechter gedämpft*. Dies ist ein generelles Problem in der Regelungstechnik und begrenzt die maximal mögliche Verstärkung.</span>
 <span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist die Führungssprungantwort für eine Verstärkung $K_P=3.0$ dargestellt und man kann sich gut vorstellen, dass eine weitere Erhöhung der Verstärkung allmählich zu einer Dauerschwingung bzw. schliesslich zu *instabilem* Verhalten führt.</span>
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=3.0$)](../images/diagrams/Regler_P_4.gif)</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=3.0$)](../images/diagrams/Regler_P_4.gif)</span>{#fig-pregler-wsprung3}</span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="P-Regler an P-Strecke"}</span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>Als Fazit können wir festhalten, dass der P-Regler ein rasches Erreichen des stationären Zustandes ermöglicht, allerdings verbleibt an einer P-Strecke immer eine bleibende Regelabweichung. Diese kann durch die Erhöhung der Verstärkung zwar verringert werden, allerdings führt dies zu einer Verschlechterung der Dämpfung.</span>
@@ -1739,7 +1876,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>Um den Einfluss von Störungen zu untersuchen, simulieren wir entsprechende Störsprungantworten. Wir setzen dabei $w=0$ und leiten ein Sprungsignal am Störeingang $z_1$ oder $z_2$ ein. Die Störsprungantwort zeigt uns, welchen Einfluss eine Störung auf das Regelverhalten hat. Im Idealfall geht die Störsprungantwort möglichst rasch gegen 0 (was bedeutet, dass die Störung vollständig ausgeregelt wird).</span>
 <span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort für $z_2$ (P-Regler mit $K_P=1.0$)](../images/diagrams/Regler_P_3_z2.gif)</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort für $z_2$ (P-Regler mit $K_P=1.0$)](../images/diagrams/Regler_P_3_z2.gif)</span>{#fig-pregler-zsprung}</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>Wir stellen fest, dass der P-Regler die Störung $z_2$ nicht vollständig ausregeln kann und es auch hier (nicht überraschend) zu einer bleibenden Regeldifferenz kommt. Wir verzichten hier auf die Störgrösse $z_1$, da qualitativ dasselbe Verhalten resultiert (der Einfluss von $z_1$ ist allerdings deutlich grösser, da sie noch von der Strecke verstärkt wird).</span>
 <span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
@@ -1747,7 +1884,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>Abschliessend wollen wir wieder die Führungsgrösse vorgeben, aber diesmal rampenförmig hochfahren (wir sprechen von einer Führungsrampe). Damit können wir das Führungsverhalten einer Folgeregelung beurteilen. Als Beispiel einer Folgeregelung kann man sich z. B. eine Drehzahl- bzw. Geschwindigkeitsregelung eines Elektromotors vorstellen, bei der ein bestimmtes Geschwindigkeitsprofil abgefahren werden soll. Dabei wird der Sollwert (gemäss Geschwindigkeitsprofil) i. Allg. dauernd verändert.</span>
 <span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungsrampenantwort (P-Regler mit $K_P=1.0$)](../images/diagrams/Regler_P_3_ramp.gif)</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungsrampenantwort (P-Regler mit $K_P=1.0$)](../images/diagrams/Regler_P_3_ramp.gif)</span>{#fig-pregler-wrampe}</span>
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>Wir stellen fest, dass die Regeldifferenz beim rampenförmigen Sollwertverlauf sogar immer grösser wird, d. h. ein P-Regler wäre für eine Folgeregelung an einer P-Strecke ungeeignet.</span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
@@ -1763,11 +1900,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>y(t) = K_I \cdot \int e(t) \, \mathrm{d}t</span>
 <span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>$$ {#eq-i-regler}</span>
 <span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (I-Regler mit $K_I=0.008$)](../images/diagrams/Regler_I_1.gif)</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (I-Regler mit $K_I=0.008$)](../images/diagrams/Regler_I_1.gif)</span>{#fig-iregler-wsprung1}</span>
 <span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>Wir sehen, dass der I-Regler tatsächlich zu keiner bleibenden Abweichung führt, d. h. eine *genaue* Regelung ermöglicht. Leider dauert es sehr lange bis der Sollwert erreicht wird, d. h. wir versuchen die Schnelligkeit durch die Verdopplung der Verstärkung zu verbessern.</span>
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (I-Regler mit $K_I=0.016$)](../images/diagrams/Regler_I_2.gif)</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (I-Regler mit $K_I=0.016$)](../images/diagrams/Regler_I_2.gif)</span>{#fig-iregler-wsprung2}</span>
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>Die Schnelligkeit konnte durch eine grössere Verstärkung tatsächlich erhöht werden, es dauert jedoch immer noch relativ lange. Die Schwingneigung hat ebenfalls zugenommen (= geringere Dämpfung), d. h. eine weitere Erhöhung der Verstärkung ist wiederum problematisch.</span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
@@ -1805,11 +1942,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>Durch diese Überlagerung von P- und I-Anteil ist der PI-Regler in der Lage die wichtigen Anforderungen *Schnelligkeit* (durch P-Regler) und *Genauigkeit* (durch I-Regler) zu erfüllen.</span>
 <span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PI-Regler mit $K_P=0.16$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_1.gif)</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PI-Regler mit $K_P=0.16$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_1.gif)</span>{#fig-piregler-wsprung1}</span>
 <span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>Damit kann im Vergleich zum (reinen) P- bzw. I-Regler ein deutlich besseres Verhalten erreicht werden. Wiederum kann mit der Erhöhung der Verstärkung ein Überschwingen und damit eine noch schnellere Regelung erzielt werden.</span>
 <span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PI-Regler mit $K_P=0.45$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_2.gif)</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PI-Regler mit $K_P=0.45$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_2.gif)</span>{#fig-piregler-wsprung2}</span>
 <span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="PI-Regler"}</span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>Der PI-Regler vereint die positiven Eigenschaften des P- und I-Reglers, d. h. ermöglicht i. Allg. eine *schnelle* und *genaue* Regelung.</span>
@@ -1821,13 +1958,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>Betrachten wir wieder das Störverhalten so stellen wir fest, dass nun auch die Störgrössen komplett ausgeregelt werden (analog für $z_1$).</span>
 <span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort für $z_2$ (PI-Regler mit $K_P=0.45$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_2_z2.gif)</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort für $z_2$ (PI-Regler mit $K_P=0.45$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_2_z2.gif)</span>{#fig-piregler-zsprung}</span>
 <span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Führungsrampenantwort {.unnumbered}</span></span>
 <span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>Um das Folgeverhalten zu beurteilen, betrachten wir abschliessend noch die Führungsrampenantwort. Wir stellen fest, dass zwar eine Regelabweichung auftritt, diese bleibt aber konstant (nicht wie beim P-Regler, wo diese immer grösser wird). Eine solche Abweichung wird als *Schleppfehler* bezeichnet.</span>
 <span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungsrampenantwort (PI-Regler mit $K_P=0.45$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_2_ramp.gif)</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungsrampenantwort (PI-Regler mit $K_P=0.45$ und $T_i=3\,\mathrm{s}$)](../images/diagrams/Regler_PI_2_ramp.gif)</span>{#fig-piregler-wrampe}</span>
 <span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### PID-Regler (Proportional-Integral-Differential-Regler) {#sec-pid-regler}</span></span>
@@ -1867,7 +2004,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>Mit dem PID-Regler haben wir einen sehr flexiblen und äusserst mächtigen Regler, der für viele Anwendungen ein sehr gutes Regelverhalten ermöglicht und trotzdem durch eine vergleichsweise einfache Struktur bzw. Parametrierung besticht. Aus diesen Gründen ist er als Standardregler allgegenwärtig in der Industrie.</span>
 <span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PID-Regler mit $K_P=1.3$, $T_i=3\,\mathrm{s}$ und $T_d=0.5\,\mathrm{s}$)](../images/diagrams/Regler_PID_1.gif)</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PID-Regler mit $K_P=1.3$, $T_i=3\,\mathrm{s}$ und $T_d=0.5\,\mathrm{s}$)](../images/diagrams/Regler_PID_1.gif)</span>{#fig-pidregler-wsprung}</span>
 <span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="PID-Regler"}</span>
@@ -1900,15 +2037,15 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>Wir beginnen wieder mit dem einfachen P-Regler und werden feststellen, dass dieser an einer I-Strecke keine bleibende Regelabweichung aufweist - da in der Strecke ein I-Anteil vorhanden ist.</span>
 <span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=1$ an I-Strecke)](../images/diagrams/Regler_P_I-S_1.gif)</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=1$ an I-Strecke)](../images/diagrams/Regler_P_I-S_1.gif)</span>{#fig-pregler-istrecke-wsprung1}</span>
 <span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>Wir verdoppeln die Verstärkung und beobachten wiederum, dass die Schwingneigung deutlich zunimmt. Eine weitere Erhöhung der Verstärkung des P-Reglers ist daher nicht zu empfehlen.</span>
 <span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=2$ an I-Strecke)](../images/diagrams/Regler_P_I-S_2.gif)</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (P-Regler mit $K_P=2$ an I-Strecke)](../images/diagrams/Regler_P_I-S_2.gif)</span>{#fig-pregler-istrecke-wsprung2}</span>
 <span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Verwenden wir anstelle des P-Reglers nun einen PD-Regler, so sieht die Situation deutlich anders aus. Der D-Anteil greift im entscheidenden Moment stark ein und verringert dadurch die Regelabweichung ziemlich rasch. Der P-Anteil "muss" sich dann "nur" noch über die verbleibende Regelabweichung kümmern (und ein Überreagieren bzw. Überschwingen wird dadurch reduziert). Damit ist wiederum eine höhere Verstärkung möglich.</span>
 <span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1.gif)</span></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="al">![Führungssprungantwort (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1.gif)</span>{#fig-pdregler-istrecke-wsprung}</span>
 <span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="P-/PD-Regler an I-Strecke"}</span>
 <span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>An I-Strecken wird kein I-Anteil im Regler benötigt, um stationäre Genauigkeit zu erreichen, da bereits ein I-Anteil in der Strecke enthalten ist. Daher sind P-Regler bzw. PD-Regler für solche Strecken gut geeignet, wobei der PD-Regler vorteilhaft ist in Bezug auf die *Schnelligkeit* und *Dämpfung*.</span>
@@ -1918,11 +2055,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>Um abschliessend das Störverhalten des P/PD-Reglers an einer I-Strecke zu beurteilen, prägen wir wiederum einen Störgrössensprung am Eingang $z_2$ (nach der Regelstrecke) auf und betrachten das Regelverhalten.</span>
 <span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort $z_2$ (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1_z2.gif)</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort $z_2$ (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1_z2.gif)</span>{#fig-pdregler-istrecke-z2sprung}</span>
 <span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>Eine Störung am Regelstreckenausgang ($z_2$) kann vom P/PD-Regler an einer I-Strecke komplett ausgeregelt werden (vgl. obige Abb.), eine Störung am Streckeneingang ($z_1$) allerdings nicht (vgl. nachfolgende Abb.), da wir zu deren Kompensation wiederum eine Stellgrösse benötigen würde bei einer Regeldifferenz von 0.</span>
 <span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort $z_1$ (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1_z1.gif)</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort $z_1$ (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1_z1.gif)</span>{#fig-pdregler-istrecke-z1sprung}</span>
 <span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
@@ -1952,55 +2089,106 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-1}</span>
 <span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.1</span></span>
 <span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>Um die Vertrautheit mit <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> zu üben, sollen die obigen Simulationen reproduziert werden. Spiele dabei mit den Reglerparametern und beobachte die Auswirkungen auf das Regelverhalten.</span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-2}</span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.2</span></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>Simuliere die Führungssprungantwort eines Regelkreises mit einem PI-Regler und einer P-T~2~-Strecke. Die Streckenparameter sind:</span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>Für den PI-Regler soll $T_i = T_1$ verwendet werden und die Verstärkung so eingestellt werden, dass ein Überschwingen von ca. 10% des Sollwertes erreicht wird. Stelle die Simulationsdauer auf 20 s ein.</span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Menu *Messung &gt; Aktivieren* im Zeitverlaufsdiagramm ermöglicht das genaue Ablesen von Werten. Mit der Maus kann man die Messpunkte verschieben und so die Werte an der gewünschten Stelle ablesen.</span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>Für Führungssprungantwort werden Störgrössen auf 0 gesetzt und für Störgrössensprung wird Führungsgrösse (und andere Störgrösse) auf 0 gesetzt. Für eine Führungsrampe wird im Funktionsgenerator von Puls auf Funktion (im Eingabefeld $t$ eingeben) umgestellt (oder alternativ Puls mit Anstiegszeit TR).</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>Bsp.: Führungssprungantwort PI an P-Strecke (analog für P/PID-Regler etc.):</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_P_BSB.png)</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_P_Diagramm.png)</span>{width="80%"}</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>Bsp.: Führungssprungantwort PD an I-Strecke (analog für P-Regler etc.):</span>
 <span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-3}</span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.3</span></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>Eine I-T~1~-Strecke mit $T_I=0.5\,\mathrm{s}$ und $T_1=0.75\,\mathrm{s}$ soll mit einem P-Regler geregelt werden. Zwischen dem I-Glied und dem P-T~1~-Glied (Reminder: Ein I-T~1~ ist eine Reihenschaltung von I und P-T~1~) greift eine Störgrösse $z$ ein.</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_I_BSB.png)</span></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_I_Diagramm.png)</span>{width="80%"}</span>
 <span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>Stelle die Verstärkung des P-Reglers so ein, dass die Regelabweichung bei der Störsprungantwort spätestens nach 2.5 s auf +/- 0.1 abgesunken ist. Simuliere anschliessen die Führungssprungantwort und lese das Überschwingens ab (in % des Sollwertes).</span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Mit dem Block *Verknüpfer* (Palette *Funktion*) kann die Störgrösse $z$ zwischen I-Glied und P-T~1~-Glied eingeleitet werden. Die Störgrössensprung selbst wird mit dem Funktionsgenerator erzeugt (analog zur Führungsgrösse).</span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="ot">[^superposition]: </span>Wir könnten problemlos auch gleichzeitig einen Führungssprung und einen Störsprung simulieren, doch würde man dann den Einfluss des Führungssprungs und des Störsprungs nicht ohne Weiteres unterscheiden können. Wir werden später noch genauer sehen, dass aufgrund der Linearität (Superpositionsprinzip) die beiden Sprungantworten einfach überlagert werden, d. h. immer einzeln simuliert werden können.</span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="ot">[^einheitssprung]: </span>Sofern nichts anderes gefordert wird, verwenden wir jeweils den Einheitssprung ($\Delta w=1$ bzw. $\Delta z_{1,2}=1$) als Eingangssignal.</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-2}</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.2</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>Simuliere die Führungssprungantwort eines Regelkreises mit einem PI-Regler und einer P-T~2~-Strecke. Die Streckenparameter sind:</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="ot">[^unstetig]: </span>Wir werden später auch eine andere Klasse von Reglern kennenlernen: Die *unstetigen* Regler. Diese weisen nur diskrete Ausgangswerte auf, z. B. ON/OFF bzw. 0/24 V.</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>Für den PI-Regler soll $T_i = T_1$ verwendet werden und die Verstärkung so eingestellt werden, dass ein Überschwingen von ca. 10% des Sollwertes erreicht wird. Stelle die Simulationsdauer auf 20 s ein.</span>
 <span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="ot">[^gleichgewicht]: </span>Der Gleichgewichtszustand kann in diesem Fall ziemlich einfach bestimmt werden, indem die statischen Zusammenhänge betrachtet werden:</span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>    e &amp;= w - x <span class="sc">\\</span></span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>    y &amp;= K_{PR} \cdot e = K_{PR} \cdot (w - x)<span class="sc">\\</span></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>    x &amp;= K_{PS} \cdot y = K_{PS} \cdot K_{PR} \cdot (w - x)</span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>    ... und dann nach $x$ aufgelöst wird:</span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>    x &amp;= \frac{K_{PS} \cdot K_{PR}}{1 + K_{PS} \cdot K_{PR}}<span class="sc">\\</span></span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>    &amp;= \frac{0.5 \cdot 10}{1 + 0.5 \cdot 10} = \frac{5}{6} = 0.83</span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="ot">[^parallelschaltung]: </span>Die Verstärkung $K_P$ ist dabei vor dem Verzweigungspunkt angeordnet, d. h. wirkt sich auf beide Zweige (P und I) aus. In der Reglergleichung zeigt sich dies darin, dass der Proportionalbeiwert $K_P$ vor der Klammer steht. Der Vorteil dieser Struktur ist, dass die relativen Anteile (P und I) zueinander bleich bleiben, wenn die Veränderung verändert wird.</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Menu *Messung → Aktivieren* im Zeitverlaufsdiagramm ermöglicht das genaue Ablesen von Werten. Mit der Maus kann man die Messpunkte verschieben und so die Werte an der gewünschten Stelle ablesen.</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>Mit $K_P = 0.75$ erreichen wir ein Überschwingen von ca. 10%.</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_2_BSB.png)</span></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_2_Diagramm.png)</span>{width="80%"}</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-3}</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.3</span></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>Eine I-T~1~-Strecke mit $T_I=0.5\,\mathrm{s}$ und $T_1=0.75\,\mathrm{s}$ soll mit einem P-Regler geregelt werden. Zwischen dem I-Glied und dem P-T~1~-Glied (Reminder: Ein I-T~1~ ist eine Reihenschaltung von I und P-T~1~) greift eine Störgrösse $z$ ein.</span>
 <span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="ot">[^nachstellzeit]: </span>Die Nachstellzeit $T_i$ (kleines i) ist nicht zu verwechseln mit der Integrierzeit $T_I$ (grosses I) eines I-Gliedes. Die Nachstellzeit $T_i$ bezieht sich immer auf einen PI/PID-Regler.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>Stelle die Verstärkung des P-Reglers so ein, dass die Regelabweichung bei der Störsprungantwort spätestens nach 2.5 s auf +/- 0.1 abgesunken ist. Simuliere anschliessen die Führungssprungantwort und lese das Überschwingens ab (in % des Sollwertes).</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Mit dem Block *Verknüpfer* (Palette *Funktion*) kann die Störgrösse $z$ zwischen I-Glied und P-T~1~-Glied eingeleitet werden. Die Störgrössensprung selbst wird mit dem Funktionsgenerator erzeugt (analog zur Führungsgrösse).</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>**Störsprungantwort**</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Mit $K_P = 0.75$ ist die Störsprungantwort für $t &gt; 2.5\,\mathrm{s}$ nie mehr ausserhalb des +/-0.1-Bandes.</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_zSprung_BSB.png)</span></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_zSprung_Diagramm.png)</span>{width="80%"}</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>**Führungssprungantwort**</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_wSprung_BSB.png)</span></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_wSprung_Diagramm.png)</span>{width="80%"}</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>Damit resultiert ein Überschwingen von ca. 20%.</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="ot">[^superposition]: </span>Wir könnten problemlos auch gleichzeitig einen Führungssprung und einen Störsprung simulieren, doch würde man dann den Einfluss des Führungssprungs und des Störsprungs nicht ohne Weiteres unterscheiden können. Wir werden später noch genauer sehen, dass aufgrund der Linearität (Superpositionsprinzip) die beiden Sprungantworten einfach überlagert werden, d. h. immer einzeln simuliert werden können.</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="ot">[^einheitssprung]: </span>Sofern nichts anderes gefordert wird, verwenden wir jeweils den Einheitssprung ($\Delta w=1$ bzw. $\Delta z_{1,2}=1$) als Eingangssignal.</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="ot">[^unstetig]: </span>Wir werden später auch eine andere Klasse von Reglern kennenlernen: Die *unstetigen* Regler. Diese weisen nur diskrete Ausgangswerte auf, z. B. ON/OFF bzw. 0/24 V.</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="ot">[^gleichgewicht]: </span>Der Gleichgewichtszustand kann in diesem Fall ziemlich einfach bestimmt werden, indem die statischen Zusammenhänge betrachtet werden:</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>    e &amp;= w - x <span class="sc">\\</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>    y &amp;= K_{PR} \cdot e = K_{PR} \cdot (w - x)<span class="sc">\\</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>    x &amp;= K_{PS} \cdot y = K_{PS} \cdot K_{PR} \cdot (w - x)</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>    ... und dann nach $x$ aufgelöst wird:</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>    x &amp;= \frac{K_{PS} \cdot K_{PR}}{1 + K_{PS} \cdot K_{PR}}<span class="sc">\\</span></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>    &amp;= \frac{0.5 \cdot 10}{1 + 0.5 \cdot 10} = \frac{5}{6} = 0.83</span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="ot">[^parallelschaltung]: </span>Die Verstärkung $K_P$ ist dabei vor dem Verzweigungspunkt angeordnet, d. h. wirkt sich auf beide Zweige (P und I) aus. In der Reglergleichung zeigt sich dies darin, dass der Proportionalbeiwert $K_P$ vor der Klammer steht. Der Vorteil dieser Struktur ist, dass die relativen Anteile (P und I) zueinander bleich bleiben, wenn die Veränderung verändert wird.</span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="ot">[^nachstellzeit]: </span>Die Nachstellzeit $T_i$ (kleines i) ist nicht zu verwechseln mit der Integrierzeit $T_I$ (grosses I) eines I-Gliedes. Die Nachstellzeit $T_i$ bezieht sich immer auf einen PI/PID-Regler.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

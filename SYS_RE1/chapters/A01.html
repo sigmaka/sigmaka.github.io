@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/A02.html" rel="next">
-<link href="../chapters/L06.html" rel="prev">
+<link href="../chapters/L07.html" rel="prev">
 <link href="../images/logo_re.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -246,6 +246,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reglerentwurf</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -332,7 +338,7 @@ window.Quarto = {
 <tr class="even">
 <td style="text-align: left;">Arbeitspunkt</td>
 <td style="text-align: left;">operating point</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">AP</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
@@ -456,198 +462,204 @@ window.Quarto = {
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Linearisierungskennlinie</td>
+<td style="text-align: left;">linearization curve</td>
+<td style="text-align: left;">LK</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Messglied</td>
 <td style="text-align: left;">measuring element</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Nachstellzeit</td>
 <td style="text-align: left;">reset time</td>
 <td style="text-align: left;"><span class="math inline">T_i</span></td>
 <td style="text-align: left;">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Proportionalbeiwert</td>
 <td style="text-align: left;">proportional action coefficient</td>
 <td style="text-align: left;"><span class="math inline">K_P</span></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Proportionalglied (P-Glied)</td>
 <td style="text-align: left;">proportional element (P element)</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Regeldifferenz</td>
 <td style="text-align: left;">error variable</td>
 <td style="text-align: left;"><span class="math inline">e</span></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Regelglied</td>
 <td style="text-align: left;">controlling element</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Regelgrösse</td>
 <td style="text-align: left;">controlled variable</td>
 <td style="text-align: left;"><span class="math inline">x</span></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Regelkreis</td>
 <td style="text-align: left;">control loop</td>
 <td style="text-align: left;">RK</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Regelung</td>
 <td style="text-align: left;">closed-loop control (feedback control)</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Regelstrecke</td>
 <td style="text-align: left;">controlled process</td>
 <td style="text-align: left;">RS</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Regler</td>
 <td style="text-align: left;">controller</td>
 <td style="text-align: left;">RE</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Rückführgrösse</td>
 <td style="text-align: left;">feedback variable</td>
 <td style="text-align: left;"><span class="math inline">r</span></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Sollwert</td>
 <td style="text-align: left;">desired value</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Sprungantwort</td>
 <td style="text-align: left;">step response</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Stabilität</td>
 <td style="text-align: left;">stability</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Stellgrösse</td>
 <td style="text-align: left;">manipulated variable</td>
 <td style="text-align: left;"><span class="math inline">y</span></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Steuerkette</td>
 <td style="text-align: left;">control chain</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Steuerung</td>
 <td style="text-align: left;">open-loop control (feedforward control)</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Störgrösse</td>
 <td style="text-align: left;">disturbance variable</td>
 <td style="text-align: left;"><span class="math inline">z</span></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Störverhalten</td>
 <td style="text-align: left;">disturbance response</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Totzeit</td>
 <td style="text-align: left;">dead-time</td>
 <td style="text-align: left;"><span class="math inline">T_t</span></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Überschwingweite</td>
 <td style="text-align: left;">overshoot</td>
 <td style="text-align: left;"><span class="math inline">x_m</span></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Übertragungsglied</td>
 <td style="text-align: left;">transfer element</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1/2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Vergleichsglied</td>
 <td style="text-align: left;">comparing element</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Verzögerungsglied</td>
 <td style="text-align: left;">lag element</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Verzögerungszeit</td>
 <td style="text-align: left;">time constant</td>
 <td style="text-align: left;"><span class="math inline">T_{1,2,..}</span></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Verzugszeit</td>
 <td style="text-align: left;">equivalent dead-time</td>
 <td style="text-align: left;"><span class="math inline">T_e</span></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Verzweigung</td>
 <td style="text-align: left;">branching point</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Vorhaltezeit</td>
 <td style="text-align: left;">rate time</td>
 <td style="text-align: left;"><span class="math inline">T_d</span></td>
 <td style="text-align: left;">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Wendepunkt</td>
 <td style="text-align: left;">inflection point</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Zeitkonstante</td>
 <td style="text-align: left;">time constant</td>
 <td style="text-align: left;"><span class="math inline">T_{1,2,..}</span></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Zeitverhalten</td>
 <td style="text-align: left;">time response</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Zielgrösse</td>
 <td style="text-align: left;">command variable</td>
 <td style="text-align: left;"><span class="math inline">c</span></td>
@@ -1269,8 +1281,8 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/L06.html" class="pagination-link" aria-label="Reglerentwurf">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reglerentwurf</span></span>
+      <a href="../chapters/L07.html" class="pagination-link" aria-label="Stellgrössenbeschränkung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1288,7 +1300,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Begriff <span class="pp">|</span> engl. <span class="pp">|</span> Symbol <span class="pp">|</span> Kap. (Buch) <span class="pp">|</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---|:---|:---|:---|</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Anregelzeit <span class="pp">|</span> control rise time <span class="pp">|</span> $T_{cr}$ <span class="pp">|</span> 4 <span class="pp">|</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Arbeitspunkt <span class="pp">|</span> operating point <span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Arbeitspunkt <span class="pp">|</span> operating point <span class="pp">|</span> AP <span class="pp">|</span> 2 <span class="pp">|</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Aufgabengrösse <span class="pp">|</span> final controlled variable <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ausgangsgrösse <span class="pp">|</span> output variable<span class="pp">|</span> $x_a$<span class="pp">|</span> 2 <span class="pp">|</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ausgleichszeit <span class="pp">|</span> equivalent time constant <span class="pp">|</span> $T_b$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
@@ -1309,47 +1321,48 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Istwert <span class="pp">|</span> actual value <span class="pp">|</span>  <span class="pp">|</span> 1 <span class="pp">|</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kennkreisfrequenz <span class="pp">|</span> charateristic angular frequency <span class="pp">|</span> $\omega_0$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kennlinie <span class="pp">|</span> characteristic curve <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Messglied <span class="pp">|</span> measuring element <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Nachstellzeit <span class="pp">|</span> reset time <span class="pp">|</span> $T_i$ <span class="pp">|</span> 3 <span class="pp">|</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Proportionalbeiwert <span class="pp">|</span> proportional action coefficient <span class="pp">|</span> $K_P$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Proportionalglied (P-Glied) <span class="pp">|</span> proportional element (P element) <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regeldifferenz <span class="pp">|</span> error variable <span class="pp">|</span> $e$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelglied <span class="pp">|</span> controlling element <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelgrösse <span class="pp">|</span> controlled variable <span class="pp">|</span> $x$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelkreis <span class="pp">|</span> control loop <span class="pp">|</span> RK <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelung <span class="pp">|</span> closed-loop control (feedback control) <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelstrecke <span class="pp">|</span> controlled process <span class="pp">|</span> RS <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regler <span class="pp">|</span> controller <span class="pp">|</span> RE <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rückführgrösse <span class="pp">|</span> feedback variable <span class="pp">|</span> $r$ <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Sollwert <span class="pp">|</span> desired value <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Sprungantwort <span class="pp">|</span> step response<span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stabilität <span class="pp">|</span> stability <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stellgrösse <span class="pp">|</span> manipulated variable <span class="pp">|</span> $y$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Steuerkette <span class="pp">|</span> control chain <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Steuerung <span class="pp">|</span> open-loop control (feedforward control) <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Störgrösse <span class="pp">|</span> disturbance variable <span class="pp">|</span> $z$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Störverhalten <span class="pp">|</span> disturbance response <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Totzeit <span class="pp">|</span> dead-time <span class="pp">|</span> $T_t$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Überschwingweite <span class="pp">|</span> overshoot <span class="pp">|</span> $x_m$<span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Übertragungsglied <span class="pp">|</span> transfer element <span class="pp">|</span> <span class="pp">|</span> 1/2 <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vergleichsglied <span class="pp">|</span> comparing element <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzögerungsglied <span class="pp">|</span> lag element<span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzögerungszeit <span class="pp">|</span> time constant <span class="pp">|</span> $T_{1,2,..}$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzugszeit <span class="pp">|</span> equivalent dead-time <span class="pp">|</span> $T_e$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzweigung <span class="pp">|</span> branching point<span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vorhaltezeit <span class="pp">|</span> rate time <span class="pp">|</span> $T_d$ <span class="pp">|</span> 4 <span class="pp">|</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wendepunkt <span class="pp">|</span> inflection point <span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zeitkonstante <span class="pp">|</span> time constant <span class="pp">|</span> $T_{1,2,..}$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zeitverhalten <span class="pp">|</span> time response <span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zielgrösse <span class="pp">|</span> command variable <span class="pp">|</span> $c$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Begriffe und Symbole</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Standardregelkreis</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="al">![Standardregelkreis](../images/diagrams/BSB_RK.svg)</span>{#fig-rk-A}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Linearisierungskennlinie <span class="pp">|</span> linearization curve <span class="pp">|</span> LK <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Messglied <span class="pp">|</span> measuring element <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Nachstellzeit <span class="pp">|</span> reset time <span class="pp">|</span> $T_i$ <span class="pp">|</span> 3 <span class="pp">|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Proportionalbeiwert <span class="pp">|</span> proportional action coefficient <span class="pp">|</span> $K_P$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Proportionalglied (P-Glied) <span class="pp">|</span> proportional element (P element) <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regeldifferenz <span class="pp">|</span> error variable <span class="pp">|</span> $e$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelglied <span class="pp">|</span> controlling element <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelgrösse <span class="pp">|</span> controlled variable <span class="pp">|</span> $x$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelkreis <span class="pp">|</span> control loop <span class="pp">|</span> RK <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelung <span class="pp">|</span> closed-loop control (feedback control) <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regelstrecke <span class="pp">|</span> controlled process <span class="pp">|</span> RS <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Regler <span class="pp">|</span> controller <span class="pp">|</span> RE <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rückführgrösse <span class="pp">|</span> feedback variable <span class="pp">|</span> $r$ <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Sollwert <span class="pp">|</span> desired value <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Sprungantwort <span class="pp">|</span> step response<span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stabilität <span class="pp">|</span> stability <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stellgrösse <span class="pp">|</span> manipulated variable <span class="pp">|</span> $y$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Steuerkette <span class="pp">|</span> control chain <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Steuerung <span class="pp">|</span> open-loop control (feedforward control) <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Störgrösse <span class="pp">|</span> disturbance variable <span class="pp">|</span> $z$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Störverhalten <span class="pp">|</span> disturbance response <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Totzeit <span class="pp">|</span> dead-time <span class="pp">|</span> $T_t$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Überschwingweite <span class="pp">|</span> overshoot <span class="pp">|</span> $x_m$<span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Übertragungsglied <span class="pp">|</span> transfer element <span class="pp">|</span> <span class="pp">|</span> 1/2 <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vergleichsglied <span class="pp">|</span> comparing element <span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzögerungsglied <span class="pp">|</span> lag element<span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzögerungszeit <span class="pp">|</span> time constant <span class="pp">|</span> $T_{1,2,..}$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzugszeit <span class="pp">|</span> equivalent dead-time <span class="pp">|</span> $T_e$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Verzweigung <span class="pp">|</span> branching point<span class="pp">|</span> <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vorhaltezeit <span class="pp">|</span> rate time <span class="pp">|</span> $T_d$ <span class="pp">|</span> 4 <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wendepunkt <span class="pp">|</span> inflection point <span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zeitkonstante <span class="pp">|</span> time constant <span class="pp">|</span> $T_{1,2,..}$ <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zeitverhalten <span class="pp">|</span> time response <span class="pp">|</span> <span class="pp">|</span> 2 <span class="pp">|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zielgrösse <span class="pp">|</span> command variable <span class="pp">|</span> $c$ <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>Begriffe und Symbole</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Standardregelkreis</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="al">![Standardregelkreis](../images/diagrams/BSB_RK.svg)</span>{#fig-rk-A}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
