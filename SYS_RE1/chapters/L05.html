@@ -254,6 +254,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linearisierungsverfahren</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -951,7 +957,7 @@ Abb.&nbsp;5.27: Störsprungantwort <span class="math inline">z_1</span> (PD-Regl
 </section>
 </section>
 </section>
-<section id="zusammenfassung" class="level2" data-number="5.4">
+<section id="zusammenfassung" class="level2 page-columns page-full" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">5.4</span> Zusammenfassung</h2>
 <p>Die folgende Tabelle fasst die Erkenntnisse in Bezug auf die bleibende Regelabweichung kompakt zusammen. Je nachdem, ob wir einen I-Anteil im Regler (1. Spalte) bzw. in der Strecke (2. Spalte) haben, ergibt sich eine bleibende Regelabweichung bei einem Führungssprung (3. Spalte) bzw. einer Führungsrampe (4. Spalte) und bei Störgrössen am Streckeneingang (5. Spalte) bzw. Streckenausgang (6. Spalte).</p>
 <table class="table">
@@ -1008,6 +1014,18 @@ Abb.&nbsp;5.27: Störsprungantwort <span class="math inline">z_1</span> (PD-Regl
 </tr>
 </tbody>
 </table>
+<hr>
+<p>Im folgenden Video können wir nochmals die qualitativen Einflüsse des P-, I- und D-Anteils im Regler sehr schön erkennen.</p>
+<div id="fig-pid" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/fusr9eTceEo?start=16" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;5.28: Gregory L. Holst, Hardware Demo of a Digital PID Controller <a href="https://www.youtube.com/watch?v=fusr9eTceEo">Quelle</a>
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="aufgaben" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
@@ -1042,11 +1060,27 @@ Abb.&nbsp;5.27: Störsprungantwort <span class="math inline">z_1</span> (PD-Regl
 <div class="callout-body-container callout-body">
 <p>Für Führungssprungantwort werden Störgrössen auf 0 gesetzt und für Störgrössensprung wird Führungsgrösse (und andere Störgrösse) auf 0 gesetzt. Für eine Führungsrampe wird im Funktionsgenerator von Puls auf Funktion (im Eingabefeld <span class="math inline">t</span> eingeben) umgestellt (oder alternativ Puls mit Anstiegszeit TR).</p>
 <p>Bsp.: Führungssprungantwort PI an P-Strecke (analog für P/PID-Regler etc.):</p>
-<p><img src="../images/diagrams/A5_1_P_BSB.png" class="img-fluid"></p>
-<p><img src="../images/diagrams/A5_1_P_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_1_P_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_1_P_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <p>Bsp.: Führungssprungantwort PD an I-Strecke (analog für P-Regler etc.):</p>
-<p><img src="../images/diagrams/A5_1_I_BSB.png" class="img-fluid"></p>
-<p><img src="../images/diagrams/A5_1_I_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_1_I_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_1_I_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1083,8 +1117,16 @@ K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Mit <span class="math inline">K_P = 0.75</span> erreichen wir ein Überschwingen von ca. 10%.</p>
-<p><img src="../images/diagrams/A5_2_BSB.png" class="img-fluid"></p>
-<p><img src="../images/diagrams/A5_2_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_2_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_2_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1120,11 +1162,27 @@ K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}
 <div class="callout-body-container callout-body">
 <p><strong>Störsprungantwort</strong></p>
 <p>Mit <span class="math inline">K_P = 0.75</span> ist die Störsprungantwort für <span class="math inline">t &gt; 2.5\,\mathrm{s}</span> nie mehr ausserhalb des +/-0.1-Bandes.</p>
-<p><img src="../images/diagrams/A5_3_zSprung_BSB.png" class="img-fluid"></p>
-<p><img src="../images/diagrams/A5_3_zSprung_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_3_zSprung_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_3_zSprung_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <p><strong>Führungssprungantwort</strong></p>
-<p><img src="../images/diagrams/A5_3_wSprung_BSB.png" class="img-fluid"></p>
-<p><img src="../images/diagrams/A5_3_wSprung_Diagramm.png" class="img-fluid" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_3_wSprung_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_3_wSprung_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <p>Damit resultiert ein Überschwingen von ca. 20%.</p>
 </div>
 </div>
@@ -2062,133 +2120,142 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="al">![Störsprungantwort $z_1$ (PD-Regler mit $K_P=3$ und $T_d=2\,\mathrm{s}$ an I-Strecke)](../images/diagrams/Regler_PD_I-S_1_z1.gif)</span>{#fig-pdregler-istrecke-z1sprung}</span>
 <span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zusammenfassung</span></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>Die folgende Tabelle fasst die Erkenntnisse in Bezug auf die bleibende Regelabweichung kompakt zusammen. Je nachdem, ob wir einen I-Anteil im Regler (1. Spalte) bzw. in der Strecke (2. Spalte) haben, ergibt sich eine bleibende Regelabweichung bei einem Führungssprung (3. Spalte) bzw. einer Führungsrampe (4. Spalte) und bei Störgrössen am Streckeneingang (5. Spalte) bzw. Streckenausgang (6. Spalte).</span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reglertyp <span class="pp">|</span> Streckentyp <span class="pp">|</span> Regeldifferenz bei Sprung $w$ <span class="pp">|</span> Regeldifferenz bei Rampe $w$ <span class="pp">|</span> Regeldifferenz bei Sprung $z_1$ <span class="pp">|</span> Regeldifferenz bei Sprung $z_2$ <span class="pp">|</span></span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---:|:---:|:---:|:---:|:---:|:---:|</span></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P/PD <span class="pp">|</span> P <span class="pp">|</span> $\dfrac{\Delta w}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\dfrac{K_{PS} \cdot \Delta z_1}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\dfrac{\Delta z_2}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI/PID <span class="pp">|</span> P <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{\left(\dfrac{K_{PR}}{T_i}\right) \cdot K_{PS}}$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P/PD <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{K_{PR} \cdot K_{IS}}$ <span class="pp">|</span> $\dfrac{\Delta z_1}{K_{PR}}$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI/PID <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben5"</span></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG05.pdf"</span></span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben5}</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-1}</span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.1</span></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>Um die Vertrautheit mit <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> zu üben, sollen die obigen Simulationen reproduziert werden. Spiele dabei mit den Reglerparametern und beobachte die Auswirkungen auf das Regelverhalten.</span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zusammenfassung</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>Die folgende Tabelle fasst die Erkenntnisse in Bezug auf die bleibende Regelabweichung kompakt zusammen. Je nachdem, ob wir einen I-Anteil im Regler (1. Spalte) bzw. in der Strecke (2. Spalte) haben, ergibt sich eine bleibende Regelabweichung bei einem Führungssprung (3. Spalte) bzw. einer Führungsrampe (4. Spalte) und bei Störgrössen am Streckeneingang (5. Spalte) bzw. Streckenausgang (6. Spalte).</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reglertyp <span class="pp">|</span> Streckentyp <span class="pp">|</span> Regeldifferenz bei Sprung $w$ <span class="pp">|</span> Regeldifferenz bei Rampe $w$ <span class="pp">|</span> Regeldifferenz bei Sprung $z_1$ <span class="pp">|</span> Regeldifferenz bei Sprung $z_2$ <span class="pp">|</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---:|:---:|:---:|:---:|:---:|:---:|</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P/PD <span class="pp">|</span> P <span class="pp">|</span> $\dfrac{\Delta w}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\dfrac{K_{PS} \cdot \Delta z_1}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span> $\dfrac{\Delta z_2}{1 + K_{PR} \cdot K_{PS}}$ <span class="pp">|</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI/PID <span class="pp">|</span> P <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{\left(\dfrac{K_{PR}}{T_i}\right) \cdot K_{PS}}$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P/PD <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $\dfrac{\Delta w}{K_{PR} \cdot K_{IS}}$ <span class="pp">|</span> $\dfrac{\Delta z_1}{K_{PR}}$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PI/PID <span class="pp">|</span> I <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span> $0$ <span class="pp">|</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>Im folgenden Video können wir nochmals die qualitativen Einflüsse des P-, I- und D-Anteils im Regler sehr schön erkennen.</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>::: {#fig-pid}</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=fusr9eTceEo start="16" &gt;}}</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>Gregory L. Holst, Hardware Demo of a Digital PID Controller <span class="co">[</span><span class="ot">Quelle</span><span class="co">](https://www.youtube.com/watch?v=fusr9eTceEo)</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben5"</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG05.pdf"</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>Für Führungssprungantwort werden Störgrössen auf 0 gesetzt und für Störgrössensprung wird Führungsgrösse (und andere Störgrösse) auf 0 gesetzt. Für eine Führungsrampe wird im Funktionsgenerator von Puls auf Funktion (im Eingabefeld $t$ eingeben) umgestellt (oder alternativ Puls mit Anstiegszeit TR).</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben5}</span>
 <span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>Bsp.: Führungssprungantwort PI an P-Strecke (analog für P/PID-Regler etc.):</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_P_BSB.png)</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-1}</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.1</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>Um die Vertrautheit mit <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> zu üben, sollen die obigen Simulationen reproduziert werden. Spiele dabei mit den Reglerparametern und beobachte die Auswirkungen auf das Regelverhalten.</span>
 <span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_P_Diagramm.png)</span>{width="80%"}</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>Bsp.: Führungssprungantwort PD an I-Strecke (analog für P-Regler etc.):</span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_I_BSB.png)</span></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_I_Diagramm.png)</span>{width="80%"}</span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>Für Führungssprungantwort werden Störgrössen auf 0 gesetzt und für Störgrössensprung wird Führungsgrösse (und andere Störgrösse) auf 0 gesetzt. Für eine Führungsrampe wird im Funktionsgenerator von Puls auf Funktion (im Eingabefeld $t$ eingeben) umgestellt (oder alternativ Puls mit Anstiegszeit TR).</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>Bsp.: Führungssprungantwort PI an P-Strecke (analog für P/PID-Regler etc.):</span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_P_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_P_Diagramm.png)</span>{width="80%" fig-align="center"}</span>
 <span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-2}</span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.2</span></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>Simuliere die Führungssprungantwort eines Regelkreises mit einem PI-Regler und einer P-T~2~-Strecke. Die Streckenparameter sind:</span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}</span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>Für den PI-Regler soll $T_i = T_1$ verwendet werden und die Verstärkung so eingestellt werden, dass ein Überschwingen von ca. 10% des Sollwertes erreicht wird. Stelle die Simulationsdauer auf 20 s ein.</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>Bsp.: Führungssprungantwort PD an I-Strecke (analog für P-Regler etc.):</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_I_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1_I_Diagramm.png)</span>{width="80%" fig-align="center"}</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Menu *Messung → Aktivieren* im Zeitverlaufsdiagramm ermöglicht das genaue Ablesen von Werten. Mit der Maus kann man die Messpunkte verschieben und so die Werte an der gewünschten Stelle ablesen.</span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>Mit $K_P = 0.75$ erreichen wir ein Überschwingen von ca. 10%.</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-2}</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.2</span></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>Simuliere die Führungssprungantwort eines Regelkreises mit einem PI-Regler und einer P-T~2~-Strecke. Die Streckenparameter sind:</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>K_P=2.75 \quad T_1=2.4\,\mathrm{s} \quad \text{und} \quad T_2=0.8\,\mathrm{s}</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_2_BSB.png)</span></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>Für den PI-Regler soll $T_i = T_1$ verwendet werden und die Verstärkung so eingestellt werden, dass ein Überschwingen von ca. 10% des Sollwertes erreicht wird. Stelle die Simulationsdauer auf 20 s ein.</span>
 <span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_2_Diagramm.png)</span>{width="80%"}</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Menu *Messung → Aktivieren* im Zeitverlaufsdiagramm ermöglicht das genaue Ablesen von Werten. Mit der Maus kann man die Messpunkte verschieben und so die Werte an der gewünschten Stelle ablesen.</span>
 <span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
 <span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-3}</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.3</span></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>Eine I-T~1~-Strecke mit $T_I=0.5\,\mathrm{s}$ und $T_1=0.75\,\mathrm{s}$ soll mit einem P-Regler geregelt werden. Zwischen dem I-Glied und dem P-T~1~-Glied (Reminder: Ein I-T~1~ ist eine Reihenschaltung von I und P-T~1~) greift eine Störgrösse $z$ ein.</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>Mit $K_P = 0.75$ erreichen wir ein Überschwingen von ca. 10%.</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_2_BSB.png)</span>{fig-align="center"}</span>
 <span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>Stelle die Verstärkung des P-Reglers so ein, dass die Regelabweichung bei der Störsprungantwort spätestens nach 2.5 s auf +/- 0.1 abgesunken ist. Simuliere anschliessen die Führungssprungantwort und lese das Überschwingens ab (in % des Sollwertes).</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_2_Diagramm.png)</span>{width="80%" fig-align="center"}</span>
 <span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Mit dem Block *Verknüpfer* (Palette *Funktion*) kann die Störgrösse $z$ zwischen I-Glied und P-T~1~-Glied eingeleitet werden. Die Störgrössensprung selbst wird mit dem Funktionsgenerator erzeugt (analog zur Führungsgrösse).</span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>**Störsprungantwort**</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-5-3}</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 5.3</span></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>Eine I-T~1~-Strecke mit $T_I=0.5\,\mathrm{s}$ und $T_1=0.75\,\mathrm{s}$ soll mit einem P-Regler geregelt werden. Zwischen dem I-Glied und dem P-T~1~-Glied (Reminder: Ein I-T~1~ ist eine Reihenschaltung von I und P-T~1~) greift eine Störgrösse $z$ ein.</span>
 <span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Mit $K_P = 0.75$ ist die Störsprungantwort für $t &gt; 2.5\,\mathrm{s}$ nie mehr ausserhalb des +/-0.1-Bandes.</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Stelle die Verstärkung des P-Reglers so ein, dass die Regelabweichung bei der Störsprungantwort spätestens nach 2.5 s auf +/- 0.1 abgesunken ist. Simuliere anschliessen die Führungssprungantwort und lese das Überschwingens ab (in % des Sollwertes).</span>
 <span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_zSprung_BSB.png)</span></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-hand-index-thumb"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Mit dem Block *Verknüpfer* (Palette *Funktion*) kann die Störgrösse $z$ zwischen I-Glied und P-T~1~-Glied eingeleitet werden. Die Störgrössensprung selbst wird mit dem Funktionsgenerator erzeugt (analog zur Führungsgrösse).</span>
 <span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_zSprung_Diagramm.png)</span>{width="80%"}</span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>**Führungssprungantwort**</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_wSprung_BSB.png)</span></span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_wSprung_Diagramm.png)</span>{width="80%"}</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>Damit resultiert ein Überschwingen von ca. 20%.</span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="ot">[^superposition]: </span>Wir könnten problemlos auch gleichzeitig einen Führungssprung und einen Störsprung simulieren, doch würde man dann den Einfluss des Führungssprungs und des Störsprungs nicht ohne Weiteres unterscheiden können. Wir werden später noch genauer sehen, dass aufgrund der Linearität (Superpositionsprinzip) die beiden Sprungantworten einfach überlagert werden, d. h. immer einzeln simuliert werden können.</span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="ot">[^einheitssprung]: </span>Sofern nichts anderes gefordert wird, verwenden wir jeweils den Einheitssprung ($\Delta w=1$ bzw. $\Delta z_{1,2}=1$) als Eingangssignal.</span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="ot">[^unstetig]: </span>Wir werden später auch eine andere Klasse von Reglern kennenlernen: Die *unstetigen* Regler. Diese weisen nur diskrete Ausgangswerte auf, z. B. ON/OFF bzw. 0/24 V.</span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="ot">[^gleichgewicht]: </span>Der Gleichgewichtszustand kann in diesem Fall ziemlich einfach bestimmt werden, indem die statischen Zusammenhänge betrachtet werden:</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>    e &amp;= w - x <span class="sc">\\</span></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>    y &amp;= K_{PR} \cdot e = K_{PR} \cdot (w - x)<span class="sc">\\</span></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>    x &amp;= K_{PS} \cdot y = K_{PS} \cdot K_{PR} \cdot (w - x)</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>    ... und dann nach $x$ aufgelöst wird:</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>    x &amp;= \frac{K_{PS} \cdot K_{PR}}{1 + K_{PS} \cdot K_{PR}}<span class="sc">\\</span></span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>    &amp;= \frac{0.5 \cdot 10}{1 + 0.5 \cdot 10} = \frac{5}{6} = 0.83</span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>    $$</span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="ot">[^parallelschaltung]: </span>Die Verstärkung $K_P$ ist dabei vor dem Verzweigungspunkt angeordnet, d. h. wirkt sich auf beide Zweige (P und I) aus. In der Reglergleichung zeigt sich dies darin, dass der Proportionalbeiwert $K_P$ vor der Klammer steht. Der Vorteil dieser Struktur ist, dass die relativen Anteile (P und I) zueinander bleich bleiben, wenn die Veränderung verändert wird.</span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="ot">[^nachstellzeit]: </span>Die Nachstellzeit $T_i$ (kleines i) ist nicht zu verwechseln mit der Integrierzeit $T_I$ (grosses I) eines I-Gliedes. Die Nachstellzeit $T_i$ bezieht sich immer auf einen PI/PID-Regler.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>**Störsprungantwort**</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>Mit $K_P = 0.75$ ist die Störsprungantwort für $t &gt; 2.5\,\mathrm{s}$ nie mehr ausserhalb des +/-0.1-Bandes.</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_zSprung_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_zSprung_Diagramm.png)</span>{width="80%" fig-align="center"}</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>**Führungssprungantwort**</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_wSprung_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_wSprung_Diagramm.png)</span>{width="80%" fig-align="center"}</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>Damit resultiert ein Überschwingen von ca. 20%.</span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="ot">[^superposition]: </span>Wir könnten problemlos auch gleichzeitig einen Führungssprung und einen Störsprung simulieren, doch würde man dann den Einfluss des Führungssprungs und des Störsprungs nicht ohne Weiteres unterscheiden können. Wir werden später noch genauer sehen, dass aufgrund der Linearität (Superpositionsprinzip) die beiden Sprungantworten einfach überlagert werden, d. h. immer einzeln simuliert werden können.</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="ot">[^einheitssprung]: </span>Sofern nichts anderes gefordert wird, verwenden wir jeweils den Einheitssprung ($\Delta w=1$ bzw. $\Delta z_{1,2}=1$) als Eingangssignal.</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="ot">[^unstetig]: </span>Wir werden später auch eine andere Klasse von Reglern kennenlernen: Die *unstetigen* Regler. Diese weisen nur diskrete Ausgangswerte auf, z. B. ON/OFF bzw. 0/24 V.</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="ot">[^gleichgewicht]: </span>Der Gleichgewichtszustand kann in diesem Fall ziemlich einfach bestimmt werden, indem die statischen Zusammenhänge betrachtet werden:</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>    e &amp;= w - x <span class="sc">\\</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>    y &amp;= K_{PR} \cdot e = K_{PR} \cdot (w - x)<span class="sc">\\</span></span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>    x &amp;= K_{PS} \cdot y = K_{PS} \cdot K_{PR} \cdot (w - x)</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>    ... und dann nach $x$ aufgelöst wird:</span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>    \begin{aligned}</span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>    x &amp;= \frac{K_{PS} \cdot K_{PR}}{1 + K_{PS} \cdot K_{PR}}<span class="sc">\\</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>    &amp;= \frac{0.5 \cdot 10}{1 + 0.5 \cdot 10} = \frac{5}{6} = 0.83</span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>    \end{aligned}</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a>    $$</span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a><span class="ot">[^parallelschaltung]: </span>Die Verstärkung $K_P$ ist dabei vor dem Verzweigungspunkt angeordnet, d. h. wirkt sich auf beide Zweige (P und I) aus. In der Reglergleichung zeigt sich dies darin, dass der Proportionalbeiwert $K_P$ vor der Klammer steht. Der Vorteil dieser Struktur ist, dass die relativen Anteile (P und I) zueinander bleich bleiben, wenn die Veränderung verändert wird.</span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="ot">[^nachstellzeit]: </span>Die Nachstellzeit $T_i$ (kleines i) ist nicht zu verwechseln mit der Integrierzeit $T_I$ (grosses I) eines I-Gliedes. Die Nachstellzeit $T_i$ bezieht sich immer auf einen PI/PID-Regler.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

@@ -271,6 +271,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linearisierungsverfahren</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -430,7 +436,7 @@ Abb.&nbsp;6.2: Gütekriterien (Störverhalten)
 </figcaption>
 </figure>
 </div>
-<p>Anstelle von <span class="math inline">x_m</span> wird hier <span class="math inline">x_max</span> (Maximalwert der Regelgrösse als absolute Grösse) verwendet und anstelle von <span class="math inline">e_\infty</span> wird <span class="math inline">x_\infty</span> (stationärer Endwert der Regelgrösse) verwendet. Zusätzlich zu den ermittelten Werten muss immer auch angegeben werden, an welcher Stelle die Störgrösse eingreift.</p>
+<p>Anstelle von <span class="math inline">x_m</span> wird hier <span class="math inline">x_{max}</span> (Maximalwert der Regelgrösse als absolute Grösse) verwendet und anstelle von <span class="math inline">e_\infty</span> wird <span class="math inline">x_\infty</span> (stationärer Endwert der Regelgrösse) verwendet. Zusätzlich zu den ermittelten Werten muss immer auch angegeben werden, an welcher Stelle die Störgrösse eingreift.</p>
 </section>
 </section>
 <section id="entwurfsverfahren" class="level2 page-columns page-full" data-number="6.2">
@@ -1110,7 +1116,7 @@ Tab.&nbsp;6.4: Einstellregeln nach Chien/Hrones/Reswick (Strecken mit Ausgleich)
 </section>
 <section id="strecken-ohne-ausgleich" class="level4 unnumbered page-columns page-full">
 <h4 class="unnumbered anchored" data-anchor-id="strecken-ohne-ausgleich">Strecken ohne Ausgleich</h4>
-<p>Für Strecken ohne Ausgleich wird der Integrierbeiwert <span class="math inline">K_I</span> und mittels angelegter Tangente die Verzugszeit <span class="math inline">T_e</span> bestimmt und damit anschliessend anhand der <a href="#tbl-chrI" class="quarto-xref">Tab.&nbsp;<span>6.5</span></a> die Reglerparameter bestimmt. Da bei Strecken ohne Ausgleich bereits in der Regelstrecke ein I-Anteil enthalten ist, wird dieser im PI/PID-Regler für gutes Führungsverhalten deaktiviert (dies ist mit <span class="math inline">T_i = \infty</span> gemeint).</p>
+<p>Für Strecken ohne Ausgleich wird der Integrierbeiwert <span class="math inline">K_I</span> und mittels angelegter Tangente die Verzugszeit <span class="math inline">T_e</span> bestimmt (vgl. <a href="L03.html#nte-wt-i" class="quarto-xref">Hinweis&nbsp;<span>3.2</span></a>) und damit anschliessend anhand der <a href="#tbl-chrI" class="quarto-xref">Tab.&nbsp;<span>6.5</span></a> die Reglerparameter bestimmt. Da bei Strecken ohne Ausgleich bereits in der Regelstrecke ein I-Anteil enthalten ist, wird dieser im PI/PID-Regler für gutes Führungsverhalten deaktiviert (dies ist mit <span class="math inline">T_i = \infty</span> gemeint).</p>
 <div id="tbl-chrI" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-colwidths="[30,35,35]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-chrI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1328,7 +1334,7 @@ Tab.&nbsp;6.5: Einstellregeln nach Chien/Hrones/Reswick (Strecken ohne Ausgleich
 </section>
 <section id="entwurf-nach-oppelt" class="level3 page-columns page-full" data-number="6.2.3">
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="entwurf-nach-oppelt"><span class="header-section-number">6.2.3</span> Entwurf nach Oppelt</h3>
-<p>Das Verfahren nach Oppelt funktioniert sehr ähnlich wie das CHR-Verfahren. Es wird häufig in der Chemietechnik eingesetzt, wo das Störverhalten im Vordergrund steht und führt deshalb zu einer eher geringen Dämpfung (also grossem Überschwingen bei einem Führungssprung).</p>
+<p>Das Verfahren nach Oppelt funktioniert sehr ähnlich wie das CHR-Verfahren. Es basiert ebenfalls auf den Ersatzzeitkonstanten der Regelstrecke (vgl. <a href="L03.html#nte-wt" class="quarto-xref">Hinweis&nbsp;<span>3.1</span></a> bzw. <a href="L03.html#nte-wt-i" class="quarto-xref">Hinweis&nbsp;<span>3.2</span></a>). Es wird häufig in der Chemietechnik eingesetzt, wo das Störverhalten im Vordergrund steht und führt deshalb zu einer eher geringen Dämpfung (also grossem Überschwingen bei einem Führungssprung).</p>
 <div id="tbl-chrO" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-colwidths="[30,70]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-chrO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2771,7 +2777,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="al">![Gütekriterien (Störverhalten)](../images/diagrams/Regelguete_Stoerung.svg)</span>{#fig-guete-s}</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Anstelle von $x_m$ wird hier $x_max$ (Maximalwert der Regelgrösse als absolute Grösse) verwendet und anstelle von $e_\infty$ wird $x_\infty$ (stationärer Endwert der Regelgrösse) verwendet. Zusätzlich zu den ermittelten Werten muss immer auch angegeben werden, an welcher Stelle die Störgrösse eingreift.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Anstelle von $x_m$ wird hier $x_{max}$ (Maximalwert der Regelgrösse als absolute Grösse) verwendet und anstelle von $e_\infty$ wird $x_\infty$ (stationärer Endwert der Regelgrösse) verwendet. Zusätzlich zu den ermittelten Werten muss immer auch angegeben werden, an welcher Stelle die Störgrösse eingreift.</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entwurfsverfahren</span></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
@@ -3169,7 +3175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Strecken ohne Ausgleich {.unnumbered}</span></span>
 <span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a>Für Strecken ohne Ausgleich wird der Integrierbeiwert $K_I$ und mittels angelegter Tangente die Verzugszeit $T_e$ bestimmt und damit anschliessend anhand der @tbl-chrI die Reglerparameter bestimmt. Da bei Strecken ohne Ausgleich bereits in der Regelstrecke ein I-Anteil enthalten ist, wird dieser im PI/PID-Regler für gutes Führungsverhalten deaktiviert (dies ist mit $T_i = \infty$ gemeint).</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a>Für Strecken ohne Ausgleich wird der Integrierbeiwert $K_I$ und mittels angelegter Tangente die Verzugszeit $T_e$ bestimmt (vgl. @nte-wt-i) und damit anschliessend anhand der @tbl-chrI die Reglerparameter bestimmt. Da bei Strecken ohne Ausgleich bereits in der Regelstrecke ein I-Anteil enthalten ist, wird dieser im PI/PID-Regler für gutes Führungsverhalten deaktiviert (dies ist mit $T_i = \infty$ gemeint).</span>
 <span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>::: {#tbl-chrI tbl-colwidths="<span class="co">[</span><span class="ot">30,35,35</span><span class="co">]</span>"}</span>
 <span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mit Überschwingen <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
@@ -3322,7 +3328,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entwurf nach Oppelt</span></span>
 <span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>Das Verfahren nach Oppelt funktioniert sehr ähnlich wie das CHR-Verfahren. Es wird häufig in der Chemietechnik eingesetzt, wo das Störverhalten im Vordergrund steht und führt deshalb zu einer eher geringen Dämpfung (also grossem Überschwingen bei einem Führungssprung).</span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>Das Verfahren nach Oppelt funktioniert sehr ähnlich wie das CHR-Verfahren. Es basiert ebenfalls auf den Ersatzzeitkonstanten der Regelstrecke (vgl. @nte-wt bzw. @nte-wt-i). Es wird häufig in der Chemietechnik eingesetzt, wo das Störverhalten im Vordergrund steht und führt deshalb zu einer eher geringen Dämpfung (also grossem Überschwingen bei einem Führungssprung).</span>
 <span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>::: {#tbl-chrO tbl-colwidths="<span class="co">[</span><span class="ot">30,70</span><span class="co">]</span>"}</span>
 <span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P-Strecken <span class="pp">|</span> <span class="pp">|</span></span>

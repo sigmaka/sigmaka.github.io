@@ -273,6 +273,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stellgrössenbeschränkung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linearisierungsverfahren</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -376,9 +382,9 @@ window.Quarto = {
 <section id="glieder-mit-ausgleich-p-glieder" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="glieder-mit-ausgleich-p-glieder"><span class="header-section-number">3.1</span> Glieder mit Ausgleich (P-Glieder)</h2>
 <p>Bei allen Übertragungsgliedern mit Ausgleich (P-Glieder) erreicht der Ausgang <span class="math inline">x_a</span> bei einem konstanten Eingang <span class="math inline">x_e</span> einen stationären Endwert. Es wird also ein <em>Beharrungszustand</em> erreicht, wobei der stationäre Endwert <em>proportional</em> zum Eingang ist (daher kommt der Name <em>P-Glieder</em>).</p>
-<p><span class="math display">
+<p><span id="eq-kp"><span class="math display">
 x_a = K_P \cdot x_e \qquad \textsf{(Beharrungszustand)}
-</span></p>
+\tag{3.1}</span></span></p>
 <p>Die <strong>Kennlinie</strong> (Ausgang <span class="math inline">x_a</span> in Abhängigkeit vom Eingang <span class="math inline">x_e</span> im Beharrungszustand) ist eine Gerade, die durch den Ursprung geht und deren Steigung dem Proportionalbeiwert <span class="math inline">K_P</span> entspricht (<span class="math inline">K_P = \frac{\Delta x_a}{\Delta x_e}</span>). Sämtliche P-Glieder weisen daher qualitativ dieselbe Kennlinie auf.</p>
 <div id="fig-kennlinie-allg" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -457,8 +463,8 @@ Abb.&nbsp;3.3: P-T<sub>1</sub>-Glied
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wir werden uns nicht mit dem Lösen von Differentialgleichungen befassen, doch wir können mitnehmen, dass in der Lösung solcher Differentialgleichungen typischerweise Exponentialfunktionen auftreten. Darum steigt der Ausgangswert in der obigen Sprungantwort exponentiell (Sättigungsfunktion).</p>
-<p>Die genaueLösung für die Sprungantwort eines P-T<sub>1</sub>-Gliedes für einen Einheitssprung am Eingang lautet:</p>
+<p>Wir werden uns nicht mit dem Lösen von Differentialgleichungen befassen, doch wir können mitnehmen, dass in der Lösung solcher Differentialgleichungen typischerweise Exponentialfunktionen auftreten. Darum zeigt der Ausgangswert in der obigen Sprungantwort typisches exponentielles Sättigungsverhalten.</p>
+<p>Die genaue Lösung für die Sprungantwort eines P-T<sub>1</sub>-Gliedes für einen Einheitssprung am Eingang lautet:</p>
 <p><span class="math display">
 x_a(t) = K_P \cdot \left(1 - e^{-\frac{t}{T_1}}\right)
 </span></p>
@@ -536,7 +542,7 @@ Hinweis&nbsp;3.1: Wendetangente
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Wendetangente ist die Tangente an die Sprungantwort im Wendepunkt, d.&nbsp;h. dort wo die Krümmung von positiv (Gegenuhrzeigerinn) nach negativ (Uhrzeigersinn) wechselt. Dies ist gleichzeitig auch die steilste Stelle der Sprungantwort. Die Wendetangente schneidet die Zeitachse bei der Verzugszeit <span class="math inline">T_e</span> und erreicht den Wert des stationären Endwertes bei der Ausgleichszeit <span class="math inline">T_b</span>.</p>
+<p>Die Wendetangente ist die Tangente an die Sprungantwort im Wendepunkt, d.&nbsp;h. dort wo die Krümmung von positiv (Gegenuhrzeigerinn) nach negativ (Uhrzeigersinn) wechselt. Dies ist gleichzeitig auch die steilste Stelle der Sprungantwort. Die Wendetangente schneidet die Zeitachse bei der Verzugszeit <span class="math inline">T_e</span> und von dort bis zum Zeitpunkt, bei dem der Wert des stationären Endwertes erreicht wird, können wir die Ausgleichszeit <span class="math inline">T_b</span> ablesen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/diagrams/Wendetangente.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -624,7 +630,7 @@ D = \frac{\ln{\frac{\Delta_1}{\Delta_2}}}{\sqrt{4 \pi^2 + \ln{\frac{\Delta_1}{\D
 <p><span class="math display">
 \omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}
 </span></p>
-<p>P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</p>
+<p>P-T<sub>2S</sub>-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</p>
 <div id="fig-PT2SBsp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PT2SBsp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -903,11 +909,11 @@ Abb.&nbsp;3.11: Förderband <a href="https://instrumentationtools.com/dead-time/
 </section>
 <section id="glieder-ohne-ausgleich-i-glieder" class="level2 page-columns page-full" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="glieder-ohne-ausgleich-i-glieder"><span class="header-section-number">3.2</span> Glieder ohne Ausgleich (I-Glieder)</h2>
-<p>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d.&nbsp;h. der Ausgang <span class="math inline">x_a</span> strebt bei konstantem Eingang <span class="math inline">x_e</span> keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert <span class="math inline">K_P</span>.</p>
+<p>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) <strong>keinen Beharrungszustand</strong> auf, d.&nbsp;h. der Ausgang <span class="math inline">x_a</span> strebt bei konstantem Eingang <span class="math inline">x_e</span> keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert <span class="math inline">K_P</span>.</p>
 <p>Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang <span class="math inline">x_a</span> bei einem stationären Eingang <span class="math inline">x_e</span> schliesslich <em>linear</em> ansteigt (bzw. abfällt). Für einen konstanten Eingang <span class="math inline">x_e</span> resultiert also eine konstante Steigung des Ausgangs <span class="math inline">\Delta x_a/\Delta t</span>. Eine sinnvolle Kenngrösse ist daher der <strong>Integrierbeiwert</strong> <span class="math inline">K_I</span>, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</p>
 <p><span id="eq-ki"><span class="math display">
 K_I = \frac{\Delta x_a/\Delta t}{\Delta x_e} \quad \quad \quad \left(= \frac{1}{T_I} \right)
-\tag{3.1}</span></span></p>
+\tag{3.2}</span></span></p>
 <p>Der Kehrwert des Integrierbeiwerts wird als <strong>Integrierzeit</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">T_I = \frac{1}{K_I}</span> bezeichnet. In <span class="cap">Boris</span> werden wir üblicherweise mit der Integrierzeit <span class="math inline">T_I</span> arbeiten.</p>
 <aside id="footnotes" class="footnotes footnotes-end-of-block" role="doc-footnote">
 <ol>
@@ -1010,13 +1016,13 @@ Abb.&nbsp;3.15: I-T<sub>t</sub>-Glied
 </figure>
 </div>
 <p>Wir verzichten hier auf die Auflistung des I-T<sub>2</sub>-, I-T<sub>2S</sub>-, I-T<sub>n</sub>-Gliedes, da mittlerweile die Systematik klar sein sollte. Wie bei den P-Gliedern lassen sich die Zeitkonstanten bei I-Gliedern höherer Ordnung nicht direkt aus der Sprungantwort ablesen.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Tangente">
+<div id="nte-wt-i" class="callout callout-style-default callout-note callout-titled" title="Tangente">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Tangente
+Hinweis&nbsp;3.2: Tangente
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1966,7 +1972,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>x_a = K_P \cdot x_e \qquad \textsf{(Beharrungszustand)}</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>$$ {#eq-kp}</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>Die **Kennlinie** (Ausgang $x_a$ in Abhängigkeit vom Eingang $x_e$ im Beharrungszustand) ist eine Gerade, die durch den Ursprung geht und deren Steigung dem Proportionalbeiwert $K_P$ entspricht ($K_P = \frac{\Delta x_a}{\Delta x_e}$). Sämtliche P-Glieder weisen daher qualitativ dieselbe Kennlinie auf.</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -2021,9 +2027,9 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="e-Funktion"}</span>
 <span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>Wir werden uns nicht mit dem Lösen von Differentialgleichungen befassen, doch wir können mitnehmen, dass in der Lösung solcher Differentialgleichungen typischerweise Exponentialfunktionen auftreten. Darum steigt der Ausgangswert in der obigen Sprungantwort exponentiell (Sättigungsfunktion).</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>Wir werden uns nicht mit dem Lösen von Differentialgleichungen befassen, doch wir können mitnehmen, dass in der Lösung solcher Differentialgleichungen typischerweise Exponentialfunktionen auftreten. Darum zeigt der Ausgangswert in der obigen Sprungantwort typisches exponentielles Sättigungsverhalten.</span>
 <span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>Die genaueLösung für die Sprungantwort eines P-T~1~-Gliedes für einen Einheitssprung am Eingang lautet:</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>Die genaue Lösung für die Sprungantwort eines P-T~1~-Gliedes für einen Einheitssprung am Eingang lautet:</span>
 <span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>x_a(t) = K_P \cdot \left(1 - e^{-\frac{t}{T_1}}\right)</span>
@@ -2064,7 +2070,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>Die Zeitkonstanten $T_1$ bzw. $T_2$ des P-T~2~-Gliedes können nicht direkt aus der Sprungantwort herausgelesen werden. Anhand der **Wendentangente** können die sogenannten Ersatzzeitkonstanten $T_e$ (Verzugszeit) bzw. $T_b$ (Ausgleichszeit) bestimmt werden. Wir werden in @sec-id Verfahren kennenlernen, um damit die effektiven Zeitkonstanten $T_1$ bzw. $T_2$ zu bestimmen.</span>
 <span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Wendetangente" #nte-wt}</span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>Die Wendetangente ist die Tangente an die Sprungantwort im Wendepunkt, d. h. dort wo die Krümmung von positiv (Gegenuhrzeigerinn) nach negativ (Uhrzeigersinn) wechselt. Dies ist gleichzeitig auch die steilste Stelle der Sprungantwort. Die Wendetangente schneidet die Zeitachse bei der Verzugszeit $T_e$ und erreicht den Wert des stationären Endwertes bei der Ausgleichszeit $T_b$.</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>Die Wendetangente ist die Tangente an die Sprungantwort im Wendepunkt, d. h. dort wo die Krümmung von positiv (Gegenuhrzeigerinn) nach negativ (Uhrzeigersinn) wechselt. Dies ist gleichzeitig auch die steilste Stelle der Sprungantwort. Die Wendetangente schneidet die Zeitachse bei der Verzugszeit $T_e$ und von dort bis zum Zeitpunkt, bei dem der Wert des stationären Endwertes erreicht wird, können wir die Ausgleichszeit $T_b$ ablesen.</span>
 <span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Wendetangente.svg)</span>{fig-align="center"}</span>
 <span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
@@ -2112,7 +2118,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>\omega_0 = \frac{2 \pi}{\tau \sqrt{1 - D^2}}</span>
 <span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>P-T~2S-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>P-T~2S~-Glieder sind sehr verbreitet in mechanischen Systemen mit Massen/Federn/Dämpfern bzw. elastischen Elementen (z. B. bei Kupplungen) oder auch in elektrischen Schwingkreisen (LC-Glieder usw.).</span>
 <span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>::: {#fig-PT2SBsp}</span>
 <span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
@@ -2325,7 +2331,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-384"><a href="#cb4-384" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-385"><a href="#cb4-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## Glieder ohne Ausgleich (I-Glieder)</span></span>
 <span id="cb4-386"><a href="#cb4-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-387"><a href="#cb4-387" aria-hidden="true" tabindex="-1"></a>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) keinen Beharrungszustand auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.</span>
+<span id="cb4-387"><a href="#cb4-387" aria-hidden="true" tabindex="-1"></a>Wie wir bereits wissen, weisen Übertragungsglieder ohne Ausgleich (I-Glieder) **keinen Beharrungszustand** auf, d. h. der Ausgang $x_a$ strebt bei konstantem Eingang $x_e$ keinen stationären Endwert an. Es gibt folglich keine Kennlinie und keinen Proportionalbeiwert $K_P$.</span>
 <span id="cb4-388"><a href="#cb4-388" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-389"><a href="#cb4-389" aria-hidden="true" tabindex="-1"></a>Allerdings haben alle I-Glieder gemeinsam, dass der Ausgang $x_a$ bei einem stationären Eingang $x_e$ schliesslich *linear* ansteigt (bzw. abfällt). Für einen konstanten Eingang $x_e$ resultiert also eine konstante Steigung des Ausgangs $\Delta x_a/\Delta t$. Eine sinnvolle Kenngrösse ist daher der **Integrierbeiwert** $K_I$, der die Steigung des Ausgangs bei einem stationären Eingang beschreibt.</span>
 <span id="cb4-390"><a href="#cb4-390" aria-hidden="true" tabindex="-1"></a></span>
@@ -2414,7 +2420,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb4-473"><a href="#cb4-473" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-474"><a href="#cb4-474" aria-hidden="true" tabindex="-1"></a>Wir verzichten hier auf die Auflistung des I-T~2~-, I-T~2S~-, I-T~n~-Gliedes, da mittlerweile die Systematik klar sein sollte. Wie bei den P-Gliedern lassen sich die Zeitkonstanten bei I-Gliedern höherer Ordnung nicht direkt aus der Sprungantwort ablesen.</span>
 <span id="cb4-475"><a href="#cb4-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-476"><a href="#cb4-476" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Tangente"}</span>
+<span id="cb4-476"><a href="#cb4-476" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Tangente" #nte-wt-i}</span>
 <span id="cb4-477"><a href="#cb4-477" aria-hidden="true" tabindex="-1"></a>Die Wendetangente (vgl. @nte-wt) bzw. die Ausgleichszeit $T_b$ existiert bei I-Gliedern nicht. Die Verzugszeit $T_e$ kann durch das Anlegen der Tangente an die Sprungantwort bestimmt werden.</span>
 <span id="cb4-478"><a href="#cb4-478" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-479"><a href="#cb4-479" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Wendetangente_I.svg)</span>{fig-align="center"}</span>
