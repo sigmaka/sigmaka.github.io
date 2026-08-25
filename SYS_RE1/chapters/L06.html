@@ -2039,7 +2039,7 @@ Abb.&nbsp;6.4: Numerische Optimierung
 </button>
 <div id="aufgaben6">
 <div id="ex-6-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2048,15 +2048,63 @@ Abb.&nbsp;6.4: Numerische Optimierung
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Übungshalber soll das Entwurfsverfahren anhand des Schwingversuchs nach <a href="#entwurf-anhand-des-schwingversuchs">Ziegler/Nichols</a> durchgeführt werden für eine P-T<sub>3</sub>-Regelstrecke mit <span class="math inline">K_{PS} = 25</span> und <span class="math inline">T_1 = 3\,\mathrm{s}</span>, <span class="math inline">T_2 = 2\,\mathrm{s}</span> sowie <span class="math inline">T_3 = 1\,\mathrm{s}</span>. Es soll damit ein PID-Regler parametriert werden.</p>
 <p>Da wir die Regelstrecke genau kennen, würden wir dieses Verfahren in der Praxis natürlich nicht anwenden (dieses Verfahren ist ja genau für Fälle, in denen man die Regelstrecke nicht kennt). Es ist aber eine gute Übung, dieses Verfahren einmal anhand einer Simulation durchzuführen, da es das Thema <em>Stabilität</em> des Regelkreises schön behandelt.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mit P-Regler und kleiner Verstärkung beginnen und dann Verstärkung schrittweise erhöhen bis Dauerschwingung resultiert.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_1_Dauerschwingung.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Dei eingestellte Verstärkung ist die kritische Verstärkung <span class="math inline">K_{PR,krit}</span> und die Periodendauer der Schwingung ist <span class="math inline">T_{krit}</span>.</p>
+<p><span class="math display">
+K_{PR,krit} = 0.4
+</span></p>
+<p><span class="math display">
+T_{krit} = 6.3 \, \mathrm{s}
+</span></p>
+<p>Reglerparametrierung gemäss Ziegler-Nichols (Schwingwersuch) gemäss <a href="#tbl-znI" class="quarto-xref">Tab.&nbsp;<span>6.2</span></a>:</p>
+<p><span class="math display">
+K_{PR} = 0.6 \cdot K_{PR,krit} = 0.24
+</span></p>
+<p><span class="math display">
+T_i = 0.5 \cdot T_{krit} = 3.15 \, \mathrm{s}
+</span></p>
+<p><span class="math display">
+T_d = 0.12 \cdot T_{krit} = 0.756 \, \mathrm{s}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_1_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_1_Reglerparametrierung.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-6-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2065,13 +2113,13 @@ Abb.&nbsp;6.4: Numerische Optimierung
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Führe das <a href="#entwurf-nach-chienhronesreswick-chr">Chien/Hrones/Reswick</a>-Verfahren durch, um einen PID-Regler an einer P-T<sub>2</sub>-Strecke zu entwerfen. Die Regelstrecke ist durch die folgenden Parameter gegeben:</p>
 <p><span class="math display">
 𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}
 </span></p>
-<p>Der PID-Regler soll mit Fokus auf gutes Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <a href="#güterkriterien-für-das-führungsverhalten">Gütekriterien</a>, wobei ein 10%-Toleranzband verwendet werden soll.</p>
+<p>Der PID-Regler soll mit Fokus auf gutem Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <a href="#güterkriterien-für-das-führungsverhalten">Gütekriterien</a>, wobei ein 10%-Toleranzband verwendet werden soll.</p>
 <ul>
 <li>Anregelzeit [s] <span class="math display">
 T_{cr} =
@@ -2086,11 +2134,75 @@ x_m =
 e_\infty =
 </span></li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sprungantwort-Analyse (Wendetangente):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_2_WT.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><span class="math display">
+K_{PS} = 5
+</span></p>
+<p><span class="math display">
+T_e = 0.2 \, \mathrm{s}
+</span></p>
+<p><span class="math display">
+T_b = 2.0 \, \mathrm{s}
+</span></p>
+<p>Bestimmung der Reglerparameter gemäss <a href="#tbl-chrP" class="quarto-xref">Tab.&nbsp;<span>6.4</span></a>:</p>
+<p><span class="math display">
+K_{PR}=0.95 \cdot \dfrac{T_b}{K_{PS}\cdot T_e} = 1.9
+</span></p>
+<p><span class="math display">
+T_i = 1.35 \cdot T_b = 2.7 \, \mathrm{s}
+</span></p>
+<p><span class="math display">
+T_d=0.47 \cdot T_e = 0.094 \, \mathrm{s}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_2_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_2_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>Anregelzeit [s] <span class="math display">
+T_{cr} = 0.4 \, \mathrm{s}
+</span></li>
+<li>Ausregelzeit [s] <span class="math display">
+T_{cs} = 0.85 \, \mathrm{s}
+</span></li>
+<li>Überschwingweite [%] <span class="math display">
+x_m = 14 \, \%
+</span></li>
+<li>Bleibende Regelabweichung <span class="math display">
+e_\infty = 0
+</span></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-6-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2099,13 +2211,62 @@ e_\infty =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Gegeben ist folgende P-T<sub>3</sub>-Regelstrecke:</p>
 <p><span class="math display">
 𝐾_{PS} = 12.75 \qquad 𝑇_1 = 5.25\,\mathrm{s} \qquad 𝑇_2 = 2.5\,\mathrm{s} \qquad 𝑇_3 = 0.75\,\mathrm{s}
 </span></p>
 <p>Baue den Regelkreis in <span class="cap">Boris</span> auf und entwerfe einen PID-Regler gemäss <a href="#entwurf-nach-der-t-summen-regel">T-Summen-Regel</a>. Stelle in einem Zeitverlaufsdiagramm die Führungssprungantwort dar, wobei die beiden Einstellungen (<em>normal</em> bzw. <em>schnell</em>) vergleichend dargestellt werden sollen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+T_{\Sigma} = T_1 + T_2 + T_3 = 8.5 \, \mathrm{s}
+</span></p>
+<p>Die Reglerparametrierung erfolgt dann mittels <a href="#tbl-tsumme" class="quarto-xref">Tab.&nbsp;<span>6.7</span></a>.</p>
+<p>Normaler Reglerentwurf:</p>
+<p><span class="math display">
+K_{PR} = \frac{1}{K_{PS}} = 0.08
+</span></p>
+<p><span class="math display">
+T_i = 0.66 \cdot T_{\Sigma} = 5.61
+</span></p>
+<p><span class="math display">
+T_d = 0.167 \cdot T_{\Sigma} = 1.42
+</span></p>
+<p>Schneller Reglerentwurf:</p>
+<p><span class="math display">
+K_{PR} = \frac{2}{K_{PS}} = 0.16
+</span></p>
+<p><span class="math display">
+T_i = 0.8 \cdot T_{\Sigma} = 6.8
+</span></p>
+<p><span class="math display">
+T_d = 0.194 \cdot T_{\Sigma} = 1.65
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_3_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_3_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3933,55 +4094,188 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1211"><a href="#cb1-1211" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1212"><a href="#cb1-1212" aria-hidden="true" tabindex="-1"></a>Da wir die Regelstrecke genau kennen, würden wir dieses Verfahren in der Praxis natürlich nicht anwenden (dieses Verfahren ist ja genau für Fälle, in denen man die Regelstrecke nicht kennt). Es ist aber eine gute Übung, dieses Verfahren einmal anhand einer Simulation durchzuführen, da es das Thema *Stabilität* des Regelkreises schön behandelt.</span>
 <span id="cb1-1213"><a href="#cb1-1213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1214"><a href="#cb1-1214" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-1215"><a href="#cb1-1215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1216"><a href="#cb1-1216" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-2}</span>
-<span id="cb1-1217"><a href="#cb1-1217" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.2</span></span>
+<span id="cb1-1214"><a href="#cb1-1214" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-1215"><a href="#cb1-1215" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-1216"><a href="#cb1-1216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1217"><a href="#cb1-1217" aria-hidden="true" tabindex="-1"></a>Mit P-Regler und kleiner Verstärkung beginnen und dann Verstärkung schrittweise erhöhen bis Dauerschwingung resultiert.</span>
 <span id="cb1-1218"><a href="#cb1-1218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1219"><a href="#cb1-1219" aria-hidden="true" tabindex="-1"></a>Führe das <span class="co">[</span><span class="ot">Chien/Hrones/Reswick</span><span class="co">](#entwurf-nach-chienhronesreswick-chr)</span>-Verfahren durch, um einen PID-Regler an einer P-T~2~-Strecke zu entwerfen. Die Regelstrecke ist durch die folgenden Parameter gegeben:</span>
+<span id="cb1-1219"><a href="#cb1-1219" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_1_Dauerschwingung.png)</span>{fig-align="center"}</span>
 <span id="cb1-1220"><a href="#cb1-1220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1221"><a href="#cb1-1221" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-1222"><a href="#cb1-1222" aria-hidden="true" tabindex="-1"></a>𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}</span>
+<span id="cb1-1221"><a href="#cb1-1221" aria-hidden="true" tabindex="-1"></a>Dei eingestellte Verstärkung ist die kritische Verstärkung $K_{PR,krit}$ und die Periodendauer der Schwingung ist $T_{krit}$.</span>
+<span id="cb1-1222"><a href="#cb1-1222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1223"><a href="#cb1-1223" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-1224"><a href="#cb1-1224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1225"><a href="#cb1-1225" aria-hidden="true" tabindex="-1"></a>Der PID-Regler soll mit Fokus auf gutes Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <span class="co">[</span><span class="ot">Gütekriterien</span><span class="co">](#güterkriterien-für-das-führungsverhalten)</span>, wobei ein 10%-Toleranzband verwendet werden soll.</span>
+<span id="cb1-1224"><a href="#cb1-1224" aria-hidden="true" tabindex="-1"></a>K_{PR,krit} = 0.4</span>
+<span id="cb1-1225"><a href="#cb1-1225" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1226"><a href="#cb1-1226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1227"><a href="#cb1-1227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
-<span id="cb1-1228"><a href="#cb1-1228" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1229"><a href="#cb1-1229" aria-hidden="true" tabindex="-1"></a>  T_{cr} = </span>
-<span id="cb1-1230"><a href="#cb1-1230" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1231"><a href="#cb1-1231" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ausregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
-<span id="cb1-1232"><a href="#cb1-1232" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1233"><a href="#cb1-1233" aria-hidden="true" tabindex="-1"></a>  T_{cs} =</span>
-<span id="cb1-1234"><a href="#cb1-1234" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1235"><a href="#cb1-1235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Überschwingweite <span class="co">[</span><span class="ot">%</span><span class="co">]</span></span>
-<span id="cb1-1236"><a href="#cb1-1236" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1237"><a href="#cb1-1237" aria-hidden="true" tabindex="-1"></a>  x_m =</span>
-<span id="cb1-1238"><a href="#cb1-1238" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1239"><a href="#cb1-1239" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bleibende Regelabweichung</span>
-<span id="cb1-1240"><a href="#cb1-1240" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1241"><a href="#cb1-1241" aria-hidden="true" tabindex="-1"></a>  e_\infty =</span>
-<span id="cb1-1242"><a href="#cb1-1242" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-1243"><a href="#cb1-1243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1244"><a href="#cb1-1244" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-1245"><a href="#cb1-1245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1246"><a href="#cb1-1246" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
-<span id="cb1-1247"><a href="#cb1-1247" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
+<span id="cb1-1227"><a href="#cb1-1227" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1228"><a href="#cb1-1228" aria-hidden="true" tabindex="-1"></a>T_{krit} = 6.3 \, \mathrm{s}</span>
+<span id="cb1-1229"><a href="#cb1-1229" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1230"><a href="#cb1-1230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1231"><a href="#cb1-1231" aria-hidden="true" tabindex="-1"></a>Reglerparametrierung gemäss Ziegler-Nichols (Schwingwersuch) gemäss @tbl-znI:</span>
+<span id="cb1-1232"><a href="#cb1-1232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1233"><a href="#cb1-1233" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1234"><a href="#cb1-1234" aria-hidden="true" tabindex="-1"></a>K_{PR} = 0.6 \cdot K_{PR,krit} = 0.24</span>
+<span id="cb1-1235"><a href="#cb1-1235" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1236"><a href="#cb1-1236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1237"><a href="#cb1-1237" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1238"><a href="#cb1-1238" aria-hidden="true" tabindex="-1"></a>T_i = 0.5 \cdot T_{krit} = 3.15 \, \mathrm{s}</span>
+<span id="cb1-1239"><a href="#cb1-1239" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1240"><a href="#cb1-1240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1241"><a href="#cb1-1241" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1242"><a href="#cb1-1242" aria-hidden="true" tabindex="-1"></a>T_d = 0.12 \cdot T_{krit} = 0.756 \, \mathrm{s}</span>
+<span id="cb1-1243"><a href="#cb1-1243" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1244"><a href="#cb1-1244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1245"><a href="#cb1-1245" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_1_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-1246"><a href="#cb1-1246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1247"><a href="#cb1-1247" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_1_Reglerparametrierung.png)</span>{fig-align="center"}</span>
 <span id="cb1-1248"><a href="#cb1-1248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1249"><a href="#cb1-1249" aria-hidden="true" tabindex="-1"></a>Gegeben ist folgende P-T~3~-Regelstrecke:</span>
-<span id="cb1-1250"><a href="#cb1-1250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1251"><a href="#cb1-1251" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-1252"><a href="#cb1-1252" aria-hidden="true" tabindex="-1"></a>𝐾_{PS} = 12.75 \qquad 𝑇_1 = 5.25\,\mathrm{s} \qquad 𝑇_2 = 2.5\,\mathrm{s} \qquad 𝑇_3 = 0.75\,\mathrm{s}</span>
-<span id="cb1-1253"><a href="#cb1-1253" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1249"><a href="#cb1-1249" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-1250"><a href="#cb1-1250" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-1251"><a href="#cb1-1251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1252"><a href="#cb1-1252" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-2}</span>
+<span id="cb1-1253"><a href="#cb1-1253" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.2</span></span>
 <span id="cb1-1254"><a href="#cb1-1254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1255"><a href="#cb1-1255" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und entwerfe einen PID-Regler gemäss <span class="co">[</span><span class="ot">T-Summen-Regel</span><span class="co">](#entwurf-nach-der-t-summen-regel)</span>. Stelle in einem Zeitverlaufsdiagramm die Führungssprungantwort dar, wobei die beiden Einstellungen (*normal* bzw. *schnell*) vergleichend dargestellt werden sollen.</span>
+<span id="cb1-1255"><a href="#cb1-1255" aria-hidden="true" tabindex="-1"></a>Führe das <span class="co">[</span><span class="ot">Chien/Hrones/Reswick</span><span class="co">](#entwurf-nach-chienhronesreswick-chr)</span>-Verfahren durch, um einen PID-Regler an einer P-T~2~-Strecke zu entwerfen. Die Regelstrecke ist durch die folgenden Parameter gegeben:</span>
 <span id="cb1-1256"><a href="#cb1-1256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1257"><a href="#cb1-1257" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-1258"><a href="#cb1-1258" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-1259"><a href="#cb1-1259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1260"><a href="#cb1-1260" aria-hidden="true" tabindex="-1"></a><span class="ot">[^i_regler]: </span>Der Vollständigkeit halber ist in @tbl-kombinationen auch der I-Regler aufgeführt, den wir aber nie einsetzen werden. Wie zu sehen ist in der Tabelle, hat er gegenüber dem PI-Regler keine Vorteile.</span>
-<span id="cb1-1261"><a href="#cb1-1261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1262"><a href="#cb1-1262" aria-hidden="true" tabindex="-1"></a><span class="ot">[^doppelt_integrierend]: </span>Wenn zwei I-Glieder in Reihe geschaltet werden, d. h. die Strecke zwei I-Glieder aufweist, sprechen wir von einer *doppelt integrierenden* Strecke oder I~2~-Strecke. Eine solche Strecke ist grundsätzlich instabil, kann mit einem D-Anteil im Regler aber stabilisiert werden. Wir werden uns in diesem Modul nicht mit solchen Strecken beschäftigen.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-1257"><a href="#cb1-1257" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1258"><a href="#cb1-1258" aria-hidden="true" tabindex="-1"></a>𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}</span>
+<span id="cb1-1259"><a href="#cb1-1259" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1260"><a href="#cb1-1260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1261"><a href="#cb1-1261" aria-hidden="true" tabindex="-1"></a>Der PID-Regler soll mit Fokus auf gutem Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <span class="co">[</span><span class="ot">Gütekriterien</span><span class="co">](#güterkriterien-für-das-führungsverhalten)</span>, wobei ein 10%-Toleranzband verwendet werden soll.</span>
+<span id="cb1-1262"><a href="#cb1-1262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1263"><a href="#cb1-1263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
+<span id="cb1-1264"><a href="#cb1-1264" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1265"><a href="#cb1-1265" aria-hidden="true" tabindex="-1"></a>  T_{cr} = </span>
+<span id="cb1-1266"><a href="#cb1-1266" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1267"><a href="#cb1-1267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ausregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
+<span id="cb1-1268"><a href="#cb1-1268" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1269"><a href="#cb1-1269" aria-hidden="true" tabindex="-1"></a>  T_{cs} =</span>
+<span id="cb1-1270"><a href="#cb1-1270" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1271"><a href="#cb1-1271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Überschwingweite <span class="co">[</span><span class="ot">%</span><span class="co">]</span></span>
+<span id="cb1-1272"><a href="#cb1-1272" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1273"><a href="#cb1-1273" aria-hidden="true" tabindex="-1"></a>  x_m =</span>
+<span id="cb1-1274"><a href="#cb1-1274" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1275"><a href="#cb1-1275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bleibende Regelabweichung</span>
+<span id="cb1-1276"><a href="#cb1-1276" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1277"><a href="#cb1-1277" aria-hidden="true" tabindex="-1"></a>  e_\infty =</span>
+<span id="cb1-1278"><a href="#cb1-1278" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1279"><a href="#cb1-1279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1280"><a href="#cb1-1280" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-1281"><a href="#cb1-1281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-1282"><a href="#cb1-1282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1283"><a href="#cb1-1283" aria-hidden="true" tabindex="-1"></a>Sprungantwort-Analyse (Wendetangente):</span>
+<span id="cb1-1284"><a href="#cb1-1284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1285"><a href="#cb1-1285" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_WT.png)</span>{fig-align="center"}</span>
+<span id="cb1-1286"><a href="#cb1-1286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1287"><a href="#cb1-1287" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1288"><a href="#cb1-1288" aria-hidden="true" tabindex="-1"></a>K_{PS} = 5</span>
+<span id="cb1-1289"><a href="#cb1-1289" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1290"><a href="#cb1-1290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1291"><a href="#cb1-1291" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1292"><a href="#cb1-1292" aria-hidden="true" tabindex="-1"></a>T_e = 0.2 \, \mathrm{s}</span>
+<span id="cb1-1293"><a href="#cb1-1293" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1294"><a href="#cb1-1294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1295"><a href="#cb1-1295" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1296"><a href="#cb1-1296" aria-hidden="true" tabindex="-1"></a>T_b = 2.0 \, \mathrm{s}</span>
+<span id="cb1-1297"><a href="#cb1-1297" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1298"><a href="#cb1-1298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1299"><a href="#cb1-1299" aria-hidden="true" tabindex="-1"></a>Bestimmung der Reglerparameter gemäss @tbl-chrP:</span>
+<span id="cb1-1300"><a href="#cb1-1300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1301"><a href="#cb1-1301" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1302"><a href="#cb1-1302" aria-hidden="true" tabindex="-1"></a>K_{PR}=0.95 \cdot \dfrac{T_b}{K_{PS}\cdot T_e} = 1.9</span>
+<span id="cb1-1303"><a href="#cb1-1303" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1304"><a href="#cb1-1304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1305"><a href="#cb1-1305" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1306"><a href="#cb1-1306" aria-hidden="true" tabindex="-1"></a>T_i = 1.35 \cdot T_b = 2.7 \, \mathrm{s}</span>
+<span id="cb1-1307"><a href="#cb1-1307" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1308"><a href="#cb1-1308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1309"><a href="#cb1-1309" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1310"><a href="#cb1-1310" aria-hidden="true" tabindex="-1"></a>T_d=0.47 \cdot T_e = 0.094 \, \mathrm{s}</span>
+<span id="cb1-1311"><a href="#cb1-1311" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1312"><a href="#cb1-1312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1313"><a href="#cb1-1313" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-1314"><a href="#cb1-1314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1315"><a href="#cb1-1315" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_Diagramm.png)</span>{fig-align="center"}</span>
+<span id="cb1-1316"><a href="#cb1-1316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1317"><a href="#cb1-1317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
+<span id="cb1-1318"><a href="#cb1-1318" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1319"><a href="#cb1-1319" aria-hidden="true" tabindex="-1"></a>  T_{cr} = 0.4 \, \mathrm{s}</span>
+<span id="cb1-1320"><a href="#cb1-1320" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1321"><a href="#cb1-1321" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ausregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
+<span id="cb1-1322"><a href="#cb1-1322" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1323"><a href="#cb1-1323" aria-hidden="true" tabindex="-1"></a>  T_{cs} = 0.85 \, \mathrm{s}</span>
+<span id="cb1-1324"><a href="#cb1-1324" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1325"><a href="#cb1-1325" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Überschwingweite <span class="co">[</span><span class="ot">%</span><span class="co">]</span></span>
+<span id="cb1-1326"><a href="#cb1-1326" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1327"><a href="#cb1-1327" aria-hidden="true" tabindex="-1"></a>  x_m = 14 \, \%</span>
+<span id="cb1-1328"><a href="#cb1-1328" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1329"><a href="#cb1-1329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bleibende Regelabweichung</span>
+<span id="cb1-1330"><a href="#cb1-1330" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1331"><a href="#cb1-1331" aria-hidden="true" tabindex="-1"></a>  e_\infty = 0</span>
+<span id="cb1-1332"><a href="#cb1-1332" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb1-1333"><a href="#cb1-1333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1334"><a href="#cb1-1334" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-1335"><a href="#cb1-1335" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-1336"><a href="#cb1-1336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1337"><a href="#cb1-1337" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
+<span id="cb1-1338"><a href="#cb1-1338" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
+<span id="cb1-1339"><a href="#cb1-1339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1340"><a href="#cb1-1340" aria-hidden="true" tabindex="-1"></a>Gegeben ist folgende P-T~3~-Regelstrecke:</span>
+<span id="cb1-1341"><a href="#cb1-1341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1342"><a href="#cb1-1342" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1343"><a href="#cb1-1343" aria-hidden="true" tabindex="-1"></a>𝐾_{PS} = 12.75 \qquad 𝑇_1 = 5.25\,\mathrm{s} \qquad 𝑇_2 = 2.5\,\mathrm{s} \qquad 𝑇_3 = 0.75\,\mathrm{s}</span>
+<span id="cb1-1344"><a href="#cb1-1344" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1345"><a href="#cb1-1345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1346"><a href="#cb1-1346" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und entwerfe einen PID-Regler gemäss <span class="co">[</span><span class="ot">T-Summen-Regel</span><span class="co">](#entwurf-nach-der-t-summen-regel)</span>. Stelle in einem Zeitverlaufsdiagramm die Führungssprungantwort dar, wobei die beiden Einstellungen (*normal* bzw. *schnell*) vergleichend dargestellt werden sollen.</span>
+<span id="cb1-1347"><a href="#cb1-1347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1348"><a href="#cb1-1348" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
+<span id="cb1-1349"><a href="#cb1-1349" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-1350"><a href="#cb1-1350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1351"><a href="#cb1-1351" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1352"><a href="#cb1-1352" aria-hidden="true" tabindex="-1"></a>T_{\Sigma} = T_1 + T_2 + T_3 = 8.5 \, \mathrm{s}</span>
+<span id="cb1-1353"><a href="#cb1-1353" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1354"><a href="#cb1-1354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1355"><a href="#cb1-1355" aria-hidden="true" tabindex="-1"></a>Die Reglerparametrierung erfolgt dann mittels @tbl-tsumme.</span>
+<span id="cb1-1356"><a href="#cb1-1356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1357"><a href="#cb1-1357" aria-hidden="true" tabindex="-1"></a>Normaler Reglerentwurf:</span>
+<span id="cb1-1358"><a href="#cb1-1358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1359"><a href="#cb1-1359" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1360"><a href="#cb1-1360" aria-hidden="true" tabindex="-1"></a>K_{PR} = \frac{1}{K_{PS}} = 0.08</span>
+<span id="cb1-1361"><a href="#cb1-1361" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1362"><a href="#cb1-1362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1363"><a href="#cb1-1363" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1364"><a href="#cb1-1364" aria-hidden="true" tabindex="-1"></a>T_i = 0.66 \cdot T_{\Sigma} = 5.61</span>
+<span id="cb1-1365"><a href="#cb1-1365" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1366"><a href="#cb1-1366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1367"><a href="#cb1-1367" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1368"><a href="#cb1-1368" aria-hidden="true" tabindex="-1"></a>T_d = 0.167 \cdot T_{\Sigma} = 1.42</span>
+<span id="cb1-1369"><a href="#cb1-1369" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1370"><a href="#cb1-1370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1371"><a href="#cb1-1371" aria-hidden="true" tabindex="-1"></a>Schneller Reglerentwurf:</span>
+<span id="cb1-1372"><a href="#cb1-1372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1373"><a href="#cb1-1373" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1374"><a href="#cb1-1374" aria-hidden="true" tabindex="-1"></a>K_{PR} = \frac{2}{K_{PS}} = 0.16</span>
+<span id="cb1-1375"><a href="#cb1-1375" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1376"><a href="#cb1-1376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1377"><a href="#cb1-1377" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1378"><a href="#cb1-1378" aria-hidden="true" tabindex="-1"></a>T_i = 0.8 \cdot T_{\Sigma} = 6.8</span>
+<span id="cb1-1379"><a href="#cb1-1379" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1380"><a href="#cb1-1380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1381"><a href="#cb1-1381" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1382"><a href="#cb1-1382" aria-hidden="true" tabindex="-1"></a>T_d = 0.194 \cdot T_{\Sigma} = 1.65</span>
+<span id="cb1-1383"><a href="#cb1-1383" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-1384"><a href="#cb1-1384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1385"><a href="#cb1-1385" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_BSB.png)</span>{fig-align="center"}</span>
+<span id="cb1-1386"><a href="#cb1-1386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1387"><a href="#cb1-1387" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_Diagramm.png)</span>{fig-align="center"}</span>
+<span id="cb1-1388"><a href="#cb1-1388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1389"><a href="#cb1-1389" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-1390"><a href="#cb1-1390" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-1391"><a href="#cb1-1391" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-1392"><a href="#cb1-1392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1393"><a href="#cb1-1393" aria-hidden="true" tabindex="-1"></a><span class="ot">[^i_regler]: </span>Der Vollständigkeit halber ist in @tbl-kombinationen auch der I-Regler aufgeführt, den wir aber nie einsetzen werden. Wie zu sehen ist in der Tabelle, hat er gegenüber dem PI-Regler keine Vorteile.</span>
+<span id="cb1-1394"><a href="#cb1-1394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-1395"><a href="#cb1-1395" aria-hidden="true" tabindex="-1"></a><span class="ot">[^doppelt_integrierend]: </span>Wenn zwei I-Glieder in Reihe geschaltet werden, d. h. die Strecke zwei I-Glieder aufweist, sprechen wir von einer *doppelt integrierenden* Strecke oder I~2~-Strecke. Eine solche Strecke ist grundsätzlich instabil, kann mit einem D-Anteil im Regler aber stabilisiert werden. Wir werden uns in diesem Modul nicht mit solchen Strecken beschäftigen.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
