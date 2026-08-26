@@ -368,7 +368,7 @@ y_{min} \le y \le y_{max}
 <li>Motoren: Drehzahl bzw. Drehmoment haben irgendwo eine Obergrenze.</li>
 <li>Signalverarbeitungskomponenten: Elektronische Komponenten haben immer einen bestimmten Ein- bzw. Ausgangsbereich.</li>
 </ul>
-<p>Der Regler, der heutzutage nahezu immer digital bzw. softwarebasiert implementiert wird, kann grundsätzlich beliebige Werte berechnen/ausgeben und daher eine Stellgrösse “fordern”, die ausserhalb des zulässigen Bereichs des Stellgliedes liegt. In einem solchen Fall, befindet sich die <em>effektive</em> Stellgrösse dann <em>in der Begrenzung</em> (auch <em>Sättigung</em> genannt bzw. umgangssprachlich <em>am Anschlag</em>).</p>
+<p>Der Regler, der heutzutage nahezu immer digital bzw. softwarebasiert implementiert wird, kann grundsätzlich beliebige Werte berechnen/ausgeben und daher eine Stellgrösse “fordern”, die ausserhalb des zulässigen Bereichs des Stellgliedes liegt. In einem solchen Fall befindet sich die <em>effektive</em> Stellgrösse dann <em>in der Begrenzung</em> (auch <em>Sättigung</em> genannt bzw. umgangssprachlich <em>am Anschlag</em>).</p>
 <p>Damit dies in der Simulation auch korrekt abgebildet wird, können wir die Stellgrössenbeschränkung mit einem Begrenzungsglied (Block <em>Begrenzer</em> in der <em>Statik</em>-Palette) modellieren, das zwischen Regler und Regelstrecke eingefügt wird. Wir gehen für die folgenden Überlegungen davon aus, dass die Stellgrösse des oben bereits betrachteten Systems nur in einem Bereich von 0 bis 10 liegen kann.</p>
 <div id="fig-windup-sim" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -398,7 +398,7 @@ Abb.&nbsp;7.2: Führungssprungantwort ohne und mit Stellgrössenbeschränkung
 </div>
 <div class="callout-body-container callout-body">
 <p>Solange sich die Stellgrösse in der Begrenzung befindet, bringt eine weitere Erhöhung der Stellgrösse nichts. Der I-Anteil eines PI/PID-Reglers integriert in dieser Zeit aber unvermindert weiter und “lädt” sich unnötig auf. Verlässt die Stellgrösse die Begrenzung wieder, so ist der I-Anteil viel zu gross, d.&nbsp;h. der Regler gibt eine höhere Stellgrösse aus, als eigentlich nötig wäre und der I-Anteil (Integrator) muss den zuvor unnötigerweise aufgebauten Teil zuerst einmal wieder “abbauen”.</p>
-<p>Dieses unnötige “Aufladen” des I-Anteils während der Begrenzung nennt man <em>Windup</em> (bzw. <em>Integral-Windup</em>) und es verschlechtert das Regelverhalten erheblich (grosses Überschwingen, lange Ausregelzeit, im Extremfalls sogar Instabilität). Eine solche “naive” Implementierung der Stellgrössenbeschränkung, wie wir sie oben vorgenommen haben, ist also nicht brauchbar.</p>
+<p>Dieses unnötige “Aufladen” des I-Anteils während der Begrenzung nennt man <em>Windup</em> (bzw. <em>Integral-Windup</em>) und es verschlechtert das Regelverhalten erheblich (grosses Überschwingen, lange Ausregelzeit, im Extremfall sogar Instabilität). Eine solche “naive” Implementierung der Stellgrössenbeschränkung, wie wir sie oben vorgenommen haben, ist also nicht brauchbar.</p>
 </div>
 </div>
 <p>Im Folgenden wollen wir uns überlegen, wie man mit diesem Problem umgeht.</p>
@@ -426,11 +426,11 @@ Abb.&nbsp;7.3: Stellgrössenbeschränkung mit AWU in BORIS
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Den in <a href="#sec-begrenzung" class="quarto-xref"><span>Abschn. 7.1</span></a> verwendet Begrenzer-Block benötigen wir im Normalfall also nicht, da wir die Begrenzung direkt im Regler (PID-Block) einstellen können (siehe obige Abb.).</p>
+<p>Den in <a href="#sec-begrenzung" class="quarto-xref"><span>Abschn. 7.1</span></a> verwendeten Begrenzer-Block benötigen wir im Normalfall also nicht, da wir die Begrenzung direkt im Regler (PID-Block) einstellen können (siehe obige Abb.).</p>
 <p>Der Begrenzer-Block ist nützlich, wenn eine Begrenzung an einer anderen Stelle im Regelkreis auftritt (z. B. innerhalb der Regelstrecke) oder wir bewusst auf AWU verzichten wollen.</p>
 </div>
 </div>
-<p>In <span class="cap">Boris</span> sind die beiden nachfolgend aufgeführten AWU-Varianten implementiert (siehe Reiter <em>Begrenzung</em> im PID-Block). Damit man <a href="#tbl-awu" class="quarto-xref">Tab.&nbsp;<span>7.1</span></a> versteht, muss man sich in Erinnerung rufen, dass sich die Stellgrösse bei einem PI-Regler aus P-Anteil und I-Anteil zusammensetzt. (Beim PID-Regler käme noch der D-Anteil hinzu.Alles, was wir hier besprechen, gilt genau gleich für eine PID-Regelung.)</p>
+<p>In <span class="cap">Boris</span> sind die beiden nachfolgend aufgeführten AWU-Varianten implementiert (siehe Reiter <em>Begrenzung</em> im PID-Block). Damit man <a href="#tbl-awu" class="quarto-xref">Tab.&nbsp;<span>7.1</span></a> versteht, muss man sich in Erinnerung rufen, dass sich die Stellgrösse bei einem PI-Regler aus P-Anteil und I-Anteil zusammensetzt. (Beim PID-Regler käme noch der D-Anteil hinzu. Alles, was wir hier besprechen, gilt genau gleich für eine PID-Regelung.)</p>
 <p><span class="math display">
 y = y_P + y_I
 </span></p>
@@ -535,7 +535,7 @@ Abb.&nbsp;7.4: Führungssprungantwort mit Stellgrössenbeschränkung, ohne/mit A
 <li>Strecke: I-T<sub>2</sub> mit <span class="math inline">K_I = 0.2 \quad T_1 = 2\,\mathrm{s} \quad T_2 = 0.5\,\mathrm{s}</span></li>
 <li>Regler: P mit <span class="math inline">K_P = 2</span></li>
 </ul>
-<p>Überzeuge dich davon, dass <strong>ohne Stellgrössenbeschränkung</strong> die Gütekriteren (Anregelzeit <span class="math inline">T_{cr}</span>, Ausregelzeit <span class="math inline">T_{cs}</span>, Überschwingweite <span class="math inline">x_m</span> in [%] und bleibende Regelabweichung <span class="math inline">e_\infty</span> in [%]) identisch sind für die Führungsgrösse <span class="math inline">w = 1</span> und die Führungsgrösse <span class="math inline">w = 10</span>. (Gehe von einem 10%-Toleranzband aus.)</p>
+<p>Überzeuge dich davon, dass <strong>ohne Stellgrössenbeschränkung</strong> die Gütekriterien (Anregelzeit <span class="math inline">T_{cr}</span>, Ausregelzeit <span class="math inline">T_{cs}</span>, Überschwingweite <span class="math inline">x_m</span> in [%] und bleibende Regelabweichung <span class="math inline">e_\infty</span> in [%]) identisch sind für die Führungsgrösse <span class="math inline">w = 1</span> und die Führungsgrösse <span class="math inline">w = 10</span>. (Gehe von einem 10%-Toleranzband aus.)</p>
 <p><span class="math display">
 T_{cr} = \qquad \qquad \mathrm{s}
 </span></p>
@@ -573,7 +573,7 @@ e_\infty = \qquad \qquad \mathrm{\%}
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Ohne Stellgrössenbeschränkung: Verhalten ist unabhängig vom Sollwertsrpung (<span class="math inline">w = 1</span> bzw. <span class="math inline">w = 10</span> führen qualitativ zum selben Regelverhalten).</p>
+<p>Ohne Stellgrössenbeschränkung: Verhalten ist unabhängig vom Sollwertsprung (<span class="math inline">w = 1</span> bzw. <span class="math inline">w = 10</span> führen qualitativ zum selben Regelverhalten).</p>
 <p><span class="math display">
 T_{cr} = 5.1 \mathrm{s}
 </span></p>
@@ -586,7 +586,7 @@ x_m = 21 \mathrm{\%}
 <p><span class="math display">
 e_\infty = 0 \mathrm{\%}
 </span></p>
-<p>Mit Stellgrössenbeschränkung: Verhalten ist nicht mehr überall unabhängig vom Sollwertsrpung (<span class="math inline">w = 1</span> bzw. <span class="math inline">w = 10</span> führen nicht zum selben Regelverhalten, da die Stellgrösse bei <span class="math inline">w = 10</span> in die Begrenzung geht).</p>
+<p>Mit Stellgrössenbeschränkung: Verhalten ist nicht mehr überall unabhängig vom Sollwertsprung (<span class="math inline">w = 1</span> bzw. <span class="math inline">w = 10</span> führen nicht zum selben Regelverhalten, da die Stellgrösse bei <span class="math inline">w = 10</span> in die Begrenzung geht).</p>
 <p><span class="math display">
 T_{cr} = 11.6 \mathrm{s}
 </span></p>
@@ -1298,7 +1298,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Motoren: Drehzahl bzw. Drehmoment haben irgendwo eine Obergrenze.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Signalverarbeitungskomponenten: Elektronische Komponenten haben immer einen bestimmten Ein- bzw. Ausgangsbereich.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Der Regler, der heutzutage nahezu immer digital bzw. softwarebasiert implementiert wird, kann grundsätzlich beliebige Werte berechnen/ausgeben und daher eine Stellgrösse "fordern", die ausserhalb des zulässigen Bereichs des Stellgliedes liegt. In einem solchen Fall, befindet sich die *effektive* Stellgrösse dann *in der Begrenzung* (auch *Sättigung* genannt bzw. umgangssprachlich *am Anschlag*). </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Der Regler, der heutzutage nahezu immer digital bzw. softwarebasiert implementiert wird, kann grundsätzlich beliebige Werte berechnen/ausgeben und daher eine Stellgrösse "fordern", die ausserhalb des zulässigen Bereichs des Stellgliedes liegt. In einem solchen Fall befindet sich die *effektive* Stellgrösse dann *in der Begrenzung* (auch *Sättigung* genannt bzw. umgangssprachlich *am Anschlag*). </span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Damit dies in der Simulation auch korrekt abgebildet wird, können wir die Stellgrössenbeschränkung mit einem Begrenzungsglied (Block *Begrenzer* in der *Statik*-Palette) modellieren, das zwischen Regler und Regelstrecke eingefügt wird. Wir gehen für die folgenden Überlegungen davon aus, dass die Stellgrösse des oben bereits betrachteten Systems nur in einem Bereich von 0 bis 10 liegen kann.</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
@@ -1316,7 +1316,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Windup"}</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Solange sich die Stellgrösse in der Begrenzung befindet, bringt eine weitere Erhöhung der Stellgrösse nichts. Der I-Anteil eines PI/PID-Reglers integriert in dieser Zeit aber unvermindert weiter und "lädt" sich unnötig auf. Verlässt die Stellgrösse die Begrenzung wieder, so ist der I-Anteil viel zu gross, d. h. der Regler gibt eine höhere Stellgrösse aus, als eigentlich nötig wäre und der I-Anteil (Integrator) muss den zuvor unnötigerweise aufgebauten Teil zuerst einmal wieder "abbauen".</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Dieses unnötige "Aufladen" des I-Anteils während der Begrenzung nennt man *Windup* (bzw. *Integral-Windup*) und es verschlechtert das Regelverhalten erheblich (grosses Überschwingen, lange Ausregelzeit, im Extremfalls sogar Instabilität). Eine solche "naive" Implementierung der Stellgrössenbeschränkung, wie wir sie oben vorgenommen haben, ist also nicht brauchbar.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Dieses unnötige "Aufladen" des I-Anteils während der Begrenzung nennt man *Windup* (bzw. *Integral-Windup*) und es verschlechtert das Regelverhalten erheblich (grosses Überschwingen, lange Ausregelzeit, im Extremfall sogar Instabilität). Eine solche "naive" Implementierung der Stellgrössenbeschränkung, wie wir sie oben vorgenommen haben, ist also nicht brauchbar.</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Im Folgenden wollen wir uns überlegen, wie man mit diesem Problem umgeht.</span>
@@ -1328,12 +1328,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="al">![Stellgrössenbeschränkung mit AWU in BORIS](../images/diagrams/AWU_BORIS.png)</span>{width=50% #fig-awu-boris}</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Stellgrössenbeschränkung"}</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Den in @sec-begrenzung verwendet Begrenzer-Block benötigen wir im Normalfall also nicht, da wir die Begrenzung direkt im Regler (PID-Block) einstellen können (siehe obige Abb.).</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Den in @sec-begrenzung verwendeten Begrenzer-Block benötigen wir im Normalfall also nicht, da wir die Begrenzung direkt im Regler (PID-Block) einstellen können (siehe obige Abb.).</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Der Begrenzer-Block ist nützlich, wenn eine Begrenzung an einer anderen Stelle im Regelkreis auftritt (z. B. innerhalb der Regelstrecke) oder wir bewusst auf AWU verzichten wollen.</span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> sind die beiden nachfolgend aufgeführten AWU-Varianten implementiert (siehe Reiter *Begrenzung* im PID-Block). Damit man @tbl-awu versteht, muss man sich in Erinnerung rufen, dass sich die Stellgrösse bei einem PI-Regler aus P-Anteil und I-Anteil zusammensetzt. (Beim PID-Regler käme noch der D-Anteil hinzu.Alles, was wir hier besprechen, gilt genau gleich für eine PID-Regelung.)</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> sind die beiden nachfolgend aufgeführten AWU-Varianten implementiert (siehe Reiter *Begrenzung* im PID-Block). Damit man @tbl-awu versteht, muss man sich in Erinnerung rufen, dass sich die Stellgrösse bei einem PI-Regler aus P-Anteil und I-Anteil zusammensetzt. (Beim PID-Regler käme noch der D-Anteil hinzu. Alles, was wir hier besprechen, gilt genau gleich für eine PID-Regelung.)</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>y = y_P + y_I</span>
@@ -1392,7 +1392,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Strecke: I-T~2~ mit $K_I = 0.2 \quad T_1 = 2\,\mathrm{s} \quad T_2 = 0.5\,\mathrm{s}$</span>
 <span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Regler: P mit $K_P = 2$</span>
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>Überzeuge dich davon, dass **ohne Stellgrössenbeschränkung** die Gütekriteren (Anregelzeit $T_{cr}$, Ausregelzeit $T_{cs}$, Überschwingweite $x_m$ in <span class="co">[</span><span class="ot">%</span><span class="co">]</span> und bleibende Regelabweichung $e_\infty$ in <span class="co">[</span><span class="ot">%</span><span class="co">]</span>) identisch sind für die Führungsgrösse $w = 1$ und die Führungsgrösse $w = 10$. (Gehe von einem 10%-Toleranzband aus.)</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>Überzeuge dich davon, dass **ohne Stellgrössenbeschränkung** die Gütekriterien (Anregelzeit $T_{cr}$, Ausregelzeit $T_{cs}$, Überschwingweite $x_m$ in <span class="co">[</span><span class="ot">%</span><span class="co">]</span> und bleibende Regelabweichung $e_\infty$ in <span class="co">[</span><span class="ot">%</span><span class="co">]</span>) identisch sind für die Führungsgrösse $w = 1$ und die Führungsgrösse $w = 10$. (Gehe von einem 10%-Toleranzband aus.)</span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>T_{cr} = \qquad \qquad \mathrm{s} </span>
@@ -1431,7 +1431,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true"}</span>
 <span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
 <span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>Ohne Stellgrössenbeschränkung: Verhalten ist unabhängig vom Sollwertsrpung ($w = 1$ bzw. $w = 10$ führen qualitativ zum selben Regelverhalten).</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>Ohne Stellgrössenbeschränkung: Verhalten ist unabhängig vom Sollwertsprung ($w = 1$ bzw. $w = 10$ führen qualitativ zum selben Regelverhalten).</span>
 <span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>T_{cr} = 5.1 \mathrm{s} </span>
@@ -1449,7 +1449,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>e_\infty = 0 \mathrm{\%} </span>
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>Mit Stellgrössenbeschränkung: Verhalten ist nicht mehr überall unabhängig vom Sollwertsrpung ($w = 1$ bzw. $w = 10$ führen nicht zum selben Regelverhalten, da die Stellgrösse bei $w = 10$ in die Begrenzung geht).</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>Mit Stellgrössenbeschränkung: Verhalten ist nicht mehr überall unabhängig vom Sollwertsprung ($w = 1$ bzw. $w = 10$ führen nicht zum selben Regelverhalten, da die Stellgrösse bei $w = 10$ in die Begrenzung geht).</span>
 <span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>T_{cr} = 11.6 \mathrm{s} </span>

@@ -372,7 +372,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ein Modell ist immer eine vereinfachte Abbildung der Realität und wird immer mehr oder weniger von der realen Regelstrecke abweichen. In vielen Fällen reicht eine ungefähres Modell völlig aus, da die Regelung ohnehin eine gewisse Robustheit aufweisen muss, sodass kleine Abweichungen bei der Modellierung toleriert werden können.</p>
+<p>Ein Modell ist immer eine vereinfachte Abbildung der Realität und wird immer mehr oder weniger von der realen Regelstrecke abweichen. In vielen Fällen reicht ein ungefähres Modell völlig aus, da die Regelung ohnehin eine gewisse Robustheit aufweisen muss, sodass kleine Abweichungen bei der Modellierung toleriert werden können.</p>
 </div>
 </div>
 <section id="verfahren-nach-küpfmüller" class="level2 page-columns page-full" data-number="4.1">
@@ -818,7 +818,7 @@ Tab.&nbsp;4.1: Wendetangentenverfahren
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dieses Verfahren ist in abgewandelter Form in <span class="cap">Boris</span> implementiert und zwar im <strong>T<sub>e</sub>-T<sub>b</sub>-Block</strong>. Dabei werden <span class="math inline">T_e</span> und <span class="math inline">T_b</span> eingegeben und es werden automatisch <span class="math inline">T_1</span> und <span class="math inline">T_2</span> des P-T<sub>2</sub>-Gliedes bestimmt. Wird die Bedingung <span class="math inline">\frac{T_b}{T_e} \geq 9.64</span> nicht eingehalten, wird zusätzlich eine Totzeit eingefügt bis die Bedingung erfüllt ist. Der <strong>T<sub>e</sub>-T<sub>b</sub>-Block</strong> weist also P-T<sub>2</sub>- oder P-T<sub>2</sub>-T<sub>t</sub>-Verhalten auf.</p>
+<p>Dieses Verfahren ist in abgewandelter Form in <span class="cap">Boris</span> implementiert, und zwar im <strong>T<sub>e</sub>-T<sub>b</sub>-Block</strong>. Dabei werden <span class="math inline">T_e</span> und <span class="math inline">T_b</span> eingegeben und es werden automatisch <span class="math inline">T_1</span> und <span class="math inline">T_2</span> des P-T<sub>2</sub>-Gliedes bestimmt. Wird die Bedingung <span class="math inline">\frac{T_b}{T_e} \geq 9.64</span> nicht eingehalten, wird zusätzlich eine Totzeit eingefügt bis die Bedingung erfüllt ist. Der <strong>T<sub>e</sub>-T<sub>b</sub>-Block</strong> weist also P-T<sub>2</sub>- oder P-T<sub>2</sub>-T<sub>t</sub>-Verhalten auf.</p>
 </div>
 </div>
 </section>
@@ -1047,7 +1047,7 @@ Tab.&nbsp;4.2: Verfahren der Zeitprozentkennwerte
 </section>
 <section id="numerische-optimierungsverfahren" class="level2 page-columns page-full" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="numerische-optimierungsverfahren"><span class="header-section-number">4.6</span> Numerische Optimierungsverfahren</h2>
-<p>Neben den oben aufgeführten “manuellen” Verfahren, können die Parameter einer Regelstrecke auch mittels numerischer Optimierung bestimmt werden. Dazu werden Optimierungsalgorithmen verwendet, die im Allg. eine Zielfunktion minimieren (d.&nbsp;h. in unserem Fall wird die Differenz zwischen dem Modell und der Messung minimiert, indem die Parameter variiert werden bis eine optimale Lösung gefunden wurde).</p>
+<p>Neben den oben aufgeführten “manuellen” Verfahren können die Parameter einer Regelstrecke auch mittels numerischer Optimierung bestimmt werden. Dazu werden Optimierungsalgorithmen verwendet, die im Allg. eine Zielfunktion minimieren (d.&nbsp;h. in unserem Fall wird die Differenz zwischen dem Modell und der Messung minimiert, indem die Parameter variiert werden, bis eine optimale Lösung gefunden wurde).</p>
 <p><span class="math display">
 \min_{K_P, T_1, \ldots} \, \left\| x_{\mathrm{Modell}} - x_{\mathrm{Messung}} \right\|
 </span></p>
@@ -1061,11 +1061,11 @@ Abb.&nbsp;4.6: Optimierungsverfahren
 </figcaption>
 </figure>
 </div>
-<p>Wir werden solche Methoden nicht weiter anschauen, da sie in der Praxis häufig nicht notwendig sind. Obwohl in <span class="cap">Boris</span> gewisse Werkzeuge integriert sind, würde man solche Optimierungen vorzugsweise z. B. mit <span class="cap">Python</span> umsetzen.</p>
+<p>Wir werden solche Methoden nicht weiter anschauen, da sie in der Praxis häufig nicht notwendig sind. Obwohl in <span class="cap">Boris</span> gewisse Werkzeuge integriert sind, würde man solche Optimierungen vorzugsweise mit <span class="cap">Python</span> oder einem vergleichbaren Tool umsetzen.</p>
 </section>
 <section id="identifikation-von-strecken-ohne-ausgleich-i-strecken" class="level2 page-columns page-full" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="identifikation-von-strecken-ohne-ausgleich-i-strecken"><span class="header-section-number">4.7</span> Identifikation von Strecken ohne Ausgleich (I-Strecken)</h2>
-<p>Oben wurden ausschliesslich P-Strecken betrachtet, doch die Verfahren funktionieren auch für I-Strecken. Wird die Sprungantwort einer I-Strecke abgeleitet (differenziert), so wird der I-Anteil abgespaltet und es verbleibt eine P-Strecke, wobei allfällige Verzögerungen nicht verändert werden. Damit können die obigen Verfahren angewendet werden.</p>
+<p>Oben wurden ausschliesslich P-Strecken betrachtet, doch die Verfahren funktionieren auch für I-Strecken. Wird die Sprungantwort einer I-Strecke abgeleitet (differenziert), so wird der I-Anteil abgespalten und es verbleibt eine P-Strecke, wobei allfällige Verzögerungen nicht verändert werden. Damit können die obigen Verfahren angewendet werden.</p>
 <div id="fig-id-i" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-id-i-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1076,7 +1076,7 @@ Abb.&nbsp;4.7: Identifikation von I-Strecken
 </figcaption>
 </figure>
 </div>
-<p>Der so bestimmte Proportionalbeiwert <span class="math inline">K_P</span> für die Strecke ohne I-Anteil, entspricht gerade dem Integrierbeiwert <span class="math inline">K_I</span> der Originalstrecke.</p>
+<p>Der so bestimmte Proportionalbeiwert <span class="math inline">K_P</span> für die Strecke ohne I-Anteil entspricht gerade dem Integrierbeiwert <span class="math inline">K_I</span> der Originalstrecke.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="D-Glied">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1088,6 +1088,11 @@ Abb.&nbsp;4.7: Identifikation von I-Strecken
 </div>
 <div class="callout-body-container callout-body">
 <p>Die Ableitung kann in <span class="cap">Boris</span> mit dem D-Glied (D für Differenzierung) erfolgen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/D-Glied_BORIS.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1182,7 +1187,7 @@ T_e \approx 2\,\mathrm{s} \quad \quad T_b \approx 20\,\mathrm{s}
 <div class="callout-body-container callout-body">
 <p>Untenstehend ist eine Sprungantwort eines realen Systems als Textdatei gegeben, die mit dem Block <em>Tabellen-Eingabedatei</em> (aus der Palette <em>Quellen</em>) in <span class="cap">Boris</span> eingelesen werden kann. (Eingangs- und Ausgangssignal in [V])</p>
 <p><a href="../assets/A4_2.TXT" download=""> Sprungantwort-Messung der Regelstrecke (.txt) </a></p>
-<p>Versuche das System durch ein P-T<sub>n</sub>-Glied mit <span class="math inline">n</span> gleichen Zeitkonstanten zu approximieren, indem du das <em>Verfahren der Zeitprozentkennwerte</em> (vgl. <a href="#sec-zpkw" class="quarto-xref"><span>Abschn. 4.5</span></a> bzw. Kap. 2.4.6 in <span class="citation" data-cites="crashkurs">Kahlert (<a href="../index.html#ref-crashkurs" role="doc-biblioref">2023</a>)</span>) anwendest. Gebe die Ordnung <span class="math inline">n</span> und den Wert für die <span class="math inline">n</span> identischen Zeitkonstanten <span class="math inline">T_1, .., T_n</span> an.</p>
+<p>Versuche das System durch ein P-T<sub>n</sub>-Glied mit <span class="math inline">n</span> gleichen Zeitkonstanten zu approximieren, indem du das <em>Verfahren der Zeitprozentkennwerte</em> (vgl. <a href="#sec-zpkw" class="quarto-xref"><span>Abschn. 4.5</span></a> bzw. Kap. 2.4.6 in <span class="citation" data-cites="crashkurs">Kahlert (<a href="../index.html#ref-crashkurs" role="doc-biblioref">2023</a>)</span>) anwendest. Gib die Ordnung <span class="math inline">n</span> und den Wert für die <span class="math inline">n</span> identischen Zeitkonstanten <span class="math inline">T_1, .., T_n</span> an.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1842,7 +1847,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Bei einfachen Strecken (z. B. P-T~1~, P-T~t~, I, I-T~1~, ...) können wir sämtliche Parameter direkt aus der Sprungantwort ablesen, d. h. im Folgenden geht es primär um Strecken höherer Ordnung (P-T~2~, P-T~3~, usw.), wo dies nicht möglich ist.</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Modellierung"}</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Ein Modell ist immer eine vereinfachte Abbildung der Realität und wird immer mehr oder weniger von der realen Regelstrecke abweichen. In vielen Fällen reicht eine ungefähres Modell völlig aus, da die Regelung ohnehin eine gewisse Robustheit aufweisen muss, sodass kleine Abweichungen bei der Modellierung toleriert werden können.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Ein Modell ist immer eine vereinfachte Abbildung der Realität und wird immer mehr oder weniger von der realen Regelstrecke abweichen. In vielen Fällen reicht ein ungefähres Modell völlig aus, da die Regelung ohnehin eine gewisse Robustheit aufweisen muss, sodass kleine Abweichungen bei der Modellierung toleriert werden können.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verfahren nach Küpfmüller</span></span>
@@ -2220,7 +2225,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Wendetangentenverfahren"}</span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>Dieses Verfahren ist in abgewandelter Form in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> implementiert und zwar im **T~e~-T~b~-Block**. Dabei werden $T_e$ und $T_b$ eingegeben und es werden automatisch $T_1$ und $T_2$ des P-T~2~-Gliedes bestimmt. Wird die Bedingung $\frac{T_b}{T_e} \geq 9.64$ nicht eingehalten, wird zusätzlich eine Totzeit eingefügt bis die Bedingung erfüllt ist. Der **T~e~-T~b~-Block** weist also P-T~2~- oder P-T~2~-T~t~-Verhalten auf.</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>Dieses Verfahren ist in abgewandelter Form in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> implementiert, und zwar im **T~e~-T~b~-Block**. Dabei werden $T_e$ und $T_b$ eingegeben und es werden automatisch $T_1$ und $T_2$ des P-T~2~-Gliedes bestimmt. Wird die Bedingung $\frac{T_b}{T_e} \geq 9.64$ nicht eingehalten, wird zusätzlich eine Totzeit eingefügt bis die Bedingung erfüllt ist. Der **T~e~-T~b~-Block** weist also P-T~2~- oder P-T~2~-T~t~-Verhalten auf.</span>
 <span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verfahren der Zeitprozentkennwerte {#sec-zpkw}</span></span>
@@ -2371,7 +2376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="fu">## Numerische Optimierungsverfahren</span></span>
 <span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>Neben den oben aufgeführten "manuellen" Verfahren, können die Parameter einer Regelstrecke auch mittels numerischer Optimierung bestimmt werden. Dazu werden Optimierungsalgorithmen verwendet, die im Allg. eine Zielfunktion minimieren (d. h. in unserem Fall wird die Differenz zwischen dem Modell und der Messung minimiert, indem die Parameter variiert werden bis eine optimale Lösung gefunden wurde).</span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>Neben den oben aufgeführten "manuellen" Verfahren können die Parameter einer Regelstrecke auch mittels numerischer Optimierung bestimmt werden. Dazu werden Optimierungsalgorithmen verwendet, die im Allg. eine Zielfunktion minimieren (d. h. in unserem Fall wird die Differenz zwischen dem Modell und der Messung minimiert, indem die Parameter variiert werden, bis eine optimale Lösung gefunden wurde).</span>
 <span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>\min_{K_P, T_1, \ldots} \, \left<span class="sc">\|</span> x_{\mathrm{Modell}} - x_{\mathrm{Messung}} \right<span class="sc">\|</span></span>
@@ -2379,137 +2384,139 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a><span class="al">![Optimierungsverfahren](../images/diagrams/ID_Optimierung.gif)</span>{#fig-opt}</span>
 <span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>Wir werden solche Methoden nicht weiter anschauen, da sie in der Praxis häufig nicht notwendig sind. Obwohl in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> gewisse Werkzeuge integriert sind, würde man solche Optimierungen vorzugsweise z. B. mit <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Python<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> umsetzen.</span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>Wir werden solche Methoden nicht weiter anschauen, da sie in der Praxis häufig nicht notwendig sind. Obwohl in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> gewisse Werkzeuge integriert sind, würde man solche Optimierungen vorzugsweise mit <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Python<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> oder einem vergleichbaren Tool umsetzen.</span>
 <span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identifikation von Strecken ohne Ausgleich (I-Strecken)</span></span>
 <span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>Oben wurden ausschliesslich P-Strecken betrachtet, doch die Verfahren funktionieren auch für I-Strecken. Wird die Sprungantwort einer I-Strecke abgeleitet (differenziert), so wird der I-Anteil abgespaltet und es verbleibt eine P-Strecke, wobei allfällige Verzögerungen nicht verändert werden. Damit können die obigen Verfahren angewendet werden.</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>Oben wurden ausschliesslich P-Strecken betrachtet, doch die Verfahren funktionieren auch für I-Strecken. Wird die Sprungantwort einer I-Strecke abgeleitet (differenziert), so wird der I-Anteil abgespalten und es verbleibt eine P-Strecke, wobei allfällige Verzögerungen nicht verändert werden. Damit können die obigen Verfahren angewendet werden.</span>
 <span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="al">![Identifikation von I-Strecken](../images/diagrams/ID_I-Strecken.svg)</span>{#fig-id-i}</span>
 <span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>Der so bestimmte Proportionalbeiwert $K_P$ für die Strecke ohne I-Anteil, entspricht gerade dem Integrierbeiwert $K_I$ der Originalstrecke.</span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>Der so bestimmte Proportionalbeiwert $K_P$ für die Strecke ohne I-Anteil entspricht gerade dem Integrierbeiwert $K_I$ der Originalstrecke.</span>
 <span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="D-Glied"}</span>
 <span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a>Die Ableitung kann in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> mit dem D-Glied (D für Differenzierung) erfolgen.</span>
-<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/D-Glied_BORIS.png)</span>{width=20% fig-align="center"}</span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
-<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben4"</span></span>
-<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG04.pdf"</span></span>
-<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
-<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
-<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
-<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben4}</span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben4"</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG04.pdf"</span></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-1}</span>
-<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.1</span></span>
-<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a>Identifiziere die nachfolgend abgebildete Sprungantwort anhand des *Wendentangentenverfahrens* (vgl. @sec-wtv bzw. Kap. 2.4.5 in @crashkurs). Bestimme die beiden Zeitkonstanten $T_1$ und $T_2$.</span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben4}</span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-1}</span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.1</span></span>
 <span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1.svg)</span></span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a>Identifiziere die nachfolgend abgebildete Sprungantwort anhand des *Wendentangentenverfahrens* (vgl. @sec-wtv bzw. Kap. 2.4.5 in @crashkurs). Bestimme die beiden Zeitkonstanten $T_1$ und $T_2$.</span>
 <span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>(a) Führe das Verfahren "manuell" durch gemäss @sec-wtv.</span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1.svg)</span></span>
 <span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>(b) Verwende den **T~e~-T~b~-Block** in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>.</span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>(a) Führe das Verfahren "manuell" durch gemäss @sec-wtv.</span>
 <span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
-<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
-<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>(a) manuell</span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>(b) Verwende den **T~e~-T~b~-Block** in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>.</span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
 <span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1_LSG.svg)</span></span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>(a) manuell</span>
 <span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>Schritt 1: $T_e$ und $T_b$ bestimmen und dann mit dem Verhältnis $T_b/T_e$ in der @tbl-wt die passende Zeile in der 3. Spalte bestimmen.</span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1_LSG.svg)</span></span>
 <span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a>T_e \approx 2\,\mathrm{s} \quad \quad T_b \approx 20\,\mathrm{s}</span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>Schritt 1: $T_e$ und $T_b$ bestimmen und dann mit dem Verhältnis $T_b/T_e$ in der @tbl-wt die passende Zeile in der 3. Spalte bestimmen.</span>
+<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a>T_e \approx 2\,\mathrm{s} \quad \quad T_b \approx 20\,\mathrm{s}</span>
 <span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a>\frac{T_b}{T_e} = \frac{20}{2} = 10</span>
+<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a>Damit wählen wir die 6. Zeile in @tbl-wt (10.03).</span>
+<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>\frac{T_b}{T_e} = \frac{20}{2} = 10</span>
+<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>Schritt 2: Mit dem Wert aus der 2. Spalte (2.15) kann nun $T_1$ bestimmt werden.</span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>Damit wählen wir die 6. Zeile in @tbl-wt (10.03).</span>
 <span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>\frac{T_b}{T_1} = 2.15 \quad \to \quad T_1 = \frac{T_b}{2.15} = \frac{20\,\mathrm{s}}{2.15} = 9.3\,\mathrm{s}</span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a>Schritt 2: Mit dem Wert aus der 2. Spalte (2.15) kann nun $T_1$ bestimmt werden.</span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a>Schritt 3: Mit dem Wert aus der 1. Spalte (0.6) kann schliesslich $T_2$ bestimmt werden.</span>
+<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>\frac{T_b}{T_1} = 2.15 \quad \to \quad T_1 = \frac{T_b}{2.15} = \frac{20\,\mathrm{s}}{2.15} = 9.3\,\mathrm{s}</span>
+<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a>\frac{T_2}{T_1} = 0.6 \quad \to \quad T_2 = 0.6 \cdot T_1 = 0.6 \cdot 9.3\,\mathrm{s} = 5.6\,\mathrm{s}</span>
+<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a>Schritt 3: Mit dem Wert aus der 1. Spalte (0.6) kann schliesslich $T_2$ bestimmt werden.</span>
+<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>Damit haben wir die beiden Zeitkonstanten $T_1 = 9.3\,\mathrm{s}$ bzw. $T_2 = 5.6\,\mathrm{s}$ bestimmt. Zusätzlich kann der Proportionalbeiwert $K_P = 2.5$ direkt abgelesen werden und damit ist das Übertragungsglied vollständig identifiziert. (Zum Vergleich: Die wahren Zeitkonstanten sind $T_1 = 9.1\,\mathrm{s}$ bzw. $T_2 = 5.8\,\mathrm{s}$.)</span>
+<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a>\frac{T_2}{T_1} = 0.6 \quad \to \quad T_2 = 0.6 \cdot T_1 = 0.6 \cdot 9.3\,\mathrm{s} = 5.6\,\mathrm{s}</span>
+<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>(b) <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>Damit haben wir die beiden Zeitkonstanten $T_1 = 9.3\,\mathrm{s}$ bzw. $T_2 = 5.6\,\mathrm{s}$ bestimmt. Zusätzlich kann der Proportionalbeiwert $K_P = 2.5$ direkt abgelesen werden und damit ist das Übertragungsglied vollständig identifiziert. (Zum Vergleich: Die wahren Zeitkonstanten sind $T_1 = 9.1\,\mathrm{s}$ bzw. $T_2 = 5.8\,\mathrm{s}$.)</span>
 <span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>Im **T~e~-T~b~-Block** können $T_e$ (Verzugszeit) bzw. $T_b$ (Ausgleichszeit) direkt eingegeben werden und intern werden die beiden Zeitkonstanten $T_1$ und $T_2$ anhand des Wendetangentenverfahrens ermittelt. Es sollten also grob dieselben Werte wie oben resultieren.</span>
+<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>(b) <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
+<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>Im **T~e~-T~b~-Block** können $T_e$ (Verzugszeit) bzw. $T_b$ (Ausgleichszeit) direkt eingegeben werden und intern werden die beiden Zeitkonstanten $T_1$ und $T_2$ anhand des Wendetangentenverfahrens ermittelt. Es sollten also grob dieselben Werte wie oben resultieren.</span>
 <span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1b.png)</span></span>
+<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
 <span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1b_Zeitkonstanten.png)</span></span>
+<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1b.png)</span></span>
 <span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_1b_Zeitkonstanten.png)</span></span>
+<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-2}</span>
-<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.2</span></span>
-<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a>Untenstehend ist eine Sprungantwort eines realen Systems als Textdatei gegeben, die mit dem Block *Tabellen-Eingabedatei* (aus der Palette *Quellen*) in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> eingelesen werden kann.</span>
-<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a>(Eingangs- und Ausgangssignal in <span class="co">[</span><span class="ot">V</span><span class="co">]</span>)</span>
-<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"../assets/A4_2.TXT"</span><span class="ot"> download</span><span class="dt">&gt;</span></span>
-<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>  Sprungantwort-Messung der Regelstrecke (.txt)</span>
-<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a>Versuche das System durch ein P-T~n~-Glied mit $n$ gleichen Zeitkonstanten zu approximieren, indem du das *Verfahren der Zeitprozentkennwerte* (vgl. @sec-zpkw bzw. Kap. 2.4.6 in @crashkurs) anwendest. Gebe die Ordnung $n$ und den Wert für die $n$ identischen Zeitkonstanten $T_1, .., T_n$ an.</span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-2}</span>
+<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.2</span></span>
+<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>Untenstehend ist eine Sprungantwort eines realen Systems als Textdatei gegeben, die mit dem Block *Tabellen-Eingabedatei* (aus der Palette *Quellen*) in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> eingelesen werden kann.</span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a>(Eingangs- und Ausgangssignal in <span class="co">[</span><span class="ot">V</span><span class="co">]</span>)</span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"../assets/A4_2.TXT"</span><span class="ot"> download</span><span class="dt">&gt;</span></span>
+<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a>  Sprungantwort-Messung der Regelstrecke (.txt)</span>
+<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
-<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
-<span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a>Für das Zeitprozentkennwerte-Verfahren benötigen wir als erstes die Zeitwerte $t_{10\%}$, $t_{50\%}$ sowie $t_{90\%}$, die wir aus der eingelesenen Sprungantwort ablesen können.</span>
+<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a>Versuche das System durch ein P-T~n~-Glied mit $n$ gleichen Zeitkonstanten zu approximieren, indem du das *Verfahren der Zeitprozentkennwerte* (vgl. @sec-zpkw bzw. Kap. 2.4.6 in @crashkurs) anwendest. Gib die Ordnung $n$ und den Wert für die $n$ identischen Zeitkonstanten $T_1, .., T_n$ an.</span>
+<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
 <span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_2_LSG.svg)</span></span>
+<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a>Für das Zeitprozentkennwerte-Verfahren benötigen wir als erstes die Zeitwerte $t_{10\%}$, $t_{50\%}$ sowie $t_{90\%}$, die wir aus der eingelesenen Sprungantwort ablesen können.</span>
 <span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a>t_{10\%} \approx 1.7\,\mathrm{s} \quad t_{50\%} \approx 4.0\,\mathrm{s} \quad t_{90\%} \approx 8.1\,\mathrm{s}</span>
+<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_2_LSG.svg)</span></span>
+<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a>Schritt 1: Parameter $\mu=t_{10\%}/t_{90\%}$ bestimmen.</span>
+<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a>t_{10\%} \approx 1.7\,\mathrm{s} \quad t_{50\%} \approx 4.0\,\mathrm{s} \quad t_{90\%} \approx 8.1\,\mathrm{s}</span>
+<span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a>\mu = \frac{t_{10\%}}{t_{90\%}} = \frac{1.7\,\mathrm{s}}{8.1\,\mathrm{s}} = 0.21</span>
+<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>Schritt 1: Parameter $\mu=t_{10\%}/t_{90\%}$ bestimmen.</span>
+<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>Schritt 2: Wir wählen die 3. Zeile ($\mu=0.207$) und erhalten $n = 3$, $\alpha_{10} =0.907$, $\alpha_{50} =0.374$ sowie $\alpha_{90} =0.188$.</span>
+<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a>\mu = \frac{t_{10\%}}{t_{90\%}} = \frac{1.7\,\mathrm{s}}{8.1\,\mathrm{s}} = 0.21</span>
+<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a>Schritt 3: Nun können die Zeitkonstanten $T_1, \dots, T_n$ bestimmt werden.</span>
+<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a>Schritt 2: Wir wählen die 3. Zeile ($\mu=0.207$) und erhalten $n = 3$, $\alpha_{10} =0.907$, $\alpha_{50} =0.374$ sowie $\alpha_{90} =0.188$.</span>
 <span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
-<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>T_1, \dots, T_n &amp;= \frac{1}{3} \left( \alpha_{10} \cdot t_{10\%} + \alpha_{50} \cdot t_{50\%} + \alpha_{90} \cdot t_{90\%} \right) <span class="sc">\\</span></span>
-<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{1}{3} \left( 0.907 \cdot 1.7\,\mathrm{s} + 0.374 \cdot 4.0\,\mathrm{s} + 0.188 \cdot 8.1\,\mathrm{s} \right) <span class="sc">\\</span></span>
-<span id="cb1-671"><a href="#cb1-671" aria-hidden="true" tabindex="-1"></a>&amp;= 1.52\,\mathrm{s}</span>
-<span id="cb1-672"><a href="#cb1-672" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-673"><a href="#cb1-673" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-674"><a href="#cb1-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-675"><a href="#cb1-675" aria-hidden="true" tabindex="-1"></a>Es resultiert also ein P-T~3~ mit dem Proportionalbeiwert $K_P = 8$ und den Zeitkonstanten $T_1 = T_2 = T_3 = 1.52\,\mathrm{s}$.</span>
+<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a>Schritt 3: Nun können die Zeitkonstanten $T_1, \dots, T_n$ bestimmt werden.</span>
+<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-671"><a href="#cb1-671" aria-hidden="true" tabindex="-1"></a>T_1, \dots, T_n &amp;= \frac{1}{3} \left( \alpha_{10} \cdot t_{10\%} + \alpha_{50} \cdot t_{50\%} + \alpha_{90} \cdot t_{90\%} \right) <span class="sc">\\</span></span>
+<span id="cb1-672"><a href="#cb1-672" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{1}{3} \left( 0.907 \cdot 1.7\,\mathrm{s} + 0.374 \cdot 4.0\,\mathrm{s} + 0.188 \cdot 8.1\,\mathrm{s} \right) <span class="sc">\\</span></span>
+<span id="cb1-673"><a href="#cb1-673" aria-hidden="true" tabindex="-1"></a>&amp;= 1.52\,\mathrm{s}</span>
+<span id="cb1-674"><a href="#cb1-674" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-675"><a href="#cb1-675" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-676"><a href="#cb1-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a>Es resultiert also ein P-T~3~ mit dem Proportionalbeiwert $K_P = 8$ und den Zeitkonstanten $T_1 = T_2 = T_3 = 1.52\,\mathrm{s}$.</span>
+<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

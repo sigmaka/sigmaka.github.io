@@ -436,13 +436,13 @@ Abb.&nbsp;8.2: Nichtlineare Kennlinie
 <li><a href="#linearisierung-im-arbeitspunkt">Linearisierung im Arbeitspunkt</a></li>
 <li><a href="#linearisierung-mittels-linearisierungskennlinie">Linearisierung mittels Linearisierungskennlinie</a></li>
 </ul>
-<p>Anmerkung: Auch die im letzten Block besprochene <a href="L07.html#sec-begrenzung">Stellgrössenbeschränkung</a> ist eine Form der Nichtlinearität. Dabei ist eine ansonsten lineare Kennlinie unten/oben begrenzt.</p>
+<p>Anmerkung: Auch die im letzten Block besprochene <a href="L07.html#sec-begrenzung">Stellgrössenbeschränkung</a> ist eine Form der Nichtlinearität. Dabei war eine ansonsten lineare Kennlinie unten/oben begrenzt.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/diagrams/Kennlinie_begrenzt.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
-<p>In diesem Block hier geht es um Fälle, in denen die Kennlinie (innerhalb des Stellbereichs) bereits <em>nichtlinear</em> ist (vgl. <a href="#fig-kennlinie-nl" class="quarto-xref">Abb.&nbsp;<span>8.2</span></a>).</p>
+<p>In diesem Block hier geht es um Fälle, in denen die Kennlinie (innerhalb des Stellbereichs) bereits <em>nichtlinear</em> ist (vgl. <a href="#fig-kennlinie-nl" class="quarto-xref">Abb.&nbsp;<span>8.2</span></a>). (Natürlich kann zusätzlich eine Stellgrössenbeschränkung auftreten.)</p>
 </div>
 </div>
 </section>
@@ -490,7 +490,7 @@ x &amp;= x^* + x_{AP}
 <p><img src="../images/diagrams/Ventilkennlinie.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<p>Um einen Durchfluss von 125 m³/h zu erreichen, ist eine Ventilstellung von 2.5 mm nötig. Dies ist der Arbeitspunkt (AP). Legt man am Arbeitspunkt die Tangente an die Kennlinie und bestimmt die Steigung dieser Tangente so erhält man:</p>
+<p>Um einen Durchfluss von 125 m³/h zu erreichen, ist eine Ventilstellung von 2.5 mm nötig. Dies ist der Arbeitspunkt (AP). Legt man am Arbeitspunkt die Tangente an die Kennlinie und bestimmt die Steigung dieser Tangente, so erhält man:</p>
 <p><span class="math display">
 K_P = 75 \, \mathrm{\frac{m^3}{h \cdot mm}}
 </span></p>
@@ -692,7 +692,7 @@ Abb.&nbsp;8.5: Vorschaltung einer Linearisierungskennlinie
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Die Umkehrfunktion bzw. Inverse einer Funktion kann grafisch als Spiegelung der Funktion an der Winkelhalbierenden <span class="math inline">y = x</span> (gestrichelte Linie) aufgefasst werden. Durch ziehen an den Punkten im untenstehenden Diagramm kann eine “nichtlineare” Funktion kreiert werden. Beobachte, wie sich deren Umkehrfunktion (gestrichelt) dabei verhält.</p>
+<p>Die Umkehrfunktion bzw. Inverse einer Funktion kann grafisch als Spiegelung der Funktion an der Winkelhalbierenden <span class="math inline">y = x</span> (gestrichelte Linie) aufgefasst werden. Durch Ziehen an den Punkten im untenstehenden Diagramm kann eine “nichtlineare” Funktion kreiert werden. Beobachte, wie sich deren Umkehrfunktion (gestrichelt) dabei verhält.</p>
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Code</summary>
@@ -969,7 +969,7 @@ Abb.&nbsp;8.5: Vorschaltung einer Linearisierungskennlinie
 <ol type="1">
 <li>Als Erstes normieren wir die Regelgrösse auf den Bereich 0-1 bzw. 0-100%. Die normierten Werte sind in der letzten Spalte der <a href="#tbl-lk1" class="quarto-xref">Tab.&nbsp;<span>8.1</span></a> aufgeführt. In <span class="cap">Python</span> würde man die Normierung z. B. folgendermassen umsetzen:</li>
 </ol>
-<div id="2bc18bf0" class="cell" data-execution_count="1">
+<div id="7a29cfaf" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Q_norm <span class="op">=</span> (Q<span class="op">-</span><span class="bu">min</span>(Q))<span class="op">/</span>(<span class="bu">max</span>(Q)<span class="op">-</span><span class="bu">min</span>(Q))  <span class="co"># Normierung der Regelgrösse auf 0-1</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1038,7 +1038,7 @@ Tab.&nbsp;8.1: Regelstrecken-Kennlinie mit normierter Ausgangsgrösse
 <ol start="2" type="1">
 <li>Nun mappen wir die obigen Prozentwerte (normierte Regelgrösse) auf den Stellgrössenbereich. 100% entspricht der max. Ventilstellung von 5 mm und 0% folglich einer Ventilstellung von 0 mm. Dies ergibt die Eingangsgrösse der Linearisierungskennlinie (siehe erste Spalte von <a href="#tbl-lk2" class="quarto-xref">Tab.&nbsp;<span>8.2</span></a>).</li>
 </ol>
-<div id="28becaa7" class="cell" data-execution_count="2">
+<div id="de7cdbdf" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s_LK <span class="op">=</span> Q_norm <span class="op">*</span> (<span class="bu">max</span>(s) <span class="op">-</span> <span class="bu">min</span>(s)) <span class="op">+</span> <span class="bu">min</span>(s)  <span class="co"># Mapping auf Stellgrösse</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1098,7 +1098,7 @@ Tab.&nbsp;8.2: Linearisierungskennlinie
 </figcaption>
 </figure>
 </div>
-<p>Nachfolgend ist die Linearisierungskennlinie grafisch dargestellt und wir können uns davon überzeugen, dass ihr Verlauf qualitativ&lt; der Inversen der Ventilkennlinie entspricht.</p>
+<p>Nachfolgend ist die Linearisierungskennlinie grafisch dargestellt und wir können uns davon überzeugen, dass ihr Verlauf qualitativ der Inversen der Ventilkennlinie entspricht.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/diagrams/Ventil-LK.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -1119,7 +1119,7 @@ K_P = \frac{\Delta Q}{\Delta s} = \frac{250 \, \mathrm{m^3/h}}{5 \, \mathrm{mm}}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Im Idealfall wird die Nichtlinearität komplett kompensiert durch die Linearisierungskennlinie und man kann für den Reglerentwurf bzw. Simulationen in <span class="cap">Boris</span> die gewohnten linearen Übertragungsglieder verwenden. Die effektive nichtlineare Regelstrecke sowie die Linearisierungkennlinie werden dann für den Reglerentwurf nicht explizit benötigt. Bei der späteren Implementierung des Reglers z. B. auf der SPS würde dann die Linearisierungskennlinie ebenfalls implementiert werden und man hätte dann dieselben Verhältnisse wie in der Simulation.</p>
+<p>Im Idealfall wird die Nichtlinearität komplett kompensiert durch die Linearisierungskennlinie und man kann für den Reglerentwurf bzw. Simulationen in <span class="cap">Boris</span> die gewohnten linearen Übertragungsglieder verwenden. Die effektive nichtlineare Regelstrecke sowie die Linearisierungskennlinie werden dann für den Reglerentwurf nicht explizit benötigt. Bei der späteren Implementierung des Reglers z. B. auf der SPS würde dann die Linearisierungskennlinie ebenfalls implementiert werden und man hätte dann dieselben Verhältnisse wie in der Simulation.</p>
 <p>Will man aus bestimmten Gründen die Linearisierungskennlinie und die nichtlineare Regelstrecke explizit in die Simulation einbauen, kann man in <span class="cap">Boris</span> den Block <em>Benutzerdefinierte Kennlinie</em> (unter <em>Statik</em>) verwenden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1141,7 +1141,7 @@ K_P = \frac{\Delta Q}{\Delta s} = \frac{250 \, \mathrm{m^3/h}}{5 \, \mathrm{mm}}
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Nachfolgend ist ein komplettes <span class="cap">Python</span>-Beispiel für die Bestimmung der Linearisierungskennlinie aufgeführt.</p>
-<div id="63153060" class="cell" data-execution_count="3">
+<div id="64aa8b0d" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1266,7 +1266,7 @@ K_P =
 <p><span class="math display">
 K_P = 1.5 \, \frac{\mathrm{mm}}{\mathrm{mA}}
 </span></p>
-<p>In der Simulation (mit der linearisierten Strecke) ist dann alles auf den Arbeitspunkt <span class="math inline">x_{AP}</span> bzw. <span class="math inline">y_{AP}</span> bezogen. Eine simulierte Stellgrösse von 1&nbsp;mA ergibt eine Positon von 1.5&nbsp;mm (= <span class="math inline">K_P</span>). In absoluten (globalen) Grössen würde dies 1&nbsp;mA + 74&nbsp;mA = 75&nbsp;mA bzw. 1.5&nbsp;mm + 55&nbsp;mm = 56.5&nbsp;mm entsprechen.</p>
+<p>In der Simulation (mit der linearisierten Strecke) ist dann alles auf den Arbeitspunkt <span class="math inline">x_{AP}</span> bzw. <span class="math inline">y_{AP}</span> bezogen. Eine simulierte Stellgrösse von 1&nbsp;mA ergibt eine Position von 1.5&nbsp;mm (= <span class="math inline">K_P</span>). In absoluten (globalen) Grössen würde dies 1&nbsp;mA + 74&nbsp;mA = 75&nbsp;mA bzw. 1.5&nbsp;mm + 55&nbsp;mm = 56.5&nbsp;mm entsprechen.</p>
 </div>
 </div>
 </div>
@@ -1331,7 +1331,7 @@ T_t = 0.5 \, \mathrm{s}
 <p><img src="../images/diagrams/A8_2_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<p>Die Kennlinie dieser Regelstrecke geht offensichtlich nicht durch den Ursprung, da eine Stellgrösse von 0&nbsp;V eine Temperatur von 23&nbsp;°C erzeugt. Dies ist streng genommen eine Form der Nichtlinearität und kann ebenfalls als Nullpunktverschiebung in den Arbeitspunkt (<span class="math inline">x_{AP} = 23\,\mathrm{°C}</span>) aufgefasst werden.</p>
+<p>Die Kennlinie dieser Regelstrecke geht offensichtlich nicht durch den Ursprung, da eine Stellgrösse von 0&nbsp;V eine Temperatur von 23&nbsp;°C erzeugt. Dies ist streng genommen eine Form der Nichtlinearität und kann ebenfalls als Nullpunktverschiebung in den Arbeitspunkt (<span class="math inline">\vartheta_{AP} = 23\,\mathrm{°C}</span>) aufgefasst werden.</p>
 </div>
 </div>
 </div>
@@ -1365,19 +1365,18 @@ T_t = 0.5 \, \mathrm{s}
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Mit <span class="cap">Python</span> kann das genau wie oben umgesetzt werden (alternativ mit <span class="cap">Excel</span> oder manuell/grafisch).</p>
-<div id="5e6ac7ce" class="cell" data-execution_count="4">
+<div id="90c74921" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># nichtlineare Regelstrecke</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="fl">0.</span>,  <span class="fl">2.</span>,   <span class="fl">4.</span>,  <span class="fl">6.</span>,  <span class="fl">8.</span>,  <span class="fl">10.</span>])  <span class="co"># Stellgrösse</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">0.0</span>, <span class="fl">1.4</span>, <span class="fl">2.0</span>, <span class="fl">2.4</span>, <span class="fl">2.8</span>, <span class="fl">3.2</span>])  <span class="co"># Regelgrösse</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Linearisierungskennlinie</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>x_norm <span class="op">=</span> (x <span class="op">-</span> <span class="bu">min</span>(x)) <span class="op">/</span> (<span class="bu">max</span>(x) <span class="op">-</span> <span class="bu">min</span>(x))  <span class="co"># norm. Regelgrösse</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>y_LK <span class="op">=</span> x_norm <span class="op">*</span> (<span class="bu">max</span>(y) <span class="op">-</span> <span class="bu">min</span>(y)) <span class="op">+</span> <span class="bu">min</span>(y)  <span class="co"># Eingang LK</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># nichtlineare Regelstrecke</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="fl">0.</span>,  <span class="fl">2.</span>,   <span class="fl">4.</span>,  <span class="fl">6.</span>,  <span class="fl">8.</span>,  <span class="fl">10.</span>])  <span class="co"># Stellgrösse</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">0.0</span>, <span class="fl">1.4</span>, <span class="fl">2.0</span>, <span class="fl">2.4</span>, <span class="fl">2.8</span>, <span class="fl">3.2</span>])  <span class="co"># Regelgrösse</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Linearisierungskennlinie</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>x_norm <span class="op">=</span> (x <span class="op">-</span> <span class="bu">min</span>(x)) <span class="op">/</span> (<span class="bu">max</span>(x) <span class="op">-</span> <span class="bu">min</span>(x))  <span class="co"># norm. Regelgrösse</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>y_LK <span class="op">=</span> x_norm <span class="op">*</span> (<span class="bu">max</span>(y) <span class="op">-</span> <span class="bu">min</span>(y)) <span class="op">+</span> <span class="bu">min</span>(y)  <span class="co"># Eingang LK</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Die Linearisierungskennlinie (LK) wird hier tabellarisch ausgegeben (alternativ wäre ein TXT-Export oder eine grafische Darstellung möglich).</p>
@@ -2100,11 +2099,11 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Linearisierung mittels Linearisierungskennlinie</span><span class="co">](#linearisierung-mittels-linearisierungskennlinie)</span></span>
 <span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>Anmerkung: Auch die im letzten Block besprochene <span class="co">[</span><span class="ot">Stellgrössenbeschränkung</span><span class="co">](#sec-begrenzung)</span> ist eine Form der Nichtlinearität. Dabei ist eine ansonsten lineare Kennlinie unten/oben begrenzt.</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>Anmerkung: Auch die im letzten Block besprochene <span class="co">[</span><span class="ot">Stellgrössenbeschränkung</span><span class="co">](#sec-begrenzung)</span> ist eine Form der Nichtlinearität. Dabei war eine ansonsten lineare Kennlinie unten/oben begrenzt.</span>
 <span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Kennlinie_begrenzt.svg)</span>{width=80% fig-align="center"}</span>
 <span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>In diesem Block hier geht es um Fälle, in denen die Kennlinie (innerhalb des Stellbereichs) bereits *nichtlinear* ist (vgl. @fig-kennlinie-nl).</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>In diesem Block hier geht es um Fälle, in denen die Kennlinie (innerhalb des Stellbereichs) bereits *nichtlinear* ist (vgl. @fig-kennlinie-nl). (Natürlich kann zusätzlich eine Stellgrössenbeschränkung auftreten.)</span>
 <span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
@@ -2138,7 +2137,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Ventilkennlinie.svg)</span>{fig-align="center"}</span>
 <span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>Um einen Durchfluss von 125 m³/h zu erreichen, ist eine Ventilstellung von 2.5 mm nötig. Dies ist der Arbeitspunkt (AP). Legt man am Arbeitspunkt die Tangente an die Kennlinie und bestimmt die Steigung dieser Tangente so erhält man:</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>Um einen Durchfluss von 125 m³/h zu erreichen, ist eine Ventilstellung von 2.5 mm nötig. Dies ist der Arbeitspunkt (AP). Legt man am Arbeitspunkt die Tangente an die Kennlinie und bestimmt die Steigung dieser Tangente, so erhält man:</span>
 <span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>K_P = 75 \, \mathrm{\frac{m^3}{h \cdot mm}}</span>
@@ -2268,7 +2267,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Exkurs: Umkehrfunktion (Inverse)"}</span>
 <span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a>Die Umkehrfunktion bzw. Inverse einer Funktion kann grafisch als Spiegelung der Funktion an der Winkelhalbierenden $y = x$ (gestrichelte Linie) aufgefasst werden. Durch ziehen an den Punkten im untenstehenden Diagramm kann eine "nichtlineare" Funktion kreiert werden. Beobachte, wie sich deren Umkehrfunktion (gestrichelt) dabei verhält.</span>
+<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a>Die Umkehrfunktion bzw. Inverse einer Funktion kann grafisch als Spiegelung der Funktion an der Winkelhalbierenden $y = x$ (gestrichelte Linie) aufgefasst werden. Durch Ziehen an den Punkten im untenstehenden Diagramm kann eine "nichtlineare" Funktion kreiert werden. Beobachte, wie sich deren Umkehrfunktion (gestrichelt) dabei verhält.</span>
 <span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
 <span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: false</span></span>
@@ -2549,7 +2548,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-521"><a href="#cb9-521" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-522"><a href="#cb9-522" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-523"><a href="#cb9-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-524"><a href="#cb9-524" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist die Linearisierungskennlinie grafisch dargestellt und wir können uns davon überzeugen, dass ihr Verlauf qualitativ&lt; der Inversen der Ventilkennlinie entspricht.</span>
+<span id="cb9-524"><a href="#cb9-524" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist die Linearisierungskennlinie grafisch dargestellt und wir können uns davon überzeugen, dass ihr Verlauf qualitativ der Inversen der Ventilkennlinie entspricht.</span>
 <span id="cb9-525"><a href="#cb9-525" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-526"><a href="#cb9-526" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Ventil-LK.svg)</span>{fig-align="center"}</span>
 <span id="cb9-527"><a href="#cb9-527" aria-hidden="true" tabindex="-1"></a></span>
@@ -2562,7 +2561,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-534"><a href="#cb9-534" aria-hidden="true" tabindex="-1"></a>Anmerkung: Das linearisierte $K_P$ entspricht also der Steigung der Geraden, die das Minimum und das Maximum der Kennlinie miteinander verbindet. Mit diesem $K_P$ würden wir jetzt den Reglerentwurf vornehmen.</span>
 <span id="cb9-535"><a href="#cb9-535" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-536"><a href="#cb9-536" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Linearisierungskennlinie"}</span>
-<span id="cb9-537"><a href="#cb9-537" aria-hidden="true" tabindex="-1"></a>Im Idealfall wird die Nichtlinearität komplett kompensiert durch die Linearisierungskennlinie und man kann für den Reglerentwurf bzw. Simulationen in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> die gewohnten linearen Übertragungsglieder verwenden. Die effektive nichtlineare Regelstrecke sowie die Linearisierungkennlinie werden dann für den Reglerentwurf nicht explizit benötigt. Bei der späteren Implementierung des Reglers z. B. auf der SPS würde dann die Linearisierungskennlinie ebenfalls implementiert werden und man hätte dann dieselben Verhältnisse wie in der Simulation.</span>
+<span id="cb9-537"><a href="#cb9-537" aria-hidden="true" tabindex="-1"></a>Im Idealfall wird die Nichtlinearität komplett kompensiert durch die Linearisierungskennlinie und man kann für den Reglerentwurf bzw. Simulationen in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> die gewohnten linearen Übertragungsglieder verwenden. Die effektive nichtlineare Regelstrecke sowie die Linearisierungskennlinie werden dann für den Reglerentwurf nicht explizit benötigt. Bei der späteren Implementierung des Reglers z. B. auf der SPS würde dann die Linearisierungskennlinie ebenfalls implementiert werden und man hätte dann dieselben Verhältnisse wie in der Simulation.</span>
 <span id="cb9-538"><a href="#cb9-538" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-539"><a href="#cb9-539" aria-hidden="true" tabindex="-1"></a>Will man aus bestimmten Gründen die Linearisierungskennlinie und die nichtlineare Regelstrecke explizit in die Simulation einbauen, kann man in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> den Block *Benutzerdefinierte Kennlinie* (unter *Statik*) verwenden.</span>
 <span id="cb9-540"><a href="#cb9-540" aria-hidden="true" tabindex="-1"></a></span>
@@ -2651,7 +2650,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-625"><a href="#cb9-625" aria-hidden="true" tabindex="-1"></a>K_P = 1.5 \, \frac{\mathrm{mm}}{\mathrm{mA}}</span>
 <span id="cb9-626"><a href="#cb9-626" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb9-627"><a href="#cb9-627" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-628"><a href="#cb9-628" aria-hidden="true" tabindex="-1"></a>In der Simulation (mit der linearisierten Strecke) ist dann alles auf den Arbeitspunkt $x_{AP}$ bzw. $y_{AP}$ bezogen. Eine simulierte Stellgrösse von 1<span class="dv">&amp;nbsp;</span>mA ergibt eine Positon von 1.5<span class="dv">&amp;nbsp;</span>mm (= $K_P$). In absoluten (globalen) Grössen würde dies 1<span class="dv">&amp;nbsp;</span>mA + 74<span class="dv">&amp;nbsp;</span>mA = 75<span class="dv">&amp;nbsp;</span>mA bzw. 1.5<span class="dv">&amp;nbsp;</span>mm + 55<span class="dv">&amp;nbsp;</span>mm = 56.5<span class="dv">&amp;nbsp;</span>mm entsprechen.</span>
+<span id="cb9-628"><a href="#cb9-628" aria-hidden="true" tabindex="-1"></a>In der Simulation (mit der linearisierten Strecke) ist dann alles auf den Arbeitspunkt $x_{AP}$ bzw. $y_{AP}$ bezogen. Eine simulierte Stellgrösse von 1<span class="dv">&amp;nbsp;</span>mA ergibt eine Position von 1.5<span class="dv">&amp;nbsp;</span>mm (= $K_P$). In absoluten (globalen) Grössen würde dies 1<span class="dv">&amp;nbsp;</span>mA + 74<span class="dv">&amp;nbsp;</span>mA = 75<span class="dv">&amp;nbsp;</span>mA bzw. 1.5<span class="dv">&amp;nbsp;</span>mm + 55<span class="dv">&amp;nbsp;</span>mm = 56.5<span class="dv">&amp;nbsp;</span>mm entsprechen.</span>
 <span id="cb9-629"><a href="#cb9-629" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-630"><a href="#cb9-630" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-631"><a href="#cb9-631" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -2692,7 +2691,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-666"><a href="#cb9-666" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-667"><a href="#cb9-667" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A8_2_Diagramm.png)</span>{fig-align="center"}</span>
 <span id="cb9-668"><a href="#cb9-668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-669"><a href="#cb9-669" aria-hidden="true" tabindex="-1"></a>Die Kennlinie dieser Regelstrecke geht offensichtlich nicht durch den Ursprung, da eine Stellgrösse von 0<span class="dv">&amp;nbsp;</span>V eine Temperatur von 23<span class="dv">&amp;nbsp;</span>°C erzeugt. Dies ist streng genommen eine Form der Nichtlinearität und kann ebenfalls als Nullpunktverschiebung in den Arbeitspunkt ($x_{AP} = 23\,\mathrm{°C}$) aufgefasst werden.</span>
+<span id="cb9-669"><a href="#cb9-669" aria-hidden="true" tabindex="-1"></a>Die Kennlinie dieser Regelstrecke geht offensichtlich nicht durch den Ursprung, da eine Stellgrösse von 0<span class="dv">&amp;nbsp;</span>V eine Temperatur von 23<span class="dv">&amp;nbsp;</span>°C erzeugt. Dies ist streng genommen eine Form der Nichtlinearität und kann ebenfalls als Nullpunktverschiebung in den Arbeitspunkt ($\vartheta_{AP} = 23\,\mathrm{°C}$) aufgefasst werden.</span>
 <span id="cb9-670"><a href="#cb9-670" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-671"><a href="#cb9-671" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-672"><a href="#cb9-672" aria-hidden="true" tabindex="-1"></a></span>
@@ -2712,31 +2711,30 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb9-688"><a href="#cb9-688" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
 <span id="cb9-689"><a href="#cb9-689" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: show</span></span>
 <span id="cb9-690"><a href="#cb9-690" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb9-691"><a href="#cb9-691" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb9-692"><a href="#cb9-692" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-693"><a href="#cb9-693" aria-hidden="true" tabindex="-1"></a><span class="co"># nichtlineare Regelstrecke</span></span>
-<span id="cb9-694"><a href="#cb9-694" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="fl">0.</span>,  <span class="fl">2.</span>,   <span class="fl">4.</span>,  <span class="fl">6.</span>,  <span class="fl">8.</span>,  <span class="fl">10.</span>])  <span class="co"># Stellgrösse</span></span>
-<span id="cb9-695"><a href="#cb9-695" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">0.0</span>, <span class="fl">1.4</span>, <span class="fl">2.0</span>, <span class="fl">2.4</span>, <span class="fl">2.8</span>, <span class="fl">3.2</span>])  <span class="co"># Regelgrösse</span></span>
-<span id="cb9-696"><a href="#cb9-696" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-697"><a href="#cb9-697" aria-hidden="true" tabindex="-1"></a><span class="co"># Linearisierungskennlinie</span></span>
-<span id="cb9-698"><a href="#cb9-698" aria-hidden="true" tabindex="-1"></a>x_norm <span class="op">=</span> (x <span class="op">-</span> <span class="bu">min</span>(x)) <span class="op">/</span> (<span class="bu">max</span>(x) <span class="op">-</span> <span class="bu">min</span>(x))  <span class="co"># norm. Regelgrösse</span></span>
-<span id="cb9-699"><a href="#cb9-699" aria-hidden="true" tabindex="-1"></a>y_LK <span class="op">=</span> x_norm <span class="op">*</span> (<span class="bu">max</span>(y) <span class="op">-</span> <span class="bu">min</span>(y)) <span class="op">+</span> <span class="bu">min</span>(y)  <span class="co"># Eingang LK</span></span>
-<span id="cb9-700"><a href="#cb9-700" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-701"><a href="#cb9-701" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-702"><a href="#cb9-702" aria-hidden="true" tabindex="-1"></a>Die Linearisierungskennlinie (LK) wird hier tabellarisch ausgegeben (alternativ wäre ein TXT-Export oder eine grafische Darstellung möglich).</span>
-<span id="cb9-703"><a href="#cb9-703" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-704"><a href="#cb9-704" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eingang der LK <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$y_{LK}$ <span class="pp">|</span> Ausgang der LK <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$y$ <span class="pp">|</span></span>
-<span id="cb9-705"><a href="#cb9-705" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------------------:|:--------------------:|</span></span>
-<span id="cb9-706"><a href="#cb9-706" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                     0.0 <span class="pp">|</span>                  0.0 <span class="pp">|</span></span>
-<span id="cb9-707"><a href="#cb9-707" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    4.47 <span class="pp">|</span>                  2.0 <span class="pp">|</span></span>
-<span id="cb9-708"><a href="#cb9-708" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    6.32 <span class="pp">|</span>                  4.0 <span class="pp">|</span></span>
-<span id="cb9-709"><a href="#cb9-709" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    7.75 <span class="pp">|</span>                  6.0 <span class="pp">|</span></span>
-<span id="cb9-710"><a href="#cb9-710" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    8.94 <span class="pp">|</span>                  8.0 <span class="pp">|</span></span>
-<span id="cb9-711"><a href="#cb9-711" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    10.0 <span class="pp">|</span>                 10.0 <span class="pp">|</span></span>
-<span id="cb9-712"><a href="#cb9-712" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-691"><a href="#cb9-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-692"><a href="#cb9-692" aria-hidden="true" tabindex="-1"></a><span class="co"># nichtlineare Regelstrecke</span></span>
+<span id="cb9-693"><a href="#cb9-693" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="fl">0.</span>,  <span class="fl">2.</span>,   <span class="fl">4.</span>,  <span class="fl">6.</span>,  <span class="fl">8.</span>,  <span class="fl">10.</span>])  <span class="co"># Stellgrösse</span></span>
+<span id="cb9-694"><a href="#cb9-694" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">0.0</span>, <span class="fl">1.4</span>, <span class="fl">2.0</span>, <span class="fl">2.4</span>, <span class="fl">2.8</span>, <span class="fl">3.2</span>])  <span class="co"># Regelgrösse</span></span>
+<span id="cb9-695"><a href="#cb9-695" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-696"><a href="#cb9-696" aria-hidden="true" tabindex="-1"></a><span class="co"># Linearisierungskennlinie</span></span>
+<span id="cb9-697"><a href="#cb9-697" aria-hidden="true" tabindex="-1"></a>x_norm <span class="op">=</span> (x <span class="op">-</span> <span class="bu">min</span>(x)) <span class="op">/</span> (<span class="bu">max</span>(x) <span class="op">-</span> <span class="bu">min</span>(x))  <span class="co"># norm. Regelgrösse</span></span>
+<span id="cb9-698"><a href="#cb9-698" aria-hidden="true" tabindex="-1"></a>y_LK <span class="op">=</span> x_norm <span class="op">*</span> (<span class="bu">max</span>(y) <span class="op">-</span> <span class="bu">min</span>(y)) <span class="op">+</span> <span class="bu">min</span>(y)  <span class="co"># Eingang LK</span></span>
+<span id="cb9-699"><a href="#cb9-699" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-700"><a href="#cb9-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-701"><a href="#cb9-701" aria-hidden="true" tabindex="-1"></a>Die Linearisierungskennlinie (LK) wird hier tabellarisch ausgegeben (alternativ wäre ein TXT-Export oder eine grafische Darstellung möglich).</span>
+<span id="cb9-702"><a href="#cb9-702" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-703"><a href="#cb9-703" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eingang der LK <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$y_{LK}$ <span class="pp">|</span> Ausgang der LK <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$y$ <span class="pp">|</span></span>
+<span id="cb9-704"><a href="#cb9-704" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------------------:|:--------------------:|</span></span>
+<span id="cb9-705"><a href="#cb9-705" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                     0.0 <span class="pp">|</span>                  0.0 <span class="pp">|</span></span>
+<span id="cb9-706"><a href="#cb9-706" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    4.47 <span class="pp">|</span>                  2.0 <span class="pp">|</span></span>
+<span id="cb9-707"><a href="#cb9-707" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    6.32 <span class="pp">|</span>                  4.0 <span class="pp">|</span></span>
+<span id="cb9-708"><a href="#cb9-708" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    7.75 <span class="pp">|</span>                  6.0 <span class="pp">|</span></span>
+<span id="cb9-709"><a href="#cb9-709" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    8.94 <span class="pp">|</span>                  8.0 <span class="pp">|</span></span>
+<span id="cb9-710"><a href="#cb9-710" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                    10.0 <span class="pp">|</span>                 10.0 <span class="pp">|</span></span>
+<span id="cb9-711"><a href="#cb9-711" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-712"><a href="#cb9-712" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-713"><a href="#cb9-713" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-714"><a href="#cb9-714" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-715"><a href="#cb9-715" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb9-714"><a href="#cb9-714" aria-hidden="true" tabindex="-1"></a>::::</span>
 </code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

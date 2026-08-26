@@ -314,7 +314,7 @@ window.Quarto = {
   <ul>
   <li><a href="#gütekriterien" id="toc-gütekriterien" class="nav-link active" data-scroll-target="#gütekriterien"><span class="header-section-number">6.1</span> Gütekriterien</a>
   <ul class="collapse">
-  <li><a href="#güterkriterien-für-das-führungsverhalten" id="toc-güterkriterien-für-das-führungsverhalten" class="nav-link" data-scroll-target="#güterkriterien-für-das-führungsverhalten"><span class="header-section-number">6.1.1</span> Güterkriterien für das Führungsverhalten</a></li>
+  <li><a href="#gütekriterien-für-das-führungsverhalten" id="toc-gütekriterien-für-das-führungsverhalten" class="nav-link" data-scroll-target="#gütekriterien-für-das-führungsverhalten"><span class="header-section-number">6.1.1</span> Gütekriterien für das Führungsverhalten</a></li>
   <li><a href="#gütekriterien-für-das-störverhalten" id="toc-gütekriterien-für-das-störverhalten" class="nav-link" data-scroll-target="#gütekriterien-für-das-störverhalten"><span class="header-section-number">6.1.2</span> Gütekriterien für das Störverhalten</a></li>
   </ul></li>
   <li><a href="#entwurfsverfahren" id="toc-entwurfsverfahren" class="nav-link" data-scroll-target="#entwurfsverfahren"><span class="header-section-number">6.2</span> Entwurfsverfahren</a>
@@ -384,8 +384,8 @@ window.Quarto = {
 </ul>
 </div>
 <p>Diese Anforderungen können wir in quantitative Gütekriterien umformulieren, die wir für die Beurteilung einer Regelung heranziehen können.</p>
-<section id="güterkriterien-für-das-führungsverhalten" class="level3 page-columns page-full" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="güterkriterien-für-das-führungsverhalten"><span class="header-section-number">6.1.1</span> Güterkriterien für das Führungsverhalten</h3>
+<section id="gütekriterien-für-das-führungsverhalten" class="level3 page-columns page-full" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="gütekriterien-für-das-führungsverhalten"><span class="header-section-number">6.1.1</span> Gütekriterien für das Führungsverhalten</h3>
 <p>Für die Beurteilung einer Regelung sind primär die Genauigkeit, die Schnelligkeit und die Dämpfung massgeblich. Wir wollen die Fragen:</p>
 <ul>
 <li>Wie schnell wird der Sollwert erreicht?</li>
@@ -1712,7 +1712,7 @@ T_1 \gg T_{\Sigma^*} \qquad \mathsf{mit} \qquad T_{\Sigma^*} = T_2 + T_3 + \ldot
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: left;">Relgerparameter</th>
+<th style="text-align: left;">Reglerparameter</th>
 </tr>
 </thead>
 <tbody>
@@ -1836,7 +1836,7 @@ T_1, T_2 \gg T_{\Sigma^*} \qquad \mathsf{mit} \qquad T_{\Sigma^*} = T_3 + T_4 + 
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: left;">Relgerparameter</th>
+<th style="text-align: left;">Reglerparameter</th>
 </tr>
 </thead>
 <tbody>
@@ -1997,7 +1997,7 @@ K_{PR} = \frac{T_i}{K_{PS} \cdot T_{RK}}
 <p>Die obigen Verfahren wurden z. T. vor langer Zeit entwickelt und sind limitiert in ihrer Anwendung. Mit dem Aufkommen von Computersimulationen bzw. numerischen Optimierungsverfahren können die Reglerparameter auch direkt anhand der Regelstrecke optimiert werden. Dabei wird ein bestimmtes Gütekriterium <span class="math inline">Q</span> definiert und anschliessend die Reglerparameter so lange angepasst, bis ein Optimum (Minimum) gefunden wurde. <span class="math display">
 \min_{K_{PR}, T_i, T_d} \, Q
 </span></p>
-<p>Ein sinnvolles Gütekriterium für eine solche Optimierung wäre z. B. die Fläche zwischen Soll- und Istwertverlauf (diese entspricht in gewisser Weise der kumulierten Regelabweichung und wir als <em>Regelfläche</em> bezeichnet, vgl. <a href="#fig-reglerentwurf-opt" class="quarto-xref">Abb.&nbsp;<span>6.4</span></a>). Wird diese Fläche minimiert, so erreichen wir folglich eine optimale Regelung. In der Regelungstechnik werden üblicherweise die nachfolgend aufgeführten Gütekriterien verwendet.</p>
+<p>Ein sinnvolles Gütekriterium für eine solche Optimierung wäre z. B. die Fläche zwischen Soll- und Istwertverlauf (diese entspricht in gewisser Weise der kumulierten Regelabweichung und wird als <em>Regelfläche</em> bezeichnet, vgl. <a href="#fig-reglerentwurf-opt" class="quarto-xref">Abb.&nbsp;<span>6.4</span></a>). Wird diese Fläche minimiert, so erreichen wir folglich eine optimale Regelung. In der Regelungstechnik werden üblicherweise die nachfolgend aufgeführten Gütekriterien verwendet.</p>
 <ul>
 <li>Betragslineare Regelfläche <strong>IAE</strong> (<em>Integral of Absolute Error</em>) <span class="math display">
 Q_{\mathrm{IAE}} = \int_0^\infty |e(t)| \, dt
@@ -2070,14 +2070,14 @@ Abb.&nbsp;6.4: Numerische Optimierung
 <p><img src="../images/diagrams/A6_1_Dauerschwingung.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<p>Dei eingestellte Verstärkung ist die kritische Verstärkung <span class="math inline">K_{PR,krit}</span> und die Periodendauer der Schwingung ist <span class="math inline">T_{krit}</span>.</p>
+<p>Die eingestellte Verstärkung ist die kritische Verstärkung <span class="math inline">K_{PR,krit}</span> und die Periodendauer der Schwingung ist <span class="math inline">T_{krit}</span>.</p>
 <p><span class="math display">
 K_{PR,krit} = 0.4
 </span></p>
 <p><span class="math display">
 T_{krit} = 6.3 \, \mathrm{s}
 </span></p>
-<p>Reglerparametrierung gemäss Ziegler-Nichols (Schwingwersuch) gemäss <a href="#tbl-znI" class="quarto-xref">Tab.&nbsp;<span>6.2</span></a>:</p>
+<p>Reglerparametrierung gemäss Ziegler-Nichols (Schwingversuch) gemäss <a href="#tbl-znI" class="quarto-xref">Tab.&nbsp;<span>6.2</span></a>:</p>
 <p><span class="math display">
 K_{PR} = 0.6 \cdot K_{PR,krit} = 0.24
 </span></p>
@@ -2119,7 +2119,7 @@ T_d = 0.12 \cdot T_{krit} = 0.756 \, \mathrm{s}
 <p><span class="math display">
 𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}
 </span></p>
-<p>Der PID-Regler soll mit Fokus auf gutem Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <a href="#güterkriterien-für-das-führungsverhalten">Gütekriterien</a>, wobei ein 10%-Toleranzband verwendet werden soll.</p>
+<p>Der PID-Regler soll mit Fokus auf gutem Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <a href="#gütekriterien-für-das-führungsverhalten">Gütekriterien</a>, wobei ein 10%-Toleranzband verwendet werden soll.</p>
 <ul>
 <li>Anregelzeit [s] <span class="math display">
 T_{cr} =
@@ -2906,7 +2906,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Diese Anforderungen können wir in quantitative Gütekriterien umformulieren, die wir für die Beurteilung einer Regelung heranziehen können.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Güterkriterien für das Führungsverhalten</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gütekriterien für das Führungsverhalten</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Für die Beurteilung einer Regelung sind primär die Genauigkeit, die Schnelligkeit und die Dämpfung massgeblich. Wir wollen die Fragen:</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
@@ -3777,7 +3777,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-894"><a href="#cb1-894" aria-hidden="true" tabindex="-1"></a>so kann der Regler anhand von @tbl-betrag1 parametriert werden.</span>
 <span id="cb1-895"><a href="#cb1-895" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-896"><a href="#cb1-896" aria-hidden="true" tabindex="-1"></a>::: {#tbl-betrag1 tbl-colwidths="<span class="co">[</span><span class="ot">30,70</span><span class="co">]</span>"}</span>
-<span id="cb1-897"><a href="#cb1-897" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Relgerparameter <span class="pp">|</span></span>
+<span id="cb1-897"><a href="#cb1-897" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Reglerparameter <span class="pp">|</span></span>
 <span id="cb1-898"><a href="#cb1-898" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---</span> <span class="pp">| :---</span> <span class="pp">|</span></span>
 <span id="cb1-899"><a href="#cb1-899" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **P** <span class="pp">|</span> $K_{PR} = \dfrac{T_1}{2 \cdot K_{PS} \cdot T_{\Sigma^*}}$ <span class="pp">|</span></span>
 <span id="cb1-900"><a href="#cb1-900" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **PI** <span class="pp">|</span> $K_{PR} = \dfrac{T_1}{2 \cdot K_{PS} \cdot T_{\Sigma^*}}$ $\qquad$ $T_i = T_1$ <span class="pp">|</span></span>
@@ -3884,7 +3884,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1001"><a href="#cb1-1001" aria-hidden="true" tabindex="-1"></a>so kann der Regler anhand von @tbl-betrag2 parametriert werden.</span>
 <span id="cb1-1002"><a href="#cb1-1002" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1003"><a href="#cb1-1003" aria-hidden="true" tabindex="-1"></a>::: {#tbl-betrag2 tbl-colwidths="<span class="co">[</span><span class="ot">30,70</span><span class="co">]</span>"}</span>
-<span id="cb1-1004"><a href="#cb1-1004" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Relgerparameter <span class="pp">|</span></span>
+<span id="cb1-1004"><a href="#cb1-1004" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Reglerparameter <span class="pp">|</span></span>
 <span id="cb1-1005"><a href="#cb1-1005" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---</span> <span class="pp">| :---</span> <span class="pp">|</span></span>
 <span id="cb1-1006"><a href="#cb1-1006" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **PI** <span class="pp">|</span> $K_{PR} = \dfrac{T_1^2 + T_2^2}{2 \cdot K_{PS} \cdot T_1 \cdot T_2}$ $\qquad$ $T_i = \dfrac{(T_1^2 + T_2^2) \cdot (T_1 + T_2)}{T_1^2 + T_1 \cdot T_2 + T_2^2}$ <span class="pp">|</span></span>
 <span id="cb1-1007"><a href="#cb1-1007" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **PID** <span class="pp">|</span> $K_{PR} = \dfrac{T_1}{2 \cdot K_{PS} \cdot T_{\Sigma^*}}$ $\qquad$ $T_i = T_1$ $\qquad$ $T_d = T_2$<span class="pp">|</span></span>
@@ -4043,7 +4043,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1160"><a href="#cb1-1160" aria-hidden="true" tabindex="-1"></a>\min_{K_{PR}, T_i, T_d} \, Q</span>
 <span id="cb1-1161"><a href="#cb1-1161" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1162"><a href="#cb1-1162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1163"><a href="#cb1-1163" aria-hidden="true" tabindex="-1"></a>Ein sinnvolles Gütekriterium für eine solche Optimierung wäre z. B. die Fläche zwischen Soll- und Istwertverlauf (diese entspricht in gewisser Weise der kumulierten Regelabweichung und wir als *Regelfläche* bezeichnet, vgl. @fig-reglerentwurf-opt). Wird diese Fläche minimiert, so erreichen wir folglich eine optimale Regelung. In der Regelungstechnik werden üblicherweise die nachfolgend aufgeführten Gütekriterien verwendet.</span>
+<span id="cb1-1163"><a href="#cb1-1163" aria-hidden="true" tabindex="-1"></a>Ein sinnvolles Gütekriterium für eine solche Optimierung wäre z. B. die Fläche zwischen Soll- und Istwertverlauf (diese entspricht in gewisser Weise der kumulierten Regelabweichung und wird als *Regelfläche* bezeichnet, vgl. @fig-reglerentwurf-opt). Wird diese Fläche minimiert, so erreichen wir folglich eine optimale Regelung. In der Regelungstechnik werden üblicherweise die nachfolgend aufgeführten Gütekriterien verwendet.</span>
 <span id="cb1-1164"><a href="#cb1-1164" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1165"><a href="#cb1-1165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Betragslineare Regelfläche **IAE** (*Integral of Absolute Error*)</span>
 <span id="cb1-1166"><a href="#cb1-1166" aria-hidden="true" tabindex="-1"></a>  $$</span>
@@ -4101,7 +4101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1218"><a href="#cb1-1218" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1219"><a href="#cb1-1219" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_1_Dauerschwingung.png)</span>{fig-align="center"}</span>
 <span id="cb1-1220"><a href="#cb1-1220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1221"><a href="#cb1-1221" aria-hidden="true" tabindex="-1"></a>Dei eingestellte Verstärkung ist die kritische Verstärkung $K_{PR,krit}$ und die Periodendauer der Schwingung ist $T_{krit}$.</span>
+<span id="cb1-1221"><a href="#cb1-1221" aria-hidden="true" tabindex="-1"></a>Die eingestellte Verstärkung ist die kritische Verstärkung $K_{PR,krit}$ und die Periodendauer der Schwingung ist $T_{krit}$.</span>
 <span id="cb1-1222"><a href="#cb1-1222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1223"><a href="#cb1-1223" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1224"><a href="#cb1-1224" aria-hidden="true" tabindex="-1"></a>K_{PR,krit} = 0.4</span>
@@ -4111,7 +4111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1228"><a href="#cb1-1228" aria-hidden="true" tabindex="-1"></a>T_{krit} = 6.3 \, \mathrm{s}</span>
 <span id="cb1-1229"><a href="#cb1-1229" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1230"><a href="#cb1-1230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1231"><a href="#cb1-1231" aria-hidden="true" tabindex="-1"></a>Reglerparametrierung gemäss Ziegler-Nichols (Schwingwersuch) gemäss @tbl-znI:</span>
+<span id="cb1-1231"><a href="#cb1-1231" aria-hidden="true" tabindex="-1"></a>Reglerparametrierung gemäss Ziegler-Nichols (Schwingversuch) gemäss @tbl-znI:</span>
 <span id="cb1-1232"><a href="#cb1-1232" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1233"><a href="#cb1-1233" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1234"><a href="#cb1-1234" aria-hidden="true" tabindex="-1"></a>K_{PR} = 0.6 \cdot K_{PR,krit} = 0.24</span>
@@ -4141,7 +4141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-1258"><a href="#cb1-1258" aria-hidden="true" tabindex="-1"></a>𝐾_{PS} = 5 \qquad 𝑇_1 = 1.0\,\mathrm{s} \qquad 𝑇_2 = 0.5\,\mathrm{s}</span>
 <span id="cb1-1259"><a href="#cb1-1259" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-1260"><a href="#cb1-1260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1261"><a href="#cb1-1261" aria-hidden="true" tabindex="-1"></a>Der PID-Regler soll mit Fokus auf gutem Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <span class="co">[</span><span class="ot">Gütekriterien</span><span class="co">](#güterkriterien-für-das-führungsverhalten)</span>, wobei ein 10%-Toleranzband verwendet werden soll.</span>
+<span id="cb1-1261"><a href="#cb1-1261" aria-hidden="true" tabindex="-1"></a>Der PID-Regler soll mit Fokus auf gutem Führungsverhalten entworfen werden und eine schnelle Regelung ermöglichen (also Überschwingen aufweisen). Simuliere die Führungssprungantwort und beurteile anschliessend die Regelung anhand der <span class="co">[</span><span class="ot">Gütekriterien</span><span class="co">](#gütekriterien-für-das-führungsverhalten)</span>, wobei ein 10%-Toleranzband verwendet werden soll.</span>
 <span id="cb1-1262"><a href="#cb1-1262" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1263"><a href="#cb1-1263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anregelzeit <span class="co">[</span><span class="ot">s</span><span class="co">]</span></span>
 <span id="cb1-1264"><a href="#cb1-1264" aria-hidden="true" tabindex="-1"></a>  $$</span>
