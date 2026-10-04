@@ -93,6 +93,9 @@
 </g>
 <use x='597.334048' y='224.107078' xlink:href='#g2-120'/>
 <g transform='translate(56.9094 145.092)scale(.996264)'>
+<circle cx='533.991' cy='91.5756' fill='#000000' r='3.01125'/>
+</g>
+<g transform='translate(56.9094 145.092)scale(.996264)'>
 <path d='M85.8601 120.858V162.708H533.991V91.5756' fill='none' stroke='#000000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='1.00375'/>
 </g>
 <g transform='translate(56.9094 145.092)scale(.996264)'>
