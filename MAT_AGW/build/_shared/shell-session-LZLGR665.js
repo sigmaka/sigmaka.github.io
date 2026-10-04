@@ -1,1 +1,1 @@
-import{a}from"/myst_assets_folder/_shared/chunk-G3PWSZTG.js";import"/myst_assets_folder/_shared/chunk-QFGAKO7I.js";import"/myst_assets_folder/_shared/chunk-RAQ24GF6.js";export default a();
+import{a}from"/MAT_AGW/build/_shared/chunk-G3PWSZTG.js";import"/MAT_AGW/build/_shared/chunk-QFGAKO7I.js";import"/MAT_AGW/build/_shared/chunk-RAQ24GF6.js";export default a();
