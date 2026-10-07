@@ -1,0 +1,185 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regelungstechnik II",
+    "section": "",
+    "text": "Modulorganisation\nIn diesem Modul werden wir auf die Grundlagen aus Systeme regeln 1 aufbauen und die Limitierungen des Standardregelkreis durch gezielte Erweiterungen der Regelkreis-Struktur beseitigen/reduzieren, um auch komplexere Systeme optimal regeln zu können.\nDaneben werden wir die regelungstechnischen Grundglieder nochmals durchgehen - nun aber im Frequenzbereich betrachten, d. h. eine andere Perspektive einnehmen. Wir werden sehen, dass uns damit neue Werkzeuge und damit weitere Möglichkeiten zur Verfügung stehen, um ein regelungstechnisches System zu analysieren bzw. auszulegen.\nDie Betrachtung im Frequenzbereich findet Anwendung weit über die Regelungstechnik hinaus, z. B. in der Signalverarbeitung, der Elektrotechnik, der Akustik und vielen weiteren Bereichen. Die Transformation in den Frequenzbereich ist also ein Werkzeug, das in vielen Disziplinen Anwendung findet und daher dein Wissen nachhaltig erweitern wird.",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "index.html#unterrichtsblöcke",
+    "href": "index.html#unterrichtsblöcke",
+    "title": "Regelungstechnik II",
+    "section": "Unterrichtsblöcke",
+    "text": "Unterrichtsblöcke\nDer Inhalt der Unterrichtsblöcke richtet sich nach dem Buch Crashkurs Regelungstechnik (Kahlert 2023). Im Modul Systeme regeln 2 (SYS_RE2) werden wir Kap. 6 (Vermaschte Regelkreise) und Kap. 8 (Reglerentwurf imFrequenzbereich) des Buches behandeln. Dieses Modul bildet damit auch die Grundlage für das Modul Syteme regeln 3 (SYS_RE3).\n\n\n\nCrashkurs Regelungstechnik Quelle\n\n\n\n\n\n\n\n\n\n\n\nBlock\nThema\nStichworte\nKap. (Buch)\n\n\n\n\n1\nEinführung\nFührungs- und Störverhalten, Standardregelkreis, Vermaschte Regelkreise\n6\n\n\n2\nKaskadenregelung\nAnwendungsbeispiele, Reglerentwurf\n6\n\n\n3\nEinführung Frequenzbereich\nSinusschwingung, komplexe Zahlen, logarithmische Darstellung\n8\n\n\n4\nFrequenzgang\nAmplituden- und Phasengang, Bode-Diagramm, Nyquist-Diagramm\n8\n\n\n5\nGrundglieder\nGrundglieder im Frequenzbereich → Grundglieder-Tabelle\n8\n\n\n6\nVorsteuerung\nKombination von Steuerung und Regelung, Vorfilter\n6\n\n\n7\nStörgrössenaufschaltung\nKompensation von Störgrössen\n6\n\n\n8\nRepetition\nVermaschte Regelkreise, Frequenzbereich\n6, 8\n\n\n9\nMAP\n\n\n\n\n10\nAbschluss\nBesprechung MAP, Evaluation, Ausblick",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "index.html#unterrichtsunterlagen",
+    "href": "index.html#unterrichtsunterlagen",
+    "title": "Regelungstechnik II",
+    "section": "Unterrichtsunterlagen",
+    "text": "Unterrichtsunterlagen\nNeben dem Buch steht die vorliegende Webseite zur Verfügung, welche die Inhalte in kondensierter Form bereitstellt (diese dient uns zusammen mit weiterführenden Materialien und Übungen als Nachschlagewerk). Es ist äusserst wichtig, die Unterlagen regelmässig durchzugehen, die Übungen zu bearbeiten sowie individuelle Wissenslücken selbstständig zu schliessen.",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "index.html#literatur",
+    "href": "index.html#literatur",
+    "title": "Regelungstechnik II",
+    "section": "Literatur",
+    "text": "Literatur\n\n\nKahlert, Jörg. 2023. Crashkurs Regelungstechnik: Eine\nPraxisorientierte Einführung Mit Begleitsoftware. 5., aktualisierte\nAuflage. https://d-nb.info/1272986799.",
+    "crumbs": [
+      "Modulorganisation"
+    ]
+  },
+  {
+    "objectID": "chapters/L01.html",
+    "href": "chapters/L01.html",
+    "title": "1  Einführung",
+    "section": "",
+    "text": "Aufgaben\nMit dem Wissen aus Systeme regeln 1 können wir Regelstrecken analysieren, identifizieren und Regelungen mit P/PI/PD/PID-Reglern entwerfen. Basis dafür war stets der Standardregelkreis, der in Abb. 1.1 dargestellt ist.\nBei komplexeren Regelstrecken stösst der Standardregelkreis an seine Grenzen, da aufgrund der einschleifigen Struktur gewisse Limitierungen bestehen. Eine davon besteht darin, dass das Führungs- und Störverhalten nicht unabhängig voneinander optimiert werden können (gutes Führungsverhalten hat meistens eher schlechtes Störverhalten zur Folge und umgekehrt - wir haben das bei den Regler-Entwurfsverfahren häufig gesehen, wo unterschiedliche Parametersätze für das eine oder andere verwendet werden.)\nIn diesem Modul werden wir Erweiterungen des Standardregelkreis kennenlernen, die deutliche Verbesserungen mit sich bringen. Verteilt über mehrere Unterrichtsblöcke werden wir die folgenden Regelkreisstrukturen anschauen, die wir zusammengefasst als vermaschte Regelkreise bezeichnen.\nWir werden die obigen Strukturen separat voneinander anschauen, diese können aber problemlos kombiniert werden. Damit werden wir in der Lage sein, auch komplexe Regelstrecken deutlich besser regeln zu können, als es mit der Standard-Regelkreisstruktur möglich ist. Ein Regelkreis kann dann z. B. folgendermassen aussehen:\nDa wir die Vorsteuerung und die Störgrössenaufschaltung im Frequenzbereich entwerfen wollen, müssen wir uns die entsprechenden Grundlagen für die Transformation in den Frequenzbereich vorgängig erarbeiten. Dies machen wir verteilt über ca. drei Unterrichtsblöcke, nach dem wir die Kaskadenregelung behandelt haben.\nWir werden feststellen, dass gewisse regelungstechnische Aufgaben im Frequenzbereich deutlich einfacher zu lösen sind als im Zeitbereich - wir lernen also neue Werkzeuge kennen, um regelungstechnische Systeme zu analysieren und letztlich auch Regler zu entwerfen.\nOhne bereits in die Materie einzusteigen, sei hier erwähnt, dass die Transformation in den Frequenzbereich - was anfänglich kompliziert tönt - dir vermutlich in irgendeiner Form schon einmal begegnet ist. Im Frequenzbereich betrachtet man nicht den zeitlichen Verlauf eines Signals sondern die im Signal enthaltenen Frequenzanteile.Man wechselt also sozusagen die Perspektive, aus der man ein Signal bzw. System betrachtet.\nDabei belassen wir es für den Moment und bleiben vorerst noch eine Weile im Zeitbereich.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L01.html#aufgaben",
+    "href": "chapters/L01.html#aufgaben",
+    "title": "1  Einführung",
+    "section": "",
+    "text": "TippAufgabe 1.1\n\n\n\n\n\nDa wir auf den Stoff aus Systeme regeln 1 aufbauen, steht hier die Wiederauffrischung im Vordergrund. Gehe die folgenden Themen kurz durch, damit die wichtigsten Inhalte wieder präsent sind:\n\nRegelung vs. Steuerung\nStandardregelkreis\nRegelungstechnischer Workflow\nStreckenanalyse / Streckenidentifikation\nReglerentwurf / Entwurfsverfahren\nAnforderungen / Gütekriterien\nUmgang mit Nichtlinearitäten\n\n\n\n\n\n\n\n\n\n\nTippAufgabe 1.2\n\n\n\n\n\nAnalysiere das folgende System und entwerfe einen PI-Regler, um die Temperatur im Rührkessel zu regeln. Rührkessel werden in der Verfahrenstechnik verwendet, um bei chemischen Reaktionen Wärme ab- oder zuzuführen. In diesem Beispiel wird Wärme zugeführt, d. h. der Rührkessel wird mit einem Heizmedium (z. B. Dampf) umströmt und erwärmt dadurch das Medium im Rührkessel (z. B. Mischung von zwei Chemikalien, die miteinander reagieren o. ä.).\n\n\nDie Regelstrecke besteht dabei aus dem Ventil mit Stellmotor (Streckenteil I) und dem Heizmantel/Rührkessel (Streckenteil II). Identifiziere die beiden Streckenteile anhand der unten gegebenen Sprungantworten.\n\n\nSprungantwort Streckenteil I (Ventil mit Stellmotor): \nSprungantwort Streckenteil II (Heizmantel/Rührkessel): \n\n\nBaue den Regelkreis in BORIS auf und entwerfe einen PI-Regler gemäss dem CHR-Verfahren für gutes Führungsverhalten mit Überschwingen.\nSimuliere die Führungssprungantwort für einen Temperatur-Sollwert von 75 °C. Stelle die Simulationsdauer und Zeitschrittweite sinnvoll ein.\n\nAnhand von diesem Beispiel werden wir im nächsten Unterrichtsblock in das Thema Kaskadenregelung einsteigen.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L02.html",
+    "href": "chapters/L02.html",
+    "title": "2  Kaskadenregelung",
+    "section": "",
+    "text": "2.1 Motivation\nEine Limitierung des bisher betrachteten einschleifigen Standardregelkreises besteht darin, dass sich das Führungs- und Störverhalten grundsätzlich nicht gleichzeitig optimieren lässt. Komplexere Regelkreisstrukturen, sogenannte vermaschte Regelkreise bieten diesbezüglich Vorteile.\nDie erste Erweiterung, die wir anschauen, nennt sich Kaskadenregelung (auch unterlagerte Regelung genannt).\nViele komplexe regelungstechnische Systeme weisen folgende Merkmale auf:\nIn solchen Fällen kann eine kaskadierte Regelung vorteilhaft sein. Dabei werden zwei oder mehr Regelkreise ineinandergeschachtelt (hintereinander geschaltet) und dazwischen jeweils eine Hilfsregelgrösse (zusätzliche Messgrösse) abgegriffen. In Abb. 2.1 ist ein kaskadierter Regelkreis mit zwei Kaskaden abgebildet.\nDer oben abgebildete kaskadierte Regelkreis besteht nun aus zwei Schleifen:\nDas Besondere an dieser Struktur ist, dass die Ausgangsgrösse des Hauptreglers als Führungsgrösse (Sollwert) des inneren Regelkreises fungiert. Der innere Regelkreis sollte deutlich schneller sein als der äussere, dann werden Störungen im inneren Kreis weitgehend ausgeregelt bevor sie sich auf den äusseren Kreis auswirken. Der äussere Regelkreis sorgt (wie gehabt) dafür, dass die eigentliche Zielgrösse (Hauptregelgrösse) erreicht wird.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kaskadenregelung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L02.html#motivation",
+    "href": "chapters/L02.html#motivation",
+    "title": "2  Kaskadenregelung",
+    "section": "",
+    "text": "Die Regelstrecke besteht aus verschiedenen Teilen, die unterschiedliche Zeitkonstanten aufweisen, d. h. es gibt z. B. einen flinken und eine trägen Teil.\nEs sollen mehrere Grössen (z. B. Position und Geschwindigkeit) gleichzeitig geregelt werden.\n\n\n\n\n\n\n\n\nAbb. 2.1: Kaskadenregelung\n\n\n\n\n\nÄusserer Regelkreis mit dem Hauptregler (Master)\nInnerer Regelkreis mit dem Hilfsregler (Slave)",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kaskadenregelung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L02.html#reglerentwurf",
+    "href": "chapters/L02.html#reglerentwurf",
+    "title": "2  Kaskadenregelung",
+    "section": "2.2 Reglerentwurf",
+    "text": "2.2 Reglerentwurf\nDamit eine Kaskadenregelung möglich ist, muss die Regelstrecke in Teilstrecken aufgeteilt werden können und dazwischen eine Hilfsregelgrösse gemessen werden. Der äussere Regelkreis (Hauptregler) generiert den Sollwert für den inneren Regelkreis (→ Verschachtelung)\n\n\n\n\n\n\nWichtigReglerentwurf\n\n\n\nDer Reglerentwurf einer Kaskadenregelung erfolgt immer von innen nach aussen!\n\n\n\nEntwurf des Hilfsreglers REh (= innerer Regelkreis) für den ersten Streckenteil RS1 für gutes Störverhalten.\n\n☝️ Die stationäre Genauigkeit ist beim inneren Regelkreis nicht unbedingt nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.\n\nEntwurf des Hauptreglers RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS2 für gutes Führungsverhalten.\n\n☝️ Der innere Regelkreis kann gedanklich als einzelnes Übertragungsglied (einzelner Block) betrachtet werden.\nAnmerkungen zur Kaskadenregelung:\n\nFür eine effektive Wirkung sollte der innere Regelkreis deutlich schneller sein als der äussere Regelkreis. Störungen können dann vom inneren Regelkreis bekämpft werden, bevor sie den äusseren Regelkreis erheblich beeinflussen.\nDurch die Kaskadenregelung verbessert sich generell das Führungs- sowie das Störverhalten, v. a. bei Störungen im ersten Streckenteil ist die Kaskadenregelung sehr effektiv.\nEine Kaskadenregelung ist nur anwendbar, wenn die Regelstrecke aufgeteilt und dazwischen eine Messgrösse (Hilfsregelgrösse) abgegriffen werden kann. Natürlich ist diese zusätzliche Messgrösse mit Mehraufwand bzw. Kosten verbunden.\nEs sind problemlos auch mehr als zwei Kaskaden möglich.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kaskadenregelung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L02.html#aufgaben",
+    "href": "chapters/L02.html#aufgaben",
+    "title": "2  Kaskadenregelung",
+    "section": "Aufgaben",
+    "text": "Aufgaben\n\n\n\n\n\n\n\n\n\n\nTippAufgabe 2.1\n\n\n\n\n\nIn dieser Aufgabe geht es um eine Raumtemperaturregelung, wobei eine Raumlüftung eingesetzt wird, d. h. die einströmende Luft (Zuluft) wird von einem Wärmetauscher erwärmt. Wir werden sehen, dass sich für eine solche Regelung eine Kaskadierung bestens eignet.\n\nDas Modell der Regelstrecke liegt als Superblock vor, wobei nachfolgend die Ein- bzw. Ausgänge davon aufgelistet sind.\n\nDie Regelstrecke besteht aus zwei Teilen, wobei dazwischen die Hilfsregelgrösse Zulufttemperatur x_{\\textrm{Zuluft}} gemessen wird. Ebenfalls können optional Störgrössen simuliert werden, wobei z_{\\textrm{Zuluft}} nach dem ersten Streckenteil und z_{\\textrm{Raum}} nach dem zweiten Streckenteil einwirken.\n\n\nBaue zuerst einen einschleifigen Regelkreis auf (Standardregelkreis). Das heisst, wir ignorieren die Messung der Zulufttemperatur (d. h. wir verwenden hier nur die Raumtemperatur x_{\\textrm{Raum}}). Verwende einen Reglertyp bzw. ein Entwurfsverfahren deiner Wahl.\nVerwende nun die Messung der Zulufttemperatur x_{\\textrm{Zuluft}} und entwerfe eine Kaskadenregelung. Die Raumtemperatur x_{\\textrm{Raum}} ist die Hauptregelgrösse und die Zulufttemperatur x_{\\textrm{Zuluft}} die Hilfsregelgrösse. Verwende wiederum Regler bzw. Entwurfsverfahren deiner Wahl.\nVergleiche den einschleifigen Regelkreis mit der Kaskadenregelung sowohl hinsichtlich des Führungsverhaltens als auch des Störverhaltens und notiere jeweilige Vor- bzw. Nachteile.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kaskadenregelung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html",
+    "href": "chapters/A01.html",
+    "title": "Anhang A — Refresher",
+    "section": "",
+    "text": "A.1 Begriffe und Symbole",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html#begriffe-und-symbole",
+    "href": "chapters/A01.html#begriffe-und-symbole",
+    "title": "Anhang A — Refresher",
+    "section": "",
+    "text": "Begriff\nengl.\nSymbol\nKap. (Buch)\n\n\n\n\nAnregelzeit\ncontrol rise time\nT_{cr}\n4\n\n\nArbeitspunkt\noperating point\nAP\n2\n\n\nAufgabengrösse\nfinal controlled variable\n\n1\n\n\nAusgangsgrösse\noutput variable\nx_a\n2\n\n\nAusgleichszeit\nequivalent time constant\nT_b\n2\n\n\nAusregelzeit\ncontrol settling time\nT_{cs}\n4\n\n\nBegrenzung\nlimitation\n\n3\n\n\nbleibende Regeldifferenz\nsteady-state error\ne_{\\infty}\n4\n\n\nDämpfung\ndamping\n\n2\n\n\nDämpfungsgrad\ndamping ratio\nD\n4\n\n\nDifferenzierbeiwert\ndifferential action constant\nK_D\n2\n\n\nDifferenzierglied (D-Glied)\nderivative element (D element)\n\n2\n\n\nDifferenzierzeit\nderivative action time\nT_D\n2\n\n\nEingangsgrösse\ninput variable\nx_e\n2\n\n\nFührungsgrösse (Sollwert)\nreference variable\nw\n1\n\n\nFührungsverhalten\nreference variable response\n\n1\n\n\nIntegrierbeiwert\nintegral action coefficient\nK_I\n2\n\n\nIntegrierglied (I-Glied)\nintegral element (I element)\n\n\n\n\nIntegrierzeit\nintegral action time\nT_I\n2\n\n\nIstwert\nactual value\n\n1\n\n\nKennkreisfrequenz\ncharacteristic angular frequency\n\\omega_0\n2\n\n\nKennlinie\ncharacteristic curve\n\n\n\n\nLinearisierungskennlinie\nlinearization curve\nLK\n2\n\n\nMessglied\nmeasuring element\n\n\n\n\nNachstellzeit\nreset time\nT_i\n3\n\n\nProportionalbeiwert\nproportional action coefficient\nK_P\n2\n\n\nProportionalglied (P-Glied)\nproportional element (P element)\n\n\n\n\nRegeldifferenz\nerror variable\ne\n1\n\n\nRegelglied\ncontrolling element\n\n\n\n\nRegelgrösse\ncontrolled variable\nx\n1\n\n\nRegelkreis\ncontrol loop\nRK\n\n\n\nRegelung\nclosed-loop control (feedback control)\n\n\n\n\nRegelstrecke\ncontrolled process\nRS\n\n\n\nRegler\ncontroller\nRE\n\n\n\nRückführgrösse\nfeedback variable\nr\n\n\n\nSollwert\ndesired value\n\n1\n\n\nSprungantwort\nstep response\n\n\n\n\nStabilität\nstability\n\n\n\n\nStellgrösse\nmanipulated variable\ny\n1\n\n\nSteuerkette\ncontrol chain\n\n\n\n\nSteuerung\nopen-loop control (feedforward control)\n\n\n\n\nStörgrösse\ndisturbance variable\nz\n1\n\n\nStörverhalten\ndisturbance response\n\n1\n\n\nTotzeit\ndead-time\nT_t\n2\n\n\nÜberschwingweite\novershoot\nx_m\n\n\n\nÜbertragungsglied\ntransfer element\n\n1/2\n\n\nVergleichsglied\ncomparing element\n\n1\n\n\nVerzögerungsglied\nlag element\n\n2\n\n\nVerzögerungszeit\ntime constant\nT_{1,2,..}\n2\n\n\nVerzugszeit\nequivalent dead-time\nT_e\n2\n\n\nVerzweigung\nbranching point\n\n1\n\n\nVorhaltezeit\nrate time\nT_d\n4\n\n\nWendepunkt\ninflection point\n\n2\n\n\nZeitkonstante\ntime constant\nT_{1,2,..}\n2\n\n\nZeitverhalten\ntime response\n\n2\n\n\nZielgrösse\ncommand variable\nc\n1\n\n\n\n\n\nTab. A.1: Begriffe und Symbole",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html#regelungstechnik-workflow",
+    "href": "chapters/A01.html#regelungstechnik-workflow",
+    "title": "Anhang A — Refresher",
+    "section": "A.2 Regelungstechnik-Workflow",
+    "text": "A.2 Regelungstechnik-Workflow\n\n\n\n\n\n\nAbb. A.1: Regelungstechnik-Workflow",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html#gliederung-der-regelstrecken",
+    "href": "chapters/A01.html#gliederung-der-regelstrecken",
+    "title": "Anhang A — Refresher",
+    "section": "A.3 Gliederung der Regelstrecken",
+    "text": "A.3 Gliederung der Regelstrecken\n\n\n\n\n\n\n\n\n\n\n\n\nmit Ausgleich\n\nohne Ausgleich\n\n\n\n\n\nohne Verzögerung\nmit Verzögerung\nohne Verzögerung\nmit Verzögerung\n\n\nP\nP-T1\nI\nI-T1\n\n\n\nP-T2 bzw. P-T2S\n\nI-T2 bzw. I-T2S\n\n\n\nP-Tn\n\nI-Tn\n\n\n\nP-Tt\n\nI-Tt\n\n\n\n\n\nTab. A.2: Grundglieder (Regelstrecken)",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html#standardregelkreis",
+    "href": "chapters/A01.html#standardregelkreis",
+    "title": "Anhang A — Refresher",
+    "section": "A.4 Standardregelkreis",
+    "text": "A.4 Standardregelkreis\n\n\n\n\n\n\nAbb. A.2: Standardregelkreis",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html#pid-regler",
+    "href": "chapters/A01.html#pid-regler",
+    "title": "Anhang A — Refresher",
+    "section": "A.5 PID-Regler",
+    "text": "A.5 PID-Regler\n\n\\begin{aligned}\ny(t)\n&= y_P(t) + y_I(t) + y_D(t) \\\\\n&= K_P \\cdot \\left( e(t) + \\frac{1}{T_i} \\cdot \\int{e(t) \\, \\mathrm{d}t} + T_d \\cdot \\dot{e}(t) \\right)\n\\end{aligned}\n\\tag{A.1}\n\n\n\n\n\n\nAbb. A.3: Visualisierung zur Sprungantwort des PID-Reglers",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/A01.html#anforderungen-und-gütekriterien",
+    "href": "chapters/A01.html#anforderungen-und-gütekriterien",
+    "title": "Anhang A — Refresher",
+    "section": "A.6 Anforderungen und Gütekriterien",
+    "text": "A.6 Anforderungen und Gütekriterien\n\n\n\n\n\n\nAnforderungen\nGütekriterien\n\n\n\n\nGenauigkeit\nBleibende Regelabweichung e_\\infty\n\n\nSchnelligkeit\nAnregelzeit T_{cr} bzw. Ausregelzeit T_{cs}\n\n\nDämpfung\nÜberschwingweite x_m\n\n\nStabilität\n\n\n\nRobustheit\n\n\n\n\n\n\nTab. A.3: Anforderungen und Gütekriterien\n\n\n\n\n\n\n\n\n\nAbb. A.4: Gütekriterien",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Refresher</span>"
+    ]
+  }
+]

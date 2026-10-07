@@ -1,0 +1,68 @@
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".pdf-export").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const target = document.getElementById(btn.dataset.target);
+      const expanded = [];
+
+      document.querySelectorAll("details:not([open])").forEach(d => {
+        d.open = true;
+        expanded.push({ el: d, type: "details" });
+      });
+
+      document.querySelectorAll(".collapse:not(.show)").forEach(el => {
+        const instance =
+          bootstrap.Collapse.getInstance(el) ||
+          new bootstrap.Collapse(el, { toggle: false });
+        instance.show();
+        expanded.push({ el, type: "collapse" });
+      });
+
+      try {
+        // Wait for Quarto/MathJax math rendering to finish
+        if (window.MathJax?.typesetPromise) {
+          await MathJax.typesetPromise([target]);
+        }
+
+        await html2pdf()
+          .set({
+            margin: 10,
+            filename: btn.dataset.filename || "download.pdf",
+            pagebreak: {
+              mode: ['css', 'legacy'],
+              after: '.callout-tip'
+            },
+            html2canvas: {
+              scale: 2,
+              useCORS: true,
+              onclone: (doc) => {
+                // Remove MathJax assistive MathML that html2canvas may render as a duplicate
+                doc.querySelectorAll('.katex-mathml').forEach(el => el.remove());
+
+                // Optional: if any raw TeX script tags are present, remove those too
+                doc.querySelectorAll('script[type^="math/tex"]').forEach(el => el.remove());
+              }
+            },
+            jsPDF: {
+              unit: "mm",
+              format: "a4",
+              orientation: "portrait"
+            }
+          })
+          .from(target)
+          .save();
+      } finally {
+        expanded.forEach(item => {
+          if (item.type === "details") item.el.open = false;
+          if (item.type === "collapse") {
+            const instance =
+              bootstrap.Collapse.getInstance(item.el) ||
+              new bootstrap.Collapse(item.el, { toggle: false });
+            instance.hide();
+          }
+        });
+      }
+    });
+  });
+});
+</script>
