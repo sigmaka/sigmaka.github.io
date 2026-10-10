@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-rk-standard" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-rk-standard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/diagrams/BSB_RK.svg" class="img-fluid figure-img">
+<img src="../images/diagrams/BSB_RK.svg" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-rk-standard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Abb.&nbsp;1.1: Standardregelkreis
@@ -272,7 +272,7 @@ Abb.&nbsp;1.2: Kaskadenregelung eines elektrischen Antriebs <a href="https://de.
 <img src="../images/diagrams/time_vs_frequency.gif" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-domain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abb.&nbsp;1.3: Betrachtung eines Signals imZeitbereich (links) bzw. im Frequenzbereich (rechts)
+Abb.&nbsp;1.3: Betrachtung eines Signals im Zeitbereich (links) bzw. im Frequenzbereich (rechts)
 </figcaption>
 </figure>
 </div>
@@ -320,7 +320,7 @@ Abb.&nbsp;1.3: Betrachtung eines Signals imZeitbereich (links) bzw. im Frequenzb
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Analysiere das folgende System und entwerfe einen PI-Regler, um die Temperatur im Rührkessel zu regeln. Rührkessel werden in der Verfahrenstechnik verwendet, um bei chemischen Reaktionen Wärme ab- oder zuzuführen. In diesem Beispiel wird Wärme zugeführt, d.&nbsp;h. der Rührkessel wird mit einem Heizmedium (z. B. Dampf) umströmt und erwärmt dadurch das Medium im Rührkessel (z. B. Mischung von zwei Chemikalien, die miteinander reagieren o. ä.).</p>
+<p>Analysiere das folgende System und entwerfe einen PI-Regler, um die Temperatur im Rührkessel zu regeln. Rührkessel werden in der Verfahrenstechnik verwendet, um bei chemischen Reaktionen Wärme ab- oder zuzuführen. In diesem Beispiel wird Wärme zugeführt, d.&nbsp;h. der Rührkessel wird mit einem Heizmedium (z. B. Dampf) umströmt, welches das Medium im Rührkessel (z. B. Mischung von zwei Chemikalien, die miteinander reagieren o. ä.) erwärmt.</p>
 <p><img src="../images/diagrams/Ruehrkessel_Schema.svg" class="img-fluid"></p>
 <ol type="a">
 <li>Die Regelstrecke besteht dabei aus dem Ventil mit Stellmotor (Streckenteil I) und dem Heizmantel/Rührkessel (Streckenteil II). Identifiziere die beiden Streckenteile anhand der unten gegebenen Sprungantworten.</li>
@@ -947,7 +947,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Mit dem Wissen aus *Systeme regeln 1* können wir Regelstrecken analysieren, identifizieren und Regelungen mit P/PI/PD/PID-Reglern entwerfen. Basis dafür war stets der Standardregelkreis, der in @fig-rk-standard dargestellt ist.</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="al">![Standardregelkreis](../images/diagrams/BSB_RK.svg)</span>{#fig-rk-standard}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="al">![Standardregelkreis](../images/diagrams/BSB_RK.svg)</span>{width=80% #fig-rk-standard}</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Bei komplexeren Regelstrecken stösst der Standardregelkreis an seine Grenzen, da aufgrund der *einschleifigen* Struktur gewisse Limitierungen bestehen. Eine davon besteht darin, dass das **Führungs- und Störverhalten nicht unabhängig voneinander** optimiert werden können (gutes Führungsverhalten hat meistens eher schlechtes Störverhalten zur Folge und umgekehrt - wir haben das bei den Regler-Entwurfsverfahren häufig gesehen, wo unterschiedliche Parametersätze für das eine oder andere verwendet werden.)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -967,7 +967,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Ohne bereits in die Materie einzusteigen, sei hier erwähnt, dass die Transformation in den Frequenzbereich - was anfänglich kompliziert tönt - dir vermutlich in irgendeiner Form schon einmal begegnet ist. Im Frequenzbereich betrachtet man nicht den *zeitlichen Verlauf* eines Signals sondern die im Signal enthaltenen *Frequenzanteile*.Man wechselt also sozusagen die Perspektive, aus der man ein Signal bzw. System betrachtet.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="al">![Betrachtung eines Signals imZeitbereich (links) bzw. im Frequenzbereich (rechts)](../images/diagrams/time_vs_frequency.gif)</span>{#fig-domain}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="al">![Betrachtung eines Signals im Zeitbereich (links) bzw. im Frequenzbereich (rechts)](../images/diagrams/time_vs_frequency.gif)</span>{#fig-domain}</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Dabei belassen wir es für den Moment und bleiben vorerst noch eine Weile im Zeitbereich.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
@@ -997,9 +997,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-1-2}</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.2</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 1.2 {#ex-1-2}</span></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>Analysiere das folgende System und entwerfe einen PI-Regler, um die Temperatur im Rührkessel zu regeln. Rührkessel werden in der Verfahrenstechnik verwendet, um bei chemischen Reaktionen Wärme ab- oder zuzuführen. In diesem Beispiel wird Wärme zugeführt, d. h. der Rührkessel wird mit einem Heizmedium (z. B. Dampf) umströmt und erwärmt dadurch das Medium im Rührkessel (z. B. Mischung von zwei Chemikalien, die miteinander reagieren o. ä.).</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>Analysiere das folgende System und entwerfe einen PI-Regler, um die Temperatur im Rührkessel zu regeln. Rührkessel werden in der Verfahrenstechnik verwendet, um bei chemischen Reaktionen Wärme ab- oder zuzuführen. In diesem Beispiel wird Wärme zugeführt, d. h. der Rührkessel wird mit einem Heizmedium (z. B. Dampf) umströmt, welches das Medium im Rührkessel (z. B. Mischung von zwei Chemikalien, die miteinander reagieren o. ä.) erwärmt.</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/Ruehrkessel_Schema.svg)</span></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>

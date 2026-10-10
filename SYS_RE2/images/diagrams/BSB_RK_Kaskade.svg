@@ -138,15 +138,15 @@
 <use x='725.031164' y='221.007678' xlink:href='#g3-120'/>
 <use x='736.528191' y='224.107047' xlink:href='#g2-104'/>
 <g transform='translate(66.2112 145.092)scale(.996264)'>
-<path d='M337.045 120.858V162.708H671.365V91.5756' fill='none' stroke='#000000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='1.00375'/>
+<path d='M322.819 120.858V162.708H671.365V91.5756' fill='none' stroke='#000000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='1.00375'/>
 </g>
 <g transform='translate(66.2112 145.092)scale(.996264)'>
-<path d='M337.045 105.802L333.011 120.858H341.08L337.045 105.802Z' fill='#000000'/>
+<path d='M322.819 105.802L318.785 120.858H326.853L322.819 105.802Z' fill='#000000'/>
 </g>
 <g transform='translate(66.2112 145.092)scale(.996264)'>
-<path d='M337.045 105.802L333.011 120.858H341.08L337.045 105.802Z' fill='none' stroke='#000000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='1.00375'/>
+<path d='M322.819 105.802L318.785 120.858H326.853L322.819 105.802Z' fill='none' stroke='#000000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='1.00375'/>
 </g>
-<use x='407.61734' y='260.783369' xlink:href='#g1-0'/>
+<use x='393.44411' y='260.783369' xlink:href='#g1-0'/>
 <g transform='translate(66.2112 145.092)scale(.996264)'>
 <circle cx='671.365' cy='91.5756' fill='#000000' r='3.01125'/>
 </g>

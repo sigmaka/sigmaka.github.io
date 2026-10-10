@@ -1,4 +1,5 @@
 helper.bat
+.ipynb_checkpoints/
 *.aux
 *.log
 *.asy
