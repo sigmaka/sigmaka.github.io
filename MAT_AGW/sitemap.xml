@@ -13,4 +13,13 @@
   <url>
     <loc>http://localhost:3000/numpy/numpy-uebungen</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/matplotlib/matplotlib</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/matplotlib/matplotlib-unterricht</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/matplotlib/matplotlib-uebungen</loc>
+  </url>
 </urlset>
