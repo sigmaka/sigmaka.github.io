@@ -282,7 +282,7 @@ window.Quarto = {
 </header>
 
 
-<p>Eine Limitierung des bisher betrachteten einschleifigen Standardregelkreises besteht darin, dass sich das Führungs- und Störverhalten grundsätzlich nicht gleichzeitig optimieren lässt. Komplexere Regelkreisstrukturen, sogenannte <em>vermaschte Regelkreise</em> bieten diesbezüglich Vorteile.</p>
+<p>Eine Limitierung des bisher betrachteten einschleifigen Standardregelkreises besteht darin, dass sich das Führungs- und Störverhalten grundsätzlich nicht gleichzeitig optimieren lässt. Komplexere Regelkreisstrukturen, sogenannte <em>vermaschte Regelkreise</em>, bieten diesbezüglich Vorteile.</p>
 <p>Die erste Erweiterung, die wir anschauen, nennt sich <strong>Kaskadenregelung</strong> (auch <em>unterlagerte Regelung</em> genannt).</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Ziele">
 <div class="callout-header d-flex align-content-center">
@@ -308,7 +308,7 @@ window.Quarto = {
 <li>Die Regelstrecke besteht aus verschiedenen Teilen, die unterschiedliche Zeitkonstanten aufweisen, d.&nbsp;h. es gibt z. B. einen flinken und einen trägen Teil.</li>
 <li>Es sollen mehrere Grössen (z. B. Position und Geschwindigkeit) gleichzeitig geregelt werden.</li>
 </ul>
-<p>In solchen Fällen kann eine kaskadierte Regelung vorteilhaft sein. Dabei werden zwei oder mehr Regelkreise ineinandergeschachtelt (hintereinander geschaltet) und dazwischen jeweils eine Hilfsregelgrösse (zusätzliche Messgrösse) abgegriffen. In <a href="#fig-kaskade" class="quarto-xref">Abb.&nbsp;<span>2.1</span></a> ist ein kaskadierter Regelkreis mit zwei Kaskaden abgebildet.</p>
+<p>In solchen Fällen kann eine kaskadierte Regelung vorteilhaft sein. Dabei werden zwei oder mehr Regelkreise ineinandergeschachtelt und dazwischen jeweils eine Hilfsregelgrösse (zusätzliche Messgrösse) abgegriffen. In <a href="#fig-kaskade" class="quarto-xref">Abb.&nbsp;<span>2.1</span></a> ist ein kaskadierter Regelkreis mit zwei Kaskaden abgebildet.</p>
 <div id="fig-kaskade" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-kaskade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -321,8 +321,8 @@ Abb.&nbsp;2.1: Kaskadenregelung
 </div>
 <p>Der oben abgebildete kaskadierte Regelkreis besteht nun aus zwei Schleifen:</p>
 <ul>
-<li>Äusserer Regelkreis mit dem Hauptregler (<em>Master</em>)</li>
-<li>Innerer Regelkreis mit dem Hilfsregler (<em>Slave</em>)</li>
+<li>Äusserer Regelkreis mit dem Hauptregler</li>
+<li>Innerer Regelkreis mit dem Hilfsregler</li>
 </ul>
 <p>Das Besondere an dieser Struktur ist, dass die Ausgangsgrösse des Hauptreglers als Führungsgrösse (Sollwert) des inneren Regelkreises fungiert. Der innere Regelkreis sollte deutlich schneller sein als der äussere, denn dann werden Störungen im inneren Kreis weitgehend ausgeregelt bevor sie sich auf den äusseren Kreis auswirken. Der äussere Regelkreis sorgt (wie gehabt) dafür, dass die eigentliche Zielgrösse (Hauptregelgrösse) erreicht wird (Führungsverhalten).</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Führungs- und Störverhalten">
@@ -366,7 +366,7 @@ Abb.&nbsp;2.3: Temperaturregelung eines Rührkessels als Kaskade
 </div>
 <p>Wir messen die Hilfsregelgrösse <span class="math inline">x_h</span> (Temperatur des Heizmediums) zwischen den beiden Streckenteilen und können damit eine Kaskadenregelung aufbauen. Der innere Regelkreis kann z.&nbsp;B. eine Störung der Dampfzufuhr (z.&nbsp;B. Druckschwankungen) rasch erkennen und kompensieren, bevor diese sich auf die eigentliche Zielgrösse (Temperatur im Rührkessel) auswirkt.</p>
 <hr>
-<p>Ein weiteres anschauliches Beispiel ist die Lageregelung, die u.&nbsp;a. bei einer CNC-Achse verwendet wird. Die entsprechende Regelkreisstruktur haben wir bereits in <a href="L01.html#fig-lageregelung" class="quarto-xref">Abb.&nbsp;<span>1.2</span></a> gesehen. Hier ist sie nochmals (ohne die Vorsteuerungspfade, die wir erst später behandeln) abgebildet.</p>
+<p>Ein weiteres anschauliches Beispiel ist die Lageregelung, die u.&nbsp;a. bei einer CNC-Achse verwendet wird. Die entsprechende Regelkreisstruktur haben wir bereits in <a href="L01.html#fig-lageregelung" class="quarto-xref">Abb.&nbsp;<span>1.2</span></a> gesehen. Hier ist sie nochmals (ohne die <em>Vorsteuerung</em>, die wir erst später behandeln) abgebildet.</p>
 <div id="fig-lageregelung-kaskade" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-lageregelung-kaskade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -377,7 +377,7 @@ Abb.&nbsp;2.4: Lageregelung (basierend auf <a href="L01.html#fig-lageregelung" c
 </figcaption>
 </figure>
 </div>
-<p>Hier liegt sogar eine dreistufige Kaskadierung vor, wobei im innersten Kreis der Strom geregelt wird, im mittleren Kreis die Geschwindigkeit und im äussersten Kreis die Position. Als Hauptregler genügt hier ein P-Regler, da das letzte RS-Glied ein I-Glied ist (Integration der Geschwindigkeit). Als Geschwindigkeitsregler wird üblicherweise ein PI-Regler verwendet, da damit eine Störgrösse (Last, Reibung, …) im mittleren Streckenteil ausgeregelt werden kann (die anzutreibende Last und Reibung etc. treten als Bremsmoment auf, was in obiger Abb. schön zu sehen ist).</p>
+<p>Hier liegt sogar eine dreistufige Kaskadierung vor, wobei im innersten Kreis der Strom geregelt wird, im mittleren Kreis die Geschwindigkeit und im äussersten Kreis die Position. Als Hauptregler genügt hier ein P-Regler, da das letzte RS-Glied ein I-Glied ist (Integration der Geschwindigkeit) und keine Störgrössen eingreifen. Als Geschwindigkeitsregler wird ein PI-Regler verwendet, da damit eine Störgrösse (Last, Reibung, …) im mittleren Streckenteil ausgeregelt werden kann (die anzutreibende Last und Reibung etc. treten als Bremsmoment auf, was in obiger Abb. schön zu sehen ist).</p>
 </section>
 <section id="reglerentwurf" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="reglerentwurf"><span class="header-section-number">2.2</span> Reglerentwurf</h2>
@@ -396,10 +396,10 @@ Abb.&nbsp;2.4: Lageregelung (basierend auf <a href="L01.html#fig-lageregelung" c
 </div>
 </div>
 <ol type="1">
-<li><p>Entwurf des <strong>Hilfsreglers</strong> RE<sub>h</sub> (= innerer Regelkreis) für den ersten Streckenteil RS<sub>1</sub> für gutes Störverhalten.</p>
+<li><p>Entwurf des <strong>Hilfsreglers</strong> RE<sub>h</sub> (= innerer Regelkreis) für den ersten Streckenteil RS<sub>1</sub> (in der Regel für gutes Störverhalten).</p>
 <p><img src="../images/diagrams/BSB_RK_Kaskade_REh.svg" class="img-fluid"></p>
 <p>☝️ Stationäre Genauigkeit ist beim inneren Regelkreis nicht zwingend nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.</p></li>
-<li><p>Entwurf des <strong>Hauptreglers</strong> RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS<sub>2</sub> für gutes Führungsverhalten.</p>
+<li><p>Entwurf des <strong>Hauptreglers</strong> RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS<sub>2</sub> (üblicherweise für gutes Führungsverhalten).</p>
 <p><img src="../images/diagrams/BSB_RK_Kaskade_RE.svg" class="img-fluid"></p>
 <p>☝️ Der innere Regelkreis kann gedanklich als einzelnes Übertragungsglied (einzelner Block) betrachtet werden.</p>
 <p>☝️ Beim Erfassen der Sprungantwort (des geschlossenen inneren Regelkreises und dem restlichen Streckenteil RS<sub>2</sub>) muss beachtet werden, dass sich der Hilfsregler nicht in der Stellgrössenbegrenzung befindet → Stellgrösse kontrollieren!</p></li>
@@ -1098,7 +1098,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Kaskadenregelung {#sec-vm1}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Eine Limitierung des bisher betrachteten einschleifigen Standardregelkreises besteht darin, dass sich das Führungs- und Störverhalten grundsätzlich nicht gleichzeitig optimieren lässt. Komplexere Regelkreisstrukturen, sogenannte *vermaschte Regelkreise* bieten diesbezüglich Vorteile.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Eine Limitierung des bisher betrachteten einschleifigen Standardregelkreises besteht darin, dass sich das Führungs- und Störverhalten grundsätzlich nicht gleichzeitig optimieren lässt. Komplexere Regelkreisstrukturen, sogenannte *vermaschte Regelkreise*, bieten diesbezüglich Vorteile.</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Die erste Erweiterung, die wir anschauen, nennt sich **Kaskadenregelung** (auch *unterlagerte Regelung* genannt).</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -1115,14 +1115,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Die Regelstrecke besteht aus verschiedenen Teilen, die unterschiedliche Zeitkonstanten aufweisen, d. h. es gibt z. B. einen flinken und einen trägen Teil.</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Es sollen mehrere Grössen (z. B. Position und Geschwindigkeit) gleichzeitig geregelt werden.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>In solchen Fällen kann eine kaskadierte Regelung vorteilhaft sein. Dabei werden zwei oder mehr Regelkreise ineinandergeschachtelt (hintereinander geschaltet) und dazwischen jeweils eine Hilfsregelgrösse (zusätzliche Messgrösse) abgegriffen. In @fig-kaskade ist ein kaskadierter Regelkreis mit zwei Kaskaden abgebildet.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>In solchen Fällen kann eine kaskadierte Regelung vorteilhaft sein. Dabei werden zwei oder mehr Regelkreise ineinandergeschachtelt und dazwischen jeweils eine Hilfsregelgrösse (zusätzliche Messgrösse) abgegriffen. In @fig-kaskade ist ein kaskadierter Regelkreis mit zwei Kaskaden abgebildet.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="al">![Kaskadenregelung](../images/diagrams/BSB_RK_Kaskade.svg)</span>{#fig-kaskade}</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Der oben abgebildete kaskadierte Regelkreis besteht nun aus zwei Schleifen:</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Äusserer Regelkreis mit dem Hauptregler (*Master*)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Innerer Regelkreis mit dem Hilfsregler (*Slave*)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Äusserer Regelkreis mit dem Hauptregler</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Innerer Regelkreis mit dem Hilfsregler</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Das Besondere an dieser Struktur ist, dass die Ausgangsgrösse des Hauptreglers als Führungsgrösse (Sollwert) des inneren Regelkreises fungiert. Der innere Regelkreis sollte deutlich schneller sein als der äussere, denn dann werden Störungen im inneren Kreis weitgehend ausgeregelt bevor sie sich auf den äusseren Kreis auswirken. Der äussere Regelkreis sorgt (wie gehabt) dafür, dass die eigentliche Zielgrösse (Hauptregelgrösse) erreicht wird (Führungsverhalten).</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
@@ -1145,11 +1145,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Ein weiteres anschauliches Beispiel ist die Lageregelung, die u.<span class="dv">&amp;nbsp;</span>a. bei einer CNC-Achse verwendet wird. Die entsprechende Regelkreisstruktur haben wir bereits in @fig-lageregelung gesehen. Hier ist sie nochmals (ohne die Vorsteuerungspfade, die wir erst später behandeln) abgebildet.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Ein weiteres anschauliches Beispiel ist die Lageregelung, die u.<span class="dv">&amp;nbsp;</span>a. bei einer CNC-Achse verwendet wird. Die entsprechende Regelkreisstruktur haben wir bereits in @fig-lageregelung gesehen. Hier ist sie nochmals (ohne die *Vorsteuerung*, die wir erst später behandeln) abgebildet.</span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="al">![Lageregelung (basierend auf @fig-lageregelung)](../images/external/Lageregelung_Kaskade.svg)</span>{#fig-lageregelung-kaskade}</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Hier liegt sogar eine dreistufige Kaskadierung vor, wobei im innersten Kreis der Strom geregelt wird, im mittleren Kreis die Geschwindigkeit und im äussersten Kreis die Position. Als Hauptregler genügt hier ein P-Regler, da das letzte RS-Glied ein I-Glied ist (Integration der Geschwindigkeit). Als Geschwindigkeitsregler wird üblicherweise ein PI-Regler verwendet, da damit eine Störgrösse (Last, Reibung, ...) im mittleren Streckenteil ausgeregelt werden kann (die anzutreibende Last und Reibung etc. treten als Bremsmoment auf, was in obiger Abb. schön zu sehen ist).</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Hier liegt sogar eine dreistufige Kaskadierung vor, wobei im innersten Kreis der Strom geregelt wird, im mittleren Kreis die Geschwindigkeit und im äussersten Kreis die Position. Als Hauptregler genügt hier ein P-Regler, da das letzte RS-Glied ein I-Glied ist (Integration der Geschwindigkeit) und keine Störgrössen eingreifen. Als Geschwindigkeitsregler wird ein PI-Regler verwendet, da damit eine Störgrösse (Last, Reibung, ...) im mittleren Streckenteil ausgeregelt werden kann (die anzutreibende Last und Reibung etc. treten als Bremsmoment auf, was in obiger Abb. schön zu sehen ist).</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglerentwurf</span></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
@@ -1159,13 +1159,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>Der Reglerentwurf einer Kaskadenregelung erfolgt immer **von innen nach aussen**! Dabei können die bekannten Entwurfsverfahren verwendet werden (z. B. CHR).</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>1) Entwurf des **Hilfsreglers** RE~h~ (= innerer Regelkreis) für den ersten Streckenteil RS~1~ für gutes Störverhalten.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>1) Entwurf des **Hilfsreglers** RE~h~ (= innerer Regelkreis) für den ersten Streckenteil RS~1~ (in der Regel für gutes Störverhalten).</span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/BSB_RK_Kaskade_REh.svg)</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Stationäre Genauigkeit ist beim inneren Regelkreis nicht zwingend nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.</span></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>2) Entwurf des **Hauptreglers** RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS~2~ für gutes Führungsverhalten.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>2) Entwurf des **Hauptreglers** RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS~2~ (üblicherweise für gutes Führungsverhalten).</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/BSB_RK_Kaskade_RE.svg)</span></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  </span>
