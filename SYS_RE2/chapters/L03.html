@@ -260,7 +260,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#sec-sine" id="toc-sec-sine" class="nav-link active" data-scroll-target="#sec-sine"><span class="header-section-number">3.1</span> Sinusschwingung</a></li>
-  <li><a href="#sinusantwort-frequenzgang" id="toc-sinusantwort-frequenzgang" class="nav-link" data-scroll-target="#sinusantwort-frequenzgang"><span class="header-section-number">3.2</span> Sinusantwort &amp; Frequenzgang</a></li>
+  <li><a href="#sinusantwort" id="toc-sinusantwort" class="nav-link" data-scroll-target="#sinusantwort"><span class="header-section-number">3.2</span> Sinusantwort</a></li>
   <li><a href="#frequenzgang" id="toc-frequenzgang" class="nav-link" data-scroll-target="#frequenzgang"><span class="header-section-number">3.3</span> Frequenzgang</a></li>
   <li><a href="#experimentelle-bestimmung-des-frequenzganges" id="toc-experimentelle-bestimmung-des-frequenzganges" class="nav-link" data-scroll-target="#experimentelle-bestimmung-des-frequenzganges"><span class="header-section-number">3.4</span> Experimentelle Bestimmung des Frequenzganges</a></li>
   <li><a href="#darstellung-des-frequenzgangs" id="toc-darstellung-des-frequenzgangs" class="nav-link" data-scroll-target="#darstellung-des-frequenzgangs"><span class="header-section-number">3.5</span> Darstellung des Frequenzgangs</a>
@@ -512,8 +512,8 @@ Abb.&nbsp;3.1: Allg. Sinusschwingung
 </div>
 </div>
 </section>
-<section id="sinusantwort-frequenzgang" class="level2 page-columns page-full" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sinusantwort-frequenzgang"><span class="header-section-number">3.2</span> Sinusantwort &amp; Frequenzgang</h2>
+<section id="sinusantwort" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sinusantwort"><span class="header-section-number">3.2</span> Sinusantwort</h2>
 <p>In Anlehnung an die Sprungantwort können wir uns nun folgende Frage stellen:</p>
 <blockquote class="blockquote">
 <p>Was passiert, wenn wir die Sinusschwingung <a href="#eq-sine" class="quarto-xref">Gleichung&nbsp;<span>3.1</span></a> mit einer bestimmten Frequenz <span class="math inline">\omega</span> (und z. B. Amplitude 1) als Eingangssignal in ein Übertragungsglied einspeisen? Wie sieht das Ausgangssignal aus?</p>
@@ -834,9 +834,9 @@ Abb.&nbsp;3.5: Sinusantwowrt in BORIS
 <div aria-describedby="tbl-bode-pt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 31%">
-<col style="width: 34%">
+<col style="width: 40%">
+<col style="width: 18%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -848,63 +848,68 @@ Abb.&nbsp;3.5: Sinusantwowrt in BORIS
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">0.1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">2.000</td>
+<td style="text-align: center;">-1.15</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">0.2</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">1.998</td>
+<td style="text-align: center;">-2.29</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">0.5</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">1.990</td>
+<td style="text-align: center;">-5.71</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">1.961</td>
+<td style="text-align: center;">-11.31</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">2</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">1.857</td>
+<td style="text-align: center;">-21.80</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">5</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">1.414</td>
+<td style="text-align: center;">-45.00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">10</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">0.894</td>
+<td style="text-align: center;">-63.43</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">20</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">0.485</td>
+<td style="text-align: center;">-75.96</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">50</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">0.199</td>
+<td style="text-align: center;">-84.29</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">0.100</td>
+<td style="text-align: center;">-87.14</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">200</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">0.050</td>
+<td style="text-align: center;">-88.57</td>
 </tr>
 <tr class="even">
+<td style="text-align: center;">500</td>
+<td style="text-align: center;">0.020</td>
+<td style="text-align: center;">-89.43</td>
+</tr>
+<tr class="odd">
 <td style="text-align: center;">1000</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">0.010</td>
+<td style="text-align: center;">-89.71</td>
 </tr>
 </tbody>
 </table>
@@ -920,7 +925,7 @@ Tab.&nbsp;3.1: Experimentelle Ermittlung des Frequenzgangs
 <p>Eine grafische Darstellung ist immer zugänglicher als tabellierte Werte oder eine mathematische Funktion, daher wollen wir uns überlegen, wie der Frequenzgang grafisch dargestellt werden kann.</p>
 <section id="amplitudengang" class="level3 page-columns page-full" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="amplitudengang"><span class="header-section-number">3.5.1</span> Amplitudengang</h3>
-<p>Um z. B. das Amplitudenverhältnis (Verstärkung) über der Frequenz zu sehen, könnten wir diese beiden Grössen gegeneinander auftragen. Dann landen wir bei folgendem Diagramm:</p>
+<p>Um z. B. das Amplitudenverhältnis (Verstärkung) über der Frequenz zu sehen, könnten wir die oben ermittelten Werte gegeneinander auftragen (<span class="math inline">A</span> vs.&nbsp;<span class="math inline">\omega</span>). Dann landen wir bei folgendem Diagramm:</p>
 <div id="fig-amp-lin" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-amp-lin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -942,11 +947,11 @@ Abb.&nbsp;3.7: Amplitudengang (log. Frequenzachse)
 </figcaption>
 </figure>
 </div>
-<p>Nun haben wir eine sehr gute Auflösung auch bei (sehr) tiefen Frequenzen. Etwas ähnliches machen wir bei der vertikalen Achse. Wir verwenden dabei allerdings nicht eine logarithmische Diagrammachse, doch rechnen die Amplitudenverstärkung vorgängig um - und zwar in die berühmte logarithmische <strong>dB-Skala (Dezibel)</strong>. Der dB-Wert wird gemäss <a href="#eq-dB" class="quarto-xref">Gleichung&nbsp;<span>3.4</span></a> berechnet, wobei <span class="math inline">\log()</span> dem Zehnerlogarithmus entspricht.</p>
+<p>Nun haben wir eine sehr gute Auflösung auch bei (sehr) tiefen Frequenzen. Etwas ähnliches machen wir bei der vertikalen Achse. Wir verwenden dabei allerdings nicht eine logarithmische Diagrammachse, sondern rechnen die Amplitudenverstärkung vorgängig um - und zwar in die berühmte logarithmische <strong>dB-Skala (Dezibel-Skala)</strong>. Der dB-Wert wird gemäss <a href="#eq-dB" class="quarto-xref">Gleichung&nbsp;<span>3.4</span></a> berechnet, wobei <span class="math inline">\log()</span> dem Zehnerlogarithmus entspricht.</p>
 <p><span id="eq-dB"><span class="math display">
 A_{\textsf{dB}} = 20 \cdot \log(A)
 \tag{3.4}</span></span></p>
-<p>Wenn wir nun die Amplitudenverstärkung in dB über der logarithmischen Frequenzachse auftragen, sind wir bei der üblichen Darstellung des Amplitudenganges angelangt. Wir nennen es (zusammen mit dem Phasengang) auch <strong><span class="cap">Bode</span>-Diagramm</strong>.</p>
+<p>Wenn wir nun die Amplitudenverstärkung in dB über der logarithmischen Frequenzachse auftragen, sind wir bei der üblichen Darstellung des Amplitudenganges angelangt. Wir nennen es (zusammen mit dem unten folgenden Phasengang) auch <strong><span class="cap">Bode</span>-Diagramm</strong>.</p>
 <div id="fig-bode-amp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-bode-amp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -957,6 +962,14 @@ Abb.&nbsp;3.8: <span class="cap">Bode</span>-Diagramm (Amplitudengang)
 </figcaption>
 </figure>
 </div>
+<p>☝️ Was wir hier sehen ist das <span class="cap">Bode</span>-Diagramm eines P-T<sub>1</sub>Gliedes mit <span class="math inline">K_P = 2</span> und <span class="math inline">T_1 = 0.2\,\textrm{s}</span>. Wir können festhalten:</p>
+<ul>
+<li>Bei tiefen Frequenzen entspricht die Verstärkung dem Proportionalbeiwert <span class="math inline">K_P</span> (hier <span class="math inline">K_P = 2</span> → 6&nbsp;dB).</li>
+<li>Bei hohen Frequenzen fällt der Amplitudengang mit 20&nbsp;dB/Dekade ab. Wir erkennen hier typisches <em>Tiefpassverhalten</em>, d.&nbsp;h. hohe Frequenzen werden (je höher desto mehr) abgeschwächt. (Das P-T<sub>1</sub> wird daher auch als *Tiefpass 1.&nbsp;Ordnung bezeichnet.)</li>
+<li>Bei der sogenannten Grenzfrequenz <span class="math inline">\omega_1</span> (auch Eckfrequenz oder Knickfrequenz genannt) ist die Verstärkung um 3&nbsp;dB gegenüber dem Anfangswert abgefallen. Die Grenzfrequenz entspricht dem Kehrwert der Zeitkonstante. <span class="math display">
+  \omega_1 = \frac{1}{T_1}
+  </span> Vereinfacht lässt sich der Amplitudengang durch zwei Geraden approximieren, die sich bei der Grenzfrequenz schneiden. Wir werden dies so handhaben, wenn wir von Hand ein <span class="cap">Bode</span>-Diagramm skizzieren.</li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled" title="dB-Werte">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1066,7 +1079,7 @@ Abb.&nbsp;3.8: <span class="cap">Bode</span>-Diagramm (Amplitudengang)
 </div>
 <p>Will man aus einem dB-Wert den (linearen) Wert bestimmen, so muss man <a href="#eq-dB" class="quarto-xref">Gleichung&nbsp;<span>3.4</span></a> umstellen und erhält:</p>
 <p><span id="eq-dB2lin"><span class="math display">
-A = 10^{\frac{A_{\textsf{dB}}}{20}}
+A = 10^{A_{\textsf{dB}}/20}
 \tag{3.5}</span></span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Exkurs: Logarithmische Darstellung">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -1099,7 +1112,26 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </figcaption>
 </figure>
 </div>
-<p>Der <strong>Frequenzgang</strong> wird also mit zwei Diagrammen dargestellt, einerseits dem <strong>Amplitudengang</strong> und andererseits dem <strong>Phasengang</strong>, die wir zusammen als <strong><span class="cap">Bode</span>-Diagramm</strong> bezeichnen.</p>
+<p>Zum Phasengang des hier betrachteten P-T<sub>1</sub>-Gliedes lässt sich festhalten:</p>
+<ul>
+<li>Die Phasenverschiebung startet bei 0° und strebt für hohe Frequenzen asymptotisch gegen -90°. Das Ausgangssignal läuft aufgrund der <em>Verzögerung</em> (<em>Energiespeicher</em>) dem Eingangssignal hinterher (negative Phasenverschiebung) bis zu einer maximalen Phasenverschiebung von -90°.</li>
+<li>Bei der Grenzfrequenz <span class="math inline">\omega_1</span> beträgt die Phasenverschiebung gerade -45°.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="Fazit Frequenzgang">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Fazit Frequenzgang
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Der <strong>Frequenzgang</strong> beschreibt die Verstärkung (Amplitudenverhältnis) und die Phasenverschiebung bei sinusförmiger Anregung in Abhängigkeit der Frequenz.</p>
+<p>Der Frequenzgang besteht aus dem <strong>Amplitudengang</strong> und dem <strong>Phasengang</strong> und wird im <strong><span class="cap">Bode</span>-Diagramm</strong> grafisch dargestellt.</p>
+</div>
+</div>
+<p>Im nächsten Block schauen wir an, wie der Frequenzgang mathematisch beschrieben werden kann und wie er für die typischen Grundglieder aussieht.</p>
 </section>
 </section>
 <section id="aufgaben" class="level2 unnumbered">
@@ -1109,7 +1141,7 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </button>
 <div id="aufgaben1">
 <div id="ex-3-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1118,7 +1150,7 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>Identifiziere die Parameter der nachfolgend gezeigten Schwingung.</li>
@@ -1145,7 +1177,7 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </div>
 </div>
 <div id="ex-3-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1154,7 +1186,7 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Simuliere die Sinusantwort eines P-T<sub>2</sub>-Gliedes mit <span class="math inline">K_P = 5</span>, <span class="math inline">T_1 = 1\,\mathrm{s}</span> und <span class="math inline">T_2 = 0.1\,\mathrm{s}</span> in <span class="cap">Boris</span> und bestimme das Amplitudenverhältnis <span class="math inline">A</span> sowie die Phasenverschiebung <span class="math inline">\varphi</span> für eine Eingangsfrequenz von <span class="math inline">\omega = 20\,\mathrm{rad/s}</span>.</p>
 <p><span class="math display">
@@ -1168,7 +1200,7 @@ A =
 </div>
 </div>
 <div id="ex-3-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1177,7 +1209,7 @@ A =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>Bestimme (grob) das Amplitudenverhältnis <span class="math inline">A</span> und die Phasenverschiebung <span class="math inline">\varphi</span> anhand des nachfolgend gezeigten <span class="cap">Bode</span> für eine Kreisfrequenz <span class="math inline">\omega = 30\,\mathrm{rad/s}</span>.</p>
@@ -1955,7 +1987,7 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>Je nach Taschenrechner(-einstellung) muss beachtet werden, ob das Argument der Winkelfunktionen in Grad <span class="co">[</span><span class="ot">°</span><span class="co">]</span> oder Bogenmass <span class="co">[</span><span class="ot">rad</span><span class="co">]</span> angegeben werden muss (bzw. zurückgegeben wird im Falle der Arcusfunktionen). In Python (und anderen Programmiersprachen/Mathematikprogrammen) ist Bogenmass <span class="co">[</span><span class="ot">rad</span><span class="co">]</span> Standard.</span>
 <span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sinusantwort &amp; Frequenzgang</span></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sinusantwort</span></span>
 <span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>In Anlehnung an die Sprungantwort können wir uns nun folgende Frage stellen: </span>
 <span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
@@ -2142,187 +2174,208 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a>::: {#tbl-bode-pt1}</span>
 <span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kreisfrequenz <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$\omega$ <span class="co">[</span><span class="ot">rad/s</span><span class="co">]</span> <span class="pp">|</span> Amplitudenverhältnis <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$A$ <span class="pp">|</span> Phasenverschiebung <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>$\varphi$ <span class="co">[</span><span class="ot">°</span><span class="co">]</span> <span class="pp">|</span></span>
-<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------:</span>           <span class="pp">|:----------:</span>            <span class="pp">|:-----------:</span>                 <span class="pp">|</span></span>
-<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.1                    <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.2                    <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.5                    <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1                      <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2                      <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5                      <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 10                     <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 20                     <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 50                     <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 100                    <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 200                    <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span></span>
-<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1000                   <span class="pp">|</span>                        <span class="pp">|</span>                              <span class="pp">|</span> </span>
-<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a>Experimentelle Ermittlung des Frequenzgangs</span>
-<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a><span class="fu">## Darstellung des Frequenzgangs</span></span>
-<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>Eine grafische Darstellung ist immer zugänglicher als tabellierte Werte oder eine mathematische Funktion, daher wollen wir uns überlegen, wie der Frequenzgang grafisch dargestellt werden kann. </span>
-<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### Amplitudengang</span></span>
-<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a>Um z. B. das Amplitudenverhältnis (Verstärkung) über der Frequenz zu sehen, könnten wir diese beiden Grössen gegeneinander auftragen. Dann landen wir bei folgendem Diagramm:</span>
-<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a><span class="al">![Amplitudengang (linear)](../images/diagrams/Amplitudengang_lin.svg)</span>{#fig-amp-lin}</span>
-<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a>Ein Problem der obigen Darstellung ist, dass wir die niedrigen Frequenzen nicht fein aufgelöst sehen. Es bietet sich daher eine **logarithmische Frequenzachse** an.</span>
-<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="al">![Amplitudengang (log. Frequenzachse)](../images/diagrams/Amplitudengang_log.svg)</span>{#fig-amp-log}</span>
-<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a>Nun haben wir eine sehr gute Auflösung auch bei (sehr) tiefen Frequenzen. Etwas ähnliches machen wir bei der vertikalen Achse. Wir verwenden dabei allerdings nicht eine logarithmische Diagrammachse, doch rechnen die Amplitudenverstärkung vorgängig um - und zwar in die berühmte logarithmische **dB-Skala (Dezibel)**. Der dB-Wert wird gemäss @eq-dB berechnet, wobei $\log()$ dem Zehnerlogarithmus entspricht.</span>
-<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a>A_{\textsf{dB}} = 20 \cdot \log(A)</span>
-<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a>$$ {#eq-dB}</span>
-<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a>Wenn wir nun die Amplitudenverstärkung in dB über der logarithmischen Frequenzachse auftragen, sind wir bei der üblichen Darstellung des Amplitudenganges angelangt. Wir nennen es (zusammen mit dem Phasengang) auch **&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm**.</span>
-<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm (Amplitudengang)](../images/diagrams/Bode_Amp.svg)</span>{#fig-bode-amp}</span>
-<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------:</span>           <span class="pp">|:----:</span>     <span class="pp">|:-----------:</span>                 <span class="pp">|</span></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.1                    <span class="pp">|</span> 2.000     <span class="pp">|</span> -1.15                        <span class="pp">|</span> </span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.2                    <span class="pp">|</span> 1.998     <span class="pp">|</span> -2.29                        <span class="pp">|</span> </span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.5                    <span class="pp">|</span> 1.990     <span class="pp">|</span> -5.71                        <span class="pp">|</span> </span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1                      <span class="pp">|</span> 1.961     <span class="pp">|</span> -11.31                       <span class="pp">|</span> </span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2                      <span class="pp">|</span> 1.857     <span class="pp">|</span> -21.80                       <span class="pp">|</span> </span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5                      <span class="pp">|</span> 1.414     <span class="pp">|</span> -45.00                       <span class="pp">|</span> </span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 10                     <span class="pp">|</span> 0.894     <span class="pp">|</span> -63.43                       <span class="pp">|</span> </span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 20                     <span class="pp">|</span> 0.485     <span class="pp">|</span> -75.96                       <span class="pp">|</span> </span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 50                     <span class="pp">|</span> 0.199     <span class="pp">|</span> -84.29                       <span class="pp">|</span> </span>
+<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 100                    <span class="pp">|</span> 0.100     <span class="pp">|</span> -87.14                       <span class="pp">|</span> </span>
+<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 200                    <span class="pp">|</span> 0.050     <span class="pp">|</span> -88.57                       <span class="pp">|</span></span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 500                    <span class="pp">|</span> 0.020     <span class="pp">|</span> -89.43                       <span class="pp">|</span></span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1000                   <span class="pp">|</span> 0.010     <span class="pp">|</span> -89.71                       <span class="pp">|</span> </span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a>Experimentelle Ermittlung des Frequenzgangs</span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a><span class="fu">## Darstellung des Frequenzgangs</span></span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>Eine grafische Darstellung ist immer zugänglicher als tabellierte Werte oder eine mathematische Funktion, daher wollen wir uns überlegen, wie der Frequenzgang grafisch dargestellt werden kann. </span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a><span class="fu">### Amplitudengang</span></span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a>Um z. B. das Amplitudenverhältnis (Verstärkung) über der Frequenz zu sehen, könnten wir die oben ermittelten Werte gegeneinander auftragen ($A$ vs. $\omega$). Dann landen wir bei folgendem Diagramm:</span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a><span class="al">![Amplitudengang (linear)](../images/diagrams/Amplitudengang_lin.svg)</span>{#fig-amp-lin}</span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a>Ein Problem der obigen Darstellung ist, dass wir die niedrigen Frequenzen nicht fein aufgelöst sehen. Es bietet sich daher eine **logarithmische Frequenzachse** an.</span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="al">![Amplitudengang (log. Frequenzachse)](../images/diagrams/Amplitudengang_log.svg)</span>{#fig-amp-log}</span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a>Nun haben wir eine sehr gute Auflösung auch bei (sehr) tiefen Frequenzen. Etwas ähnliches machen wir bei der vertikalen Achse. Wir verwenden dabei allerdings nicht eine logarithmische Diagrammachse, sondern rechnen die Amplitudenverstärkung vorgängig um - und zwar in die berühmte logarithmische **dB-Skala (Dezibel-Skala)**. Der dB-Wert wird gemäss @eq-dB berechnet, wobei $\log()$ dem Zehnerlogarithmus entspricht.</span>
+<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a>A_{\textsf{dB}} = 20 \cdot \log(A)</span>
+<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a>$$ {#eq-dB}</span>
+<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a>Wenn wir nun die Amplitudenverstärkung in dB über der logarithmischen Frequenzachse auftragen, sind wir bei der üblichen Darstellung des Amplitudenganges angelangt. Wir nennen es (zusammen mit dem unten folgenden Phasengang) auch **&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm**.</span>
+<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm (Amplitudengang)](../images/diagrams/Bode_Amp.svg)</span>{#fig-bode-amp}</span>
 <span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="dB-Werte"}</span>
-<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a>Die dB-Werte sind am Anfang nicht sonderlich intuitiv, doch es wird sich zeigen, dass sie zum Rechnen sehr praktisch sind. Aufgrund des Logarithmierens wird eine Multiplikation zu einer Addition (d. h. eine Erhöhung um 20 dB entspricht also einer 10-fachen Verstärkung bzw. 40 dB einer 100-fachen Verstärkung usw.).</span>
-<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a>Es lohnt sich kurz ein paar charakteristische dB-Werte zu tabellieren:</span>
-<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $A$ (linear)      <span class="pp">|</span> $A_{\textsf{dB}}$ (Dezibel) <span class="pp">|</span></span>
-<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---:</span>             <span class="pp">| :---:</span>             <span class="pp">|</span></span>
-<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.001 (=1/1000)   <span class="pp">|</span> -60               <span class="pp">|</span></span>
-<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.01 (=1/100)     <span class="pp">|</span> -40               <span class="pp">|</span></span>
-<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.1 (=1/10)       <span class="pp">|</span> -20               <span class="pp">|</span></span>
-<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.5 (=1/2)        <span class="pp">|</span> -6                <span class="pp">|</span></span>
-<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $1/\sqrt{2}$      <span class="pp">|</span> -3                <span class="pp">|</span></span>
-<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **1**             | **0**             <span class="pp">|</span></span>
-<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $\sqrt{2}$        <span class="pp">|</span> 3                 <span class="pp">|</span></span>
-<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2                 <span class="pp">|</span> 6                 <span class="pp">|</span></span>
-<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 10                <span class="pp">|</span> 20                <span class="pp">|</span></span>
-<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 100               <span class="pp">|</span> 40                <span class="pp">|</span></span>
-<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1000              <span class="pp">|</span> 60                <span class="pp">|</span></span>
-<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Exkurs: Logarithmus-Rechenregeln"}</span>
-<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a>Das Logarithmieren hat einige nützliche Eigenschaften, die wir in den bekannten Logarithmusgesetzen sehr schön sehen.</span>
-<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a>  1) Produktgesetz: Der Logarithmus eines Produktes ist gleich der Summe der Logarithmen.</span>
-<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a>\log(x \cdot y) = \log(x) + \log(y)</span>
-<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a>  2) Potenzgesetz: Der Logarithmus einer Potenzierung wird zu einer Multiplikation mit dem Exponenten.</span>
-<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a>\log(x^y) = y \cdot \log(x)</span>
-<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a>  3) Spezielle Werte</span>
-<span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a>\log(1) &amp;= 0 <span class="sc">\\</span></span>
-<span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a>&amp; <span class="sc">\\</span></span>
-<span id="cb6-421"><a href="#cb6-421" aria-hidden="true" tabindex="-1"></a>\log(10) &amp;= 1 \qquad \textsf{(Zehnerlogarithmus)} <span class="sc">\\</span></span>
-<span id="cb6-422"><a href="#cb6-422" aria-hidden="true" tabindex="-1"></a>\log(0.1) &amp;= -1 \qquad \textsf{(Zehnerlogarithmus)}</span>
-<span id="cb6-423"><a href="#cb6-423" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a>☝️ Was wir hier sehen ist das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm eines P-T~1~Gliedes mit $K_P = 2$ und $T_1 = 0.2\,\textrm{s}$. Wir können festhalten:</span>
+<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Bei tiefen Frequenzen entspricht die Verstärkung dem Proportionalbeiwert $K_P$ (hier $K_P = 2$ <span class="dv">&amp;rarr;</span> 6<span class="dv">&amp;nbsp;</span>dB).</span>
+<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Bei hohen Frequenzen fällt der Amplitudengang mit 20<span class="dv">&amp;nbsp;</span>dB/Dekade ab. Wir erkennen hier typisches *Tiefpassverhalten*, d.<span class="dv">&amp;nbsp;</span>h. hohe Frequenzen werden (je höher desto mehr) abgeschwächt. (Das P-T~1~ wird daher auch als *Tiefpass 1.<span class="dv">&amp;nbsp;</span>Ordnung bezeichnet.)</span>
+<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Bei der sogenannten Grenzfrequenz $\omega_1$ (auch Eckfrequenz oder Knickfrequenz genannt) ist die Verstärkung um 3<span class="dv">&amp;nbsp;</span>dB gegenüber dem Anfangswert abgefallen. Die Grenzfrequenz entspricht dem Kehrwert der Zeitkonstante.</span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a>      $$</span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a>      \omega_1 = \frac{1}{T_1}</span>
+<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a>      $$</span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>  Vereinfacht lässt sich der Amplitudengang durch zwei Geraden approximieren, die sich bei der Grenzfrequenz schneiden. Wir werden dies so handhaben, wenn wir von Hand ein <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm skizzieren.</span>
+<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="dB-Werte"}</span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a>Die dB-Werte sind am Anfang nicht sonderlich intuitiv, doch es wird sich zeigen, dass sie zum Rechnen sehr praktisch sind. Aufgrund des Logarithmierens wird eine Multiplikation zu einer Addition (d. h. eine Erhöhung um 20 dB entspricht also einer 10-fachen Verstärkung bzw. 40 dB einer 100-fachen Verstärkung usw.).</span>
+<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a>Es lohnt sich kurz ein paar charakteristische dB-Werte zu tabellieren:</span>
+<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $A$ (linear)      <span class="pp">|</span> $A_{\textsf{dB}}$ (Dezibel) <span class="pp">|</span></span>
+<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---:</span>             <span class="pp">| :---:</span>             <span class="pp">|</span></span>
+<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.001 (=1/1000)   <span class="pp">|</span> -60               <span class="pp">|</span></span>
+<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.01 (=1/100)     <span class="pp">|</span> -40               <span class="pp">|</span></span>
+<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.1 (=1/10)       <span class="pp">|</span> -20               <span class="pp">|</span></span>
+<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0.5 (=1/2)        <span class="pp">|</span> -6                <span class="pp">|</span></span>
+<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $1/\sqrt{2}$      <span class="pp">|</span> -3                <span class="pp">|</span></span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **1**             | **0**             <span class="pp">|</span></span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $\sqrt{2}$        <span class="pp">|</span> 3                 <span class="pp">|</span></span>
+<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2                 <span class="pp">|</span> 6                 <span class="pp">|</span></span>
+<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 10                <span class="pp">|</span> 20                <span class="pp">|</span></span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 100               <span class="pp">|</span> 40                <span class="pp">|</span></span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1000              <span class="pp">|</span> 60                <span class="pp">|</span></span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Exkurs: Logarithmus-Rechenregeln"}</span>
+<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a>Das Logarithmieren hat einige nützliche Eigenschaften, die wir in den bekannten Logarithmusgesetzen sehr schön sehen.</span>
+<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a>  1) Produktgesetz: Der Logarithmus eines Produktes ist gleich der Summe der Logarithmen.</span>
+<span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a>\log(x \cdot y) = \log(x) + \log(y)</span>
+<span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a>  2) Potenzgesetz: Der Logarithmus einer Potenzierung wird zu einer Multiplikation mit dem Exponenten.</span>
+<span id="cb6-421"><a href="#cb6-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-422"><a href="#cb6-422" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-423"><a href="#cb6-423" aria-hidden="true" tabindex="-1"></a>\log(x^y) = y \cdot \log(x)</span>
 <span id="cb6-424"><a href="#cb6-424" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb6-425"><a href="#cb6-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-426"><a href="#cb6-426" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-426"><a href="#cb6-426" aria-hidden="true" tabindex="-1"></a>  3) Spezielle Werte</span>
 <span id="cb6-427"><a href="#cb6-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-428"><a href="#cb6-428" aria-hidden="true" tabindex="-1"></a>Will man aus einem dB-Wert den (linearen) Wert bestimmen, so muss man @eq-dB umstellen und erhält:</span>
-<span id="cb6-429"><a href="#cb6-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-430"><a href="#cb6-430" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-431"><a href="#cb6-431" aria-hidden="true" tabindex="-1"></a>A = 10^{\frac{A_{\textsf{dB}}}{20}}</span>
-<span id="cb6-432"><a href="#cb6-432" aria-hidden="true" tabindex="-1"></a>$$ {#eq-dB2lin}</span>
-<span id="cb6-433"><a href="#cb6-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-434"><a href="#cb6-434" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Exkurs: Logarithmische Darstellung"}</span>
-<span id="cb6-435"><a href="#cb6-435" aria-hidden="true" tabindex="-1"></a>Im <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm (Amplitudengang) haben wir nun im Prinzip eine doppelt-logarithmische Darstellung (logarithmische Frequenzachse und logarithmische dB-Skala). Es lohnt sich kurz zu überlegen, wie verschiedene Funktionsverläufe darin aussehen. In der folgenden Abbildung sehen wir verschiedene Funktionsverläufe (links in der gewohnten (linearen) und rechts in logarithmischer Darstellung).</span>
+<span id="cb6-428"><a href="#cb6-428" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-429"><a href="#cb6-429" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb6-430"><a href="#cb6-430" aria-hidden="true" tabindex="-1"></a>\log(1) &amp;= 0 <span class="sc">\\</span></span>
+<span id="cb6-431"><a href="#cb6-431" aria-hidden="true" tabindex="-1"></a>&amp; <span class="sc">\\</span></span>
+<span id="cb6-432"><a href="#cb6-432" aria-hidden="true" tabindex="-1"></a>\log(10) &amp;= 1 \qquad \textsf{(Zehnerlogarithmus)} <span class="sc">\\</span></span>
+<span id="cb6-433"><a href="#cb6-433" aria-hidden="true" tabindex="-1"></a>\log(0.1) &amp;= -1 \qquad \textsf{(Zehnerlogarithmus)}</span>
+<span id="cb6-434"><a href="#cb6-434" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb6-435"><a href="#cb6-435" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb6-436"><a href="#cb6-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-437"><a href="#cb6-437" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/log_Plotting.svg)</span></span>
+<span id="cb6-437"><a href="#cb6-437" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-438"><a href="#cb6-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-439"><a href="#cb6-439" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-439"><a href="#cb6-439" aria-hidden="true" tabindex="-1"></a>Will man aus einem dB-Wert den (linearen) Wert bestimmen, so muss man @eq-dB umstellen und erhält:</span>
 <span id="cb6-440"><a href="#cb6-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-441"><a href="#cb6-441" aria-hidden="true" tabindex="-1"></a><span class="fu">### Phasengang</span></span>
-<span id="cb6-442"><a href="#cb6-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a>Die Phasenverschiebung plotten wir in einem separaten Diagramm ebenfalls mit einer logarithmischen Frequenzachse, wobei wir die Phasenverschiebung $\varphi$ in Grad <span class="co">[</span><span class="ot">°</span><span class="co">]</span> eintragen. Diese Darstellung wird Phasengang genannt und ist ebenfalls Teil des <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramms.</span>
+<span id="cb6-441"><a href="#cb6-441" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-442"><a href="#cb6-442" aria-hidden="true" tabindex="-1"></a>A = 10^{A_{\textsf{dB}}/20}</span>
+<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a>$$ {#eq-dB2lin}</span>
 <span id="cb6-444"><a href="#cb6-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-445"><a href="#cb6-445" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm (Phasengang)](../images/diagrams/Bode_Phase.svg)</span>{#fig-bode-phase}</span>
-<span id="cb6-446"><a href="#cb6-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-447"><a href="#cb6-447" aria-hidden="true" tabindex="-1"></a>Der **Frequenzgang** wird also mit zwei Diagrammen dargestellt, einerseits dem **Amplitudengang** und andererseits dem **Phasengang**, die wir zusammen als **&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm** bezeichnen.</span>
-<span id="cb6-448"><a href="#cb6-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-445"><a href="#cb6-445" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Exkurs: Logarithmische Darstellung"}</span>
+<span id="cb6-446"><a href="#cb6-446" aria-hidden="true" tabindex="-1"></a>Im <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm (Amplitudengang) haben wir nun im Prinzip eine doppelt-logarithmische Darstellung (logarithmische Frequenzachse und logarithmische dB-Skala). Es lohnt sich kurz zu überlegen, wie verschiedene Funktionsverläufe darin aussehen. In der folgenden Abbildung sehen wir verschiedene Funktionsverläufe (links in der gewohnten (linearen) und rechts in logarithmischer Darstellung).</span>
+<span id="cb6-447"><a href="#cb6-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-448"><a href="#cb6-448" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/log_Plotting.svg)</span></span>
 <span id="cb6-449"><a href="#cb6-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-450"><a href="#cb6-450" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb6-450"><a href="#cb6-450" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-451"><a href="#cb6-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-452"><a href="#cb6-452" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
-<span id="cb6-453"><a href="#cb6-453" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben3"</span></span>
-<span id="cb6-454"><a href="#cb6-454" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG03.pdf"</span></span>
-<span id="cb6-455"><a href="#cb6-455" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
-<span id="cb6-456"><a href="#cb6-456" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
-<span id="cb6-457"><a href="#cb6-457" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
-<span id="cb6-458"><a href="#cb6-458" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb6-452"><a href="#cb6-452" aria-hidden="true" tabindex="-1"></a><span class="fu">### Phasengang</span></span>
+<span id="cb6-453"><a href="#cb6-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-454"><a href="#cb6-454" aria-hidden="true" tabindex="-1"></a>Die Phasenverschiebung plotten wir in einem separaten Diagramm ebenfalls mit einer logarithmischen Frequenzachse, wobei wir die Phasenverschiebung $\varphi$ in Grad <span class="co">[</span><span class="ot">°</span><span class="co">]</span> eintragen. Diese Darstellung wird Phasengang genannt und ist ebenfalls Teil des <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramms.</span>
+<span id="cb6-455"><a href="#cb6-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-456"><a href="#cb6-456" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm (Phasengang)](../images/diagrams/Bode_Phase.svg)</span>{#fig-bode-phase}</span>
+<span id="cb6-457"><a href="#cb6-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-458"><a href="#cb6-458" aria-hidden="true" tabindex="-1"></a>Zum Phasengang des hier betrachteten P-T~1~-Gliedes lässt sich festhalten:</span>
 <span id="cb6-459"><a href="#cb6-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-460"><a href="#cb6-460" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben1}</span>
-<span id="cb6-461"><a href="#cb6-461" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-1}</span>
-<span id="cb6-462"><a href="#cb6-462" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.1</span></span>
-<span id="cb6-463"><a href="#cb6-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-464"><a href="#cb6-464" aria-hidden="true" tabindex="-1"></a>a) Identifiziere die Parameter der nachfolgend gezeigten Schwingung.</span>
+<span id="cb6-460"><a href="#cb6-460" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Die Phasenverschiebung startet bei 0° und strebt für hohe Frequenzen asymptotisch gegen -90°. Das Ausgangssignal läuft aufgrund der *Verzögerung* (*Energiespeicher*) dem Eingangssignal hinterher (negative Phasenverschiebung) bis zu einer maximalen Phasenverschiebung von -90°.</span>
+<span id="cb6-461"><a href="#cb6-461" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bei der Grenzfrequenz $\omega_1$ beträgt die Phasenverschiebung gerade -45°.</span>
+<span id="cb6-462"><a href="#cb6-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-463"><a href="#cb6-463" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Fazit Frequenzgang"}</span>
+<span id="cb6-464"><a href="#cb6-464" aria-hidden="true" tabindex="-1"></a>Der **Frequenzgang** beschreibt die Verstärkung (Amplitudenverhältnis) und die Phasenverschiebung bei sinusförmiger Anregung in Abhängigkeit der Frequenz. </span>
 <span id="cb6-465"><a href="#cb6-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-466"><a href="#cb6-466" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1a.svg)</span>{fig-align="center"}</span>
-<span id="cb6-467"><a href="#cb6-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-468"><a href="#cb6-468" aria-hidden="true" tabindex="-1"></a>b) Skizziere nachfolgend die Sinusschwingung mit den folgenden Parametern:</span>
-<span id="cb6-469"><a href="#cb6-469" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Amplitude $\hat{x} = \mathrm{0.6}$</span>
-<span id="cb6-470"><a href="#cb6-470" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Frequenz $f = \mathrm{1\,Hz}$</span>
-<span id="cb6-471"><a href="#cb6-471" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Phasenverschiebung $\varphi = \mathrm{45°}$</span>
+<span id="cb6-466"><a href="#cb6-466" aria-hidden="true" tabindex="-1"></a>Der Frequenzgang besteht aus dem **Amplitudengang** und dem **Phasengang** und wird im **&lt;span class="cap"&gt;Bode&lt;/span&gt;-Diagramm** grafisch dargestellt.</span>
+<span id="cb6-467"><a href="#cb6-467" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-468"><a href="#cb6-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-469"><a href="#cb6-469" aria-hidden="true" tabindex="-1"></a>Im nächsten Block schauen wir an, wie der Frequenzgang mathematisch beschrieben werden kann und wie er für die typischen Grundglieder aussieht. </span>
+<span id="cb6-470"><a href="#cb6-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-471"><a href="#cb6-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
 <span id="cb6-472"><a href="#cb6-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-473"><a href="#cb6-473" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1b.svg)</span>{fig-align="center"}</span>
-<span id="cb6-474"><a href="#cb6-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-476"><a href="#cb6-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-477"><a href="#cb6-477" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
-<span id="cb6-478"><a href="#cb6-478" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
-<span id="cb6-479"><a href="#cb6-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-480"><a href="#cb6-480" aria-hidden="true" tabindex="-1"></a>Simuliere die Sinusantwort eines P-T~2~-Gliedes mit $K_P = 5$, $T_1 = 1\,\mathrm{s}$ und $T_2 = 0.1\,\mathrm{s}$ in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> und bestimme das Amplitudenverhältnis $A$ sowie die Phasenverschiebung $\varphi$ für eine Eingangsfrequenz von $\omega = 20\,\mathrm{rad/s}$.</span>
-<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-482"><a href="#cb6-482" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-483"><a href="#cb6-483" aria-hidden="true" tabindex="-1"></a>A =</span>
-<span id="cb6-484"><a href="#cb6-484" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-485"><a href="#cb6-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-486"><a href="#cb6-486" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-487"><a href="#cb6-487" aria-hidden="true" tabindex="-1"></a>\varphi =</span>
-<span id="cb6-488"><a href="#cb6-488" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-489"><a href="#cb6-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-490"><a href="#cb6-490" aria-hidden="true" tabindex="-1"></a>☝️ Stelle die Simulationsdauer und Zeitschrittweite sinnvoll ein und achte darauf, dass die Messung erst nach abgeschlossenem Einschwingvorgang stattfindet.</span>
-<span id="cb6-491"><a href="#cb6-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-492"><a href="#cb6-492" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-473"><a href="#cb6-473" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb6-474"><a href="#cb6-474" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben3"</span></span>
+<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG03.pdf"</span></span>
+<span id="cb6-476"><a href="#cb6-476" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb6-477"><a href="#cb6-477" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb6-478"><a href="#cb6-478" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb6-479"><a href="#cb6-479" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb6-480"><a href="#cb6-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben1}</span>
+<span id="cb6-482"><a href="#cb6-482" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-1}</span>
+<span id="cb6-483"><a href="#cb6-483" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.1</span></span>
+<span id="cb6-484"><a href="#cb6-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-485"><a href="#cb6-485" aria-hidden="true" tabindex="-1"></a>a) Identifiziere die Parameter der nachfolgend gezeigten Schwingung.</span>
+<span id="cb6-486"><a href="#cb6-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-487"><a href="#cb6-487" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1a.svg)</span>{fig-align="center"}</span>
+<span id="cb6-488"><a href="#cb6-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-489"><a href="#cb6-489" aria-hidden="true" tabindex="-1"></a>b) Skizziere nachfolgend die Sinusschwingung mit den folgenden Parametern:</span>
+<span id="cb6-490"><a href="#cb6-490" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Amplitude $\hat{x} = \mathrm{0.6}$</span>
+<span id="cb6-491"><a href="#cb6-491" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Frequenz $f = \mathrm{1\,Hz}$</span>
+<span id="cb6-492"><a href="#cb6-492" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Phasenverschiebung $\varphi = \mathrm{45°}$</span>
 <span id="cb6-493"><a href="#cb6-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-494"><a href="#cb6-494" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
-<span id="cb6-495"><a href="#cb6-495" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
-<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a>a) Bestimme (grob) das Amplitudenverhältnis $A$ und die Phasenverschiebung $\varphi$ anhand des nachfolgend gezeigten <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> für eine Kreisfrequenz $\omega = 30\,\mathrm{rad/s}$.</span>
-<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/A3_3.svg){fig-align="center"}</span></span>
+<span id="cb6-494"><a href="#cb6-494" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1b.svg)</span>{fig-align="center"}</span>
+<span id="cb6-495"><a href="#cb6-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
+<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
 <span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a><span class="in">    A =</span></span>
-<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a><span class="in">    \varphi =</span></span>
-<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a>b) Welche Amplitude hat das Ausgangssignal gemäss obigem <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm, wenn das Eingangssignal eine Amplitude von 1 und eine Kreisfrequenz von $\omega = 30\,\mathrm{rad/s}$ aufweist?</span>
+<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a>Simuliere die Sinusantwort eines P-T~2~-Gliedes mit $K_P = 5$, $T_1 = 1\,\mathrm{s}$ und $T_2 = 0.1\,\mathrm{s}$ in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> und bestimme das Amplitudenverhältnis $A$ sowie die Phasenverschiebung $\varphi$ für eine Eingangsfrequenz von $\omega = 20\,\mathrm{rad/s}$.</span>
+<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a>A =</span>
+<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a>\varphi =</span>
+<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb6-510"><a href="#cb6-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a><span class="in">    \hat{x}_a = </span></span>
-<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a>☝️ Stelle die Simulationsdauer und Zeitschrittweite sinnvoll ein und achte darauf, dass die Messung erst nach abgeschlossenem Einschwingvorgang stattfindet.</span>
+<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
+<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
+<span id="cb6-517"><a href="#cb6-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a>a) Bestimme (grob) das Amplitudenverhältnis $A$ und die Phasenverschiebung $\varphi$ anhand des nachfolgend gezeigten <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> für eine Kreisfrequenz $\omega = 30\,\mathrm{rad/s}$.</span>
+<span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/A3_3.svg){fig-align="center"}</span></span>
+<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a><span class="in">    A =</span></span>
+<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a><span class="in">    \varphi =</span></span>
+<span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a>b) Welche Amplitude hat das Ausgangssignal gemäss obigem <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm, wenn das Eingangssignal eine Amplitude von 1 und eine Kreisfrequenz von $\omega = 30\,\mathrm{rad/s}$ aufweist?</span>
+<span id="cb6-531"><a href="#cb6-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-532"><a href="#cb6-532" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-533"><a href="#cb6-533" aria-hidden="true" tabindex="-1"></a><span class="in">    \hat{x}_a = </span></span>
+<span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a>::::</span>
 </code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
