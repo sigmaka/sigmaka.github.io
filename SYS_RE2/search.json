@@ -183,6 +183,83 @@
     ]
   },
   {
+    "objectID": "chapters/L04.html",
+    "href": "chapters/L04.html",
+    "title": "4  Frequenzgang",
+    "section": "",
+    "text": "4.1 Auffrischung: Komplexe Zahlen\nNachdem wir im letzten Unterrichtsblock den Frequenzgang eines P-T1-Gliedes experimentell ermittelt haben, werden wir den Frequenzgang nun noch mathematisch definieren und die beiden wichtigen Darstellungsarten - das Bode-Diagramm und das Nyquist-Diagramm - sauber formalisieren.\nFür uns wird vor allem das Bode-Diagramm eine enorm wichtige Rolle spielen, da es u. a. die Grundlage bildet für die Entwurfsverfahren im Frequenzbereich (vgl. Systeme regeln 3).\nDefinitionsgemäss ist der Frequenzgang eine komplexe Grösse, darum müssen wir fit sein im Umgang mit komplexen Zahlen. Komplexe Zahlen erweitern die reelle Zahlenachse um eine “zweite Dimension”, was zur Zahlenebene (komplexe Ebene) führt. Wir werden sehen, dass komplexe Zahlen in der Regelungstechnik sehr nützlich sind, da sie Amplitudengang und Phasengang gemeinsam repräsentieren.\nEine komplexe Zahl z = a + j b besteht i. Allg. aus Realteil a und Imaginärteil b, wobei j = \\sqrt{-1} die imaginäre Einheit1 ist. Die in Gleichung 4.1 gezeigte Schreibweise nennen wir kartesische Form der komplexen Zahl.\nz = a + j b \\quad \\textsf{mit} \\quad \\Re(z) = a \\quad \\textsf{und} \\quad \\Im(z) = b\n\\tag{4.1}\nFür die Darstellung von komplexen Zahlen eignet sich u. a. die komplexe Ebene, wobei die horizontale Achse der altbekannten reellen Achse entspricht und auf der vertikalen Achse der Imaginärteil aufgetragen wird2.\nDamit wird klar, dass eine komplexe Zahl auch folgendermassen geschrieben werden:\nz = |z| \\cdot \\left(\\cos(\\varphi) + j \\, \\sin(\\varphi)\\right)\n\\tag{4.2}\nBetrag |z| (“Länge des Zeigers”) und Phase \\varphi (Winkel von der positiven reellen Achse aus gemessen) können gemäss Pythagoras und Trigonometrie berechnet werden: \n\\begin{align*}\n|z| &= \\sqrt{\\Re(z)^2 + \\Im(z)^2} \\\\\n\\\\\n\\varphi &=\n\\begin{cases}\n\\arctan\\left(\\dfrac{\\Im(z)}{\\Re(z)}\\right) & \\textsf{in Quadrant I und IV} \\\\[1em]\n\\arctan\\left(\\dfrac{\\Im(z)}{\\Re(z)}\\right) \\pm \\pi & \\textsf{in Quadrant II und III} \\\\\n\\end{cases}\n\\end{align*}\nAddieren, Multiplizieren von komplexen Zahlen ist straightforward. Bei der Multiplikation ist zu beachten, dass\nj^2 = -1 \\qquad j^3 = -j \\qquad \\ldots\nist. Bei der Division durch eine komplexe Zahl z = a + jb ist das Erweitern mit der konjugiert komplexen Zahl \\overline{z}\n\\overline{z} = a - j b\nsinnvoll, da damit j aus dem Nenner verschwindet.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L04.html#sec-complex",
+    "href": "chapters/L04.html#sec-complex",
+    "title": "4  Frequenzgang",
+    "section": "",
+    "text": "Wir verwenden hier (wie in der Elektrotechnik üblich) j als die imaginäre Einheit (in der Mathematik wird üblicherweise i verwendet).↩︎\n\n\n\n\n\n\nEine komplexe Zahl ist einem 2D-Vektor sehr ähnlich (also einem Vektor mit einer X- und Y-Koordinate), den man in der XY-Ebene darstellen kann.↩︎\n\n\n\n\n\n\n\n\nAbb. 4.1: Komplexe Ebene\n\n\n\n\n\n\n\n\n\n\n\n\nHinweisTR/Programmiersprachen\n\n\n\nIn vielen Taschenrechnern/Programmiersprachen sind nützliche Funktionen für die komplexen Zahlen implementiert, z. B.\n\nabs(z) für den Betrag,\narg(z) oder angle(z) für den Winkel,\nreal(z) für den Realteil und\nimag(z) für den Imaginärteil.\n\nEbenfalls ist in Programmiersprachen häufig die Funktion atan2(b,a) implementiert. Dies ist die Arkustangensfunktion, die mit zwei Argumenten aufgerufen wird und den Quadranten berücksichtigt.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L04.html#komplexe-exponentialfunktion",
+    "href": "chapters/L04.html#komplexe-exponentialfunktion",
+    "title": "4  Frequenzgang",
+    "section": "4.2 Komplexe Exponentialfunktion",
+    "text": "4.2 Komplexe Exponentialfunktion\nDie Euler-Formel stellt eine fundamentale Verbindung zwischen der komplexen Exponentialfunktion und den trigonometrischen Funktionen her.\n\ne^{j \\varphi} = \\cos(\\varphi) + j \\, \\sin(\\varphi)\n\\tag{4.3}\nDamit wird klar, dass eine komplexe Zahl auch in der Exponentialform (Polarform) dargestellt werden kann:\n\nz = |z| \\cdot e^{j \\varphi}",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L04.html#rotierender-zeiger",
+    "href": "chapters/L04.html#rotierender-zeiger",
+    "title": "4  Frequenzgang",
+    "section": "4.3 Rotierender Zeiger",
+    "text": "4.3 Rotierender Zeiger\nEine Schwingung (vgl. Abschn. 3.1 bzw. Gleichung 3.1) kann mit der komplexen Exponentialfunktion als rotierender Zeiger dargestellt werden3.\n\n\nFür komplexe Zahlen verwenden wir i. Allg. keine spezielle Notation. Wenn Verwechslungsgefahr besteht, verwenden wir den Unterstrich. Zum Beispiel bezeichnet \\underline{x}(t) die komplexe Schwingung, da wir x(t) bereits für die “normale” Sinusschwingung verwendet haben.↩︎\n\n\n\n\\underline{x}(t) = \\hat{x} \\cdot e^{j (\\omega t + \\varphi)}\n\\tag{4.4}\n\n\n\n\n\n\nAbb. 4.2: Zeigerdarstellung\n\n\n\n\n\n\n\n\n\nHinweisExkurs: Komplexe Schwingung\n\n\n\n\n\nDie komplexe Schwingung ist eine mathematische Darstellung und sollte nicht als “reales” Signal aufgefasst werden. Die Projektion auf die reelle bzw. die imaginäre Achse entspricht der bekannten Kosinus- bzw. Sinusschwingung.\n\nDie Repräsentation als komplexe Schwingung hat einige nützliche Eigenschaften. Ein Vorteil besteht darin, dass die Schwingung in einen zeitunabhängigen Teil (komplexe Amplitude oder Phasor genannt) und einen zeitabhängigen (rotierenden) Teil zerlegt werden kann.\n\n\\hat{x} \\cdot e^{j (\\omega t + \\varphi)} = \\underbrace{\\hat{x} \\cdot e^{j \\varphi}}_{\\substack{\\textsf{kompl. Amplitude}\\\\\\textsf{(Phasor)}}} \\cdot \\underbrace{e^{j \\omega t}}_{\\textsf{rotierender Teil}}\n\nDie komplexe Amplitude (Phasor) wird häufig mit einem unterstrichenen Grossbuchstaben geschrieben, d. h. die obige Beziehung wird auch folgendermassen geschrieben:\n\n\\hat{x} \\cdot e^{j (\\omega t + \\varphi)} = \\underline{X} \\cdot e^{j \\omega t}",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L04.html#frequenzgang",
+    "href": "chapters/L04.html#frequenzgang",
+    "title": "4  Frequenzgang",
+    "section": "4.4 Frequenzgang",
+    "text": "4.4 Frequenzgang\nIm letzten Unterrichtsblock haben wir uns mit der Sinusantwort beschäftigt, d. h. wir haben ein Sinussignal in das Übertragungsglied eingespeist und das resultierende sinusförmige Ausgangssignal betrachtet.\nMit den obigen Zusammenhängen können wir das Ein- bzw. Ausgangssignal alternativ als komplexe Schwingung auffassen.\n\n\\begin{align*}\n\\color{blue}\\underline{x_e}(t) &= \\color{blue}\\hat{x}_e \\cdot e^{j \\omega t + \\varphi_e} = \\underline{X_e} \\cdot e^{j \\omega t} \\\\\n\\color{red}\\underline{x_a}(t) &= \\color{red}\\hat{x}_a \\cdot e^{j \\omega t + \\varphi_a} = \\underline{X_a} \\cdot e^{j \\omega t}\n\\end{align*}\n\nDa beide Signale dieselbe Frequenz aufweisen, ist der rotierende Teil e^{j \\omega t} identisch. Die Informationen über die Amplitudenänderung und die Phasenverschiebung stecken also “nur” im zeitunabhängigen Teil - der komplexen Amplitude (Phasor). Die komplexen Amplituden werden grafisch als Zeiger im Zeigerdiagramm dargestellt.\n\n\n\n\n\n\nAbb. 4.3: Zeigerdarstellung von Ein- und Ausgangssignal\n\n\n\nDas Übertragungsverhalten ist bekanntlich als Verhältnis von Aus- zu Eingangssignal definiert und wir sehen nachfolgend, dass sich dabei der rotierende Teil e^{j \\omega t} herauskürzt und das Verhältnis der komplexen Amplituden (Phasoren) verbleibt.\n\n\\frac{\\color{red}\\underline{x_a}(t)}{\\color{blue}\\underline{x_e}(t)} = \\frac{\\color{red}\\hat{x}_a \\cdot e^{j \\varphi_a} \\cdot \\cancel{e^{j \\omega t}}}{\\color{blue}\\hat{x}_e \\cdot e^{j \\varphi_e} \\cdot \\cancel{e^{j \\omega t}}} = \\frac{\\color{red}\\underline{X_a}}{\\color{blue}\\underline{X_e}}\n\nDer Frequenzgang ist nun definiert als das Verhältnis der komplexen Amplitude (=Zeiger) des Ausgangssignals zu derjenigen des Eingangssignals.\n\nF(j\\omega) = \\frac{\\color{red}\\underline{X_a}}{\\color{blue}\\underline{X_e}} = \\frac{\\color{red}\\textsf{Zeiger Ausgang}}{\\color{blue}\\textsf{Zeiger Eingang}}\n\nIn der Regel wird für das Eingangssignal eine Phasenverschiebung \\varphi_e = 0 gewählt (wie in Abb. 4.3 ersichtlich) und dann die Phasenverschiebung des Ausgangssignals einfach mit \\varphi bezeichnet. Damit lässt sich der Frequenzgang schliesslich folgendermassen ausdrücken.\n\nF(j\\omega) = \\frac{\\color{red}\\hat{x}_a}{\\color{blue}\\hat{x}_e} \\cdot \\color{red}e^{j\\varphi}\n\\tag{4.5}\n☝️ Wir erkennen darin schön das Amplitudenverhältnis \\hat{x}_a/\\hat{x}_e und die Phasenverschiebung des Ausgangssignals \\varphi.\n\n4.4.1 Grafische Darstellung des Frequenzganges\nDer Frequenzgang F(j\\omega) ist eine komplexe Funktion, d. h. liefert eine komplexe Grösse zurück. Für die Grafische Darstellung gibt es nun im Wesentlichen zwei Möglichkeiten:\n\nWir plotten den Betrag und die Phase von F(j\\omega) über der Kreisfrequenz in separaten Diagrammen → Dies ergibt das bekannte Bode-Diagramm (Amplituden- und Phasengang), welches wir bereits kennengelernt haben.\nWir plotten den Realteil und den Imaginärteil von F(j\\omega) in der komplexen Ebene mit der Kreisfrequenz als Parameter → Diese Darstellung nennen wir Nyquist-Diagramm.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L04.html#frequenzgang-p-t1",
+    "href": "chapters/L04.html#frequenzgang-p-t1",
+    "title": "4  Frequenzgang",
+    "section": "4.5 Frequenzgang P-T1",
+    "text": "4.5 Frequenzgang P-T1\nIm letzten Unterrichtsblock haben wir den Frequenzgang eines P-T1-Gliedes experimentell ermittelt, d. h. wir wissen bereits grob, wie das Bode-Diagramm (Amplituden- und Phasengang) aussieht. Nachfolgend wollen wir den Frequenzgang des P-T1-Gliedes mathematisch herleiten.\n☝️ Dies wird hier der Vollständigkeit gemacht und ist nicht Teil des Prüfungsstoffes. Wir werden später die Frequenzgänge aller Grundglieder in unserer Tabelle ergänzen.\nDas Übertragungsverhalten eines P-T1-Gliedes wird im Zeitbereich durch die folgende Differentialgleichung (DGL) beschrieben:\n\nT_1 \\cdot \\frac{\\mathrm{d}}{\\mathrm{d}t} x_a(t) + x_a(t) = K_P \\cdot x_e(t)\n\nUm den Frequenzgang F(j \\omega) zu ermitteln, setzen wir für das Eingangs- bzw. Ausgangssignal nun die komplexen Schwingungen ein\n\n\\begin{align*}\n\\underline{x_e}(t) &= \\hat{x}_e \\cdot e^{j \\omega t} \\\\\n\\underline{x_a}(t) &= \\hat{x}_a \\cdot e^{j \\omega t + \\varphi}\n\\end{align*}\n\nIn der DGL tritt die Ableitung auf, d. h. wir müssen \\underline{x_a}(t) ableiten. Was auf den ersten Blick kompliziert scheint, ist äusserst einfach. Wie du vermutlich weisst, entspricht die Ableitung der Exponentialfunktion wieder der Exponentialfunktion, d. h. \\frac{\\mathrm{d}}{\\mathrm{d}t} e^t = e^t.\n\n\\frac{\\mathrm{d}}{\\mathrm{d}t} \\underline{x_a}(t) = j \\omega \\cdot \\hat{x}_a \\cdot e^{j \\omega t + \\varphi} = j \\omega \\cdot \\underline{x_a}(t)\n\nDie Ableitung wird also sehr einfach. Wir erkennen in obiger Beziehung, dass die zeitliche Ableitung zu einer Multiplikation mit j \\omega wird. Dies ist der eigentliche Kern der Transformation in den Frequenzbereich.\nEingesetzt sieht die ursprüngliche DGL nun folgendermassen aus. Wir verwenden im Folgenden nur noch die komplexen Amplituden \\underline{X_e} und \\underline{X_a}, da die Zeitabhängigkeit keine Rolle mehr spielt (→ Frequenzbereich!).\n\nT_1 \\cdot j \\omega \\cdot \\underline{X_a} + \\underline{X_a} = K_P \\cdot \\underline{X_e}\n\nDie ursprüngliche (mühsame) Differentialgleichung hat sich also in eine einfache algebraische Gleichung verwandelt und der Frequenzgang kann sehr einfach bestimmt werden.\n\nF(j\\omega) = \\frac{\\underline{X_a}}{\\underline{X_e}} = \\frac{K_P}{1 + j \\omega T_1}\n\\tag{4.6}\nDer Frequenzgang F(j \\omega) ist eine komplexe Funktion. Der Betrag davon ist der bekannte Amplitudengang:\n\nA(\\omega) = |F(j \\omega)| = \\frac{K_P}{\\sqrt{1 + (\\omega T_1)^2}}\n\nRechnen wir A(\\omega) in Dezibel um (vgl. Gleichung 3.4) und stellen dies grafisch dar, erhalten wir die bekannte Darstellung im Bode-Diagramm.\n☝️ Die nachfolgend gezeigten Verläufe entsprechen dem P-T1-Glied aus dem letzten Block mit K_P = 2 und T_1 = 0.2 \\, \\mathrm{s}.\n\n\n\n\n\n\nAbb. 4.4: Bode-Diagramm (Amplitudengang)\n\n\n\nDie Phase von F(j \\omega) entspricht dem Phasengang.\n\n\\varphi(\\omega) = \\angle F(j \\omega) = \\arctan\\left(\\frac{\\Im(F(j \\omega))}{\\Re(F(j \\omega))}\\right) = \\arctan(-\\omega T_1) = -\\arctan(\\omega T_1)\n\nAuch hier kennen wir die grafische Darstellung bereits aus dem letzten Block.\n\n\n\n\n\n\nAbb. 4.5: Bode-Diagramm (Phasengang)\n\n\n\nAlternativ zum obigen Bode-Diagramm können wir den Frequenzgang des P-T1-Gliedes auch im Nyquist-Diagramm darstellen. Dabei wird der Frequenzgang in der komplexen Ebene dargestellt und es gibt keine explizite Frequenzachse. (Die Frequenz ist der Parameter der Kurve und ist in jedem Punkt anders. Häufig werden daher einige Punkte der Kurve mit dem Frequenzwert versehen und/oder die Richtung, in der die Frequenz zunimmt, mit einem Pfeil angezeigt.)\n\n\n\n\n\n\nAbb. 4.6: Nyquist-Diagramm",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/L04.html#aufgaben",
+    "href": "chapters/L04.html#aufgaben",
+    "title": "4  Frequenzgang",
+    "section": "Aufgaben",
+    "text": "Aufgaben\n\n\n\n\n\n\n\n\n\n\nTippAufgabe 4.1\n\n\n\n\n\nWie wir oben gesehen haben, lautet der Frequenzgang des P-T1-Gliedes:\n\nF(j\\omega) = \\frac{K_P}{1 + j \\omega T_1}\n\nBestimme übungshalber die Beziehungen für den Realteil, den Imaginärteil, den Betrag und die Phase von F(j\\omega).\n\n\\Re\\left(F(j\\omega)\\right) =\n\n\n\\Im\\left(F(j\\omega)\\right) =\n\n\nA(\\omega) = |F(j\\omega)| =\n\n\n\\varphi(\\omega) = \\angle F(j \\omega) =\n\n\n\n\n\n\n\n\n\n\nTippAufgabe 4.2\n\n\n\n\n\n\nNachfolgend ist das Bode-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.\n\n\n\nNachfolgend ist das Nyquist-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.\n\n\n\n\n\n\n\n\n\n\n\nTippAufgabe 4.3\n\n\n\n\n\nDer Frequenzgang eines P-T2-Gliedes (Reihenschaltung von zwei P-T1-Gliedern) ist gegeben durch:\n\nF(j\\omega) = \\frac{K_P}{(1 + j \\omega T_1) \\cdot (1 + j \\omega T_2)}\n\nSkizziere nachfolgend den Amplitudengang und den Phasengang grob für ein P-T2-Glied mit K_P = 3.16 sowie T_1 = 25 \\, \\mathrm{s} und T_2 = 0.02 \\, \\mathrm{s}.",
+    "crumbs": [
+      "Unterrichtseinheiten",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Frequenzgang</span>"
+    ]
+  },
+  {
     "objectID": "chapters/A01.html",
     "href": "chapters/A01.html",
     "title": "Anhang A — Refresher",
