@@ -118,3 +118,20 @@ video {
   position: absolute;
   left: 0;
 }
+
+.cb-list ul {
+  list-style: none;
+  padding-left: 1.0rem;
+}
+
+.cb-list li {
+  position: relative;
+  padding-left: 1.8em;
+}
+
+.cb-list li::before {
+  font-family: "bootstrap-icons";
+  content: "\F584";
+  position: absolute;
+  left: 0;
+}
