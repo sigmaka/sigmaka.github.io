@@ -1148,12 +1148,12 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </section>
 <section id="aufgaben" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
-<button class="pdf-export" data-target="aufgaben3" data-filename="SYS_RE1_AUFG03.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
+<button class="pdf-export" data-target="aufgaben3" data-filename="SYS_RE2_AUFG03.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
 <img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
 </button>
-<div id="aufgaben1">
+<div id="aufgaben3">
 <div id="ex-3-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1162,7 +1162,7 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>Identifiziere die Parameter der nachfolgend gezeigten Schwingung.</li>
@@ -1185,11 +1185,47 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 <p><img src="../images/diagrams/A3_1b.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+x(t) = \hat{x} \cdot \sin\left( \omega t + \varphi \right) = \hat{x} \cdot \sin\left(2 \pi f t + \varphi \right)
+</span></p>
+<p><span class="math display">
+\begin{align*}
+\hat{x} &amp;= 2.5 \\
+\omega &amp;= 31.4 \, \mathrm{rad/s} \quad \textsf{alternativ} \quad f = 5 \, \mathrm{Hz} \\
+\varphi &amp;= \frac{\pi}{6} = 30°
+\end{align*}
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A3_1b_LSG.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-3-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1198,7 +1234,7 @@ Abb.&nbsp;3.9: <span class="cap">Bode</span>-Diagramm (Phasengang)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Simuliere die Sinusantwort eines P-T<sub>2</sub>-Gliedes mit <span class="math inline">K_P = 5</span>, <span class="math inline">T_1 = 1\,\mathrm{s}</span> und <span class="math inline">T_2 = 0.1\,\mathrm{s}</span> in <span class="cap">Boris</span> und bestimme das Amplitudenverhältnis <span class="math inline">A</span> sowie die Phasenverschiebung <span class="math inline">\varphi</span> für eine Eingangsfrequenz von <span class="math inline">\omega = 20\,\mathrm{rad/s}</span>.</p>
 <p><span class="math display">
@@ -1208,11 +1244,50 @@ A =
 \varphi =
 </span></p>
 <p>☝️ Stelle die Simulationsdauer und Zeitschrittweite sinnvoll ein und achte darauf, dass die Messung erst nach abgeschlossenem Einschwingvorgang stattfindet.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A3_2_LSG_BSB.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A3_2_LSG.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Die Amplitude des Eingangssignal wird idealerweise auf 1 gesetzt, dann entspricht die Amplitude des Ausgangssignals direkt dem gesuchten Amplitudenverhältnis <span class="math inline">A</span>.</p>
+<p><span class="math display">
+A = \frac{\hat{x}_a}{\hat{x}_a} \approx 0.11 = -19 \, \mathrm{dB}
+</span></p>
+<p>Die Phasenverschiebung kann z.&nbsp;B. bestimmt werden, in dem die Zeit zwischen den Nulldurchgängen <span class="math inline">\Delta t</span> bestimmt wird und dann mit der Kreisfrequenz <span class="math inline">\omega</span> multipliziert wird.</p>
+<p><span class="math display">
+\varphi = - \omega \cdot \Delta t \approx - 20 \, \mathrm{rad/s} \cdot 0.13 \, \mathrm{s} = -2.6 \, \mathrm{rad} = -149°
+</span></p>
+<p>☝️ Inzwischen können wir diese Aufgabe viel einfacher direkt mit dem <span class="cap">Bode</span>-Diagramm lösen, in dem wir die Werte direkt ablesen können.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A3_2_LSG_Bode.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-3-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1221,10 +1296,10 @@ A =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li><p>Bestimme (grob) das Amplitudenverhältnis <span class="math inline">A</span> und die Phasenverschiebung <span class="math inline">\varphi</span> anhand des nachfolgend gezeigten <span class="cap">Bode</span> für eine Kreisfrequenz <span class="math inline">\omega = 30\,\mathrm{rad/s}</span>.</p>
+<li><p>Bestimme (grob) das Amplitudenverhältnis <span class="math inline">A</span> und die Phasenverschiebung <span class="math inline">\varphi</span> anhand des nachfolgend gezeigten <span class="cap">Bode</span>-Diagrams für eine Kreisfrequenz <span class="math inline">\omega = 30\,\mathrm{rad/s}</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/diagrams/A3_3.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -1241,6 +1316,33 @@ A =
 \hat{x}_a =
 </span></p></li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p><span class="math display">
+\begin{align*}
+A &amp;\approx 20 \, \mathrm{dB} \rightarrow A = 10 \\
+\varphi &amp;\approx -80°
+\end{align*}
+</span></p></li>
+<li><p>Wenn das Eingangssignal eine Amplitude von 1 hat, dann entspricht die Amplitude des Ausgangssignals direkt dem Wert des Amplitudenganges, den wir oben bestimmt haben, also 10.</p></li>
+</ol>
+<p><span class="math display">
+  \hat{x}_a \approx 20 \, \mathrm{dB} = 10
+  </span></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2325,13 +2427,13 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb6-472"><a href="#cb6-472" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-473"><a href="#cb6-473" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
 <span id="cb6-474"><a href="#cb6-474" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben3"</span></span>
-<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG03.pdf"</span></span>
+<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE2_AUFG03.pdf"</span></span>
 <span id="cb6-476"><a href="#cb6-476" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
 <span id="cb6-477"><a href="#cb6-477" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
 <span id="cb6-478"><a href="#cb6-478" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
 <span id="cb6-479"><a href="#cb6-479" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb6-480"><a href="#cb6-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben1}</span>
+<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben3}</span>
 <span id="cb6-482"><a href="#cb6-482" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-1}</span>
 <span id="cb6-483"><a href="#cb6-483" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.1</span></span>
 <span id="cb6-484"><a href="#cb6-484" aria-hidden="true" tabindex="-1"></a></span>
@@ -2346,48 +2448,117 @@ window._ojs.runtime.interpretFromScriptTags();
 <span id="cb6-493"><a href="#cb6-493" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-494"><a href="#cb6-494" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1b.svg)</span>{fig-align="center"}</span>
 <span id="cb6-495"><a href="#cb6-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
-<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
-<span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a>Simuliere die Sinusantwort eines P-T~2~-Gliedes mit $K_P = 5$, $T_1 = 1\,\mathrm{s}$ und $T_2 = 0.1\,\mathrm{s}$ in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> und bestimme das Amplitudenverhältnis $A$ sowie die Phasenverschiebung $\varphi$ für eine Eingangsfrequenz von $\omega = 20\,\mathrm{rad/s}$.</span>
-<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a>A =</span>
-<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a>\varphi =</span>
-<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-510"><a href="#cb6-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a>☝️ Stelle die Simulationsdauer und Zeitschrittweite sinnvoll ein und achte darauf, dass die Messung erst nach abgeschlossenem Einschwingvorgang stattfindet.</span>
-<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
-<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
+<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a>a)</span>
+<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a>x(t) = \hat{x} \cdot \sin\left( \omega t + \varphi \right) = \hat{x} \cdot \sin\left(2 \pi f t + \varphi \right)</span>
+<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a>\hat{x} &amp;= 2.5 <span class="sc">\\</span></span>
+<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a>\omega &amp;= 31.4 \, \mathrm{rad/s} \quad \textsf{alternativ} \quad f = 5 \, \mathrm{Hz} <span class="sc">\\</span></span>
+<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a>\varphi &amp;= \frac{\pi}{6} = 30°</span>
+<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb6-510"><a href="#cb6-510" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a>b) </span>
+<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_1b_LSG.svg)</span>{fig-align="center"}</span>
+<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb6-517"><a href="#cb6-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a>a) Bestimme (grob) das Amplitudenverhältnis $A$ und die Phasenverschiebung $\varphi$ anhand des nachfolgend gezeigten <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> für eine Kreisfrequenz $\omega = 30\,\mathrm{rad/s}$.</span>
+<span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/A3_3.svg){fig-align="center"}</span></span>
-<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a><span class="in">    A =</span></span>
-<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a><span class="in">    \varphi =</span></span>
-<span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a>b) Welche Amplitude hat das Ausgangssignal gemäss obigem <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm, wenn das Eingangssignal eine Amplitude von 1 und eine Kreisfrequenz von $\omega = 30\,\mathrm{rad/s}$ aufweist?</span>
-<span id="cb6-531"><a href="#cb6-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-532"><a href="#cb6-532" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-533"><a href="#cb6-533" aria-hidden="true" tabindex="-1"></a><span class="in">    \hat{x}_a = </span></span>
-<span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
-<span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-2}</span>
+<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.2</span></span>
+<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a>Simuliere die Sinusantwort eines P-T~2~-Gliedes mit $K_P = 5$, $T_1 = 1\,\mathrm{s}$ und $T_2 = 0.1\,\mathrm{s}$ in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> und bestimme das Amplitudenverhältnis $A$ sowie die Phasenverschiebung $\varphi$ für eine Eingangsfrequenz von $\omega = 20\,\mathrm{rad/s}$.</span>
+<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a>A =</span>
+<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a>\varphi =</span>
+<span id="cb6-531"><a href="#cb6-531" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-532"><a href="#cb6-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-533"><a href="#cb6-533" aria-hidden="true" tabindex="-1"></a>☝️ Stelle die Simulationsdauer und Zeitschrittweite sinnvoll ein und achte darauf, dass die Messung erst nach abgeschlossenem Einschwingvorgang stattfindet.</span>
+<span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-538"><a href="#cb6-538" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2_LSG_BSB.png)</span>{fig-align="center" width=80%}</span>
+<span id="cb6-539"><a href="#cb6-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-540"><a href="#cb6-540" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2_LSG.png)</span>{fig-align="center"}</span>
+<span id="cb6-541"><a href="#cb6-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-542"><a href="#cb6-542" aria-hidden="true" tabindex="-1"></a>Die Amplitude des Eingangssignal wird idealerweise auf 1 gesetzt, dann entspricht die Amplitude des Ausgangssignals direkt dem gesuchten Amplitudenverhältnis $A$.</span>
+<span id="cb6-543"><a href="#cb6-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-544"><a href="#cb6-544" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-545"><a href="#cb6-545" aria-hidden="true" tabindex="-1"></a>A = \frac{\hat{x}_a}{\hat{x}_a} \approx 0.11 = -19 \, \mathrm{dB}</span>
+<span id="cb6-546"><a href="#cb6-546" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-547"><a href="#cb6-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-548"><a href="#cb6-548" aria-hidden="true" tabindex="-1"></a>Die Phasenverschiebung kann z.<span class="dv">&amp;nbsp;</span>B. bestimmt werden, in dem die Zeit zwischen den Nulldurchgängen $\Delta t$ bestimmt wird und dann mit der Kreisfrequenz $\omega$ multipliziert wird.</span>
+<span id="cb6-549"><a href="#cb6-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-550"><a href="#cb6-550" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-551"><a href="#cb6-551" aria-hidden="true" tabindex="-1"></a>\varphi = - \omega \cdot \Delta t \approx - 20 \, \mathrm{rad/s} \cdot 0.13 \, \mathrm{s} = -2.6 \, \mathrm{rad} = -149°</span>
+<span id="cb6-552"><a href="#cb6-552" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-553"><a href="#cb6-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-554"><a href="#cb6-554" aria-hidden="true" tabindex="-1"></a>☝️ Inzwischen können wir diese Aufgabe viel einfacher direkt mit dem <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm lösen, in dem wir die Werte direkt ablesen können.</span>
+<span id="cb6-555"><a href="#cb6-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-556"><a href="#cb6-556" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A3_2_LSG_Bode.png)</span>{fig-align="center"}</span>
+<span id="cb6-557"><a href="#cb6-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-558"><a href="#cb6-558" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb6-559"><a href="#cb6-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-560"><a href="#cb6-560" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-561"><a href="#cb6-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-562"><a href="#cb6-562" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-3-3}</span>
+<span id="cb6-563"><a href="#cb6-563" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 3.3</span></span>
+<span id="cb6-564"><a href="#cb6-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-565"><a href="#cb6-565" aria-hidden="true" tabindex="-1"></a>a) Bestimme (grob) das Amplitudenverhältnis $A$ und die Phasenverschiebung $\varphi$ anhand des nachfolgend gezeigten <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagrams für eine Kreisfrequenz $\omega = 30\,\mathrm{rad/s}$.</span>
+<span id="cb6-566"><a href="#cb6-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-567"><a href="#cb6-567" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/A3_3.svg){fig-align="center"}</span></span>
+<span id="cb6-568"><a href="#cb6-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-569"><a href="#cb6-569" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-570"><a href="#cb6-570" aria-hidden="true" tabindex="-1"></a><span class="in">    A =</span></span>
+<span id="cb6-571"><a href="#cb6-571" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-572"><a href="#cb6-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-573"><a href="#cb6-573" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-574"><a href="#cb6-574" aria-hidden="true" tabindex="-1"></a><span class="in">    \varphi =</span></span>
+<span id="cb6-575"><a href="#cb6-575" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-576"><a href="#cb6-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-577"><a href="#cb6-577" aria-hidden="true" tabindex="-1"></a>b) Welche Amplitude hat das Ausgangssignal gemäss obigem <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm, wenn das Eingangssignal eine Amplitude von 1 und eine Kreisfrequenz von $\omega = 30\,\mathrm{rad/s}$ aufweist?</span>
+<span id="cb6-578"><a href="#cb6-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-579"><a href="#cb6-579" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-580"><a href="#cb6-580" aria-hidden="true" tabindex="-1"></a><span class="in">    \hat{x}_a = </span></span>
+<span id="cb6-581"><a href="#cb6-581" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb6-582"><a href="#cb6-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-583"><a href="#cb6-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-584"><a href="#cb6-584" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb6-585"><a href="#cb6-585" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb6-586"><a href="#cb6-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-587"><a href="#cb6-587" aria-hidden="true" tabindex="-1"></a>a)</span>
+<span id="cb6-588"><a href="#cb6-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-589"><a href="#cb6-589" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb6-590"><a href="#cb6-590" aria-hidden="true" tabindex="-1"></a>  \begin{align*}</span>
+<span id="cb6-591"><a href="#cb6-591" aria-hidden="true" tabindex="-1"></a>  A &amp;\approx 20 \, \mathrm{dB} \rightarrow A = 10 <span class="sc">\\</span></span>
+<span id="cb6-592"><a href="#cb6-592" aria-hidden="true" tabindex="-1"></a>  \varphi &amp;\approx -80°</span>
+<span id="cb6-593"><a href="#cb6-593" aria-hidden="true" tabindex="-1"></a>  \end{align*}</span>
+<span id="cb6-594"><a href="#cb6-594" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb6-595"><a href="#cb6-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-596"><a href="#cb6-596" aria-hidden="true" tabindex="-1"></a>b) Wenn das Eingangssignal eine Amplitude von 1 hat, dann entspricht die Amplitude des Ausgangssignals direkt dem Wert des Amplitudenganges, den wir oben bestimmt haben, also 10.</span>
+<span id="cb6-597"><a href="#cb6-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-598"><a href="#cb6-598" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb6-599"><a href="#cb6-599" aria-hidden="true" tabindex="-1"></a>  \hat{x}_a \approx 20 \, \mathrm{dB} = 10</span>
+<span id="cb6-600"><a href="#cb6-600" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb6-601"><a href="#cb6-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-602"><a href="#cb6-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-603"><a href="#cb6-603" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb6-604"><a href="#cb6-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-605"><a href="#cb6-605" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-606"><a href="#cb6-606" aria-hidden="true" tabindex="-1"></a>::::</span>
 </code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

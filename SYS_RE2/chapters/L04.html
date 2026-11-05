@@ -569,12 +569,12 @@ Abb.&nbsp;4.6: <span class="cap">Nyquist</span>-Diagramm
 </section>
 <section id="aufgaben" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
-<button class="pdf-export" data-target="aufgaben4" data-filename="SYS_RE1_AUFG04.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
+<button class="pdf-export" data-target="aufgaben4" data-filename="SYS_RE2_AUFG04.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
 <img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
 </button>
-<div id="aufgaben1">
+<div id="aufgaben4">
 <div id="ex-4-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -583,7 +583,7 @@ Abb.&nbsp;4.6: <span class="cap">Nyquist</span>-Diagramm
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Wie wir oben gesehen haben, lautet der Frequenzgang des P-T<sub>1</sub>-Gliedes:</p>
 <p><span class="math display">
@@ -602,11 +602,43 @@ A(\omega) = |F(j\omega)| =
 <p><span class="math display">
 \varphi(\omega) = \angle F(j \omega) =
 </span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Bei Berechnungen mit komplexen Zahlen bzw. Funktionen ist es häufig sinnvoll, diese in die kartesische Form <span class="math inline">\Re + j\Im</span> zu überführen. Real- und Imaginärteil können dann direkt abgelesen werden bzw. Betrag (mittels Satz des Pythagoras) und Phase (mittels <span class="math inline">\arctan()</span>) einfach bestimmen.</p>
+<p><span class="math display">
+F(j\omega) = \frac{K_P}{1 + j \omega T_1} \cdot \frac{1 - j \omega T_1}{1 - j \omega T_1} = \frac{K_P \cdot (1 - j \omega T_1)}{1 + (\omega T_1)^2} = \frac{K_P}{1 + (\omega T_1)^2} - j \frac{K_P \, \omega \, T_1}{1 + (\omega T_1)^2}
+</span></p>
+<p><span class="math display">
+\Re\left(F(j\omega)\right) = \frac{K_P}{1 + (\omega T_1)^2}
+</span></p>
+<p><span class="math display">
+\Im\left(F(j\omega)\right) = - \frac{K_P \, \omega \, T_1}{1 + (\omega T_1)^2}
+</span></p>
+<p>Da der Betrag eines Bruches gleich dem Quotienten der Beträge von Zähler und Nenner ist, können Zähler und Nenner getrennt betrachtet werden.</p>
+<p><span class="math display">
+A(\omega) = |F(j\omega)| = \frac{|K_P|}{|1 + j \omega T_1|} = \frac{K_P}{\sqrt{1 + (\omega T_1)^2}}
+</span></p>
+<p><span class="math display">
+\varphi(\omega) = \angle F(j \omega) = \arctan \left(\frac{- \frac{K_P \, \omega \, T_1}{1 + (\omega T_1)^2}}{\frac{K_P}{1 + (\omega T_1)^2}}\right) = \arctan (-\omega T_1) = - \arctan (\omega T_1)
+</span></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-4-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -615,21 +647,64 @@ A(\omega) = |F(j\omega)| =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>Nachfolgend ist das <span class="cap">Bode</span>-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.</li>
 </ol>
-<p><img src="../images/diagrams/A4_2a.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A4_2a.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <ol start="2" type="a">
 <li>Nachfolgend ist das <span class="cap">Nyquist</span>-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.</li>
 </ol>
-<p><img src="../images/diagrams/A4_2b.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A4_2b.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Amplitudengang beginnt horizontal und weist dann einen Knick auf, wobei die Steigung danach -20 dB/Dek. beträgt (→ P-T<sub>1</sub>-Verhalten). Die Phase fällt von 0° auf -90° ab (→ P-T<sub>1</sub>-Verhalten).</p>
+<p>Der Proportionalitätsbeiwert <span class="math inline">K_P</span> kann im Amplitudengang ganz links (tiefe Frequenzen) abgelesen werden (in dB!).</p>
+<p><span class="math display">
+K_P \approx 26 \, \mathrm{dB} = 20
+</span></p>
+<p>Die Zeitkonstante <span class="math inline">T_1</span> entspricht dem Kehrwert der Grenzfrequenz (Eckfrequenz). Am einfachsten wird diese anhand des Phasengangs bestimmt, da die Phase bei der Grenzfrequenz genau -45° beträgt.</p>
+<p><span class="math display">
+\omega_1 \approx 0.5 \, \mathrm{rad/s} \rightarrow T_1 = \frac{1}{\omega_1} = 2 \, \mathrm{s}
+</span></p></li>
+<li><p>Die Orstkurve startet für tiefe Frequenzen auf der reellen Achse und läuft für hohe Frequenzen in den Ursprung, wobei die Phase um -90° dreht. Der gesamte Verlauf befindet sich im IV Quadranten (→ P-T<sub>1</sub>-Verhalten).</p>
+<p>Den Proportionalitätsbeiwert <span class="math inline">K_P</span> können wir direkt auf der reellen Achse ablesen.</p>
+<p><span class="math display">
+K_P = 5
+</span></p>
+<p>Die Zeitkonstante <span class="math inline">T_1</span> können wir wiederum via Phase bzw. Grenzfrequenz bestimmen. Bei -45° können wir im Diagramm 10 rad/s ablesen, was der Grenzfrequenz entspricht.</p>
+<p><span class="math display">
+T_1 = \frac{1}{\omega_1} = 0.1 \, \mathrm{s}
+</span></p></li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-4-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -638,15 +713,49 @@ A(\omega) = |F(j\omega)| =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Der Frequenzgang eines P-T<sub>2</sub>-Gliedes (Reihenschaltung von zwei P-T<sub>1</sub>-Gliedern) ist gegeben durch:</p>
 <p><span class="math display">
 F(j\omega) = \frac{K_P}{(1 + j \omega T_1) \cdot (1 + j \omega T_2)}
 </span></p>
 <p>Skizziere nachfolgend den Amplitudengang und den Phasengang grob für ein P-T<sub>2</sub>-Glied mit <span class="math inline">K_P = 3.16</span> sowie <span class="math inline">T_1 = 25 \, \mathrm{s}</span> und <span class="math inline">T_2 = 0.02 \, \mathrm{s}</span>.</p>
-<p><img src="../images/diagrams/A4_3_amp.svg" class="img-fluid"></p>
-<p><img src="../images/diagrams/A4_3_phase.svg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A4_3_amp.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A4_3_phase.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Nachfolgend sind die exakten Verläufe dargestellt. Wenn wir solche Verläufe von Hand skizzieren, approximieren wir die Verläufe jeweils mit Geraden.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A4_3_amp_LSG.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A4_3_phase_LSG.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1486,13 +1595,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
 <span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben4"</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG04.pdf"</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE2_AUFG04.pdf"</span></span>
 <span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
 <span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
 <span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
 <span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben1}</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben4}</span>
 <span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-1}</span>
 <span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.1</span></span>
 <span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>Wie wir oben gesehen haben, lautet der Frequenzgang des P-T~1~-Gliedes:</span>
@@ -1520,45 +1629,117 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>\varphi(\omega) = \angle F(j \omega) =</span>
 <span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-2}</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.2</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>Bei Berechnungen mit komplexen Zahlen bzw. Funktionen ist es häufig sinnvoll, diese in die kartesische Form $\Re + j\Im$ zu überführen. Real- und Imaginärteil können dann direkt abgelesen werden bzw. Betrag (mittels Satz des Pythagoras) und Phase (mittels $\arctan()$) einfach bestimmen.</span>
 <span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>a) Nachfolgend ist das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_2a.png)</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>F(j\omega) = \frac{K_P}{1 + j \omega T_1} \cdot \frac{1 - j \omega T_1}{1 - j \omega T_1} = \frac{K_P \cdot (1 - j \omega T_1)}{1 + (\omega T_1)^2} = \frac{K_P}{1 + (\omega T_1)^2} - j \frac{K_P \, \omega \, T_1}{1 + (\omega T_1)^2}</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>b) Nachfolgend ist das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Nyquist<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.</span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_2b.png)</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>\Re\left(F(j\omega)\right) = \frac{K_P}{1 + (\omega T_1)^2}</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-3}</span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.3</span></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>Der Frequenzgang eines P-T~2~-Gliedes (Reihenschaltung von zwei P-T~1~-Gliedern) ist gegeben durch:</span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>F(j\omega) = \frac{K_P}{(1 + j \omega T_1) \cdot (1 + j \omega T_2)}</span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>Skizziere nachfolgend den Amplitudengang und den Phasengang grob für ein P-T~2~-Glied mit $K_P = 3.16$ sowie $T_1 = 25 \, \mathrm{s}$ und $T_2 = 0.02 \, \mathrm{s}$.</span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_3_amp.svg)</span></span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_3_phase.svg)</span></span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>\Im\left(F(j\omega)\right) = - \frac{K_P \, \omega \, T_1}{1 + (\omega T_1)^2}</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>Da der Betrag eines Bruches gleich dem Quotienten der Beträge von Zähler und Nenner ist, können Zähler und Nenner getrennt betrachtet werden.</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>A(\omega) = |F(j\omega)| = \frac{|K_P|}{|1 + j \omega T_1|} = \frac{K_P}{\sqrt{1 + (\omega T_1)^2}}</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>\varphi(\omega) = \angle F(j \omega) = \arctan \left(\frac{- \frac{K_P \, \omega \, T_1}{1 + (\omega T_1)^2}}{\frac{K_P}{1 + (\omega T_1)^2}}\right) = \arctan (-\omega T_1) = - \arctan (\omega T_1)</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-2}</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.2</span></span>
 <span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="ot">[^iunit]: </span>Wir verwenden hier (wie in der Elektrotechnik üblich) $j$ als die imaginäre Einheit (in der Mathematik wird üblicherweise $i$ verwendet).</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>a) Nachfolgend ist das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.</span>
 <span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="ot">[^vektoren]: </span>Eine komplexe Zahl ist einem 2D-Vektor sehr ähnlich (also einem Vektor mit einer X- und Y-Koordinate), den man in der XY-Ebene darstellen kann.</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_2a.png)</span>{fig-align="center"}</span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="ot">[^understrich]: </span>Für komplexe Zahlen verwenden wir i. Allg. keine spezielle Notation. Wenn Verwechslungsgefahr besteht, verwenden wir den Unterstrich. Zum Beispiel bezeichnet $\underline{x}(t)$ die komplexe Schwingung, da wir $x(t)$ bereits für die "normale" Sinusschwingung verwendet haben.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>b) Nachfolgend ist das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Nyquist<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm eines Übertragungsgliedes gezeigt. Identifiziere das Übertragungsglied und bestimme die Parameter.</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_2b.png)</span>{fig-align="center"}</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>a) Amplitudengang beginnt horizontal und weist dann einen Knick auf, wobei die Steigung danach -20 dB/Dek. beträgt (<span class="dv">&amp;rarr;</span> P-T~1~-Verhalten). Die Phase fällt von 0° auf -90° ab (<span class="dv">&amp;rarr;</span> P-T~1~-Verhalten).</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="in">    Der Proportionalitätsbeiwert $K_P$ kann im Amplitudengang ganz links (tiefe Frequenzen) abgelesen werden (in dB!).</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="in">    K_P \approx 26 \, \mathrm{dB} = 20</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="in">    Die Zeitkonstante $T_1$ entspricht dem Kehrwert der Grenzfrequenz (Eckfrequenz). Am einfachsten wird diese anhand des Phasengangs bestimmt, da die Phase bei der Grenzfrequenz genau -45° beträgt.</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="in">    \omega_1 \approx 0.5 \, \mathrm{rad/s} \rightarrow T_1 = \frac{1}{\omega_1} = 2 \, \mathrm{s}</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>b) Die Orstkurve startet für tiefe Frequenzen auf der reellen Achse und läuft für hohe Frequenzen in den Ursprung, wobei die Phase um -90° dreht. Der gesamte Verlauf befindet sich im IV Quadranten (<span class="dv">&amp;rarr;</span> P-T~1~-Verhalten).</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="in">    Den Proportionalitätsbeiwert $K_P$ können wir direkt auf der reellen Achse ablesen.</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="in">    K_P = 5</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="in">    Die Zeitkonstante $T_1$ können wir wiederum via Phase bzw. Grenzfrequenz bestimmen. Bei -45° können wir im Diagramm 10 rad/s ablesen, was der Grenzfrequenz entspricht.</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="in">    T_1 = \frac{1}{\omega_1} = 0.1 \, \mathrm{s}</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-4-3}</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 4.3</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>Der Frequenzgang eines P-T~2~-Gliedes (Reihenschaltung von zwei P-T~1~-Gliedern) ist gegeben durch:</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>F(j\omega) = \frac{K_P}{(1 + j \omega T_1) \cdot (1 + j \omega T_2)}</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>Skizziere nachfolgend den Amplitudengang und den Phasengang grob für ein P-T~2~-Glied mit $K_P = 3.16$ sowie $T_1 = 25 \, \mathrm{s}$ und $T_2 = 0.02 \, \mathrm{s}$.</span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_3_amp.svg)</span>{fig-align="center"}</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_3_phase.svg)</span>{fig-align="center"}</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>Nachfolgend sind die exakten Verläufe dargestellt. Wenn wir solche Verläufe von Hand skizzieren, approximieren wir die Verläufe jeweils mit Geraden.</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_3_amp_LSG.svg)</span>{fig-align="center"}</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A4_3_phase_LSG.svg)</span>{fig-align="center"}</span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="ot">[^iunit]: </span>Wir verwenden hier (wie in der Elektrotechnik üblich) $j$ als die imaginäre Einheit (in der Mathematik wird üblicherweise $i$ verwendet).</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="ot">[^vektoren]: </span>Eine komplexe Zahl ist einem 2D-Vektor sehr ähnlich (also einem Vektor mit einer X- und Y-Koordinate), den man in der XY-Ebene darstellen kann.</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="ot">[^understrich]: </span>Für komplexe Zahlen verwenden wir i. Allg. keine spezielle Notation. Wenn Verwechslungsgefahr besteht, verwenden wir den Unterstrich. Zum Beispiel bezeichnet $\underline{x}(t)$ die komplexe Schwingung, da wir $x(t)$ bereits für die "normale" Sinusschwingung verwendet haben.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

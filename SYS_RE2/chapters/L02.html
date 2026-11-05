@@ -452,12 +452,12 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 </section>
 <section id="aufgaben" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
-<button class="pdf-export" data-target="aufgaben2" data-filename="SYS_RE1_AUFG02.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
+<button class="pdf-export" data-target="aufgaben2" data-filename="SYS_RE2_AUFG02.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
 <img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
 </button>
 <div id="aufgaben2">
 <div id="ex-2-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -466,7 +466,7 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In dieser Aufgabe geht es um eine Raumtemperaturregelung, wobei eine Raumlüftung eingesetzt wird, d.&nbsp;h. die einströmende Luft (Zuluft) wird von einem Wärmetauscher erwärmt. Wir werden sehen, dass sich für eine solche Regelung eine Kaskadierung bestens eignet.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -491,11 +491,27 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 <li><p>Verwende nun die Messung der Zulufttemperatur <span class="math inline">x_{\textrm{Zuluft}}</span> und entwerfe eine Kaskadenregelung. Die Raumtemperatur <span class="math inline">x_{\textrm{Raum}}</span> ist die Hauptregelgrösse und die Zulufttemperatur <span class="math inline">x_{\textrm{Zuluft}}</span> die Hilfsregelgrösse. Verwende wiederum Regler bzw. Entwurfsverfahren deiner Wahl.</p></li>
 <li><p>Vergleiche den einschleifigen Regelkreis mit der Kaskadenregelung sowohl hinsichtlich des Führungsverhaltens als auch des Störverhaltens und notiere jeweilige Vor- bzw. Nachteile.</p></li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Siehe <span class="cap">Boris</span>-File auf <span class="cap">Teams</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-2-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -504,7 +520,7 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Bei dieser Aufgabe soll eine Kaskadenregelung eines DC-Motors entworfen werden, wobei das Modell ebenfalls als Superblock <code>RS_DC-Motor.sbl</code> vorliegt. Stelle die Zeitschrittweite für Simulationen mit dieser Regelstrecke auf 0.5&nbsp;ms ein, da die Regelstrecke sehr dynamisch ist.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -520,6 +536,22 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 <p>☝️ Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</p></li>
 <li><p>Simuliere die Führungssprungantwort (Simulationsdauer 2&nbsp;s, Zeitschrittweite 0.5&nbsp;ms), wobei nach 1&nbsp;s eine Störung (Lastmoment) von 0.01&nbsp;Nm auftreten soll. Dafür hat der Superblock einen Eingang <em>Lastmoment</em>.</p></li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Siehe <span class="cap">Boris</span>-File auf <span class="cap">Teams</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1236,7 +1268,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben2"</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG02.pdf"</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE2_AUFG02.pdf"</span></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
@@ -1264,31 +1296,43 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>c) Vergleiche den einschleifigen Regelkreis mit der Kaskadenregelung sowohl hinsichtlich des Führungsverhaltens als auch des Störverhaltens und notiere jeweilige Vor- bzw. Nachteile.</span>
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-2}</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.2</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>Siehe <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-File auf <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Teams<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>.</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>Bei dieser Aufgabe soll eine Kaskadenregelung eines DC-Motors entworfen werden, wobei das Modell ebenfalls als Superblock <span class="dt">&lt;</span><span class="kw">code</span><span class="dt">&gt;</span>RS_DC-Motor.sbl<span class="dt">&lt;/</span><span class="kw">code</span><span class="dt">&gt;</span> vorliegt. Stelle die Zeitschrittweite für Simulationen mit dieser Regelstrecke auf 0.5<span class="dv">&amp;nbsp;</span>ms ein, da die Regelstrecke sehr dynamisch ist.</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/external/DC-Motor_SBL.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>Der innere Regelkreis soll den Strom $i$ regeln, während der äussere Regelkreis die Drehzahl (Winkelgeschwindigkeit) $\omega$ regelt.</span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>a) Entwerfe den Stromregler (innerer Regelkreis) gemäss dem **CHR-Entwurfsverfahren**, wobei ein **PI-Regler** für gutes **Störverhalten** (**ohne Überschwingen**) verwendet werden soll. Damit du eine Sprungantwort der Strom-Regelstrecke simulieren kannst, hat der Superblock einen Eingang *Rotor blockiert?* mit dem du den Rotor "festhalten" kannst (z. B. kann an diesem Eingang ein Schalter aus der Palette *Aktion* angehängt werden). Wenn der Rotor nicht blockiert wird und er hochdreht, dann fällt der Strom rasch wieder ab, was die Auswertung der Sprungantwort erschwert. Überzeuge dich davon in der Simulation.</span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Als Eingangsgrösse hat die Regelstrecke ein PWM-Signal, d. h. ist beschränkt auf +/-100 [%]. Stelle die Stellgrössenbeschränkung des Stromreglers entsprechend ein.</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>b) Der Hauptregler (äusserer Regelkreis) soll die Drehzahl $\omega$ regeln. Entwerfe diesen ebenfalls gemäss dem **CHR-Entwurfsverfahren**, wobei ein **PI-Regler** für gutes **Führungsverhalten** (**ohne Überschwingen**) verwendet werden soll.</span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</span></span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Führungssprungantwort (Simulationsdauer 2<span class="dv">&amp;nbsp;</span>s, Zeitschrittweite 0.5<span class="dv">&amp;nbsp;</span>ms), wobei nach 1<span class="dv">&amp;nbsp;</span>s eine Störung (Lastmoment) von 0.01<span class="dv">&amp;nbsp;</span>Nm auftreten soll. Dafür hat der Superblock einen Eingang *Lastmoment*.</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-2-2}</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 2.2</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>Bei dieser Aufgabe soll eine Kaskadenregelung eines DC-Motors entworfen werden, wobei das Modell ebenfalls als Superblock <span class="dt">&lt;</span><span class="kw">code</span><span class="dt">&gt;</span>RS_DC-Motor.sbl<span class="dt">&lt;/</span><span class="kw">code</span><span class="dt">&gt;</span> vorliegt. Stelle die Zeitschrittweite für Simulationen mit dieser Regelstrecke auf 0.5<span class="dv">&amp;nbsp;</span>ms ein, da die Regelstrecke sehr dynamisch ist.</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/external/DC-Motor_SBL.png)</span>{width=60% fig-align="center"}</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>Der innere Regelkreis soll den Strom $i$ regeln, während der äussere Regelkreis die Drehzahl (Winkelgeschwindigkeit) $\omega$ regelt.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>a) Entwerfe den Stromregler (innerer Regelkreis) gemäss dem **CHR-Entwurfsverfahren**, wobei ein **PI-Regler** für gutes **Störverhalten** (**ohne Überschwingen**) verwendet werden soll. Damit du eine Sprungantwort der Strom-Regelstrecke simulieren kannst, hat der Superblock einen Eingang *Rotor blockiert?* mit dem du den Rotor "festhalten" kannst (z. B. kann an diesem Eingang ein Schalter aus der Palette *Aktion* angehängt werden). Wenn der Rotor nicht blockiert wird und er hochdreht, dann fällt der Strom rasch wieder ab, was die Auswertung der Sprungantwort erschwert. Überzeuge dich davon in der Simulation.</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Als Eingangsgrösse hat die Regelstrecke ein PWM-Signal, d. h. ist beschränkt auf +/-100 [%]. Stelle die Stellgrössenbeschränkung des Stromreglers entsprechend ein.</span></span>
 <span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>b) Der Hauptregler (äusserer Regelkreis) soll die Drehzahl $\omega$ regeln. Entwerfe diesen ebenfalls gemäss dem **CHR-Entwurfsverfahren**, wobei ein **PI-Regler** für gutes **Führungsverhalten** (**ohne Überschwingen**) verwendet werden soll.</span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Führungssprungantwort (Simulationsdauer 2<span class="dv">&amp;nbsp;</span>s, Zeitschrittweite 0.5<span class="dv">&amp;nbsp;</span>ms), wobei nach 1<span class="dv">&amp;nbsp;</span>s eine Störung (Lastmoment) von 0.01<span class="dv">&amp;nbsp;</span>Nm auftreten soll. Dafür hat der Superblock einen Eingang *Lastmoment*.</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>Siehe <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-File auf <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Teams<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>.</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
