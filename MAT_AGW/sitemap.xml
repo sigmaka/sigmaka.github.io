@@ -37,4 +37,19 @@
   <url>
     <loc>http://localhost:3000/vektorrechnung/vektorrechnung-uebungen</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/vektorrechnung/vektorrechnung-loesungen</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/datenauswertung/datenauswertung</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/datenauswertung/datenauswertung-unterricht</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/datenauswertung/datenauswertung-uebungen</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/datenauswertung/datenauswertung-loesungen</loc>
+  </url>
 </urlset>
