@@ -242,6 +242,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -431,11 +437,11 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 <ol type="1">
 <li><p>Entwurf des <strong>Hilfsreglers</strong> RE<sub>h</sub> (= innerer Regelkreis) für den ersten Streckenteil RS<sub>1</sub> (in der Regel für gutes Störverhalten).</p>
 <p><img src="../images/diagrams/BSB_RK_Kaskade_REh.svg" class="img-fluid"></p>
-<p>☝️ Stationäre Genauigkeit ist beim inneren Regelkreis nicht zwingend nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.</p></li>
+<p>☝🏼 Stationäre Genauigkeit ist beim inneren Regelkreis nicht zwingend nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.</p></li>
 <li><p>Entwurf des <strong>Hauptreglers</strong> RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS<sub>2</sub> (üblicherweise für gutes Führungsverhalten).</p>
 <p><img src="../images/diagrams/BSB_RK_Kaskade_RE.svg" class="img-fluid"></p>
-<p>☝️ Der innere Regelkreis kann gedanklich als einzelnes Übertragungsglied (einzelner Block) betrachtet werden.</p>
-<p>☝️ Beim Erfassen der Sprungantwort (des geschlossenen inneren Regelkreises und dem restlichen Streckenteil RS<sub>2</sub>) muss beachtet werden, dass sich der Hilfsregler nicht in der Stellgrössenbegrenzung befindet → Stellgrösse kontrollieren!</p></li>
+<p>☝🏼 Der innere Regelkreis kann gedanklich als einzelnes Übertragungsglied (einzelner Block) betrachtet werden.</p>
+<p>☝🏼 Beim Erfassen der Sprungantwort (des geschlossenen inneren Regelkreises und dem restlichen Streckenteil RS<sub>2</sub>) muss beachtet werden, dass sich der Hilfsregler nicht in der Stellgrössenbegrenzung befindet → Stellgrösse kontrollieren!</p></li>
 </ol>
 <section id="anmerkungen" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="anmerkungen"><span class="header-section-number">2.2.1</span> Anmerkungen</h3>
@@ -531,9 +537,9 @@ Abb.&nbsp;2.5: Balance- und Geschwindigkeitsregelung beim selbstbalancierenden E
 <p>Der innere Regelkreis soll den Strom <span class="math inline">i</span> regeln, während der äussere Regelkreis die Drehzahl (Winkelgeschwindigkeit) <span class="math inline">\omega</span> regelt.</p>
 <ol type="a">
 <li><p>Entwerfe den Stromregler (innerer Regelkreis) gemäss dem <strong>CHR-Entwurfsverfahren</strong>, wobei ein <strong>PI-Regler</strong> für gutes <strong>Störverhalten</strong> (<strong>ohne Überschwingen</strong>) verwendet werden soll. Damit du eine Sprungantwort der Strom-Regelstrecke simulieren kannst, hat der Superblock einen Eingang <em>Rotor blockiert?</em> mit dem du den Rotor “festhalten” kannst (z. B. kann an diesem Eingang ein Schalter aus der Palette <em>Aktion</em> angehängt werden). Wenn der Rotor nicht blockiert wird und er hochdreht, dann fällt der Strom rasch wieder ab, was die Auswertung der Sprungantwort erschwert. Überzeuge dich davon in der Simulation.</p>
-<p>☝️ Als Eingangsgrösse hat die Regelstrecke ein PWM-Signal, d.&nbsp;h. ist beschränkt auf +/-100 [%]. Stelle die Stellgrössenbeschränkung des Stromreglers entsprechend ein.</p></li>
+<p>☝🏼 Als Eingangsgrösse hat die Regelstrecke ein PWM-Signal, d.&nbsp;h. ist beschränkt auf +/-100 [%]. Stelle die Stellgrössenbeschränkung des Stromreglers entsprechend ein.</p></li>
 <li><p>Der Hauptregler (äusserer Regelkreis) soll die Drehzahl <span class="math inline">\omega</span> regeln. Entwerfe diesen ebenfalls gemäss dem <strong>CHR-Entwurfsverfahren</strong>, wobei ein <strong>PI-Regler</strong> für gutes <strong>Führungsverhalten</strong> (<strong>ohne Überschwingen</strong>) verwendet werden soll.</p>
-<p>☝️ Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</p></li>
+<p>☝🏼 Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</p></li>
 <li><p>Simuliere die Führungssprungantwort (Simulationsdauer 2&nbsp;s, Zeitschrittweite 0.5&nbsp;ms), wobei nach 1&nbsp;s eine Störung (Lastmoment) von 0.01&nbsp;Nm auftreten soll. Dafür hat der Superblock einen Eingang <em>Lastmoment</em>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1242,15 +1248,15 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/BSB_RK_Kaskade_REh.svg)</span></span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Stationäre Genauigkeit ist beim inneren Regelkreis nicht zwingend nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝🏼 Stationäre Genauigkeit ist beim inneren Regelkreis nicht zwingend nötig, da diese vom äusseren Regelkreis sichergestellt werden kann.</span></span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>2) Entwurf des **Hauptreglers** RE (= äusserer Regelkreis) für die Reihenschaltung des inneren Regelkreises und dem restlichen Streckenteil RS~2~ (üblicherweise für gutes Führungsverhalten).</span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="in">    ![](../images/diagrams/BSB_RK_Kaskade_RE.svg)</span></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Der innere Regelkreis kann gedanklich als einzelnes Übertragungsglied (einzelner Block) betrachtet werden.</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝🏼 Der innere Regelkreis kann gedanklich als einzelnes Übertragungsglied (einzelner Block) betrachtet werden.</span></span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Beim Erfassen der Sprungantwort (des geschlossenen inneren Regelkreises und dem restlichen Streckenteil RS~2~) muss beachtet werden, dass sich der Hilfsregler nicht in der Stellgrössenbegrenzung befindet &amp;rarr; Stellgrösse kontrollieren!</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝🏼 Beim Erfassen der Sprungantwort (des geschlossenen inneren Regelkreises und dem restlichen Streckenteil RS~2~) muss beachtet werden, dass sich der Hilfsregler nicht in der Stellgrössenbegrenzung befindet &amp;rarr; Stellgrösse kontrollieren!</span></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### Anmerkungen</span></span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
@@ -1316,11 +1322,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>a) Entwerfe den Stromregler (innerer Regelkreis) gemäss dem **CHR-Entwurfsverfahren**, wobei ein **PI-Regler** für gutes **Störverhalten** (**ohne Überschwingen**) verwendet werden soll. Damit du eine Sprungantwort der Strom-Regelstrecke simulieren kannst, hat der Superblock einen Eingang *Rotor blockiert?* mit dem du den Rotor "festhalten" kannst (z. B. kann an diesem Eingang ein Schalter aus der Palette *Aktion* angehängt werden). Wenn der Rotor nicht blockiert wird und er hochdreht, dann fällt der Strom rasch wieder ab, was die Auswertung der Sprungantwort erschwert. Überzeuge dich davon in der Simulation.</span>
 <span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Als Eingangsgrösse hat die Regelstrecke ein PWM-Signal, d. h. ist beschränkt auf +/-100 [%]. Stelle die Stellgrössenbeschränkung des Stromreglers entsprechend ein.</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝🏼 Als Eingangsgrösse hat die Regelstrecke ein PWM-Signal, d. h. ist beschränkt auf +/-100 [%]. Stelle die Stellgrössenbeschränkung des Stromreglers entsprechend ein.</span></span>
 <span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>b) Der Hauptregler (äusserer Regelkreis) soll die Drehzahl $\omega$ regeln. Entwerfe diesen ebenfalls gemäss dem **CHR-Entwurfsverfahren**, wobei ein **PI-Regler** für gutes **Führungsverhalten** (**ohne Überschwingen**) verwendet werden soll.</span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝️ Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">    ☝🏼 Hier muss man aufpassen, dass die Sprungantwort mit einem sinnvollen (nicht zu grossen) Eingangssprung gemacht wird und kontrollieren, dass der innere Regler nicht in der Begrenzung ist.</span></span>
 <span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>c) Simuliere die Führungssprungantwort (Simulationsdauer 2<span class="dv">&amp;nbsp;</span>s, Zeitschrittweite 0.5<span class="dv">&amp;nbsp;</span>ms), wobei nach 1<span class="dv">&amp;nbsp;</span>s eine Störung (Lastmoment) von 0.01<span class="dv">&amp;nbsp;</span>Nm auftreten soll. Dafür hat der Superblock einen Eingang *Lastmoment*.</span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>

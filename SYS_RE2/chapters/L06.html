@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-CH" xml:lang="de-CH"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Vorsteuerung – Regelungstechnik II</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/A01.html" rel="next">
+<link href="../chapters/L05.html" rel="prev">
+<link href="../images/logo_re2.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c875dbb4c9335aca9cc352e974a4ec92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b656b24f5c349facd40ab035f1972472.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script src="../assets/html2pdf.bundle.min.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo_re2.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logo_re2.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regelungstechnik II</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modulorganisation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unterrichtseinheiten</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Kaskadenregelung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Frequenzbereich</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Frequenzgang</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L06.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhang</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Refresher</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#ideale-steuerung" id="toc-ideale-steuerung" class="nav-link active" data-scroll-target="#ideale-steuerung"><span class="header-section-number">6.1</span> Ideale Steuerung</a></li>
+  <li><a href="#vorsteuerung" id="toc-vorsteuerung" class="nav-link" data-scroll-target="#vorsteuerung"><span class="header-section-number">6.2</span> Vorsteuerung</a>
+  <ul class="collapse">
+  <li><a href="#statische-kompensation" id="toc-statische-kompensation" class="nav-link" data-scroll-target="#statische-kompensation"><span class="header-section-number">6.2.1</span> Statische Kompensation</a></li>
+  <li><a href="#dynamische-kompensation" id="toc-dynamische-kompensation" class="nav-link" data-scroll-target="#dynamische-kompensation"><span class="header-section-number">6.2.2</span> Dynamische Kompensation</a></li>
+  <li><a href="#stellgrössenbeschränkung" id="toc-stellgrössenbeschränkung" class="nav-link" data-scroll-target="#stellgrössenbeschränkung"><span class="header-section-number">6.2.3</span> Stellgrössenbeschränkung</a></li>
+  </ul></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/L01.html">Unterrichtseinheiten</a></li><li class="breadcrumb-item"><a href="../chapters/L06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-vs" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Mit den Werkzeugen aus dem Frequenzbereich im “Rucksack” kehren wir nun wieder zurück zu den erweiterten Regelkreisstrukturen (vgl. <a href="L01.html" class="quarto-xref"><span>Abschnitt 1</span></a>) und schauen das Prinzip der <strong>Vorsteuerung</strong> an.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Ziele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Ziele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Du kannst die Idee hinter der Vorsteuerung erklären.</li>
+<li>Du kannst eine Vorsteuerung für eine gegebene Regelstrecke entwerfen.</li>
+<li>Du weisst, wie du in <span class="cap">Boris</span> ein Übertragungsglied mit einer beliebigen Frequenzgang-Funktion (Übertragungsfunktion) realisieren kannst.</li>
+</ul>
+</div>
+</div>
+<p>Die Grundidee hinter der Vorsteuerung besteht darin, die positiven Eigenschaften der <strong>Steuerung</strong>(Geschwindigkeit, Stabilität) mit den positiven Eigenschaften der <strong>Regelung</strong> (Genauigkeit, Robustheit) zu kombinieren.</p>
+<div id="tbl-regelung-vs-steuerung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-regelung-vs-steuerung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">✅ positiv</th>
+<th style="text-align: left;">❌ negativ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Steuerung</strong></td>
+<td style="text-align: left;">schnell, stabil</td>
+<td style="text-align: left;">ungenau, evtl. nicht robust</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Regelung</strong></td>
+<td style="text-align: left;">genau, robust</td>
+<td style="text-align: left;">evtl. langsam, evtl. instabil</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-regelung-vs-steuerung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tab.&nbsp;6.1: Steuerung vs.&nbsp;Regelung
+</figcaption>
+</figure>
+</div>
+<p>Idealerweise kann die Steuerung primär das Führungsverhalten übernehmen und die Regelung das Störverhalten (und das Ausgleichen von Nichtlinearitäten bzw. sonstigen verbleibenden Abweichungen). Das Führungs- und Störverhalten kann damit wesentlich entkoppelt werden.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Begriff: Übertragungsfunktion">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Begriff: Übertragungsfunktion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Der Frequenzgang ist eng verwandt mit der <strong>Übertragungsfunktion</strong>. Wir verwenden die beiden Begriffe im Folgenden synonym.</p>
+<p>Die Übertragungsfunktion kann als Verallgemeinerung des Frequenzgangs verstanden werden. Anstelle der Variable <span class="math inline">j \omega</span> wird in der Übertragungsfunktion die Variable <span class="math inline">s</span> (komplexe Frequenz mit <span class="math inline">s = \sigma + j \omega</span>) verwendet. Ansonsten sehen die beiden Funktionen aber exakt identisch aus (gleiche Form, gleiche Koeffizienten). Im Gegensatz zum Frequenzgang <span class="math inline">F</span> wird die Übertragungsfunktion häufig mit <span class="math inline">G</span> bezeichnet.</p>
+<p>Nachfolgend ist die übliche Notation des Frequenzgangs bzw. der Übertragungsfunktion eines P-T<sub>1</sub>-Gliedes aufgeführt. Beide Schreibweisen können für unsere Zwecke synonym verwendet werden.</p>
+<p><span class="math display">
+\begin{align*}
+F(j \omega) &amp;= \dfrac{K_P}{1 + j \omega \, T_1} \\[10pt]
+G(s) &amp;= \dfrac{K_P}{1 + s \, T_1}
+\end{align*}
+</span></p>
+</div>
+</div>
+<section id="ideale-steuerung" class="level2 page-columns page-full" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="ideale-steuerung"><span class="header-section-number">6.1</span> Ideale Steuerung</h2>
+<p>Bevor wir zum Regelkreis mit Vorsteuerung kommen, wollen wir uns zunächst anhand der nachfolgend gezeigten <strong>Steuerung</strong> die Grundlagen erarbeiten.</p>
+<div id="fig-steuerung-bsb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-steuerung-bsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/BSB_RK_Steuerung.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-steuerung-bsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;6.1: Ideale Steuerung
+</figcaption>
+</figure>
+</div>
+<p>Die Steuerkette in <a href="#fig-steuerung-bsb" class="quarto-xref">Abb.&nbsp;<span>6.1</span></a> besteht aus dem Steuergerät STG und der Strecke RS, d.&nbsp;h. die Gesamtübertragungsfunktion der Steuerkette ist das Produkt der beiden individuellen Übertragungsfunktionen (vgl. Reihenschaltung in <a href="L05.html#sec-series" class="quarto-xref"><span>Abschn. 5.2</span></a>).</p>
+<p><span class="math display">
+F_{w \rightarrow x} = F_{\mathrm{STG}} \cdot F_{\mathrm{RS}}
+</span></p>
+<p>Bei einer perfekten (idealen) Steuerung würde der Istwert immer exakt dem Sollwert entsprechen <span class="math inline">x = w</span>. <strong>Die Übertragungsfunktion der idealen Steuerung <span class="math inline">F_{w \rightarrow x}</span> ist daher 1</strong>. Setzen wir die obige Beziehung gleich 1 und lösen nach der Übertragungsfunktion des Steuergerätes auf, erhalten wir die <strong>ideale Steuerung</strong>:</p>
+<p><span class="math display">
+F_{\mathrm{STG}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}
+</span></p>
+<p>Das bedeutet, dass die ideale Steuerung der Inversen der Übertragungsfunktion der Strecke entspricht. Damit wird die Strecke vom Steuergerät vollständig “kompensiert” und der Istwert entspricht immer exakt dem Sollwert.</p>
+<p>☝🏼 Wir werden feststellen, dass eine (perfekte) ideale Steuerung in Realität nicht möglich ist, d.&nbsp;h. man kann sich ihr nur annähern.</p>
+</section>
+<section id="vorsteuerung" class="level2 page-columns page-full" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="vorsteuerung"><span class="header-section-number">6.2</span> Vorsteuerung</h2>
+<p>Wenn wir eine Steuerung und eine Regelung miteinander kombinieren, gelangen wir zur folgenden Regelstruktur, die wir <strong>Vorsteuerung</strong> (VS) nennen. Neben dem klassischen Regelkreis haben wir dabei nun einen “parallelen” Steuerpfad.</p>
+<div id="fig-vorsteuerung-bsb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-vorsteuerung-bsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/diagrams/BSB_RK_Vorsteuerung.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-vorsteuerung-bsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;6.2: Vorsteuerung (BSB)
+</figcaption>
+</figure>
+</div>
+<p>Die Gesamtstellgrösse <span class="math inline">y</span> setzt sich dabei nun aus einem Anteil der Vorsteuerung und dem gewohnten Anteil des Reglers zusammen.</p>
+<p><span id="eq-vs-stellgroesse"><span class="math display">
+y = y_{\mathrm{RE}} + y_{\mathrm{VS}}
+\tag{6.1}</span></span></p>
+<p>Diese Struktur ist äusserst wirkungsvoll, da der Istwert durch die Vorsteuerung den Sollwert sehr schnell bereits mehr oder weniger genau erreicht und der Regler “nur” noch verbleibende Abweichungen bzw. Störungen ausregeln muss.</p>
+<p>☝🏼 Der Entwurf der Vorsteuerung ist völlig unabhängig vom Entwurf des Reglers. Der Reglerentwurf erfolgt mit den bekannten Entwurfsverfahren (z.&nbsp;B. CHR) und wird in diesem Abschnitt daher nicht behandelt.</p>
+<p>Aus dem vorherigen Abschnitt wissen wir, dass die ideale Vorsteuerung der inversen Regelstreckenübertragungsfunktion entspricht, d.&nbsp;h. der Entwurf der Vorsteuerung ist bestechend einfach.</p>
+<p><span class="math display">
+F_{\mathrm{VS}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}
+</span></p>
+<p>So einfach ist es dann aber doch nicht! Da eine reale Regelstrecke immer Verzögerungen und/oder I-Anteile aufweist, ist die Ordnung des Nennerpolynoms <span class="math inline">n</span> der Regelstreckenübertragungsfunktion immer grösser als die Ordnung des Zählerpolynoms <span class="math inline">m</span>, d.&nbsp;h. es gilt immer <span class="math inline">n &gt; m</span>. Beispielhaft nehmen wir deshalb hier eine P-T<sub>1</sub>-Strecke an, die bekanntermassen die folgende Übertragungsfunktion aufweist:</p>
+<p><span class="math display">
+F_{\mathrm{RS}} = \frac{K_{P}}{1 + j \omega \, T_1}
+</span></p>
+<p>Bilden wir nun die Inverse dieser Übertragungsfunktion, so erhalten wir eine Übertragungsfunktion, bei der das Zählerpolynom eine höhere Ordnung hat als das Nennerpolynom. Damit ist diese Übertragungsfunktion <strong>nicht realisierbar</strong> (vgl. <a href="L05.html#nte-realisierbarkeit" class="quarto-xref">Hinweis&nbsp;<span>5.1</span></a>). Das bedeutet, wir können die exakte Inverse der Regelstreckenübertragungsfunktion nicht implementieren.</p>
+<p><span class="math display">
+F_{\mathrm{VS}_{\mathrm{ideal}}} = \frac{1 + j \omega \, T_1}{K_{P}} \quad \rightarrow \textsf{nicht realisierbar!}
+</span></p>
+<p>Um dieses Problem zu beheben, können wir eine der nachfolgend aufgeführten Varianten anwenden.</p>
+<section id="statische-kompensation" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="statische-kompensation"><span class="header-section-number">6.2.1</span> Statische Kompensation</h3>
+<p>Damit wir eine realisierbare Übertragungsfunktion erhalten, streichen wir die <span class="math inline">j\omega</span>-Terme im Zähler der Inversen und erhalten damit:</p>
+<p><span class="math display">
+F_{\mathrm{VS}} = \frac{1}{K_{P}}
+</span></p>
+<p>D. h. wir kompensieren mit der Vorsteuerung nur die statische Verstärkung der Regelstrecke und vernachlässigen die Dynamik. Wir nennen diese Art der Vorsteuerung daher <strong>statische Kompensation</strong>. Diese Variante hat allerdings nur eine sehr begrenzte Wirkung und deshalb wird in den meisten Fällen die nachfolgend beschriebene Variante angewendet.</p>
+</section>
+<section id="dynamische-kompensation" class="level3 page-columns page-full" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="dynamische-kompensation"><span class="header-section-number">6.2.2</span> Dynamische Kompensation</h3>
+<p>Alternativ zum Streichen der <span class="math inline">j\omega</span>-Terme im Zähler können wir im Nenner <span class="math inline">j\omega</span>-Terme hinzufügen. Dies machen wir, indem wir im Nenner <span class="math inline">(1 + j \omega \, T_p)</span>-Glieder hinzufügen, bis dieselbe Ordnung wie im Zähler erreicht ist. Die parasitäre Zeitkonstante <span class="math inline">T_p</span> wird üblicherweise ca. 5- bis 20-mal kleiner gewählt als die (kleinste) relevante Zeitkonstante der Regelstrecke.</p>
+<p>Ist die Ordnung der Regelstrecke <span class="math inline">n</span>, so sind <span class="math inline">n</span> solche Glieder nötig, d.&nbsp;h. wir können es folgendermassen schreiben:</p>
+<p><span class="math display">
+F_{\mathrm{VS}} = \frac{1}{F_{\mathrm{RS}}} \cdot \frac{1}{(1 + j \omega \, T_p)^n}
+</span></p>
+<p>Im Beispiel der P-T<sub>1</sub>-Strecke (<span class="math inline">n=1</span>) sieht dies folgendermassen aus:</p>
+<p><span class="math display">
+F_{\mathrm{VS}} = \frac{1 + j \omega \, T_1}{K_{P}} \cdot \frac{1}{1 + j \omega \, T_p} = \frac{1 + j \omega \, T_1}{K_{P} \cdot (1 + j \omega \, T_p)} = \frac{1 + j \omega \, T_1}{K_{P} + j \omega \, K_{P} T_p}
+</span></p>
+<p>Die oben berechnete Übertragungsfunktion der Vorsteuerung entspricht keinem Grundglied unserer Tabelle und wird in <span class="cap">Boris</span> vorzugsweise mit dem Block <em>Benutzerdefinierte s-Übertragungsfunktion</em> (Palette <em>Dynamik</em>) implementiert. Dabei müssen die Koeffizienten der Übertragungsfunktion (vgl. Standardform in <a href="L05.html#eq-freqresp-gen" class="quarto-xref">Gleichung&nbsp;<span>5.17</span></a>) eingegeben werden.</p>
+<p><span class="math display">
+F_{\mathrm{VS}} = \frac{\overbrace{1}^{\textcolor{blue}{b_0}} + j \omega \, \overbrace{T_1}^{\textcolor{blue}{b_1}}}{\underbrace{K_{P}}_{\textcolor{red}{a_0}} + j \omega \, \underbrace{K_{P} T_p}_{\textcolor{red}{a_1}}}
+</span></p>
+<p>Bsp.: Für eine P-T<sub>1</sub>-Regelstrecke mit <span class="math inline">K_{P}=2</span> und <span class="math inline">T_1 = 0.5 \, \mathrm{s}</span> ergeben sich die folgenden Koeffizienten für die Übertragungsfunktion der Vorsteuerung: <span class="math inline">b_0 = 1</span> und <span class="math inline">b_1 = T_1 = 0.5 \, \mathrm{s}</span> bzw. <span class="math inline">a_0 = K_{P} = 2</span> und <span class="math inline">a_1 = K_{P} T_p = 0.05 \, \mathrm{s}</span> mit der Annahme einer parasitären Zeitkonstante von <span class="math inline">T_p = \frac{T_1}{20}</span>.</p>
+<div id="fig-sblock" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-sblock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/external/BORIS_sBlock.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-sblock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">Boris</span>
+</figcaption>
+</figure>
+</div>
+<p>☝🏼 Bei einer Regelstrecke, die aus mehreren Teilen besteht, kann man auch nur bestimmte Teile der Regelstrecke kompensieren. Die Vorsteuerung lässt sich u.&nbsp;a. sehr gut mit der Kaskadierung kombinieren (vgl. z.&nbsp;B. <a href="L01.html#fig-lageregelung" class="quarto-xref">Abb.&nbsp;<span>1.2</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Benutzerdefiniertes Übertragungsglied">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Benutzerdefiniertes Übertragungsglied
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mit dem Block <em>Benutzerdefinierte s-Übertragungsfunktion</em> kann in <span class="cap">Boris</span> ein beliebiges (benutzerdefiniertes) Übertragungsglied erstellt werden, indem die Koeffizienten der Übertragungsfunktion <span class="math inline">b_0, b_1, b_2, \ldots, a_0, a_1, a_2, \dots</span> definiert werden.</p>
+</div>
+</div>
+</section>
+<section id="stellgrössenbeschränkung" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="stellgrössenbeschränkung"><span class="header-section-number">6.2.3</span> Stellgrössenbeschränkung</h3>
+<p>In Realität ist die Stellgrösse immer auf einen bestimmten Bereich beschränkt (Stellgrössenbeschränkung). Wir wissen, wie dies im Regler berücksichtigt wird und kennen entsprechende Anti-Windup-Massnahmen. Da die Stellgrösse der Vorsteuerung zur Stellgrösse des Reglers addiert wird (vgl. <a href="#fig-vorsteuerung-bsb" class="quarto-xref">Abb.&nbsp;<span>6.2</span></a> bzw. <a href="#eq-vs-stellgroesse" class="quarto-xref">Gleichung&nbsp;<span>6.1</span></a>) sollte die Gesamtstellgrösse <span class="math inline">y</span> nach der Summierung ebenfalls begrenzt werden, damit keine unzulässige Stellgrösse resultiert. Dafür kann in <span class="cap">Boris</span> z.&nbsp;B. der Block <em>Begrenzer</em> (Palette <em>Statik</em>) verwendet werden.</p>
+</section>
+</section>
+<section id="aufgaben" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aufgaben">Aufgaben</h2>
+<button class="pdf-export" data-target="aufgaben6" data-filename="SYS_RE1_AUFG06.pdf" aria-label="Aufgaben als PDF speichern" title="Aufgaben als PDF speichern">
+<img src="../images/icons/file-pdf.svg" alt="PDF herunterladen" width="24" height="24">
+</button>
+<div id="aufgaben6">
+<div id="ex-6-1" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 6.1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gegeben ist eine P-T<sub>2</sub>-Regelstrecke mit <span class="math inline">K_P = 5</span> und <span class="math inline">T_1 = 3 \, \mathrm{s}</span> bzw. <span class="math inline">T_2 = 1.5 \, \mathrm{s}</span>. Notiere nachfolgend die Übertragungsfunktion der Inverses der Regelstrecke.</p>
+<div style="text-align: left;">
+<p><span class="math display">
+\frac{1}{F_{\mathrm{RS}}} =
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="ex-6-2" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 6.2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gegeben ist eine P-T<sub>2</sub>-Regelstrecke mit <span class="math inline">K_P = 10</span> und <span class="math inline">T_1 = 3.5 \, \mathrm{s}</span> bzw. <span class="math inline">T_2 = 0.5 \, \mathrm{s}</span>.</p>
+<ol type="a">
+<li><p>Entwerfe einen PI-Regler gemäss CHR-Verfahren (gutes Führungsverhalten, ohne Überschwingen).</p></li>
+<li><p>Entwerfe eine dynamische Vorsteuerung. Verwende eine parasitäre Zeitkonstante <span class="math inline">T_p</span>, die 10-mal kleiner ist als die kleinste Zeitkonstante der Regelstrecke.</p></li>
+<li><p>Baue den gesamten Regelkreis inkl. Vorsteuerung in <span class="cap">Boris</span> auf und simuliere die Führungssprungantwort. Vergleiche das Verhalten (insbesondere die Anregelzeit <span class="math inline">T_{cr}</span>) für die zu- bzw. abgeschaltete Vorsteuerung.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="ex-6-3" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Aufgabe 6.3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gegeben ist der nachfolgend abgebildete Regelkreis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Baue den Regelkreis in <span class="cap">Boris</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante <span class="math inline">T_p = 0.05 \, \mathrm{s}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".pdf-export").forEach(btn => {
+
+    btn.addEventListener("click", async () => {
+
+      const target = document.getElementById(btn.dataset.target);
+
+      const expanded = [];
+
+
+
+      document.querySelectorAll("details:not([open])").forEach(d => {
+
+        d.open = true;
+
+        expanded.push({ el: d, type: "details" });
+
+      });
+
+
+
+      document.querySelectorAll(".collapse:not(.show)").forEach(el => {
+
+        const instance =
+
+          bootstrap.Collapse.getInstance(el) ||
+
+          new bootstrap.Collapse(el, { toggle: false });
+
+        instance.show();
+
+        expanded.push({ el, type: "collapse" });
+
+      });
+
+
+
+      try {
+
+        // Wait for Quarto/MathJax math rendering to finish
+
+        if (window.MathJax?.typesetPromise) {
+
+          await MathJax.typesetPromise([target]);
+
+        }
+
+
+
+        await html2pdf()
+
+          .set({
+
+            margin: 10,
+
+            filename: btn.dataset.filename || "download.pdf",
+
+            pagebreak: {
+
+              mode: ['css', 'legacy'],
+
+              after: '.callout-tip'
+
+            },
+
+            html2canvas: {
+
+              scale: 2,
+
+              useCORS: true,
+
+              onclone: (doc) => {
+
+                // Remove MathJax assistive MathML that html2canvas may render as a duplicate
+
+                doc.querySelectorAll('.katex-mathml').forEach(el => el.remove());
+
+
+
+                // Optional: if any raw TeX script tags are present, remove those too
+
+                doc.querySelectorAll('script[type^="math/tex"]').forEach(el => el.remove());
+
+              }
+
+            },
+
+            jsPDF: {
+
+              unit: "mm",
+
+              format: "a4",
+
+              orientation: "portrait"
+
+            }
+
+          })
+
+          .from(target)
+
+          .save();
+
+      } finally {
+
+        expanded.forEach(item => {
+
+          if (item.type === "details") item.el.open = false;
+
+          if (item.type === "collapse") {
+
+            const instance =
+
+              bootstrap.Collapse.getInstance(item.el) ||
+
+              new bootstrap.Collapse(item.el, { toggle: false });
+
+            instance.hide();
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+});
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/L05.html" class="pagination-link" aria-label="Grundglieder">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Grundglieder</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/A01.html" class="pagination-link" aria-label="Refresher">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Refresher</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Vorsteuerung {#sec-vs}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Mit den Werkzeugen aus dem Frequenzbereich im "Rucksack" kehren wir nun wieder zurück zu den erweiterten Regelkreisstrukturen (vgl. @sec-intro) und schauen das Prinzip der **Vorsteuerung** an.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Ziele"}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst die Idee hinter der Vorsteuerung erklären.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du kannst eine Vorsteuerung für eine gegebene Regelstrecke entwerfen.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Du weisst, wie du in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> ein Übertragungsglied mit einer beliebigen Frequenzgang-Funktion (Übertragungsfunktion) realisieren kannst.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Die Grundidee hinter der Vorsteuerung besteht darin, die positiven Eigenschaften der **Steuerung**(Geschwindigkeit, Stabilität) mit den positiven Eigenschaften der **Regelung** (Genauigkeit, Robustheit) zu kombinieren. </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>::: {#tbl-regelung-vs-steuerung}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>            <span class="pp">|</span> ✅ positiv   <span class="pp">|</span> ❌ negativ    <span class="pp">|</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------|:----------|:-----------|</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>**Steuerung**   <span class="pp">|</span> schnell, stabil <span class="pp">|</span> ungenau, evtl. nicht robust <span class="pp">|</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>**Regelung**    <span class="pp">|</span> genau, robust <span class="pp">|</span> evtl. langsam, evtl. instabil <span class="pp">|</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Steuerung vs. Regelung</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Idealerweise kann die Steuerung primär das Führungsverhalten übernehmen und die Regelung das Störverhalten (und das Ausgleichen von Nichtlinearitäten bzw. sonstigen verbleibenden Abweichungen). Das Führungs- und Störverhalten kann damit wesentlich entkoppelt werden.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Begriff: Übertragungsfunktion"}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Der Frequenzgang ist eng verwandt mit der **Übertragungsfunktion**. Wir verwenden die beiden Begriffe im Folgenden synonym.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Die Übertragungsfunktion kann als Verallgemeinerung des Frequenzgangs verstanden werden. Anstelle der Variable $j \omega$ wird in der Übertragungsfunktion die Variable $s$ (komplexe Frequenz mit $s = \sigma + j \omega$) verwendet. Ansonsten sehen die beiden Funktionen aber exakt identisch aus (gleiche Form, gleiche Koeffizienten). Im Gegensatz zum Frequenzgang $F$ wird die Übertragungsfunktion häufig mit $G$ bezeichnet.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist die übliche Notation des Frequenzgangs bzw. der Übertragungsfunktion eines P-T~1~-Gliedes aufgeführt. Beide Schreibweisen können für unsere Zwecke synonym verwendet werden.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>F(j \omega) &amp;= \dfrac{K_P}{1 + j \omega \, T_1} <span class="sc">\\</span><span class="co">[</span><span class="ot">10pt</span><span class="co">]</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>G(s) &amp;= \dfrac{K_P}{1 + s \, T_1}</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ideale Steuerung</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Bevor wir zum Regelkreis mit Vorsteuerung kommen, wollen wir uns zunächst anhand der nachfolgend gezeigten **Steuerung** die Grundlagen erarbeiten.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="al">![Ideale Steuerung](../images/diagrams/BSB_RK_Steuerung.svg)</span>{#fig-steuerung-bsb width="80%" fig-align="center"}</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Die Steuerkette in @fig-steuerung-bsb besteht aus dem Steuergerät STG und der Strecke RS, d.<span class="dv">&amp;nbsp;</span>h. die Gesamtübertragungsfunktion der Steuerkette ist das Produkt der beiden individuellen Übertragungsfunktionen (vgl. Reihenschaltung in @sec-series).</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>F_{w \rightarrow x} = F_{\mathrm{STG}} \cdot F_{\mathrm{RS}}</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Bei einer perfekten (idealen) Steuerung würde der Istwert immer exakt dem Sollwert entsprechen $x = w$. **Die Übertragungsfunktion der idealen Steuerung $F_{w \rightarrow x}$ ist daher 1**. Setzen wir die obige Beziehung gleich 1 und lösen nach der Übertragungsfunktion des Steuergerätes auf, erhalten wir die **ideale Steuerung**: </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{STG}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Das bedeutet, dass die ideale Steuerung der Inversen der Übertragungsfunktion der Strecke entspricht. Damit wird die Strecke vom Steuergerät vollständig "kompensiert" und der Istwert entspricht immer exakt dem Sollwert.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>☝🏼 Wir werden feststellen, dass eine (perfekte) ideale Steuerung in Realität nicht möglich ist, d.<span class="dv">&amp;nbsp;</span>h. man kann sich ihr nur annähern. </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vorsteuerung</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>Wenn wir eine Steuerung und eine Regelung miteinander kombinieren, gelangen wir zur folgenden Regelstruktur, die wir **Vorsteuerung** (VS) nennen. Neben dem klassischen Regelkreis haben wir dabei nun einen "parallelen" Steuerpfad.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="al">![Vorsteuerung (BSB)](../images/diagrams/BSB_RK_Vorsteuerung.svg)</span>{#fig-vorsteuerung-bsb width="80%" fig-align="center"}</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Die Gesamtstellgrösse $y$ setzt sich dabei nun aus einem Anteil der Vorsteuerung und dem gewohnten Anteil des Reglers zusammen.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>y = y_{\mathrm{RE}} + y_{\mathrm{VS}}</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>$$ {#eq-vs-stellgroesse}</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>Diese Struktur ist äusserst wirkungsvoll, da der Istwert durch die Vorsteuerung den Sollwert sehr schnell bereits mehr oder weniger genau erreicht und der Regler "nur" noch verbleibende Abweichungen bzw. Störungen ausregeln muss.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>☝🏼 Der Entwurf der Vorsteuerung ist völlig unabhängig vom Entwurf des Reglers. Der Reglerentwurf erfolgt mit den bekannten Entwurfsverfahren (z.<span class="dv">&amp;nbsp;</span>B. CHR) und wird in diesem Abschnitt daher nicht behandelt.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>Aus dem vorherigen Abschnitt wissen wir, dass die ideale Vorsteuerung der inversen Regelstreckenübertragungsfunktion entspricht, d. h. der Entwurf der Vorsteuerung ist bestechend einfach.</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>So einfach ist es dann aber doch nicht! Da eine reale Regelstrecke immer Verzögerungen und/oder I-Anteile aufweist, ist die Ordnung des Nennerpolynoms $n$ der Regelstreckenübertragungsfunktion immer grösser als die Ordnung des Zählerpolynoms $m$, d. h. es gilt immer $n &gt; m$. Beispielhaft nehmen wir deshalb hier eine P-T~1~-Strecke an, die bekanntermassen die folgende Übertragungsfunktion aufweist:</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{RS}} = \frac{K_{P}}{1 + j \omega \, T_1}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>Bilden wir nun die Inverse dieser Übertragungsfunktion, so erhalten wir eine Übertragungsfunktion, bei der das Zählerpolynom eine höhere Ordnung hat als das Nennerpolynom. Damit ist diese Übertragungsfunktion **nicht realisierbar** (vgl. @nte-realisierbarkeit). Das bedeutet, wir können die exakte Inverse der Regelstreckenübertragungsfunktion nicht implementieren.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}_{\mathrm{ideal}}} = \frac{1 + j \omega \, T_1}{K_{P}} \quad \rightarrow \textsf{nicht realisierbar!}</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>Um dieses Problem zu beheben, können wir eine der nachfolgend aufgeführten Varianten anwenden.</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statische Kompensation</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>Damit wir eine realisierbare Übertragungsfunktion erhalten, streichen wir die $j\omega$-Terme im Zähler der Inversen und erhalten damit: </span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}} = \frac{1}{K_{P}}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>D. h. wir kompensieren mit der Vorsteuerung nur die statische Verstärkung der Regelstrecke und vernachlässigen die Dynamik. Wir nennen diese Art der Vorsteuerung daher **statische Kompensation**. Diese Variante hat allerdings nur eine sehr begrenzte Wirkung und deshalb wird in den meisten Fällen die nachfolgend beschriebene Variante angewendet.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dynamische Kompensation</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>Alternativ zum Streichen der $j\omega$-Terme im Zähler können wir im Nenner $j\omega$-Terme hinzufügen. Dies machen wir, indem wir im Nenner $(1 + j \omega \, T_p)$-Glieder hinzufügen, bis dieselbe Ordnung wie im Zähler erreicht ist. Die parasitäre Zeitkonstante $T_p$ wird üblicherweise ca. 5- bis 20-mal kleiner gewählt als die (kleinste) relevante Zeitkonstante der Regelstrecke. </span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>Ist die Ordnung der Regelstrecke $n$, so sind $n$ solche Glieder nötig, d.<span class="dv">&amp;nbsp;</span>h. wir können es folgendermassen schreiben:</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}} = \frac{1}{F_{\mathrm{RS}}} \cdot \frac{1}{(1 + j \omega \, T_p)^n}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>Im Beispiel der P-T~1~-Strecke ($n=1$) sieht dies folgendermassen aus:</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}} = \frac{1 + j \omega \, T_1}{K_{P}} \cdot \frac{1}{1 + j \omega \, T_p} = \frac{1 + j \omega \, T_1}{K_{P} \cdot (1 + j \omega \, T_p)} = \frac{1 + j \omega \, T_1}{K_{P} + j \omega \, K_{P} T_p}</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>Die oben berechnete Übertragungsfunktion der Vorsteuerung entspricht keinem Grundglied unserer Tabelle und wird in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> vorzugsweise mit dem Block *Benutzerdefinierte s-Übertragungsfunktion* (Palette *Dynamik*) implementiert. Dabei müssen die Koeffizienten der Übertragungsfunktion (vgl. Standardform in @eq-freqresp-gen) eingegeben werden.</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}} = \frac{\overbrace{1}^{\textcolor{blue}{b_0}} + j \omega \, \overbrace{T_1}^{\textcolor{blue}{b_1}}}{\underbrace{K_{P}}_{\textcolor{red}{a_0}} + j \omega \, \underbrace{K_{P} T_p}_{\textcolor{red}{a_1}}}</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>Bsp.: Für eine P-T~1~-Regelstrecke mit $K_{P}=2$ und $T_1 = 0.5 \, \mathrm{s}$ ergeben sich die folgenden Koeffizienten für die Übertragungsfunktion der Vorsteuerung: $b_0 = 1$ und $b_1 = T_1 = 0.5 \, \mathrm{s}$ bzw. $a_0 = K_{P} = 2$ und $a_1 = K_{P} T_p = 0.05 \, \mathrm{s}$ mit der Annahme einer parasitären Zeitkonstante von $T_p = \frac{T_1}{20}$.</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="al">![Benutzerdefinierte s-Übertragungsfunktion in &lt;span class="cap"&gt;Boris&lt;/span&gt;](../images/external/BORIS_sBlock.png)</span>{#fig-sblock}</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>☝🏼 Bei einer Regelstrecke, die aus mehreren Teilen besteht, kann man auch nur bestimmte Teile der Regelstrecke kompensieren. Die Vorsteuerung lässt sich u.<span class="dv">&amp;nbsp;</span>a. sehr gut mit der Kaskadierung kombinieren (vgl. z.<span class="dv">&amp;nbsp;</span>B. @fig-lageregelung).</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Benutzerdefiniertes Übertragungsglied"}</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>Mit dem Block *Benutzerdefinierte s-Übertragungsfunktion* kann in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> ein beliebiges (benutzerdefiniertes) Übertragungsglied erstellt werden, indem die Koeffizienten der Übertragungsfunktion $b_0, b_1, b_2, \ldots, a_0, a_1, a_2, \dots$ definiert werden.</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### Stellgrössenbeschränkung</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>In Realität ist die Stellgrösse immer auf einen bestimmten Bereich beschränkt (Stellgrössenbeschränkung). Wir wissen, wie dies im Regler berücksichtigt wird und kennen entsprechende Anti-Windup-Massnahmen. Da die Stellgrösse der Vorsteuerung zur Stellgrösse des Reglers addiert wird (vgl. @fig-vorsteuerung-bsb bzw. @eq-vs-stellgroesse) sollte die Gesamtstellgrösse $y$ nach der Summierung ebenfalls begrenzt werden, damit keine unzulässige Stellgrösse resultiert. Dafür kann in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> z.<span class="dv">&amp;nbsp;</span>B. der Block *Begrenzer* (Palette *Statik*) verwendet werden.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgaben {.unnumbered}</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"pdf-export"</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target</span><span class="op">=</span><span class="st">"aufgaben6"</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-filename</span><span class="op">=</span><span class="st">"SYS_RE1_AUFG06.pdf"</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-label</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Aufgaben als PDF speichern"</span><span class="dt">&gt;</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/images/icons/file-pdf.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"PDF herunterladen"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"24"</span><span class="dt">&gt;</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>:::: {#aufgaben6}</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-1}</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.1</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>Gegeben ist eine P-T~2~-Regelstrecke mit $K_P = 5$ und $T_1 = 3 \, \mathrm{s}$ bzw. $T_2 = 1.5 \, \mathrm{s}$. Notiere nachfolgend die Übertragungsfunktion der Inverses der Regelstrecke.</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: left;"</span><span class="dt">&gt;</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>\frac{1}{F_{\mathrm{RS}}} =</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-2}</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.2</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>Gegeben ist eine P-T~2~-Regelstrecke mit $K_P = 10$ und $T_1 = 3.5 \, \mathrm{s}$ bzw. $T_2 = 0.5 \, \mathrm{s}$.</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>a) Entwerfe einen PI-Regler gemäss CHR-Verfahren (gutes Führungsverhalten, ohne Überschwingen).</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>b) Entwerfe eine dynamische Vorsteuerung. Verwende eine parasitäre Zeitkonstante $T_p$, die 10-mal kleiner ist als die kleinste Zeitkonstante der Regelstrecke.</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>c) Baue den gesamten Regelkreis inkl. Vorsteuerung in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und simuliere die Führungssprungantwort. Vergleiche das Verhalten (insbesondere die Anregelzeit $T_{cr}$) für die zu- bzw. abgeschaltete Vorsteuerung.</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>Gegeben ist der nachfolgend abgebildete Regelkreis.</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3.png)</span>{fig-align="center"}</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante $T_p = 0.05 \, \mathrm{s}$.</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>ABBTS | 2026 | S. Krauss</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><img src="..\images/logo.png" class="img-fluid" style="width:30.0%"></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

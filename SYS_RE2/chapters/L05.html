@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/A01.html" rel="next">
+<link href="../chapters/L06.html" rel="next">
 <link href="../chapters/L04.html" rel="prev">
 <link href="../images/logo_re2.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -240,6 +240,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Grundglieder</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -282,7 +288,7 @@ window.Quarto = {
   <li><a href="#d-glied" id="toc-d-glied" class="nav-link" data-scroll-target="#d-glied">D-Glied</a></li>
   <li><a href="#d-t1-glied" id="toc-d-t1-glied" class="nav-link" data-scroll-target="#d-t1-glied">D-T<sub>1</sub>-Glied</a></li>
   </ul></li>
-  <li><a href="#reihenschaltung-von-übertragungsgliedern" id="toc-reihenschaltung-von-übertragungsgliedern" class="nav-link" data-scroll-target="#reihenschaltung-von-übertragungsgliedern"><span class="header-section-number">5.2</span> Reihenschaltung von Übertragungsgliedern</a></li>
+  <li><a href="#sec-series" id="toc-sec-series" class="nav-link" data-scroll-target="#sec-series"><span class="header-section-number">5.2</span> Reihenschaltung von Übertragungsgliedern</a></li>
   <li><a href="#parallelschaltung-von-übertragungsgliedern" id="toc-parallelschaltung-von-übertragungsgliedern" class="nav-link" data-scroll-target="#parallelschaltung-von-übertragungsgliedern"><span class="header-section-number">5.3</span> Parallelschaltung von Übertragungsgliedern</a></li>
   <li><a href="#regler" id="toc-regler" class="nav-link" data-scroll-target="#regler"><span class="header-section-number">5.4</span> Regler</a>
   <ul class="collapse">
@@ -340,7 +346,7 @@ window.Quarto = {
 <div style="text-align: right;">
 <p><a href="../assets/SYS_RE2_Grundglieder.pdf"> <img src="../images/icons/file-pdf.svg" alt="PDF" width="24" height="24" style="vertical-align: middle; margin-right: 0.3em;"> PDF </a></p>
 </div>
-<p>☝️ In <span class="cap">Boris</span> wird der Frequenzgang eines Übertragungsgliedes entweder durch Rechtsklick auf das Übertragungsglied → <em>Frequenzgang ermitteln</em> oder durch Klick auf das gleichnamige Icon in der Werkzeugleiste angezeigt. Es öffnet sich ein separates Fenster, in dem zwischen <span class="cap">Bode</span>- und <span class="cap">Nyquist</span>-Diagramm gewechselt werden kann.</p>
+<p>☝🏼 In <span class="cap">Boris</span> wird der Frequenzgang eines Übertragungsgliedes entweder durch Rechtsklick auf das Übertragungsglied → <em>Frequenzgang ermitteln</em> oder durch Klick auf das gleichnamige Icon in der Werkzeugleiste angezeigt. Es öffnet sich ein separates Fenster, in dem zwischen <span class="cap">Bode</span>- und <span class="cap">Nyquist</span>-Diagramm gewechselt werden kann.</p>
 <section id="p-glied" class="level3 unnumbered page-columns page-full">
 <h3 class="unnumbered anchored" data-anchor-id="p-glied">P-Glied</h3>
 <p><span id="eq-freqresp-p"><span class="math display">
@@ -657,8 +663,8 @@ Abb.&nbsp;5.22: <span class="cap">Nyquist</span>-Diagramm eines D-T<sub>1</sub>-
 </div>
 </section>
 </section>
-<section id="reihenschaltung-von-übertragungsgliedern" class="level2 page-columns page-full" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="reihenschaltung-von-übertragungsgliedern"><span class="header-section-number">5.2</span> Reihenschaltung von Übertragungsgliedern</h2>
+<section id="sec-series" class="level2 page-columns page-full" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-series"><span class="header-section-number">5.2</span> Reihenschaltung von Übertragungsgliedern</h2>
 <div id="fig-bsb-seriell" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-bsb-seriell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -691,8 +697,8 @@ Abb.&nbsp;5.24: Reihenschaltung von Übertragungsgliedern = additive Überlageru
 </figcaption>
 </figure>
 </div>
-<p>☝️ Dies hilft uns, <span class="cap">Bode</span>-Diagramme von Übertragungsgliedern zu skizzieren, die nicht direkt in unserer Tabellen enthalten sind.</p>
-<p>☝️ Für die Anzeige des Frequenzganges einer Reihenschaltung in <span class="cap">Boris</span> alle Übertragungsglieder der Reihenschaltung markiert werden und anschliessend wie gehabt der Frequenzgang ermittelt werden. (Es spielt dabei keine Rolle, ob die Übertragungsglieder-Blöcke miteinander verbunden sind oder nicht bzw. in welcher Reihenfolge sie angeordnet sind.)</p>
+<p>☝🏼 Dies hilft uns, <span class="cap">Bode</span>-Diagramme von Übertragungsgliedern zu skizzieren, die nicht direkt in unserer Tabellen enthalten sind.</p>
+<p>☝🏼 Für die Anzeige des Frequenzganges einer Reihenschaltung in <span class="cap">Boris</span> alle Übertragungsglieder der Reihenschaltung markiert werden und anschliessend wie gehabt der Frequenzgang ermittelt werden. (Es spielt dabei keine Rolle, ob die Übertragungsglieder-Blöcke miteinander verbunden sind oder nicht bzw. in welcher Reihenfolge sie angeordnet sind.)</p>
 </section>
 <section id="parallelschaltung-von-übertragungsgliedern" class="level2 page-columns page-full" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="parallelschaltung-von-übertragungsgliedern"><span class="header-section-number">5.3</span> Parallelschaltung von Übertragungsgliedern</h2>
@@ -800,22 +806,22 @@ F(j \omega) = \frac{\textcolor{blue}{b_0} + j \omega \, \textcolor{blue}{b_1} + 
 <li>Bsp.: P-T<sub>1</sub>-Glied: <span class="math inline">b_0 = K_P</span>, <span class="math inline">a_0 = 1</span>, <span class="math inline">a_1 = T_1</span> (alle anderen Koeffizienten = 0)</li>
 <li>Bsp.: I-Glied: <span class="math inline">b_0 = K_I</span>, <span class="math inline">a_0 = 0</span>, <span class="math inline">a_1 = 1</span> (alle anderen Koeffizienten = 0)</li>
 </ul>
-<p>☝️ Je nach Normierung der Koeffizienten kann ein und dasselbe Übertragungsglied unterschiedliche Koeffizienten haben (der Frequenzgang (Bruch) ändert sich dadurch natürlich nicht). In der uns geläufigen Schreibweise wird auf den konstanten Koeffizienten im Nenner normiert, d.&nbsp;h. <span class="math inline">a_0 = 1</span> (bzw. <span class="math inline">a_1 = 1</span> bei I-Gliedern). Dann entsprechen die Koeffizienten direkt den bekannten Paramtern des Übertragungsgliedes (z.&nbsp;B. <span class="math inline">K_P</span>, <span class="math inline">K_I</span>, <span class="math inline">T_1</span>, …). In <span class="cap">Boris</span> wird hingegen auf den Koeffizienten des höchsten Grades im Nenner normiert, d.&nbsp;h. <span class="math inline">a_n = 1</span>. (Die Koeffizienten des Frequenzganges werden in <span class="cap">Boris</span> unter dem Reiter <em>Übertragungsfunktion</em> im Frequenzgangfenster angezeigt.)</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Realisierbarkeit">
+<p>☝🏼 Je nach Normierung der Koeffizienten kann ein und dasselbe Übertragungsglied unterschiedliche Koeffizienten haben (der Frequenzgang (Bruch) ändert sich dadurch natürlich nicht). In der uns geläufigen Schreibweise wird auf den konstanten Koeffizienten im Nenner normiert, d.&nbsp;h. <span class="math inline">a_0 = 1</span> (bzw. <span class="math inline">a_1 = 1</span> bei I-Gliedern). Dann entsprechen die Koeffizienten direkt den bekannten Paramtern des Übertragungsgliedes (z.&nbsp;B. <span class="math inline">K_P</span>, <span class="math inline">K_I</span>, <span class="math inline">T_1</span>, …). In <span class="cap">Boris</span> wird hingegen auf den Koeffizienten des höchsten Grades im Nenner normiert, d.&nbsp;h. <span class="math inline">a_n = 1</span>. (Die Koeffizienten des Frequenzganges werden in <span class="cap">Boris</span> unter dem Reiter <em>Übertragungsfunktion</em> im Frequenzgangfenster angezeigt.)</p>
+<div id="nte-realisierbarkeit" class="callout callout-style-default callout-important callout-titled" title="Realisierbarkeit">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Wichtig</span>Realisierbarkeit
+Hinweis&nbsp;5.1: Realisierbarkeit
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Damit ein Übertragungsglied realisierbar ist, muss der <strong>Grad des Zählers <span class="math inline">m</span> kleiner oder gleich dem Grad des Nenners <span class="math inline">n</span></strong> sein.</p>
+<p>Damit ein Übertragungsglied realisierbar ist, muss der <strong>Grad des Zählerpolynoms <span class="math inline">m</span> kleiner oder gleich dem Grad des Nennerpolynoms <span class="math inline">n</span></strong> sein.</p>
 <p><span id="eq-freqresp-realizable"><span class="math display">
 m \leq n \quad \rightarrow \textsf{realisierbar}
 \tag{5.18}</span></span></p>
-<p>Ist der Grad des Zählers größer als der Grad des Nenners, so spricht man von einem nicht-realisierbaren Übertragungsglied. Dies ist z.&nbsp;B. beim reinen D-Glied der Fall:</p>
+<p>Ist der Grad des Zählerpolynoms größer als derjenige des Nennerpolynoms, so spricht man von einem nicht-realisierbaren Übertragungsglied. Dies ist z.&nbsp;B. beim reinen D-Glied der Fall:</p>
 <p><span class="math display">
 \textsf{D-Glied:}\quad F(j \omega) = j \omega \, T_D \quad \rightarrow \textsf{nicht realisierbar}
 </span></p>
@@ -842,7 +848,11 @@ m \leq n \quad \rightarrow \textsf{realisierbar}
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Identifiziere das Übertragungsglied und die Konstanten (Parameter) anhand des nachfolgenden <span class="cap">Bode</span>-Diagramms.</p>
-<p><img src="../images/diagrams/A5_1.svg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -875,8 +885,16 @@ m \leq n \quad \rightarrow \textsf{realisierbar}
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Nachfolgend ist das <span class="cap">Bode</span>-Diagramm und das <span class="cap">Nyquist</span>-Diagramm eines Übertragungsgliedes dargestellt. Zeichne die roten Punkte jeweils in das andere Diagramm ein.</p>
-<p><img src="../images/diagrams/A5_3_Bode.svg" class="img-fluid"></p>
-<p><img src="../images/diagrams/A5_3_Nyquist.svg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_3_Bode.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A5_3_Nyquist.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1510,8 +1528,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/A01.html" class="pagination-link" aria-label="Refresher">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Refresher</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/L06.html" class="pagination-link" aria-label="Vorsteuerung">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1538,7 +1556,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>☝️ In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> wird der Frequenzgang eines Übertragungsgliedes entweder durch Rechtsklick auf das Übertragungsglied <span class="dv">&amp;rarr;</span> *Frequenzgang ermitteln* oder durch Klick auf das gleichnamige Icon in der Werkzeugleiste angezeigt. Es öffnet sich ein separates Fenster, in dem zwischen <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>- und <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Nyquist<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm gewechselt werden kann.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>☝🏼 In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> wird der Frequenzgang eines Übertragungsgliedes entweder durch Rechtsklick auf das Übertragungsglied <span class="dv">&amp;rarr;</span> *Frequenzgang ermitteln* oder durch Klick auf das gleichnamige Icon in der Werkzeugleiste angezeigt. Es öffnet sich ein separates Fenster, in dem zwischen <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>- und <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Nyquist<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm gewechselt werden kann.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### P-Glied {.unnumbered}</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
@@ -1707,7 +1725,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;span class="cap"&gt;Nyquist&lt;/span&gt;-Diagramm eines D-T~1~-Gliedes](../images/diagrams/D-T1_Nyquist.svg)</span>{#fig-nyquist-dt1}</span>
 <span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reihenschaltung von Übertragungsgliedern</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reihenschaltung von Übertragungsgliedern {#sec-series}</span></span>
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="al">![Reihenschaltung von Übertragungsgliedern](../images/diagrams/BSB_seriell.svg)</span>{#fig-bsb-seriell}</span>
 <span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
@@ -1730,9 +1748,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="al">![Reihenschaltung von Übertragungsgliedern = additive Überlagerung (Summe) der Frequenzgänge](../images/diagrams/seriell.svg)</span>{#fig-seriell}</span>
 <span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>☝️ Dies hilft uns, <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramme von Übertragungsgliedern zu skizzieren, die nicht direkt in unserer Tabellen enthalten sind.</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>☝🏼 Dies hilft uns, <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramme von Übertragungsgliedern zu skizzieren, die nicht direkt in unserer Tabellen enthalten sind.</span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>☝️ Für die Anzeige des Frequenzganges einer Reihenschaltung in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> alle Übertragungsglieder der Reihenschaltung markiert werden und anschliessend wie gehabt der Frequenzgang ermittelt werden. (Es spielt dabei keine Rolle, ob die Übertragungsglieder-Blöcke miteinander verbunden sind oder nicht bzw. in welcher Reihenfolge sie angeordnet sind.)</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>☝🏼 Für die Anzeige des Frequenzganges einer Reihenschaltung in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> alle Übertragungsglieder der Reihenschaltung markiert werden und anschliessend wie gehabt der Frequenzgang ermittelt werden. (Es spielt dabei keine Rolle, ob die Übertragungsglieder-Blöcke miteinander verbunden sind oder nicht bzw. in welcher Reihenfolge sie angeordnet sind.)</span>
 <span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parallelschaltung von Übertragungsgliedern</span></span>
 <span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
@@ -1810,17 +1828,17 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bsp.: P-T~1~-Glied: $b_0 = K_P$, $a_0 = 1$, $a_1 = T_1$ (alle anderen Koeffizienten = 0)</span>
 <span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bsp.: I-Glied: $b_0 = K_I$, $a_0 = 0$, $a_1 = 1$ (alle anderen Koeffizienten = 0)</span>
 <span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>☝️ Je nach Normierung der Koeffizienten kann ein und dasselbe Übertragungsglied unterschiedliche Koeffizienten haben (der Frequenzgang (Bruch) ändert sich dadurch natürlich nicht). In der uns geläufigen Schreibweise wird auf den konstanten Koeffizienten im Nenner normiert, d.<span class="dv">&amp;nbsp;</span>h. $a_0 = 1$ (bzw. $a_1 = 1$ bei I-Gliedern). Dann entsprechen die Koeffizienten direkt den bekannten Paramtern des Übertragungsgliedes (z.<span class="dv">&amp;nbsp;</span>B. $K_P$, $K_I$, $T_1$, ...). In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> wird hingegen auf den Koeffizienten des höchsten Grades im Nenner normiert, d.<span class="dv">&amp;nbsp;</span>h. $a_n = 1$. (Die Koeffizienten des Frequenzganges werden in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> unter dem Reiter *Übertragungsfunktion* im Frequenzgangfenster angezeigt.)</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>☝🏼 Je nach Normierung der Koeffizienten kann ein und dasselbe Übertragungsglied unterschiedliche Koeffizienten haben (der Frequenzgang (Bruch) ändert sich dadurch natürlich nicht). In der uns geläufigen Schreibweise wird auf den konstanten Koeffizienten im Nenner normiert, d.<span class="dv">&amp;nbsp;</span>h. $a_0 = 1$ (bzw. $a_1 = 1$ bei I-Gliedern). Dann entsprechen die Koeffizienten direkt den bekannten Paramtern des Übertragungsgliedes (z.<span class="dv">&amp;nbsp;</span>B. $K_P$, $K_I$, $T_1$, ...). In <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> wird hingegen auf den Koeffizienten des höchsten Grades im Nenner normiert, d.<span class="dv">&amp;nbsp;</span>h. $a_n = 1$. (Die Koeffizienten des Frequenzganges werden in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> unter dem Reiter *Übertragungsfunktion* im Frequenzgangfenster angezeigt.)</span>
 <span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Realisierbarkeit"}</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Realisierbarkeit" #nte-realisierbarkeit}</span>
 <span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>Damit ein Übertragungsglied realisierbar ist, muss der **Grad des Zählers $m$ kleiner oder gleich dem Grad des Nenners $n$** sein. </span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>Damit ein Übertragungsglied realisierbar ist, muss der **Grad des Zählerpolynoms $m$ kleiner oder gleich dem Grad des Nennerpolynoms $n$** sein. </span>
 <span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>m \leq n \quad \rightarrow \textsf{realisierbar}</span>
 <span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>$$ {#eq-freqresp-realizable}</span>
 <span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Ist der Grad des Zählers größer als der Grad des Nenners, so spricht man von einem nicht-realisierbaren Übertragungsglied. Dies ist z.<span class="dv">&amp;nbsp;</span>B. beim reinen D-Glied der Fall:</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Ist der Grad des Zählerpolynoms größer als derjenige des Nennerpolynoms, so spricht man von einem nicht-realisierbaren Übertragungsglied. Dies ist z.<span class="dv">&amp;nbsp;</span>B. beim reinen D-Glied der Fall:</span>
 <span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>\textsf{D-Glied:}\quad F(j \omega) = j \omega \, T_D \quad \rightarrow \textsf{nicht realisierbar}</span>
@@ -1846,7 +1864,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>Identifiziere das Übertragungsglied und die Konstanten (Parameter) anhand des nachfolgenden <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramms.</span>
 <span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1.svg)</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_1.svg)</span>{fig-align="center"}</span>
 <span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
@@ -1862,9 +1880,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>Nachfolgend ist das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Bode<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm und das <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Nyquist<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>-Diagramm eines Übertragungsgliedes dargestellt. Zeichne die roten Punkte jeweils in das andere Diagramm ein.</span>
 <span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_Bode.svg)</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_Bode.svg)</span>{fig-align="center"}</span>
 <span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_Nyquist.svg)</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A5_3_Nyquist.svg)</span>{fig-align="center"}</span>
 <span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
