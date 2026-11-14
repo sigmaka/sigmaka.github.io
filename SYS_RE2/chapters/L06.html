@@ -496,7 +496,7 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 </button>
 <div id="aufgaben6">
 <div id="ex-6-1" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -505,19 +505,40 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Gegeben ist eine P-T<sub>2</sub>-Regelstrecke mit <span class="math inline">K_P = 5</span> und <span class="math inline">T_1 = 3 \, \mathrm{s}</span> bzw. <span class="math inline">T_2 = 1.5 \, \mathrm{s}</span>. Notiere nachfolgend die Übertragungsfunktion der Inversen der Regelstrecke.</p>
-<div style="text-align: left;">
 <p><span class="math display">
-  \frac{1}{F_{\mathrm{RS}}} =
-  </span></p>
+\frac{1}{F_{\mathrm{RS}}} =
+</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\begin{align*}
+\frac{1}{F_{\mathrm{RS}}} &amp;= \frac{1}{\dfrac{K_P}{(1 + j \omega \, T_1) \, (1 + j \omega \, T_2)}} \\[20pt]
+&amp;= \frac{(1 + j \omega \, T_1) \, (1 + j \omega \, T_2)}{K_P} \\[10pt]
+&amp;= \frac{1 + j \omega \, (T_1 + T_2) + (j \omega)^2 \, T_1 T_2}{K_P} \\[10pt]
+&amp;= \frac{1 + j \omega \, 4.5 + (j \omega)^2 \, 4.5}{5}
+\end{align*}
+</span></p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="ex-6-2" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -526,7 +547,7 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Gegeben ist eine P-T<sub>2</sub>-Regelstrecke mit <span class="math inline">K_P = 10</span> und <span class="math inline">T_1 = 3.5 \, \mathrm{s}</span> bzw. <span class="math inline">T_2 = 0.5 \, \mathrm{s}</span>.</p>
 <ol type="a">
@@ -534,11 +555,54 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 <li><p>Entwerfe eine dynamische Vorsteuerung. Verwende eine parasitäre Zeitkonstante <span class="math inline">T_p</span>, die 10-mal kleiner ist als die kleinste Zeitkonstante der Regelstrecke.</p></li>
 <li><p>Baue den gesamten Regelkreis inkl. Vorsteuerung in <span class="cap">Boris</span> auf und simuliere die Führungssprungantwort. Vergleiche das Verhalten (insbesondere die Anregelzeit <span class="math inline">T_{cr}</span>) für die zu- bzw. abgeschaltete Vorsteuerung.</p></li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p><span class="math inline">K_{PS} = 10</span>, <span class="math inline">T_b = 4.826</span>, <span class="math inline">T_e = 0.294</span> → <span class="math inline">K_{PR} = 0.56</span>, <span class="math inline">T_i = 5.79</span></p></li>
+<li><p><span class="math inline">T_p = \dfrac{T_2}{10} = 0.05</span></p>
+<p><span class="math display">
+\begin{align*}
+F_{\mathrm{RS}}(j \omega) &amp;= \frac{K_{PS}}{1 + j \omega \, (T_1 + T_2) + (j \omega)^2 \, T_1 T_2} \\[10pt]
+&amp;= \frac{10}{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}
+\end{align*}
+</span></p>
+<p>Die Inverse der Regelstreckenübertragungsfunktion ist nicht realisierbar und muss mit <span class="math inline">(1 + j \omega \, T_p)^2</span> im Nenner erweitert werden.</p>
+<p><span class="math display">
+\begin{align*}
+F_{\mathrm{VS}}(j \omega) &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 \, (1 + j \omega \, T_p)^2} \\[10pt]
+&amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 + j \omega \, 0.1 + (j \omega)^2 \, 0.025}
+\end{align*}
+</span></p></li>
+<li></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_2_LSG.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_2_LSG_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="ex-6-3" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -547,7 +611,7 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Gegeben ist der nachfolgend abgebildete Regelkreis.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -556,6 +620,48 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 </figure>
 </div>
 <p>Baue den Regelkreis in <span class="cap">Boris</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante <span class="math inline">T_p = 0.05 \, \mathrm{s}</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Regelstrecke:</p>
+<p><span class="math display">
+F_{\mathrm{RS}}(j \omega) = \frac{1}{j \omega \, T_I} = \frac{1}{j \omega \, 50}
+</span></p>
+<p>Vorsteuerung: Die ideale Vorsteuerung entspricht der Inversen der Regelstreckenübertragungsfunktion. Die Inverse ist nicht realisierbar, d.&nbsp;h. es muss im Nenner ein <span class="math inline">(1 + j \omega \, T_p)</span>-Term hinzugefügt werden.</p>
+<p><span class="math display">
+F_{\mathrm{VS}}(j \omega) = \frac{j \omega \, T_I}{1 + j \omega \, T_p} = \frac{j \omega \, 50}{1 + j \omega \, 0.05}
+</span></p>
+<p>Koeffizienten der Vorsteuerung:</p>
+<p><span class="math display">
+\begin{align*}
+b_0 &amp;= 0 \\
+b_1 &amp;= 50 \\[5pt]
+a_0 &amp;= 1 \\
+a_1 &amp;= 0.05
+\end{align*}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_3_LSG.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/diagrams/A6_3_LSG_Diagramm.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1329,38 +1435,114 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>Gegeben ist eine P-T~2~-Regelstrecke mit $K_P = 5$ und $T_1 = 3 \, \mathrm{s}$ bzw. $T_2 = 1.5 \, \mathrm{s}$. Notiere nachfolgend die Übertragungsfunktion der Inversen der Regelstrecke.</span>
 <span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: left;"</span><span class="dt">&gt;</span></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>  $$</span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>  \frac{1}{F_{\mathrm{RS}}} =</span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>  $$ </span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-2}</span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.2</span></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>Gegeben ist eine P-T~2~-Regelstrecke mit $K_P = 10$ und $T_1 = 3.5 \, \mathrm{s}$ bzw. $T_2 = 0.5 \, \mathrm{s}$.</span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>a) Entwerfe einen PI-Regler gemäss CHR-Verfahren (gutes Führungsverhalten, ohne Überschwingen).</span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>b) Entwerfe eine dynamische Vorsteuerung. Verwende eine parasitäre Zeitkonstante $T_p$, die 10-mal kleiner ist als die kleinste Zeitkonstante der Regelstrecke.</span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>c) Baue den gesamten Regelkreis inkl. Vorsteuerung in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und simuliere die Führungssprungantwort. Vergleiche das Verhalten (insbesondere die Anregelzeit $T_{cr}$) für die zu- bzw. abgeschaltete Vorsteuerung.</span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>Gegeben ist der nachfolgend abgebildete Regelkreis.</span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3.png)</span>{fig-align="center"}</span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante $T_p = 0.05 \, \mathrm{s}$.</span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>\frac{1}{F_{\mathrm{RS}}} =</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>\frac{1}{F_{\mathrm{RS}}} &amp;= \frac{1}{\dfrac{K_P}{(1 + j \omega \, T_1) \, (1 + j \omega \, T_2)}} <span class="sc">\\</span><span class="co">[</span><span class="ot">20pt</span><span class="co">]</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{(1 + j \omega \, T_1) \, (1 + j \omega \, T_2)}{K_P} <span class="sc">\\</span><span class="co">[</span><span class="ot">10pt</span><span class="co">]</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{1 + j \omega \, (T_1 + T_2) + (j \omega)^2 \, T_1 T_2}{K_P} <span class="sc">\\</span><span class="co">[</span><span class="ot">10pt</span><span class="co">]</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{1 + j \omega \, 4.5 + (j \omega)^2 \, 4.5}{5}</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-2}</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.2</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>Gegeben ist eine P-T~2~-Regelstrecke mit $K_P = 10$ und $T_1 = 3.5 \, \mathrm{s}$ bzw. $T_2 = 0.5 \, \mathrm{s}$.</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>a) Entwerfe einen PI-Regler gemäss CHR-Verfahren (gutes Führungsverhalten, ohne Überschwingen).</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>b) Entwerfe eine dynamische Vorsteuerung. Verwende eine parasitäre Zeitkonstante $T_p$, die 10-mal kleiner ist als die kleinste Zeitkonstante der Regelstrecke.</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>c) Baue den gesamten Regelkreis inkl. Vorsteuerung in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und simuliere die Führungssprungantwort. Vergleiche das Verhalten (insbesondere die Anregelzeit $T_{cr}$) für die zu- bzw. abgeschaltete Vorsteuerung.</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>a) $K_{PS} = 10$, $T_b = 4.826$, $T_e = 0.294$ <span class="dv">&amp;rarr;</span> $K_{PR} = 0.56$, $T_i = 5.79$</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>b) $T_p = \dfrac{T_2}{10} = 0.05$</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">    \begin{align*}</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">    F_{\mathrm{RS}}(j \omega) &amp;= \frac{K_{PS}}{1 + j \omega \, (T_1 + T_2) + (j \omega)^2 \, T_1 T_2} \\[10pt]</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">    &amp;= \frac{10}{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">    \end{align*}</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">    Die Inverse der Regelstreckenübertragungsfunktion ist nicht realisierbar und muss mit $(1 + j \omega \, T_p)^2$ im Nenner erweitert werden.</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">    \begin{align*}</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">    F_{\mathrm{VS}}(j \omega) &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 \, (1 + j \omega \, T_p)^2} \\[10pt]</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 + j \omega \, 0.1 + (j \omega)^2 \, 0.025}</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">    \end{align*}</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>c)</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_LSG.png)</span>{fig-align="center"}</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_LSG_Diagramm.png)</span>{fig-align="center"}</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>Gegeben ist der nachfolgend abgebildete Regelkreis.</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3.png)</span>{fig-align="center"}</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante $T_p = 0.05 \, \mathrm{s}$.</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>Regelstrecke:</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{RS}}(j \omega) = \frac{1}{j \omega \, T_I} = \frac{1}{j \omega \, 50}</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>Vorsteuerung:</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>Die ideale Vorsteuerung entspricht der Inversen der Regelstreckenübertragungsfunktion. Die Inverse ist nicht realisierbar, d.<span class="dv">&amp;nbsp;</span>h. es muss im Nenner ein $(1 + j \omega \, T_p)$-Term hinzugefügt werden.</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}}(j \omega) = \frac{j \omega \, T_I}{1 + j \omega \, T_p} = \frac{j \omega \, 50}{1 + j \omega \, 0.05}</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>Koeffizienten der Vorsteuerung:</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>b_0 &amp;= 0 <span class="sc">\\</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>b_1 &amp;= 50 <span class="sc">\\</span><span class="co">[</span><span class="ot">5pt</span><span class="co">]</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>a_0 &amp;= 1 <span class="sc">\\</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>a_1 &amp;= 0.05</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_LSG.png)</span>{fig-align="center"}</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_LSG_Diagramm.png)</span>{fig-align="center"}</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

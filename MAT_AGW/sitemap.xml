@@ -52,4 +52,31 @@
   <url>
     <loc>http://localhost:3000/datenauswertung/datenauswertung-loesungen</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/scipy/scipy</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/scipy/scipy-unterricht</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/scipy/scipy-uebungen</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/scipy/scipy-loesungen</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/fft/fft</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/fft/fft-unterricht</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/fft/fft-workflow</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/fft/fft-uebungen</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sympy/sympy</loc>
+  </url>
 </urlset>
