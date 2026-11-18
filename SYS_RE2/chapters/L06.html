@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/A01.html" rel="next">
+<link href="../chapters/L07.html" rel="next">
 <link href="../chapters/L05.html" rel="prev">
 <link href="../images/logo_re2.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -246,6 +246,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vorsteuerung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/L07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Störgrössenaufschaltung</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -278,9 +284,9 @@ window.Quarto = {
   <li><a href="#ideale-steuerung" id="toc-ideale-steuerung" class="nav-link active" data-scroll-target="#ideale-steuerung"><span class="header-section-number">6.1</span> Ideale Steuerung</a></li>
   <li><a href="#vorsteuerung" id="toc-vorsteuerung" class="nav-link" data-scroll-target="#vorsteuerung"><span class="header-section-number">6.2</span> Vorsteuerung</a>
   <ul class="collapse">
-  <li><a href="#statische-kompensation" id="toc-statische-kompensation" class="nav-link" data-scroll-target="#statische-kompensation"><span class="header-section-number">6.2.1</span> Statische Kompensation</a></li>
-  <li><a href="#dynamische-kompensation" id="toc-dynamische-kompensation" class="nav-link" data-scroll-target="#dynamische-kompensation"><span class="header-section-number">6.2.2</span> Dynamische Kompensation</a></li>
-  <li><a href="#stellgrössenbeschränkung" id="toc-stellgrössenbeschränkung" class="nav-link" data-scroll-target="#stellgrössenbeschränkung"><span class="header-section-number">6.2.3</span> Stellgrössenbeschränkung</a></li>
+  <li><a href="#sec-vs-static" id="toc-sec-vs-static" class="nav-link" data-scroll-target="#sec-vs-static"><span class="header-section-number">6.2.1</span> Statische Kompensation</a></li>
+  <li><a href="#sec-vs-dynamic" id="toc-sec-vs-dynamic" class="nav-link" data-scroll-target="#sec-vs-dynamic"><span class="header-section-number">6.2.2</span> Dynamische Kompensation</a></li>
+  <li><a href="#sec-vs-limit" id="toc-sec-vs-limit" class="nav-link" data-scroll-target="#sec-vs-limit"><span class="header-section-number">6.2.3</span> Stellgrössenbeschränkung</a></li>
   </ul></li>
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
   </ul>
@@ -397,9 +403,9 @@ Abb.&nbsp;6.1: Ideale Steuerung
 F_{w \rightarrow x} = F_{\mathrm{STG}} \cdot F_{\mathrm{RS}}
 </span></p>
 <p>Bei einer perfekten (idealen) Steuerung würde der Istwert immer exakt dem Sollwert entsprechen <span class="math inline">x = w</span>. <strong>Die Übertragungsfunktion der idealen Steuerung <span class="math inline">F_{w \rightarrow x}</span> ist daher 1</strong>. Setzen wir die obige Beziehung gleich 1 und lösen nach der Übertragungsfunktion des Steuergerätes auf, erhalten wir die <strong>ideale Steuerung</strong>:</p>
-<p><span class="math display">
+<p><span id="eq-stg-ideal"><span class="math display">
 F_{\mathrm{STG}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}
-</span></p>
+\tag{6.1}</span></span></p>
 <p>Das bedeutet, dass die ideale Steuerung der Inversen der Übertragungsfunktion der Strecke entspricht. Damit wird die Strecke vom Steuergerät vollständig “kompensiert” und der Istwert entspricht immer exakt dem Sollwert.</p>
 <p>☝🏼 Wir werden feststellen, dass eine (perfekte) ideale Steuerung in Realität nicht möglich ist, d.&nbsp;h. man kann sich ihr nur annähern.</p>
 </section>
@@ -419,13 +425,13 @@ Abb.&nbsp;6.2: Vorsteuerung (BSB)
 <p>Die Gesamtstellgrösse <span class="math inline">y</span> setzt sich dabei nun aus einem Anteil der Vorsteuerung und dem gewohnten Anteil des Reglers zusammen.</p>
 <p><span id="eq-vs-stellgroesse"><span class="math display">
 y = y_{\mathrm{RE}} + y_{\mathrm{VS}}
-\tag{6.1}</span></span></p>
+\tag{6.2}</span></span></p>
 <p>Diese Struktur ist äusserst wirkungsvoll, da der Istwert durch die Vorsteuerung den Sollwert sehr schnell bereits mehr oder weniger genau erreicht und der Regler “nur” noch verbleibende Abweichungen bzw. Störungen ausregeln muss.</p>
 <p>☝🏼 Der Entwurf der Vorsteuerung ist völlig unabhängig vom Entwurf des Reglers. Der Reglerentwurf erfolgt mit den bekannten Entwurfsverfahren (z.&nbsp;B. CHR) und wird in diesem Abschnitt daher nicht behandelt.</p>
 <p>Aus dem vorherigen Abschnitt wissen wir, dass die ideale Vorsteuerung der inversen Regelstreckenübertragungsfunktion entspricht, d.&nbsp;h. der Entwurf der Vorsteuerung ist bestechend einfach.</p>
-<p><span class="math display">
+<p><span id="eq-vs-ideal"><span class="math display">
 F_{\mathrm{VS}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}
-</span></p>
+\tag{6.3}</span></span></p>
 <p>So einfach ist es dann aber doch nicht! Da eine reale Regelstrecke immer Verzögerungen und/oder I-Anteile aufweist, ist die Ordnung des Nennerpolynoms <span class="math inline">n</span> der Regelstreckenübertragungsfunktion immer grösser als die Ordnung des Zählerpolynoms <span class="math inline">m</span>, d.&nbsp;h. es gilt immer <span class="math inline">n &gt; m</span>. Beispielhaft nehmen wir deshalb hier eine P-T<sub>1</sub>-Strecke an, die bekanntermassen die folgende Übertragungsfunktion aufweist:</p>
 <p><span class="math display">
 F_{\mathrm{RS}} = \frac{K_{P}}{1 + j \omega \, T_1}
@@ -435,16 +441,16 @@ F_{\mathrm{RS}} = \frac{K_{P}}{1 + j \omega \, T_1}
 F_{\mathrm{VS}_{\mathrm{ideal}}} = \frac{1 + j \omega \, T_1}{K_{P}} \quad \rightarrow \textsf{nicht realisierbar!}
 </span></p>
 <p>Um dieses Problem zu beheben, können wir eine der nachfolgend aufgeführten Varianten anwenden.</p>
-<section id="statische-kompensation" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="statische-kompensation"><span class="header-section-number">6.2.1</span> Statische Kompensation</h3>
+<section id="sec-vs-static" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="sec-vs-static"><span class="header-section-number">6.2.1</span> Statische Kompensation</h3>
 <p>Damit wir eine realisierbare Übertragungsfunktion erhalten, streichen wir die <span class="math inline">j\omega</span>-Terme im Zähler der Inversen und erhalten damit:</p>
 <p><span class="math display">
 F_{\mathrm{VS}} = \frac{1}{K_{P}}
 </span></p>
 <p>D. h. wir kompensieren mit der Vorsteuerung nur die statische Verstärkung der Regelstrecke und vernachlässigen die Dynamik. Wir nennen diese Art der Vorsteuerung daher <strong>statische Kompensation</strong>. Diese Variante hat allerdings nur eine sehr begrenzte Wirkung und deshalb wird in den meisten Fällen die nachfolgend beschriebene Variante angewendet.</p>
 </section>
-<section id="dynamische-kompensation" class="level3 page-columns page-full" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="dynamische-kompensation"><span class="header-section-number">6.2.2</span> Dynamische Kompensation</h3>
+<section id="sec-vs-dynamic" class="level3 page-columns page-full" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="sec-vs-dynamic"><span class="header-section-number">6.2.2</span> Dynamische Kompensation</h3>
 <p>Alternativ zum Streichen der <span class="math inline">j\omega</span>-Terme im Zähler können wir im Nenner <span class="math inline">j\omega</span>-Terme hinzufügen. Dies machen wir, indem wir im Nenner <span class="math inline">(1 + j \omega \, T_p)</span>-Glieder hinzufügen, bis dieselbe Ordnung wie im Zähler erreicht ist. Die parasitäre Zeitkonstante <span class="math inline">T_p</span> wird üblicherweise ca. 5- bis 20-mal kleiner gewählt als die (kleinste) relevante Zeitkonstante der Regelstrecke.</p>
 <p>Ist die Ordnung der Regelstrecke <span class="math inline">n</span>, so sind <span class="math inline">n</span> solche Glieder nötig, d.&nbsp;h. wir können es folgendermassen schreiben:</p>
 <p><span class="math display">
@@ -484,9 +490,9 @@ Abb.&nbsp;6.3: Benutzerdefinierte s-Übertragungsfunktion in <span class="cap">B
 </div>
 </div>
 </section>
-<section id="stellgrössenbeschränkung" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="stellgrössenbeschränkung"><span class="header-section-number">6.2.3</span> Stellgrössenbeschränkung</h3>
-<p>In Realität ist die Stellgrösse immer auf einen bestimmten Bereich beschränkt (Stellgrössenbeschränkung). Wir wissen, wie dies im Regler berücksichtigt wird und kennen entsprechende Anti-Windup-Massnahmen. Da die Stellgrösse der Vorsteuerung zur Stellgrösse des Reglers addiert wird (vgl. <a href="#fig-vorsteuerung-bsb" class="quarto-xref">Abb.&nbsp;<span>6.2</span></a> bzw. <a href="#eq-vs-stellgroesse" class="quarto-xref">Gleichung&nbsp;<span>6.1</span></a>) sollte die Gesamtstellgrösse <span class="math inline">y</span> nach der Summierung ebenfalls begrenzt werden, damit keine unzulässige Stellgrösse resultiert. Dafür kann in <span class="cap">Boris</span> z.&nbsp;B. der Block <em>Begrenzer</em> (Palette <em>Statik</em>) verwendet werden.</p>
+<section id="sec-vs-limit" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="sec-vs-limit"><span class="header-section-number">6.2.3</span> Stellgrössenbeschränkung</h3>
+<p>In Realität ist die Stellgrösse immer auf einen bestimmten Bereich beschränkt (Stellgrössenbeschränkung). Wir wissen, wie dies im Regler berücksichtigt wird und kennen entsprechende Anti-Windup-Massnahmen. Da die Stellgrösse der Vorsteuerung zur Stellgrösse des Reglers addiert wird (vgl. <a href="#fig-vorsteuerung-bsb" class="quarto-xref">Abb.&nbsp;<span>6.2</span></a> bzw. <a href="#eq-vs-stellgroesse" class="quarto-xref">Gleichung&nbsp;<span>6.2</span></a>) sollte die Gesamtstellgrösse <span class="math inline">y</span> nach der Summierung ebenfalls begrenzt werden, damit keine unzulässige Stellgrösse resultiert. Dafür kann in <span class="cap">Boris</span> z.&nbsp;B. der Block <em>Begrenzer</em> (Palette <em>Statik</em>) verwendet werden.</p>
 </section>
 </section>
 <section id="aufgaben" class="level2 unnumbered">
@@ -1266,8 +1272,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/A01.html" class="pagination-link" aria-label="Refresher">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Refresher</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/L07.html" class="pagination-link" aria-label="Störgrössenaufschaltung">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Störgrössenaufschaltung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1328,7 +1334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{STG}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$$ {#eq-stg-ideal}</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Das bedeutet, dass die ideale Steuerung der Inversen der Übertragungsfunktion der Strecke entspricht. Damit wird die Strecke vom Steuergerät vollständig "kompensiert" und der Istwert entspricht immer exakt dem Sollwert.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
@@ -1354,7 +1360,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}_{\mathrm{ideal}}} = \dfrac{1}{F_{\mathrm{RS}}}</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>$$ {#eq-vs-ideal}</span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>So einfach ist es dann aber doch nicht! Da eine reale Regelstrecke immer Verzögerungen und/oder I-Anteile aufweist, ist die Ordnung des Nennerpolynoms $n$ der Regelstreckenübertragungsfunktion immer grösser als die Ordnung des Zählerpolynoms $m$, d. h. es gilt immer $n &gt; m$. Beispielhaft nehmen wir deshalb hier eine P-T~1~-Strecke an, die bekanntermassen die folgende Übertragungsfunktion aufweist:</span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
@@ -1370,7 +1376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>Um dieses Problem zu beheben, können wir eine der nachfolgend aufgeführten Varianten anwenden.</span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statische Kompensation</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statische Kompensation {#sec-vs-static}</span></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>Damit wir eine realisierbare Übertragungsfunktion erhalten, streichen wir die $j\omega$-Terme im Zähler der Inversen und erhalten damit: </span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
@@ -1380,7 +1386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>D. h. wir kompensieren mit der Vorsteuerung nur die statische Verstärkung der Regelstrecke und vernachlässigen die Dynamik. Wir nennen diese Art der Vorsteuerung daher **statische Kompensation**. Diese Variante hat allerdings nur eine sehr begrenzte Wirkung und deshalb wird in den meisten Fällen die nachfolgend beschriebene Variante angewendet.</span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dynamische Kompensation</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dynamische Kompensation {#sec-vs-dynamic}</span></span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>Alternativ zum Streichen der $j\omega$-Terme im Zähler können wir im Nenner $j\omega$-Terme hinzufügen. Dies machen wir, indem wir im Nenner $(1 + j \omega \, T_p)$-Glieder hinzufügen, bis dieselbe Ordnung wie im Zähler erreicht ist. Die parasitäre Zeitkonstante $T_p$ wird üblicherweise ca. 5- bis 20-mal kleiner gewählt als die (kleinste) relevante Zeitkonstante der Regelstrecke. </span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
@@ -1414,7 +1420,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### Stellgrössenbeschränkung</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### Stellgrössenbeschränkung {#sec-vs-limit}</span></span>
 <span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>In Realität ist die Stellgrösse immer auf einen bestimmten Bereich beschränkt (Stellgrössenbeschränkung). Wir wissen, wie dies im Regler berücksichtigt wird und kennen entsprechende Anti-Windup-Massnahmen. Da die Stellgrösse der Vorsteuerung zur Stellgrösse des Reglers addiert wird (vgl. @fig-vorsteuerung-bsb bzw. @eq-vs-stellgroesse) sollte die Gesamtstellgrösse $y$ nach der Summierung ebenfalls begrenzt werden, damit keine unzulässige Stellgrösse resultiert. Dafür kann in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> z.<span class="dv">&amp;nbsp;</span>B. der Block *Begrenzer* (Palette *Statik*) verwendet werden.</span>
 <span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
