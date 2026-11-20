@@ -586,11 +586,21 @@ F_{\mathrm{RS}}(j \omega) &amp;= \frac{K_{PS}}{1 + j \omega \, (T_1 + T_2) + (j 
 <p><span class="math display">
 \begin{align*}
 F_{\mathrm{VS}}(j \omega) &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 \, (1 + j \omega \, T_p)^2} \\[10pt]
-&amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 + j \omega \, 0.1 + (j \omega)^2 \, 0.025}
+&amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 + j \omega + (j \omega)^2 \, 0.025}
 \end{align*}
 </span></p></li>
-<li></li>
+<li><p>Koeffizienten der Vorsteuerung:</p></li>
 </ol>
+<p><span class="math display">
+\begin{align*}
+b_0 &amp;= 1 \\
+b_1 &amp;= 4 \\
+b_2 &amp;= 1.75 \\[5pt]
+a_0 &amp;= 10 \\
+a_1 &amp;= 1 \\
+a_2 &amp;= 0.025
+\end{align*}
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/diagrams/A6_2_LSG.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -1491,64 +1501,75 @@ document.addEventListener("DOMContentLoaded", () => {
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">    \begin{align*}</span></span>
 <span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">    F_{\mathrm{VS}}(j \omega) &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 \, (1 + j \omega \, T_p)^2} \\[10pt]</span></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 + j \omega \, 0.1 + (j \omega)^2 \, 0.025}</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    &amp;= \frac{1 + j \omega \, 4 + (j \omega)^2 \, 1.75}{10 + j \omega + (j \omega)^2 \, 0.025}</span></span>
 <span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">    \end{align*}</span></span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">    $$</span></span>
 <span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>c)</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>c) Koeffizienten der Vorsteuerung:</span>
 <span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_LSG.png)</span>{fig-align="center"}</span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_LSG_Diagramm.png)</span>{fig-align="center"}</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>b_0 &amp;= 1 <span class="sc">\\</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>b_1 &amp;= 4 <span class="sc">\\</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>b_2 &amp;= 1.75 <span class="sc">\\</span><span class="co">[</span><span class="ot">5pt</span><span class="co">]</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>a_0 &amp;= 10 <span class="sc">\\</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>a_1 &amp;= 1 <span class="sc">\\</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>a_2 &amp;= 0.025</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>Gegeben ist der nachfolgend abgebildete Regelkreis.</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_LSG.png)</span>{fig-align="center"}</span>
 <span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3.png)</span>{fig-align="center"}</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_2_LSG_Diagramm.png)</span>{fig-align="center"}</span>
 <span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante $T_p = 0.05 \, \mathrm{s}$.</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>Regelstrecke:</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" #ex-6-3}</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgabe 6.3</span></span>
 <span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{RS}}(j \omega) = \frac{1}{j \omega \, T_I} = \frac{1}{j \omega \, 50}</span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>Gegeben ist der nachfolgend abgebildete Regelkreis.</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3.png)</span>{fig-align="center"}</span>
 <span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>Vorsteuerung:</span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>Die ideale Vorsteuerung entspricht der Inversen der Regelstreckenübertragungsfunktion. Die Inverse ist nicht realisierbar, d.<span class="dv">&amp;nbsp;</span>h. es muss im Nenner ein $(1 + j \omega \, T_p)$-Term hinzugefügt werden.</span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}}(j \omega) = \frac{j \omega \, T_I}{1 + j \omega \, T_p} = \frac{j \omega \, 50}{1 + j \omega \, 0.05}</span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>Baue den Regelkreis in <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"cap"</span><span class="dt">&gt;</span>Boris<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> auf und erweitere ihn um eine Vorsteuerung. Verwende für die parasitäre Zeitkonstante $T_p = 0.05 \, \mathrm{s}$.</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>:::: {.callout-important collapse="true"}</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösung</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>Regelstrecke:</span>
 <span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>Koeffizienten der Vorsteuerung:</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{RS}}(j \omega) = \frac{1}{j \omega \, T_I} = \frac{1}{j \omega \, 50}</span>
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>b_0 &amp;= 0 <span class="sc">\\</span></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>b_1 &amp;= 50 <span class="sc">\\</span><span class="co">[</span><span class="ot">5pt</span><span class="co">]</span></span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>a_0 &amp;= 1 <span class="sc">\\</span></span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>a_1 &amp;= 0.05</span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>Vorsteuerung:</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>Die ideale Vorsteuerung entspricht der Inversen der Regelstreckenübertragungsfunktion. Die Inverse ist nicht realisierbar, d.<span class="dv">&amp;nbsp;</span>h. es muss im Nenner ein $(1 + j \omega \, T_p)$-Term hinzugefügt werden.</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>F_{\mathrm{VS}}(j \omega) = \frac{j \omega \, T_I}{1 + j \omega \, T_p} = \frac{j \omega \, 50}{1 + j \omega \, 0.05}</span>
 <span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_LSG.png)</span>{fig-align="center"}</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>Koeffizienten der Vorsteuerung:</span>
 <span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_LSG_Diagramm.png)</span>{fig-align="center"}</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>b_0 &amp;= 0 <span class="sc">\\</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>b_1 &amp;= 50 <span class="sc">\\</span><span class="co">[</span><span class="ot">5pt</span><span class="co">]</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>a_0 &amp;= 1 <span class="sc">\\</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>a_1 &amp;= 0.05</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_LSG.png)</span>{fig-align="center"}</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/diagrams/A6_3_LSG_Diagramm.png)</span>{fig-align="center"}</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
